@@ -1,0 +1,326 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lesson 10: Examples Using MOSFET Models · ECE 321</title><script>try{if(localStorage.getItem("notes-mode")==="print")document.documentElement.setAttribute("data-mode","print")}catch(e){}</script><link rel="icon" href="../assets/favicon.svg"><link rel="stylesheet" href="../assets/guide-fonts.css"><link rel="stylesheet" href="../assets/lesson-base.css"><link rel="stylesheet" href="../assets/guide-screen.css"><link rel="stylesheet" href="../assets/ai.css"><link rel="stylesheet" href="../assets/navbar.css"></head><body><header class="site-nav"><a class="brand" href="../index.html#home"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 16C8 5 12 5 16 16S24 27 28 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>ECE <strong>321</strong></a><nav class="nav-links" aria-label="Course navigation"><a href="../index.html#home">Home</a><a href="../index.html#syllabus">Syllabus</a><a href="../equation-sheets/index.html">Equation sheets</a><a href="../course-docs/index.html">Course docs</a><a href="../index.html#homework">Reading guides</a><a href="../index.html#lessons" class="active" aria-current="page">Lesson guides</a><a href="../index.html#study">Study sessions</a></nav><span class="semester"><i></i> FALL 2026</span></header><main class="page"><header class="top"><div class="controls"><button id="mode-switch" class="switch" role="switch" aria-checked="false" type="button"><span class="track" aria-hidden="true"><span class="knob"></span></span>Printer-friendly</button><button id="xp-toggle" class="xp-all" type="button">Open all expansion notes</button></div><p class="course eyebrow">ECE 321 / LESSON NOTES</p><h1>Lesson 10: Examples Using MOSFET Models</h1></header>
+<section class="part">
+<span class="pg">10-1</span><h2>Examples Using MOSFET Models</h2>
+<h3>Ex. 1</h3>
+<p>Determine <i>R</i><sub>D</sub> and <i>R</i><sub>S</sub> so <i>I</i><sub>D</sub> = [handout value]<sup class="inf">†</sup> mA and <i>V</i><sub>D</sub> = [handout value]<sup class="inf">†</sup> V. The device has <i>V</i><sub>t</sub> = [handout value]<sup class="inf">†</sup> V, μ<sub>n</sub><i>C</i><sub>ox</sub> = [handout value]<sup class="inf">†</sup> μA/V², <i>L</i> = [handout value]<sup class="inf">†</sup> μm, and <i>W</i> = [handout value]<sup class="inf">†</sup> μm. Neglect channel-length modulation → λ = 0.</p>
+<figure><svg class="sch" viewBox="0 0 360 230" width="360" style="max-width:360px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NMOS with drain and source resistors"><polyline points="180,35 180,23" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="180,15 175,25 185,25" fill="currentColor"/>
+<text x="180" y="10" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="180,45 180,52.0 186,55.0 174,61.0 186,67.0 174,73.0 186,79.0 174,85.0 180,88.0 180,95" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="192" y="74.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">D</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="171,109 171,141" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="146,125 171,125" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="180,105 180,116" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="180,120 180,130" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="180,134 180,145" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="180,109 200,109 200,85" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="180,141 200,141 200,165" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="180,125 200,125 200,141" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="182,125 190,121 190,129" fill="currentColor"/>
+<polyline points="180,95 180,109" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="180,141 180,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="180,160 180,164.0 186,166.66666666666666 174,172.0 186,177.33333333333334 174,182.66666666666666 186,188.0 174,193.33333333333334 180,196.0 180,200" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="192" y="184.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">S</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="180,200 180,210" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="168,210 192,210" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="172.5,214.5 187.5,214.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="177,219 183,219" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<text x="198" y="76" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">D</tspan><tspan dy="-4"> </tspan></text>
+<text x="180" y="228" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">SS</tspan><tspan dy="-4"> </tspan></text></svg></figure>
+<p><b>STEP 1:</b> Find the required resistor from its voltage drop: <i>R</i> = Δ<i>V</i>/<i>I</i>. The target current and the supply/load drops needed to evaluate a numerical resistance are handout values.</p>
+<details class="xp"><summary>Expansion note: why the resistor uses the current target</summary><p>In the DC series path, the drain and source resistors carry the same channel current. Apply Ohm’s law to the drop across each resistor; use the actual rail-to-node voltage difference, not the full supply unless the node is at ground.</p></details>
+<p><b>STEP 2:</b> Find the transistor operating point. With the gate grounded, <i>V</i><sub>GS</sub> = −<i>V</i><sub>S</sub>. Compare this with the threshold voltage before using the saturation model.</p>
+<p><b>STEP 3:</b> Use the drain-current relation to find <i>V</i><sub>GS</sub>: <math display="block" alttext="I_D=\frac{1}{2}\mu_n C_{ox}\frac{W}{L}(V_{GS}-V_t)^2."><mrow><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><msub><mi>μ</mi><mi mathvariant="normal">n</mi></msub><msub><mi>C</mi><mrow><mi mathvariant="normal">ox</mi></mrow></msub><mfrac><mrow><mi>W</mi></mrow><mrow><mi>L</mi></mrow></mfrac><mo stretchy="false">(</mo><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mn>.</mn></mrow></math> For the shown 0.2 mA example, substitution still depends on the omitted process and geometry values; no numeric gate voltage is determined by this copy.</p>
+<details class="xp"><summary>Expansion note: what the square-law model assumes</summary><p>This long-channel model applies in saturation and neglects channel-length modulation, as the notes specify. Its overdrive is <i>V</i><sub>OV</sub> = <i>V</i><sub>GS</sub> − <i>V</i><sub>t</sub>; a valid NMOS on-state requires positive overdrive.</p></details>
+</section>
+<section class="part">
+<span class="pg">10-2</span><p><b>STEP 4:</b> Find the drain voltage from the supply and resistor drop, <i>V</i><sub>D</sub> = <i>V</i><sub>DD</sub> − <i>I</i><sub>D</sub><i>R</i><sub>D</sub>.</p>
+<p><b>STEP 5:</b> Find <i>R</i><sub>S</sub> using <i>I</i><sub>S</sub> = <i>I</i><sub>D</sub> and the source-resistor voltage drop.</p>
+<h3>Ex. 2</h3><p>Derive the I–V characteristic for a diode-connected transistor in terms of <i>k</i><sub>n</sub>′(<i>W</i>/<i>L</i>) and <i>V</i><sub>tn</sub>.</p>
+<p><b>STEP 1:</b> Determine the MOS mode. With gate and drain connected, <i>V</i><sub>G</sub> = <i>V</i><sub>D</sub>, so <i>V</i><sub>GS</sub> = <i>V</i><sub>DS</sub>. If the device is on, <i>V</i><sub>GS</sub> &gt; <i>V</i><sub>tn</sub>; consequently <i>V</i><sub>DS</sub> &gt; <i>V</i><sub>GS</sub> − <i>V</i><sub>tn</sub>, satisfying the saturation condition.</p>
+<details class="xp"><summary>Expansion note: why a diode-connected NMOS is in saturation</summary><p>Saturation requires <i>V</i><sub>DS</sub> ≥ <i>V</i><sub>GS</sub> − <i>V</i><sub>tn</sub>. Since the connection makes <i>V</i><sub>DS</sub> = <i>V</i><sub>GS</sub>, the inequality holds whenever the transistor is on.</p></details>
+<p>Thus <math display="block" alttext="i_D=\frac{1}{2}k_n(V_{GS}-V_{tn})^2,\qquad k_n=k_n'\frac{W}{L}."><mrow><msub><mi>i</mi><mi mathvariant="normal">D</mi></msub><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><msub><mi>k</mi><mi mathvariant="normal">n</mi></msub><mo stretchy="false">(</mo><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mrow><mi mathvariant="normal">tn</mi></mrow></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>,</mo><mspace width="2em"/><msub><mi>k</mi><mi mathvariant="normal">n</mi></msub><mo>=</mo><msub><mi>k</mi><mi mathvariant="normal">n</mi></msub><mo>′</mo><mfrac><mrow><mi>W</mi></mrow><mrow><mi>L</mi></mrow></mfrac><mn>.</mn></mrow></math> For a two-terminal diode connection, use the applied terminal voltage for <i>V</i><sub>GS</sub>.</p>
+</section>
+<section class="part">
+<span class="pg">10-3</span><p><b>STEP 2:</b> From the circuit, the applied voltage and current are related by the diode-connected device, giving the same saturation square law in the independent variable set by the circuit.</p>
+<h3>Ex. 3</h3><p>Find all currents and node voltages assuming <i>V</i><sub>tn</sub> = [handout value]<sup class="inf">†</sup> V and <i>k</i><sub>n</sub>′ = [handout value]<sup class="inf">†</sup> μA/V².</p>
+<figure><svg class="sch" viewBox="0 0 480 180" width="480" style="max-width:480px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two MOSFET bias stages"><polyline points="80,24 80,12" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="80,4 75,14 85,14" fill="currentColor"/>
+<text x="80" y="-1" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="80,35 80,39.0 86,41.25 74,45.75 86,50.25 74,54.75 86,59.25 74,63.75 80,66.0 80,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="92" y="56.5" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">1</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="80,105 80,109.0 86,111.66666666666667 74,117.0 86,122.33333333333333 74,127.66666666666667 86,133.0 74,138.33333333333334 80,141.0 80,145" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="92" y="129.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">2</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="80,70 80,105" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="48" y="96" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">G</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="80,80 150,80" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="161,84 161,116" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="136,100 161,100" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="170,80 170,91" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="170,95 170,105" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="170,109 170,120" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="170,84 190,84 190,60" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="170,116 190,116 190,140" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="170,100 190,100 190,116" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="172,100 180,96 180,104" fill="currentColor"/>
+<polyline points="170,150 170,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="158,160 182,160" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="162.5,164.5 177.5,164.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="167,169 173,169" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="340,24 340,12" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="340,4 335,14 345,14" fill="currentColor"/>
+<text x="340" y="-1" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="340,35 340,39.0 346,41.416666666666664 334,46.25 346,51.083333333333336 334,55.91666666666667 346,60.75 334,65.58333333333333 340,68.0 340,72" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="352" y="57.5" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">D</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="331,84 331,116" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="306,100 331,100" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="340,80 340,91" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="340,95 340,105" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="340,109 340,120" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="340,84 360,84 360,60" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="340,116 360,116 360,140" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="340,100 360,100 360,116" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="342,100 350,96 350,104" fill="currentColor"/>
+<polyline points="340,140 340,144.0 346,145.83333333333334 334,149.5 346,153.16666666666666 334,156.83333333333334 346,160.5 334,164.16666666666666 340,166.0 340,170" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="352" y="159.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">S</tspan><tspan dy="-4"> </tspan></text>
+<text x="390" y="75" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">D</tspan><tspan dy="-4"> </tspan>=6 kΩ</text></svg></figure>
+<p><b>STEP 1:</b> Find <i>V</i><sub>G</sub> using the divider. Since gate current is approximately zero, the two divider resistors set the gate voltage.</p>
+<p><b>STEP 2:</b> Use the source current to solve for <i>I</i><sub>D</sub>. Write <i>V</i><sub>GS</sub> = <i>V</i><sub>G</sub> − <i>V</i><sub>S</sub> and <i>V</i><sub>S</sub> = <i>I</i><sub>D</sub><i>R</i><sub>S</sub>, then solve the square-law relation. Candidate solutions must be checked against the assumed region.</p>
+<details class="xp"><summary>Expansion note: why the source resistor creates feedback</summary><p>When drain current rises, the source voltage rises through <i>R</i><sub>S</sub>. That reduces <i>V</i><sub>GS</sub> and opposes the original current increase. Algebra may yield more than one root; only roots consistent with the MOS operating-region inequalities are physical.</p></details>
+</section>
+<section class="part">
+<span class="pg">10-4</span><p><b>STEP 3:</b> Check each solution against the mode. For saturation, check <i>V</i><sub>DS</sub> ≥ <i>V</i><sub>GS</sub> − <i>V</i><sub>tn</sub>, equivalently <i>V</i><sub>GD</sub> ≤ <i>V</i><sub>tn</sub>. Reject any root that violates its assumed region or gives an impossible current/voltage.</p>
+<details class="xp"><summary>Expansion note: how to reject an extraneous root</summary><p>Substitution into a squared equation can produce a mathematical root with the wrong sign of overdrive. Recompute all node voltages for each candidate, then test threshold and region inequalities before accepting it.</p></details>
+</section>
+<section class="part">
+<span class="pg">10-5</span><h3>Ex. 4</h3><p>Choose <i>R</i><sub>G1</sub>, <i>R</i><sub>G2</sub>, and <i>R</i><sub>D</sub> to set the MOSFET with <i>I</i><sub>D</sub> = [handout value]<sup class="inf">†</sup> mA and <i>V</i><sub>D</sub> = [handout value]<sup class="inf">†</sup> V for a device with <i>V</i><sub>tn</sub> = [handout value]<sup class="inf">†</sup> V and <i>k</i><sub>n</sub>′ = [handout value]<sup class="inf">†</sup> μA/V². What is the largest <i>R</i><sub>D</sub> to stay in saturation?</p>
+<figure><svg class="sch" viewBox="0 0 320 220" width="320" style="max-width:320px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NMOS resistor divider bias"><polyline points="75,25 75,13" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="75,5 70,15 80,15" fill="currentColor"/>
+<text x="75" y="0" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">+5 V</text>
+<polyline points="75,36 75,45.5 81,48.5 69,54.5 81,60.5 69,66.5 81,72.5 69,78.5 75,81.5 75,91" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="87" y="67.5" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">G1</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="75,133 75,140.5 81,143.5 69,149.5 81,155.5 69,161.5 81,167.5 69,173.5 75,176.5 75,184" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="87" y="162.5" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">G2</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="75,91 75,133 160,133" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="171,114 171,146" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="146,130 171,130" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="180,110 180,121" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="180,125 180,135" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="180,139 180,150" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="180,114 200,114 200,90" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="180,146 200,146 200,170" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="180,130 200,130 200,146" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="182,130 190,126 190,134" fill="currentColor"/>
+<polyline points="260,25 260,13" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="260,5 255,15 265,15" fill="currentColor"/>
+<text x="260" y="0" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">+5 V</text>
+<polyline points="260,36 260,46.0 266,49.0 254,55.0 266,61.0 254,67.0 266,73.0 254,79.0 260,82.0 260,92" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="272" y="68.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">D</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="260,92 200,92 200,110" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="180,156 180,160.0 186,162.25 174,166.75 186,171.25 174,175.75 186,180.25 174,184.75 180,187.0 180,191" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="192" y="177.5" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">S</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="180,191 180,201" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="168,201 192,201" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="172.5,205.5 187.5,205.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="177,210 183,210" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></figure>
+<p><b>STEP 1:</b> Identify <i>V</i><sub>GS</sub>. Assuming saturation, <i>I</i><sub>D</sub> = ½<i>k</i><sub>n</sub>(<i>V</i><sub>GS</sub> − <i>V</i><sub>tn</sub>)², so <i>V</i><sub>OV</sub> = √(2<i>I</i><sub>D</sub>/<i>k</i><sub>n</sub>) and <i>V</i><sub>GS</sub> = <i>V</i><sub>tn</sub> + <i>V</i><sub>OV</sub>.</p>
+<p><b>STEP 2:</b> Find <i>V</i><sub>G</sub> from <i>V</i><sub>G</sub> = <i>V</i><sub>S</sub> + <i>V</i><sub>GS</sub>, where <i>V</i><sub>S</sub> = <i>I</i><sub>D</sub><i>R</i><sub>S</sub>.</p>
+<p><b>STEP 3:</b> Choose divider resistors such that <i>V</i><sub>G</sub> = <i>V</i><sub>DD</sub><i>R</i><sub>G2</sub>/(<i>R</i><sub>G1</sub> + <i>R</i><sub>G2</sub>). Many resistor pairs give the same ratio; choose a practical divider current large enough relative to gate leakage.</p>
+</section>
+<section class="part">
+<span class="pg">10-6</span><p><b>STEP 4:</b> Determine <i>R</i><sub>D</sub> from the drain drop: <i>R</i><sub>D</sub> = (<i>V</i><sub>DD</sub> − <i>V</i><sub>D</sub>)/<i>I</i><sub>D</sub>.</p>
+<p><b>STEP 5:</b> At the edge of saturation, <i>V</i><sub>DS</sub> = <i>V</i><sub>OV</sub>. Because <i>V</i><sub>D</sub> = <i>V</i><sub>DD</sub> − <i>I</i><sub>D</sub><i>R</i><sub>D</sub>, maximum drain resistance is <math display="block" alttext="R_{D,max}=\frac{V_{DD}-V_S-V_{OV}}{I_D}."><mrow><msub><mi>R</mi><mrow><mi mathvariant="normal">D</mi><mo>,</mo><mi mathvariant="normal">max</mi></mrow></msub><mo>=</mo><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub><mo>−</mo><msub><mi>V</mi><mrow><mi mathvariant="normal">OV</mi></mrow></msub></mrow><mrow><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mfrac><mn>.</mn></mrow></math> A lower drain voltage would put the device in triode at the specified current.</p>
+<h3>Ex. 5</h3><p>Given matched NMOS and PMOS devices with <i>k</i><sub>n</sub>′ = <i>k</i><sub>p</sub>′ = [handout value]<sup class="inf">†</sup> μA/V², <i>V</i><sub>tn</sub> = |<i>V</i><sub>tp</sub>| = [handout value]<sup class="inf">†</sup> V, and λ = 0, find <i>I</i><sub>DN</sub>, <i>I</i><sub>DP</sub>, and <i>V</i><sub>O</sub> for <i>V</i><sub>I</sub> = 0 V, +2.5 V, −2.5 V.</p>
+<figure><svg class="sch" viewBox="0 0 320 220" width="320" style="max-width:320px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Complementary MOS stage with load"><polyline points="160,24 160,12" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="160,4 155,14 165,14" fill="currentColor"/>
+<text x="160" y="-1" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">+2.5 V</text>
+<text x="160" y="65" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">PMOS Q<tspan dy="4" font-size="0.72em">P</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="160,37 160,88" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="160" y="112" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">O</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="160,120 160,162" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="160" y="188" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">NMOS Q<tspan dy="4" font-size="0.72em">N</tspan><tspan dy="-4"> </tspan></text>
+<text x="258" y="140" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">10 kΩ</text>
+<polyline points="205,112 245,112" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="245,112 245,129.0 251,132.0 239,138.0 251,144.0 239,150.0 251,156.0 239,162.0 245,165.0 245,182" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="245,182 245,192" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="233,192 257,192" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="237.5,196.5 252.5,196.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="242,201 248,201" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<text x="160" y="215" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">I</tspan><tspan dy="-4"> </tspan> at both gates</text></svg></figure>
+</section>
+<section class="part">
+<span class="pg">10-7</span><p>In saturation, <math display="block" alttext="I_{DN}=\frac{1}{2}k_n(V_{GS}-V_{tn})^2,\qquad I_{DP}=\frac{1}{2}k_p(V_{SG}-|V_{tp}|)^2."><mrow><msub><mi>I</mi><mrow><mi mathvariant="normal">DN</mi></mrow></msub><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><msub><mi>k</mi><mi mathvariant="normal">n</mi></msub><mo stretchy="false">(</mo><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mrow><mi mathvariant="normal">tn</mi></mrow></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>,</mo><mspace width="2em"/><msub><mi>I</mi><mrow><mi mathvariant="normal">DP</mi></mrow></msub><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><msub><mi>k</mi><mi mathvariant="normal">p</mi></msub><mo stretchy="false">(</mo><msub><mi>V</mi><mrow><mi mathvariant="normal">SG</mi></mrow></msub><mo>−</mo><mo stretchy="false" lspace="0" rspace="0">|</mo><msub><mi>V</mi><mrow><mi mathvariant="normal">tp</mi></mrow></msub><mo stretchy="false" lspace="0" rspace="0">|</mo><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mn>.</mn></mrow></math> These currents and the load current must satisfy KCL: <i>I</i><sub>load</sub> = <i>I</i><sub>DN</sub> − <i>I</i><sub>DP</sub>, with sign determined by the chosen current directions. For each input, first identify which devices conduct, then solve the output-node current balance.</p>
+<p>Determine <i>V</i><sub>GD</sub> for each device and verify the saturation condition for any transistor assumed saturated.</p>
+<details class="xp"><summary>Expansion note: why matched devices do not always share equal current</summary><p>Matching means equal process and geometry factors under the stated assumptions. Their gate-source overdrives can differ, and a load attached to the output supplies or sinks current. KCL, not matching alone, determines the node current balance.</p></details>
+</section>
+<section class="part">
+<span class="pg">10-8</span><p>For <i>V</i><sub>I</sub> = +2.5 V, the PMOS has <i>V</i><sub>SG</sub> below |<i>V</i><sub>tp</sub>| and is off. Redraw the remaining NMOS path. Use the output and source node voltages to check whether the NMOS is in saturation or triode.</p>
+<p>For triode operation, <math display="block" alttext="I_{DN}=k_n\left[(V_{GS}-V_{tn})V_{DS}-\frac{1}{2}V_{DS}^2\right]."><mrow><msub><mi>I</mi><mrow><mi mathvariant="normal">DN</mi></mrow></msub><mo>=</mo><msub><mi>k</mi><mi mathvariant="normal">n</mi></msub><mrow><mo stretchy="true">[</mo><mo stretchy="false">(</mo><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mrow><mi mathvariant="normal">tn</mi></mrow></msub><mo stretchy="false">)</mo><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub><mo>−</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><msubsup><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow><mn>2</mn></msubsup><mo stretchy="true">]</mo></mrow><mn>.</mn></mrow></math> Solve with the load relation and verify <i>V</i><sub>DS</sub> &lt; <i>V</i><sub>GS</sub> − <i>V</i><sub>tn</sub>.</p>
+</section>
+<section class="part">
+<span class="pg">10-9</span><p>Substitute the circuit values into the triode equation and solve for the physically valid drain current; then use the load equation to obtain <i>V</i><sub>O</sub>. Parameters required for the numerical roots are absent from the supplied copy, so those numeric results remain handout values.</p>
+<p>For final <i>V</i><sub>I</sub> = −2.5 V, the notes state that the case has Q<sub>N</sub> and Q<sub>P</sub> swapped. Analyze the complementary device with the same process: cutoff check, operating-region equation, KCL, then region verification.</p>
+</section>
+<section class="part" id="appendix"><h2>Appendix</h2>
+<details class="ap"><summary>A. Solving MOSFET bias and region problems</summary><p>Start with gate-bias constraints and identify the unknown node voltages. Express <i>V</i><sub>GS</sub> and <i>V</i><sub>DS</sub> from node voltages, assume a region, apply its current equation, solve, then check the region inequalities and current direction.</p></details>
+<details class="ap"><summary>B. Topics in these notes</summary><p>NMOS square-law saturation; channel-length modulation neglected (λ = 0); diode-connected MOSFETs; gate-divider bias; source degeneration; operating-region verification; NMOS/PMOS complementary stages; KCL with a resistive load; triode operation.</p></details>
+<details class="ap"><summary>C. Equation reference</summary><p><math display="block" alttext="k_n=k_n'\frac{W}{L},\quad I_{D,sat}=\frac{1}{2}k_n(V_{GS}-V_{tn})^2,\quad V_{DS}\ge V_{GS}-V_{tn}."><mrow><msub><mi>k</mi><mi mathvariant="normal">n</mi></msub><mo>=</mo><msub><mi>k</mi><mi mathvariant="normal">n</mi></msub><mo>′</mo><mfrac><mrow><mi>W</mi></mrow><mrow><mi>L</mi></mrow></mfrac><mo>,</mo><mspace width="1em"/><msub><mi>I</mi><mrow><mi mathvariant="normal">D</mi><mo>,</mo><mi mathvariant="normal">sat</mi></mrow></msub><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><msub><mi>k</mi><mi mathvariant="normal">n</mi></msub><mo stretchy="false">(</mo><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mrow><mi mathvariant="normal">tn</mi></mrow></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>,</mo><mspace width="1em"/><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub><mo>≥</mo><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mrow><mi mathvariant="normal">tn</mi></mrow></msub><mn>.</mn></mrow></math> Triode: <math display="block" alttext="I_D=k_n[(V_{GS}-V_{tn})V_{DS}-\frac{1}{2}V_{DS}^2]."><mrow><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub><mo>=</mo><msub><mi>k</mi><mi mathvariant="normal">n</mi></msub><mo stretchy="false">[</mo><mo stretchy="false">(</mo><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mrow><mi mathvariant="normal">tn</mi></mrow></msub><mo stretchy="false">)</mo><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub><mo>−</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><msubsup><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow><mn>2</mn></msubsup><mo stretchy="false">]</mo><mn>.</mn></mrow></math> Resistor: <i>V</i> = <i>I R</i>. Divider: <i>V</i><sub>G</sub> = <i>V</i><sub>DD</sub><i>R</i><sub>G2</sub>/(<i>R</i><sub>G1</sub>+<i>R</i><sub>G2</sub>).</p></details>
+</section>
+<footer><p>Completed from ECE321_L10_B.pdf, notetaker pages 10-1 to 10-9. Device values left blank in the supplied packet are identified as [handout value]; no outside specifications were assumed.</p><p>Highlighted text fills a source blank (underlined when printed). † marks a value reconstructed from the simulations or the lesson; [handout value] marks a value given only in the named handout.</p><p class="model-credit"><span>AI drafting model</span> OpenAI GPT-6 (Codex)</p></footer></main><script type="application/json" id="glossary">{"math": {}, "text": {"MOSFET": ["MOSFET", "A metal-oxide-semiconductor field-effect transistor."], "NMOS": ["NMOS", "N-channel MOSFET."], "PMOS": ["PMOS", "P-channel MOSFET."], "KCL": ["KCL", "Kirchhoff’s current law: current entering a node equals current leaving it."], "saturation": ["saturation", "MOSFET region where the channel is pinched near the drain; the square-law saturation model applies."], "triode": ["triode", "MOSFET linear region, where current depends on both overdrive and drain-source voltage."], "overdrive": ["overdrive", "The gate-source voltage beyond threshold, V_GS − V_tn for an NMOS."], "channel-length modulation": ["channel-length modulation", "Dependence of saturation current on drain-source voltage, represented here by λ and neglected."], "diode-connected": ["diode-connected", "A MOSFET with gate and drain electrically connected."]}}</script><script>
+(function () {
+  var root = document.documentElement;
+  var KEY = 'notes-mode';
+  var sw = document.getElementById('mode-switch');
+  var all = function () { return Array.prototype.slice.call(document.querySelectorAll('details')); };
+  var notes = function () { return Array.prototype.slice.call(document.querySelectorAll('details.xp')); };
+
+  /* Printer-friendly mode opens every dropdown; leaving it restores exactly
+     the dropdowns the reader had open before switching. */
+  var before = null;
+  function enterPrint() {
+    before = all().map(function (d) { return d.open; });
+    all().forEach(function (d) { d.open = true; });
+  }
+  function leavePrint() {
+    var list = all();
+    list.forEach(function (d, i) { d.open = before ? !!before[i] : false; });
+    before = null;
+  }
+  function setMode(print, initial) {
+    var wasPrint = root.getAttribute('data-mode') === 'print' && !initial;
+    if (print) root.setAttribute('data-mode', 'print'); else root.removeAttribute('data-mode');
+    if (sw) sw.setAttribute('aria-checked', print ? 'true' : 'false');
+    if (print && (initial || !wasPrint)) enterPrint();
+    if (!print && wasPrint) leavePrint();
+  }
+  var stored = 'dark';
+  try { stored = localStorage.getItem(KEY) || 'dark'; } catch (e) {}
+  setMode(stored === 'print', true);
+  if (sw) sw.addEventListener('click', function () {
+    var print = root.getAttribute('data-mode') !== 'print';
+    setMode(print, false);
+    try { localStorage.setItem(KEY, print ? 'print' : 'dark'); } catch (e) {}
+  });
+
+  /* Real printing from dark mode: open everything, then put it back. */
+  var printing = null;
+  addEventListener('beforeprint', function () {
+    printing = all().map(function (d) { return d.open; });
+    all().forEach(function (d) { d.open = true; });
+  });
+  addEventListener('afterprint', function () {
+    if (printing) all().forEach(function (d, i) { d.open = !!printing[i]; });
+    printing = null;
+  });
+
+  var b = document.getElementById('xp-toggle');
+  if (b) b.addEventListener('click', function () {
+    var open = notes().some(function (d) { return !d.open; });
+    notes().forEach(function (d) { d.open = open; });
+    b.textContent = open ? 'Close all expansion notes' : 'Open all expansion notes';
+  });
+})();
+</script>
+<script>
+/* Hover definitions. Variables in the math are tagged at build time
+   (mrow.term[data-term]); acronyms and ECE terms in running text are wrapped
+   here from the same glossary. Tooltips are off in printer-friendly mode. */
+(function () {
+  var root = document.documentElement;
+  var data = JSON.parse(document.getElementById('glossary').textContent);
+  var TEXT = data.text, MATH = data.math, LOWER = {};
+  Object.keys(TEXT).forEach(function (k) { if (k === k.toLowerCase()) LOWER[k] = TEXT[k]; });
+
+  var esc = function (s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); };
+  var keys = Object.keys(TEXT).sort(function (a, b) { return b.length - a.length; });
+  var re = new RegExp('(?<![A-Za-z0-9])(' + keys.map(esc).join('|') + ')(?![A-Za-z0-9])', 'gi');
+  var lookup = function (m) { return TEXT[m] || LOWER[m.toLowerCase()] || null; };
+  var SKIP = 'math, svg, script, style, button, .controls, h1, h2, h3, h4, .term, #tip';
+
+  var page = document.querySelector('.page');
+  var walker = document.createTreeWalker(page, NodeFilter.SHOW_TEXT, {
+    acceptNode: function (n) {
+      if (!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+      return n.parentElement.closest(SKIP) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+    }
+  });
+  var nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(function (n) {
+    var text = n.nodeValue, last = 0, m, frag = null;
+    re.lastIndex = 0;
+    while ((m = re.exec(text))) {
+      var entry = lookup(m[0]);
+      if (!entry) continue;
+      frag = frag || document.createDocumentFragment();
+      frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+      var span = document.createElement('span');
+      span.className = 'term'; span.setAttribute('data-text', m[0]); span.textContent = m[0];
+      frag.appendChild(span); last = m.index + m[0].length;
+    }
+    if (frag) { frag.appendChild(document.createTextNode(text.slice(last))); n.parentNode.replaceChild(frag, n); }
+  });
+
+  var tip = document.createElement('div');
+  tip.id = 'tip'; tip.className = 'tip'; tip.setAttribute('role', 'tooltip'); tip.hidden = true;
+  document.body.appendChild(tip);
+
+  function label(s) {   /* "V_GS" -> V<sub>GS</sub>, built as DOM nodes */
+    var b = document.createElement('b'), i = s.indexOf('_');
+    if (i < 0) { b.textContent = s; return b; }
+    b.appendChild(document.createTextNode(s.slice(0, i)));
+    var sub = document.createElement('sub'); sub.textContent = s.slice(i + 1); b.appendChild(sub);
+    return b;
+  }
+  function rich(text) {   /* "V_GS − V_t" -> V<sub>GS</sub> − V<sub>t</sub> */
+    var frag = document.createDocumentFragment(), re2 = /([A-Za-zλ])_([A-Za-z0-9]+(?:,[A-Za-z]+)?)/g, last = 0, m;
+    while ((m = re2.exec(text))) {
+      frag.appendChild(document.createTextNode(text.slice(last, m.index) + m[1]));
+      var sub = document.createElement('sub'); sub.textContent = m[2]; frag.appendChild(sub);
+      last = m.index + m[0].length;
+    }
+    frag.appendChild(document.createTextNode(text.slice(last)));
+    return frag;
+  }
+  var current = null;
+  function show(el) {
+    if (root.getAttribute('data-mode') === 'print') return;
+    var entry = el.hasAttribute('data-term') ? MATH[el.getAttribute('data-term')] : lookup(el.getAttribute('data-text') || '');
+    if (!entry) return;
+    tip.textContent = '';
+    tip.appendChild(label(entry[0]));
+    tip.appendChild(rich(entry[1]));
+    tip.hidden = false; current = el;
+    var r = el.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
+    var left = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8);
+    var top = r.bottom + 8;
+    if (top + h > innerHeight - 8) top = r.top - h - 8;
+    tip.style.left = left + 'px'; tip.style.top = Math.max(8, top) + 'px';
+  }
+  function hide() { tip.hidden = true; current = null; }
+  var termOf = function (t) { return t && t.closest ? t.closest('.term') : null; };
+
+  /* Mouse: the box appears only after the pointer rests on a term for 1 s. */
+  var DELAY = 1000, timer = null, pending = null;
+  function cancel() { clearTimeout(timer); timer = null; pending = null; }
+  document.addEventListener('mouseover', function (e) {
+    var t = termOf(e.target);
+    if (!t || t === current || t === pending) return;
+    cancel(); pending = t;
+    timer = setTimeout(function () { if (pending === t) show(t); pending = null; }, DELAY);
+  });
+  document.addEventListener('mouseout', function (e) {
+    var t = termOf(e.target);
+    if (t && !t.contains(e.relatedTarget)) { if (t === pending) cancel(); if (t === current) hide(); }
+  });
+  document.addEventListener('pointerup', function (e) {
+    if (e.pointerType === 'mouse') return;
+    var t = termOf(e.target);
+    if (t && t !== current) show(t); else hide();
+  });
+  addEventListener('scroll', function () { cancel(); hide(); }, { passive: true });
+  addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
+  var sw = document.getElementById('mode-switch');
+  if (sw) sw.addEventListener('click', hide);
+})();
+</script>
+<script src="../assets/ai.js"></script></body></html>

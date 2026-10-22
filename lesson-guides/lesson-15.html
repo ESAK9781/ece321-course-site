@@ -1,0 +1,995 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lesson 15: MOSFET Amplifier Models, Attributes and the Voltage Transfer Curve · ECE 321</title><script>try{if(localStorage.getItem("notes-mode")==="print")document.documentElement.setAttribute("data-mode","print")}catch(e){}</script><link rel="icon" href="../assets/favicon.svg"><link rel="stylesheet" href="../assets/guide-fonts.css"><link rel="stylesheet" href="../assets/lesson-base.css"><link rel="stylesheet" href="../assets/guide-screen.css"><link rel="stylesheet" href="../assets/ai.css"><link rel="stylesheet" href="../assets/navbar.css"></head><body><header class="site-nav"><a class="brand" href="../index.html#home"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 16C8 5 12 5 16 16S24 27 28 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>ECE <strong>321</strong></a><nav class="nav-links" aria-label="Course navigation"><a href="../index.html#home">Home</a><a href="../index.html#syllabus">Syllabus</a><a href="../equation-sheets/index.html">Equation sheets</a><a href="../course-docs/index.html">Course docs</a><a href="../index.html#homework">Reading guides</a><a href="../index.html#lessons" class="active" aria-current="page">Lesson guides</a><a href="../index.html#study">Study sessions</a></nav><span class="semester"><i></i> FALL 2026</span></header><main class="page"><header class="top"><div class="controls"><button id="mode-switch" class="switch" role="switch" aria-checked="false" type="button"><span class="track" aria-hidden="true"><span class="knob"></span></span>Printer-friendly</button><button id="xp-toggle" class="xp-all" type="button">Open all expansion notes</button></div><p class="course eyebrow">ECE 321 / LESSON NOTES</p><h1>Lesson 15: MOSFET Amplifier Models, Attributes and the Voltage Transfer Curve</h1></header><section class="part" id="amplifiers">
+<span class="pg">15-1</span>
+<h2>Amplifiers</h2>
+<p>(*) Recall from circuits I and II</p>
+<div class="figs-2"><figure><svg class="sch" viewBox="0 0 430 230" width="430" style="max-width:430px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Op amp powered by two DC supplies, V_CC above ground and V_EE below ground"><polyline points="60,75.0 150,110 60,145.0 60,75.0" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<text x="68" y="97.5" font-size="14" text-anchor="start" fill="currentColor">−</text>
+<text x="68" y="132.5" font-size="14" text-anchor="start" fill="currentColor">+</text>
+<polyline points="20,92.5 60,92.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="20,127.5 60,127.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="150,110 200,110" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="100,91 100,35 240,35" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="100,129 100,190 240,190" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="240" cy="72" r="17" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="240" y="66" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="240" y="84" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<polyline points="240,35 240,55" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="240,89 240,110" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="240" cy="110" r="2.8" fill="currentColor"/>
+<circle cx="240" cy="148" r="17" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="240" y="142" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="240" y="160" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<polyline points="240,110 240,131" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="240,165 240,190" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="240,110 330,110" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="330,110 330,120" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="318,120 342,120" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="322.5,124.5 337.5,124.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="327,129 333,129" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<text x="266" y="76" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">CC</tspan><tspan dy="-4"> </tspan></text>
+<text x="266" y="152" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">EE</tspan><tspan dy="-4"> </tspan></text></svg></figure>
+<div>
+<p>DC supplies provide extra <span class="fill">power</span> to achieve <span class="fill">amplification</span></p>
+<p><math alttext="P_{DC}"><mrow><mrow class="term" data-term="P_DC"><msub><mi>P</mi><mrow><mi mathvariant="normal">DC</mi></mrow></msub></mrow></mrow></math> = <math alttext="V_{CC}"><mrow><mrow class="term" data-term="V_CC"><msub><mi>V</mi><mrow><mi mathvariant="normal">CC</mi></mrow></msub></mrow></mrow></math> <span class="fill"><math alttext="I_{CC}"><mrow><mrow class="term" data-term="I_CC"><msub><mi>I</mi><mrow><mi mathvariant="normal">CC</mi></mrow></msub></mrow></mrow></math></span> +<math alttext="V_{EE}"><mrow><mrow class="term" data-term="V_EE"><msub><mi>V</mi><mrow><mi mathvariant="normal">EE</mi></mrow></msub></mrow></mrow></math> <span class="fill"><math alttext="I_{EE}"><mrow><mrow class="term" data-term="I_EE"><msub><mi>I</mi><mrow><mi mathvariant="normal">EE</mi></mrow></msub></mrow></mrow></math></span></p>
+</div></div>
+<details class="xp"><summary>Expansion note: why an amplifier needs DC supplies</summary>
+<p>An amplifier delivers more signal power to the load than it takes from the source. Energy cannot be created, so the extra power comes from the DC supplies. The supplies deliver <math alttext="V_{CC}I_{CC} + V_{EE}I_{EE}"><mrow><mrow class="term" data-term="V_CC"><msub><mi>V</mi><mrow><mi mathvariant="normal">CC</mi></mrow></msub></mrow><mrow class="term" data-term="I_CC"><msub><mi>I</mi><mrow><mi mathvariant="normal">CC</mi></mrow></msub></mrow><mo>+</mo><mrow class="term" data-term="V_EE"><msub><mi>V</mi><mrow><mi mathvariant="normal">EE</mi></mrow></msub></mrow><mrow class="term" data-term="I_EE"><msub><mi>I</mi><mrow><mi mathvariant="normal">EE</mi></mrow></msub></mrow></mrow></math> in total, and the signal power gain is paid for out of that.</p>
+</details>
+<div class="figs-2"><div>
+<p>(*) <math alttext="V_{CC}"><mrow><mrow class="term" data-term="V_CC"><msub><mi>V</mi><mrow><mi mathvariant="normal">CC</mi></mrow></msub></mrow></mrow></math> &amp; <math alttext="-V_{EE}"><mrow><mo form="prefix" lspace="0" rspace="0.04em">−</mo><mrow class="term" data-term="V_EE"><msub><mi>V</mi><mrow><mi mathvariant="normal">EE</mi></mrow></msub></mrow></mrow></math> also impose <span class="fill">saturation</span> limits</p>
+</div><figure><svg class="sch" viewBox="0 0 300 250" width="300" style="max-width:300px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Output voltage against source voltage with saturation levels marked"><polyline points="150,235 150,12" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="150,12 152.6,18.5 147.4,18.5" fill="currentColor"/>
+<polyline points="20,125 285,125" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="285,125 278.5,127.6 278.5,122.4" fill="currentColor"/>
+<text x="162" y="20" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan></text>
+<text x="280" y="143" font-size="14" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">s</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="150,50 250,50" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+<polyline points="250,50 250,125" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+<polyline points="50,200 150,200" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+<polyline points="50,200 50,125" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="142" y="52" font-size="14" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">CC</tspan><tspan dy="-4"> </tspan></text>
+<text x="158" y="208" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">−V<tspan dy="4" font-size="0.72em">EE</tspan><tspan dy="-4"> </tspan></text></svg></figure></div>
+<details class="xp"><summary>Expansion note: what the output limits mean</summary>
+<p>The output voltage cannot go above the positive supply or below the negative supply (in practice it stops a little short of each). Outside the input range where the amplifier is linear, the output sits at one of the two limits and the amplifier is saturated. The dashed lines on the graph mark those two output limits and the source voltages at which they are reached.</p>
+</details>
+<h3>Types of Gain</h3>
+<p><math alttext="A_v"><mrow><mrow class="term" data-term="A_v"><msub><mi>A</mi><mi mathvariant="normal">v</mi></msub></mrow></mrow></math> = <span class="fill"><math alttext="\dfrac{v_o}{v_i}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="v_o"><msub><mi>v</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="v_i"><msub><mi>v</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math></span> &nbsp;&nbsp;&nbsp; <math alttext="A_i"><mrow><mrow class="term" data-term="A_i"><msub><mi>A</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math> = <span class="fill"><math alttext="\dfrac{i_o}{i_i}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="i_o"><msub><mi>i</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="i_i"><msub><mi>i</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math></span> &nbsp;&nbsp;&nbsp; <math alttext="A_p"><mrow><mrow class="term" data-term="A_p"><msub><mi>A</mi><mi mathvariant="normal">p</mi></msub></mrow></mrow></math> = <span class="fill"><math alttext="\dfrac{v_oi_o}{v_ii_i}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="v_o"><msub><mi>v</mi><mi mathvariant="normal">o</mi></msub></mrow><mrow class="term" data-term="i_o"><msub><mi>i</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="v_i"><msub><mi>v</mi><mi mathvariant="normal">i</mi></msub></mrow><mrow class="term" data-term="i_i"><msub><mi>i</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math></span></p>
+<p>(*) We can express gain in <span class="fill">ratios (V/V, A/A, W/W)</span> or in <span class="fill">decibels (dB)</span></p>
+<details class="xp"><summary>Expansion note: converting a gain to decibels</summary>
+<p>Voltage and current gains in dB are <math alttext="20\mathrm{log}_{10}|A|"><mrow><mn>20</mn><msub><mi mathvariant="normal">log</mi><mrow><mn>10</mn></mrow></msub><mo stretchy="false" lspace="0" rspace="0">|</mo><mrow class="term" data-term="A"><mi>A</mi></mrow><mo stretchy="false" lspace="0" rspace="0">|</mo></mrow></math>; power gain is <math alttext="10\mathrm{log}_{10}A_p"><mrow><mn>10</mn><msub><mi mathvariant="normal">log</mi><mrow><mn>10</mn></mrow></msub><mrow class="term" data-term="A_p"><msub><mi>A</mi><mi mathvariant="normal">p</mi></msub></mrow></mrow></math>. A voltage gain of 10 V/V is 20 dB, 100 V/V is 40 dB, and a gain of 1 is 0 dB. Because <math alttext="A_p = A_vA_i"><mrow><mrow class="term" data-term="A_p"><msub><mi>A</mi><mi mathvariant="normal">p</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="A_v"><msub><mi>A</mi><mi mathvariant="normal">v</mi></msub></mrow><mrow class="term" data-term="A_i"><msub><mi>A</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math>, the power gain in dB is the average of the other two: <math alttext="A_p(\text{dB}) = \tfrac{1}{2}[A_v(\text{dB}) + A_i(\text{dB})]"><mrow><mrow class="term" data-term="A_p"><msub><mi>A</mi><mi mathvariant="normal">p</mi></msub></mrow><mo stretchy="false">(</mo><mtext>dB</mtext><mo stretchy="false">)</mo><mo>=</mo><mstyle displaystyle="false"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mo stretchy="false">[</mo><mrow class="term" data-term="A_v"><msub><mi>A</mi><mi mathvariant="normal">v</mi></msub></mrow><mo stretchy="false">(</mo><mtext>dB</mtext><mo stretchy="false">)</mo><mo>+</mo><mrow class="term" data-term="A_i"><msub><mi>A</mi><mi mathvariant="normal">i</mi></msub></mrow><mo stretchy="false">(</mo><mtext>dB</mtext><mo stretchy="false">)</mo><mo stretchy="false">]</mo></mrow></math>.</p>
+</details>
+</section>
+
+<section class="part" id="openloop">
+<span class="pg">15-2</span>
+<h2>Open-Loop Op Amp Model</h2>
+<div class="figs-2"><figure><svg class="sch" viewBox="0 0 470 270" width="470" style="max-width:470px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Open-loop op amp model: input resistance, controlled source and output resistance"><polyline points="120,10 360,130 120,250 120,10" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="60,70 160,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="60,190 160,190" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="52" y="74" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">v<tspan dy="4" font-size="0.72em">+</tspan><tspan dy="-4"> </tspan></text>
+<text x="52" y="194" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">v<tspan dy="4" font-size="0.72em">−</tspan><tspan dy="-4"> </tspan></text>
+<text x="140" y="92" font-size="14" text-anchor="start" fill="currentColor">+</text>
+<text x="140" y="180" font-size="14" text-anchor="start" fill="currentColor">−</text>
+<polyline points="160,70 160,112.0 166,115.0 154,121.0 166,127.0 154,133.0 166,139.0 154,145.0 160,148.0 160,190" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="172" y="134.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">in</tspan><tspan dy="-4"> </tspan></text>
+<polygon points="215,145 235,165 215,185 195,165" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="215" y="163" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="215" y="176" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="242" y="152" font-size="11" text-anchor="start" fill="currentColor" font-style="italic">A(v<tspan dy="4" font-size="0.72em">+</tspan><tspan dy="-4"> </tspan>−v<tspan dy="4" font-size="0.72em">−</tspan><tspan dy="-4"> </tspan>)</text>
+<polyline points="215,145 215,130 250,130" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="250,130 270.0,130 273.3333333333333,124 280.0,136 286.6666666666667,124 293.3333333333333,136 300.0,124 306.6666666666667,136 310.0,130 330,130" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="290.0" y="118" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">out</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="330,130 420,130" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="215,185 215,215" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="215,215 215,225" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="203,225 227,225" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="207.5,229.5 222.5,229.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="212,234 218,234" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></figure>
+<div>
+<p><math alttext="R_{OUT}"><mrow><mrow class="term" data-term="R_OUT"><msub><mi>R</mi><mrow><mi mathvariant="normal">OUT</mi></mrow></msub></mrow></mrow></math> ≈ <span class="fill">0</span><sup class="inf">†</sup> Ω</p>
+<p><math alttext="R_{in}"><mrow><mrow class="term" data-term="R_in"><msub><mi>R</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow></mrow></math> ≈ <span class="fill">∞</span><sup class="inf">†</sup> Ω</p>
+<p><math alttext="A"><mrow><mrow class="term" data-term="A"><mi>A</mi></mrow></mrow></math> ≈ <span class="fill">∞</span><sup class="inf">†</sup></p>
+</div></div>
+<details class="xp"><summary>Expansion note: how to read the three approximations</summary>
+<p>An ideal op amp has infinite input resistance (no current into the inputs), zero output resistance (the output is a perfect voltage source) and a very large open-loop gain. Real devices have <math alttext="R_{in}"><mrow><mrow class="term" data-term="R_in"><msub><mi>R</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow></mrow></math> of megohms or more, <math alttext="R_{out}"><mrow><mrow class="term" data-term="R_out"><msub><mi>R</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow></mrow></math> of tens of ohms and <math alttext="A"><mrow><mrow class="term" data-term="A"><mi>A</mi></mrow></mrow></math> of about <math alttext="10^5"><mrow><msup><mn>10</mn><mn>5</mn></msup></mrow></math>, large enough that the ideal values work as approximations.</p>
+</details>
+<p>(*) We create an inverting amplifier by (1) grounding <span class="fill">the + input</span> (2) including <math alttext="R"><mrow><mrow class="term" data-term="R"><mi>R</mi></mrow></mrow></math><sub><span class="fill">S</span></sub> &amp; <math alttext="R"><mrow><mrow class="term" data-term="R"><mi>R</mi></mrow></mrow></math><sub><span class="fill">L</span></sub>, then</p>
+<p class="indent"><math alttext="\dfrac{V_{Load}}{V_S}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="V_Load"><msub><mi>V</mi><mrow><mi mathvariant="normal">Load</mi></mrow></msub></mrow></mrow><mrow><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math> ≈ <span class="fill"><math alttext="-A"><mrow><mo form="prefix" lspace="0" rspace="0.04em">−</mo><mrow class="term" data-term="A"><mi>A</mi></mrow></mrow></math></span> provided <math alttext="R_i"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math> <span class="fill">≫</span> <math alttext="R_S"><mrow><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></math></p>
+<details class="xp"><summary>Expansion note: why the gain is about <math alttext="-A"><mrow><mo form="prefix" lspace="0" rspace="0.04em">−</mo><mrow class="term" data-term="A"><mi>A</mi></mrow></mrow></math></summary>
+<p>With the + input grounded, the signal drives the − input, so the output is <math alttext="-A"><mrow><mo form="prefix" lspace="0" rspace="0.04em">−</mo><mrow class="term" data-term="A"><mi>A</mi></mrow></mrow></math> times the voltage at the input. The source and load resistors make two voltage dividers (input and output). If <math alttext="R_i \gg R_S"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>≫</mo><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></math> and <math alttext="R_L \gg R_o"><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow><mo>≫</mo><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math>, the dividers pass nearly all of the signal, and the overall gain stays close to <math alttext="-A"><mrow><mo form="prefix" lspace="0" rspace="0.04em">−</mo><mrow class="term" data-term="A"><mi>A</mi></mrow></mrow></math>. The next page shows the dividers explicitly.</p>
+</details>
+<p>(*) We can model an amplifier by <span class="fill">three</span> parameters</p>
+<ol class="steps">
+<li><span class="sl">1.</span><div><p><span class="fill">Input</span> Resistance <i>R</i><sub><span class="fill">i</span></sub></p></div></li>
+<li><span class="sl">2.</span><div><p><span class="fill">Output</span> Resistance <i>R</i><sub><span class="fill">o</span></sub></p></div></li>
+<li><span class="sl">3.</span><div><p><span class="fill">Open</span>-Circuit <span class="fill">Voltage</span> Gain <i>A</i><sub><span class="fill">vo</span></sub></p></div></li>
+</ol>
+<p>So our closed-loop model looks similar</p>
+
+<span class="pg">15-3</span>
+<figure><svg class="sch" viewBox="0 0 560 190" width="560" style="max-width:560px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Amplifier model between a source with resistance R_S and a load R_L"><circle cx="40" cy="100" r="17" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="40" y="94" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="40" y="112" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="40" y="72" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">s</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="40,83 40,40 60,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="60,40 73.0,40 75.83333333333333,34 81.5,46 87.16666666666667,34 92.83333333333333,46 98.5,34 104.16666666666667,46 107.0,40 120,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="90.0" y="28" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">S</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="120,40 160,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="40,117 40,160 160,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="160" cy="40" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<circle cx="160" cy="160" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="160,40 220,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="160,160 220,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="220" cy="40" r="2.8" fill="currentColor"/>
+<circle cx="220" cy="160" r="2.8" fill="currentColor"/>
+<polyline points="220,40 220,82.0 226,85.0 214,91.0 226,97.0 214,103.0 226,109.0 214,115.0 220,118.0 220,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="230" y="104.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">i</tspan><tspan dy="-4"> </tspan></text>
+<text x="202" y="92" font-size="13" text-anchor="start" fill="currentColor">+</text>
+<text x="202" y="118" font-size="13" text-anchor="start" fill="currentColor">−</text>
+<polygon points="310,80 330,100 310,120 290,100" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="310" y="98" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="310" y="111" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="336" y="104" font-size="12" text-anchor="start" fill="currentColor" font-style="italic">A<tspan dy="4" font-size="0.72em">vo</tspan><tspan dy="-4"> </tspan>V<tspan dy="4" font-size="0.72em">i</tspan><tspan dy="-4"> </tspan></text>
+<text x="190" y="105" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">i</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="310,80 310,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="310,40 330,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="330,40 347.5,40 350.8333333333333,34 357.5,46 364.1666666666667,34 370.8333333333333,46 377.5,34 384.1666666666667,46 387.5,40 405,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="367.5" y="28" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="405,40 440,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="310,120 310,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="310,160 440,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="440" cy="40" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<circle cx="440" cy="160" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<rect x="180" y="20" width="240" height="160" rx="22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="440,40 490,40 490,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="490,70 490,87.0 496,90.0 484,96.0 496,102.0 484,108.0 496,114.0 484,120.0 490,123.0 490,140" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="502" y="109.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">L</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="490,140 490,160 440,160" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></figure>
+<p class="indent"><math alttext="V_i"><mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math> = <span class="fill"><math alttext="\dfrac{R_i}{R_i+R_S}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math></span> <math alttext="V_S"><mrow><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></math></p>
+<p class="indent"><math alttext="A_{vo}V_i"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math> = <span class="fill"><math alttext="\dfrac{A_{vo}R_i}{R_i+R_S}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math></span> <math alttext="V_S"><mrow><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></math></p>
+<p class="indent"><math alttext="V_o"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> = <math alttext="A_{vo}V_i"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math> <span class="fill"><math alttext="\dfrac{R_L}{R_L+R_o}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math></span></p>
+<p>Then</p>
+<p>Gain from <math alttext="V_S"><mrow><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></math> to <math alttext="V_o"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> &nbsp;&nbsp; <math alttext="G = \dfrac{V_o}{V_S}"><mrow><mrow class="term" data-term="G"><mi>G</mi></mrow><mo>=</mo><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math> = <span class="fill"><math alttext="\dfrac{A_{vo}R_i}{R_i+R_S}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math></span> &nbsp; <span class="fill"><math alttext="\dfrac{R_L}{R_L+R_o}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math></span></p>
+<p class="indent">↓ <span class="fill">if <math alttext="R_L"><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow></math> is large</span> enough</p>
+<p class="indent">desire <math alttext="R_i"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math> <span class="fill">≫</span> <math alttext="R_S"><mrow><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></math> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; desire <math alttext="R_L"><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow></math> <span class="fill">≫</span> <math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math></p>
+<details class="xp"><summary>Expansion note: how the two dividers appear in the gain</summary>
+<p>The input divider gives <math alttext="V_i = V_SR_i/(R_i+R_S)"><mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mo stretchy="false">(</mo><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow><mo stretchy="false">)</mo></mrow></math>. The controlled source then produces <math alttext="A_{vo}V_i"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math>, and the output divider gives <math alttext="V_o = A_{vo}V_i\,R_L/(R_L+R_o)"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow><mspace width="0.17em"/><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mo stretchy="false">(</mo><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow><mo stretchy="false">)</mo></mrow></math>. Multiplying,</p>
+<math display="block" alttext="G = \frac{V_o}{V_S} = \frac{R_i}{R_i+R_S}\,A_{vo}\,\frac{R_L}{R_L+R_o}."><mrow><mrow class="term" data-term="G"><mi>G</mi></mrow><mo>=</mo><mfrac><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></mfrac><mo>=</mo><mfrac><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></mfrac><mspace width="0.17em"/><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow><mspace width="0.17em"/><mfrac><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></mfrac><mn>.</mn></mrow></math>
+<p>Each fraction is below 1 and approaches 1 only when <math alttext="R_i \gg R_S"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>≫</mo><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></math> and <math alttext="R_L \gg R_o"><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow><mo>≫</mo><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math>, so each loses some of the open-circuit gain <math alttext="A_{vo}"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow></mrow></math>.</p>
+</details>
+<p class="indent">(*) Don't want to <span class="fill">lose</span> gain</p>
+<p>(*) Our job is to Find <span class="fill"><math alttext="R_i"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math>, <math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> and <math alttext="A_{vo}"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow></mrow></math></span><sup class="inf">†</sup> that give us ability to match <span class="fill"><math alttext="R_i"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math> to <math alttext="R_S"><mrow><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></math></span><sup class="inf">†</sup> &amp; <span class="fill"><math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> to <math alttext="R_L"><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow></math></span><sup class="inf">†</sup> &amp; <span class="fill">the gain</span><sup class="inf">†</sup></p>
+<p>for a given <math alttext="V_S"><mrow><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></math>, <math alttext="R_S"><mrow><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></math>, and <math alttext="R_L"><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow></math></p>
+</section>
+
+<section class="part" id="cascaded">
+<span class="pg">15-4</span>
+<h2>Cascaded Amplifiers</h2>
+<figure><svg class="sch" viewBox="0 0 760 330" width="760" style="max-width:760px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three-stage cascade: source, three amplifier stages and a load"><circle cx="40" cy="135" r="17" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="40" y="129" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="40" y="147" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="18" y="139" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">s</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="40,118 40,70 62,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="62,70 72.0,70 74.5,64 79.5,76 84.5,64 89.5,76 94.5,64 99.5,76 102.0,70 112,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="87" y="58" font-size="11" text-anchor="middle" fill="currentColor" class="v">100 kΩ</text>
+<polyline points="112,70 140,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="40,152 40,260 720,260" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="40,260 40,270" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="28,270 52,270" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="32.5,274.5 47.5,274.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="37,279 43,279" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="140,70 160,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="160" cy="70" r="2.8" fill="currentColor"/>
+<polyline points="160,70 160,145.0 166,148.33333333333334 154,155.0 166,161.66666666666666 154,168.33333333333334 166,175.0 154,181.66666666666666 160,185.0 160,260" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="170" y="169.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">1 MΩ</text>
+<text x="148" y="125" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="148" y="150" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="138" y="138" font-size="12" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">i1</tspan><tspan dy="-4"> </tspan></text>
+<circle cx="160" cy="260" r="2.8" fill="currentColor"/>
+<polygon points="250,119 266,135 250,151 234,135" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="250" y="133" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="250" y="146" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="228" y="139" font-size="12" text-anchor="end" fill="currentColor" font-style="italic">10V<tspan dy="4" font-size="0.72em">i1</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="250,119 250,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="250,151 250,260" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="250" cy="260" r="2.8" fill="currentColor"/>
+<polyline points="250,70 270.0,70 272.5,64 277.5,76 282.5,64 287.5,76 292.5,64 297.5,76 300.0,70 320,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="285" y="58" font-size="11" text-anchor="middle" fill="currentColor" class="v">1 kΩ</text>
+<polyline points="320,70 340,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="340" cy="70" r="2.8" fill="currentColor"/>
+<polyline points="340,70 340,145.0 346,148.33333333333334 334,155.0 346,161.66666666666666 334,168.33333333333334 346,175.0 334,181.66666666666666 340,185.0 340,260" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="350" y="169.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">100 kΩ</text>
+<text x="328" y="125" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="328" y="150" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="318" y="138" font-size="12" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">i2</tspan><tspan dy="-4"> </tspan></text>
+<circle cx="340" cy="260" r="2.8" fill="currentColor"/>
+<polygon points="430,119 446,135 430,151 414,135" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="430" y="133" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="430" y="146" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="408" y="139" font-size="12" text-anchor="end" fill="currentColor" font-style="italic">100V<tspan dy="4" font-size="0.72em">i2</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="430,119 430,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="430,151 430,260" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="430" cy="260" r="2.8" fill="currentColor"/>
+<polyline points="430,70 450.0,70 452.5,64 457.5,76 462.5,64 467.5,76 472.5,64 477.5,76 480.0,70 500,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="465" y="58" font-size="11" text-anchor="middle" fill="currentColor" class="v">1 kΩ</text>
+<polyline points="500,70 520,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="520" cy="70" r="2.8" fill="currentColor"/>
+<polyline points="520,70 520,145.0 526,148.33333333333334 514,155.0 526,161.66666666666666 514,168.33333333333334 526,175.0 514,181.66666666666666 520,185.0 520,260" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="530" y="169.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">10 kΩ</text>
+<text x="508" y="125" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="508" y="150" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="498" y="138" font-size="12" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">i3</tspan><tspan dy="-4"> </tspan></text>
+<circle cx="520" cy="260" r="2.8" fill="currentColor"/>
+<polygon points="610,119 626,135 610,151 594,135" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="610" y="133" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="610" y="146" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="588" y="139" font-size="12" text-anchor="end" fill="currentColor" font-style="italic">1V<tspan dy="4" font-size="0.72em">i3</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="610,119 610,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="610,151 610,260" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="610" cy="260" r="2.8" fill="currentColor"/>
+<polyline points="610,70 630.0,70 632.5,64 637.5,76 642.5,64 647.5,76 652.5,64 657.5,76 660.0,70 680,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="645" y="58" font-size="11" text-anchor="middle" fill="currentColor" class="v">10 Ω</text>
+<polyline points="680,70 700,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="700" cy="70" r="2.8" fill="currentColor"/>
+<polyline points="700,70 700,145.0 706,148.33333333333334 694,155.0 706,161.66666666666666 694,168.33333333333334 706,175.0 694,181.66666666666666 700,185.0 700,260" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="728" y="150" font-size="11" text-anchor="start" fill="currentColor" class="v">100 Ω</text>
+<text x="688" y="125" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="688" y="150" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="680" y="138" font-size="12" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">L</tspan><tspan dy="-4"> </tspan></text>
+<circle cx="700" cy="260" r="2.8" fill="currentColor"/>
+<rect x="150" y="36" width="180" height="250" rx="26" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="5 4" opacity="0.7"/>
+<rect x="330" y="36" width="180" height="250" rx="26" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="5 4" opacity="0.7"/>
+<rect x="510" y="36" width="180" height="250" rx="26" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="5 4" opacity="0.7"/></svg></figure>
+<p>Q How do we analyze ?</p>
+<p><math alttext="V_L"><mrow><mrow class="term" data-term="V_L"><msub><mi>V</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow></math> = <math alttext="V_i"><mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math> <span class="fill"><math alttext="A_{vo1}"><mrow><mrow class="term" data-term="A_vo1"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi><mn>1</mn></mrow></msub></mrow></mrow></math></span> × <span class="fill"><math alttext="\dfrac{R_{i2}}{R_{i2}+R_{o1}}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="R_i2"><msub><mi>R</mi><mrow><mi mathvariant="normal">i</mi><mn>2</mn></mrow></msub></mrow></mrow><mrow><mrow class="term" data-term="R_i2"><msub><mi>R</mi><mrow><mi mathvariant="normal">i</mi><mn>2</mn></mrow></msub></mrow><mo>+</mo><mrow class="term" data-term="R_o1"><msub><mi>R</mi><mrow><mi mathvariant="normal">o</mi><mn>1</mn></mrow></msub></mrow></mrow></mfrac></mstyle></mrow></math></span> × <span class="fill"><math alttext="A_{vo2}"><mrow><mrow class="term" data-term="A_vo2"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi><mn>2</mn></mrow></msub></mrow></mrow></math></span> × <span class="fill"><math alttext="\dfrac{R_{i3}}{R_{i3}+R_{o2}}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="R_i3"><msub><mi>R</mi><mrow><mi mathvariant="normal">i</mi><mn>3</mn></mrow></msub></mrow></mrow><mrow><mrow class="term" data-term="R_i3"><msub><mi>R</mi><mrow><mi mathvariant="normal">i</mi><mn>3</mn></mrow></msub></mrow><mo>+</mo><mrow class="term" data-term="R_o2"><msub><mi>R</mi><mrow><mi mathvariant="normal">o</mi><mn>2</mn></mrow></msub></mrow></mrow></mfrac></mstyle></mrow></math></span> × <span class="fill"><math alttext="A_{vo3}\dfrac{R_L}{R_L+R_{o3}}"><mrow><mrow class="term" data-term="A_vo3"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi><mn>3</mn></mrow></msub></mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="R_o3"><msub><mi>R</mi><mrow><mi mathvariant="normal">o</mi><mn>3</mn></mrow></msub></mrow></mrow></mfrac></mstyle></mrow></math></span></p>
+<details class="xp"><summary>Expansion note: why each stage is loaded by the next</summary>
+<p>The next stage's input resistance is the load of the stage before it. So between the controlled source of one stage and the input of the next sits a voltage divider formed by <math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> of the first stage and <math alttext="R_i"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math> of the second. Each stage's gain is therefore its <math alttext="A_{vo}"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow></mrow></math> times a divider factor, and the stage gains multiply. Because the circuits are linked this way, the stages cannot be analyzed as if each were unloaded.</p>
+<p>For the stages shown: the factors are 10 × 0.990 (100 kΩ against 1 kΩ), 100 × 0.909 (10 kΩ against 1 kΩ) and 1 × 0.909 (100 Ω against 10 Ω).</p>
+</details>
+<p>Call &nbsp; <math alttext="A_v"><mrow><mrow class="term" data-term="A_v"><msub><mi>A</mi><mi mathvariant="normal">v</mi></msub></mrow></mrow></math> = <span class="fill"><math alttext="\dfrac{V_L}{V_i}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="V_L"><msub><mi>V</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math></span> = <span class="fill"><math alttext="A_{v1}A_{v2}A_{v3}"><mrow><mrow class="term" data-term="A_v1"><msub><mi>A</mi><mrow><mi mathvariant="normal">v</mi><mn>1</mn></mrow></msub></mrow><mrow class="term" data-term="A_v2"><msub><mi>A</mi><mrow><mi mathvariant="normal">v</mi><mn>2</mn></mrow></msub></mrow><mrow class="term" data-term="A_v3"><msub><mi>A</mi><mrow><mi mathvariant="normal">v</mi><mn>3</mn></mrow></msub></mrow></mrow></math></span> &nbsp;&nbsp;&nbsp; <math alttext="A_v"><mrow><mrow class="term" data-term="A_v"><msub><mi>A</mi><mi mathvariant="normal">v</mi></msub></mrow></mrow></math> does not incorporate <span class="fill">source</span> resistance</p>
+<p class="indent"><math alttext="G_v"><mrow><mrow class="term" data-term="G_v"><msub><mi>G</mi><mi mathvariant="normal">v</mi></msub></mrow></mrow></math> = <span class="fill"><math alttext="\dfrac{V_L}{V_S}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="V_L"><msub><mi>V</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math></span> = <span class="fill"><math alttext="\dfrac{R_{i1}}{R_{i1}+R_S}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="R_i1"><msub><mi>R</mi><mrow><mi mathvariant="normal">i</mi><mn>1</mn></mrow></msub></mrow></mrow><mrow><mrow class="term" data-term="R_i1"><msub><mi>R</mi><mrow><mi mathvariant="normal">i</mi><mn>1</mn></mrow></msub></mrow><mo>+</mo><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math></span> × <span class="fill"><math alttext="A_v"><mrow><mrow class="term" data-term="A_v"><msub><mi>A</mi><mi mathvariant="normal">v</mi></msub></mrow></mrow></math></span></p>
+<details class="xp"><summary>Expansion note: the numbers for this cascade</summary>
+<div class="tbl"><table>
+<tr><th>Quantity</th><th>Expression</th><th class="n">Value</th></tr>
+<tr><td>Input divider</td><td><math alttext="1\unit{MΩ}/(1\unit{MΩ}+100\unit{kΩ})"><mrow><mn>1</mn><mspace width="0.22em"/><mtext>MΩ</mtext><mo lspace="0.05em" rspace="0.05em">/</mo><mo stretchy="false">(</mo><mn>1</mn><mspace width="0.22em"/><mtext>MΩ</mtext><mo>+</mo><mn>100</mn><mspace width="0.22em"/><mtext>kΩ</mtext><mo stretchy="false">)</mo></mrow></math></td><td class="n">0.909</td></tr>
+<tr><td>Stage 1 gain</td><td><math alttext="10\times 100\unit{kΩ}/(100\unit{kΩ}+1\unit{kΩ})"><mrow><mn>10</mn><mo>×</mo><mn>100</mn><mspace width="0.22em"/><mtext>kΩ</mtext><mo lspace="0.05em" rspace="0.05em">/</mo><mo stretchy="false">(</mo><mn>100</mn><mspace width="0.22em"/><mtext>kΩ</mtext><mo>+</mo><mn>1</mn><mspace width="0.22em"/><mtext>kΩ</mtext><mo stretchy="false">)</mo></mrow></math></td><td class="n">9.90</td></tr>
+<tr><td>Stage 2 gain</td><td><math alttext="100\times 10\unit{kΩ}/(10\unit{kΩ}+1\unit{kΩ})"><mrow><mn>100</mn><mo>×</mo><mn>10</mn><mspace width="0.22em"/><mtext>kΩ</mtext><mo lspace="0.05em" rspace="0.05em">/</mo><mo stretchy="false">(</mo><mn>10</mn><mspace width="0.22em"/><mtext>kΩ</mtext><mo>+</mo><mn>1</mn><mspace width="0.22em"/><mtext>kΩ</mtext><mo stretchy="false">)</mo></mrow></math></td><td class="n">90.9</td></tr>
+<tr><td>Stage 3 gain</td><td><math alttext="1\times 100\unit{Ω}/(100\unit{Ω}+10\unit{Ω})"><mrow><mn>1</mn><mo>×</mo><mn>100</mn><mspace width="0.22em"/><mtext>Ω</mtext><mo lspace="0.05em" rspace="0.05em">/</mo><mo stretchy="false">(</mo><mn>100</mn><mspace width="0.22em"/><mtext>Ω</mtext><mo>+</mo><mn>10</mn><mspace width="0.22em"/><mtext>Ω</mtext><mo stretchy="false">)</mo></mrow></math></td><td class="n">0.909</td></tr>
+<tr><td><math alttext="A_v"><mrow><mrow class="term" data-term="A_v"><msub><mi>A</mi><mi mathvariant="normal">v</mi></msub></mrow></mrow></math></td><td><math alttext="9.90\times 90.9\times 0.909"><mrow><mn>9.90</mn><mo>×</mo><mn>90.9</mn><mo>×</mo><mn>0.909</mn></mrow></math></td><td class="n">818 V/V</td></tr>
+<tr><td><math alttext="G_v"><mrow><mrow class="term" data-term="G_v"><msub><mi>G</mi><mi mathvariant="normal">v</mi></msub></mrow></mrow></math></td><td><math alttext="0.909\times 818"><mrow><mn>0.909</mn><mo>×</mo><mn>818</mn></mrow></math></td><td class="n">743.6 V/V</td></tr>
+</table></div>
+<p><math alttext="A_v"><mrow><mrow class="term" data-term="A_v"><msub><mi>A</mi><mi mathvariant="normal">v</mi></msub></mrow></mrow></math> leaves out the loss at the input; <math alttext="G_v"><mrow><mrow class="term" data-term="G_v"><msub><mi>G</mi><mi mathvariant="normal">v</mi></msub></mrow></mrow></math> includes it.</p>
+</details>
+<ul class="tight">
+<li>An input stage may have large <span class="fill"><math alttext="R_{in}"><mrow><mrow class="term" data-term="R_in"><msub><mi>R</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow></mrow></math></span> but modest <span class="fill">gain</span></li>
+<li>A middle stage may have large <span class="fill">gain</span> but big <span class="fill"><math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math></span><sup class="inf">†</sup></li>
+<li>An output stage may have small <span class="fill"><math alttext="R_{out}"><mrow><mrow class="term" data-term="R_out"><msub><mi>R</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow></mrow></math></span> and big <span class="fill"><math alttext="R_{in}"><mrow><mrow class="term" data-term="R_in"><msub><mi>R</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow></mrow></math></span> but small <span class="fill">gain</span></li>
+</ul>
+<details class="xp"><summary>Expansion note: why the stages are given different jobs</summary>
+<p>A large input resistance at the first stage keeps the source from being loaded down. The middle stage supplies most of the gain. The last stage has a low output resistance so that the load, which may be small, does not take much voltage from the divider <math alttext="R_L/(R_L+R_o)"><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mo stretchy="false">(</mo><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow><mo stretchy="false">)</mo></mrow></math>.</p>
+</details>
+
+<span class="pg">15-5</span>
+<div class="figs-2"><div>
+<p><b>Q.</b> How experimentally determine <span class="fill"><math alttext="R_i"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math></span></p>
+<ul class="tight">
+<li>Measure <i>V</i><sub><span class="fill">s</span></sub></li>
+<li>Adjust <math alttext="R"><mrow><mrow class="term" data-term="R"><mi>R</mi></mrow></mrow></math> until</li>
+</ul>
+<p class="indent"><math alttext="V_i"><mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math> = <span class="fill"><math alttext="V_S/2"><mrow><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mn>2</mn></mrow></math></span></p>
+<p class="indent">→ <math alttext="R"><mrow><mrow class="term" data-term="R"><mi>R</mi></mrow></mrow></math> = <span class="fill"><math alttext="R_i"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math></span></p>
+</div><figure><svg class="sch" viewBox="0 0 360 190" width="360" style="max-width:360px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Amplifier model: input resistance R_i, controlled source A_vo V_i, output resistance R_o"><polyline points="20,40 60,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="20,160 60,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="20" cy="40" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<circle cx="20" cy="160" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="60,40 120,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="60,160 120,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="120" cy="40" r="2.8" fill="currentColor"/>
+<circle cx="120" cy="160" r="2.8" fill="currentColor"/>
+<polyline points="120,40 120,82.0 126,85.0 114,91.0 126,97.0 114,103.0 126,109.0 114,115.0 120,118.0 120,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="130" y="104.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">i</tspan><tspan dy="-4"> </tspan></text>
+<text x="102" y="92" font-size="13" text-anchor="start" fill="currentColor">+</text>
+<text x="102" y="118" font-size="13" text-anchor="start" fill="currentColor">−</text>
+<polygon points="210,80 230,100 210,120 190,100" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="210" y="98" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="210" y="111" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="236" y="104" font-size="12" text-anchor="start" fill="currentColor" font-style="italic">A<tspan dy="4" font-size="0.72em">vo</tspan><tspan dy="-4"> </tspan>V<tspan dy="4" font-size="0.72em">i</tspan><tspan dy="-4"> </tspan></text>
+<text x="90" y="105" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">i</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="210,80 210,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="210,40 230,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="230,40 247.5,40 250.83333333333334,34 257.5,46 264.1666666666667,34 270.8333333333333,46 277.5,34 284.1666666666667,46 287.5,40 305,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="267.5" y="28" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="305,40 340,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="210,120 210,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="210,160 340,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="340" cy="40" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<circle cx="340" cy="160" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<rect x="80" y="20" width="240" height="160" rx="22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 4"/></svg></figure></div>
+<details class="xp"><summary>Expansion note: why a half-voltage reading gives <math alttext="R_i"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math></summary>
+<p>With a variable resistor <math alttext="R"><mrow><mrow class="term" data-term="R"><mi>R</mi></mrow></mrow></math> in series with the source, the amplifier input sees a divider: <math alttext="V_i = V_S R_i/(R + R_i)"><mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mo stretchy="false">(</mo><mrow class="term" data-term="R"><mi>R</mi></mrow><mo>+</mo><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow><mo stretchy="false">)</mo></mrow></math>. When <math alttext="V_i"><mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math> falls to exactly half of <math alttext="V_S"><mrow><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></math>, <math alttext="R = R_i"><mrow><mrow class="term" data-term="R"><mi>R</mi></mrow><mo>=</mo><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math>.</p>
+</details>
+<div class="figs-2"><div>
+<p><b>Q.</b> How Find <math alttext="A_{vo}"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow></mrow></math> ?</p>
+<ul class="tight">
+<li><span class="fill">Open</span> circuit <span class="fill">the</span> load</li>
+<li>Apply <span class="fill"><math alttext="V_S"><mrow><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></math></span><sup class="inf">†</sup></li>
+<li>Measure <i>V</i><sub><span class="fill">o</span></sub> &amp; <i>V</i><sub><span class="fill">i</span></sub></li>
+</ul>
+<p class="indent">→ <math alttext="A_{vo}"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow></mrow></math> = <span class="fill"><math alttext="\dfrac{V_o}{V_i}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math></span></p>
+</div><figure><svg class="sch" viewBox="0 0 360 190" width="360" style="max-width:360px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Amplifier model: input resistance R_i, controlled source A_vo V_i, output resistance R_o"><polyline points="20,40 60,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="20,160 60,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="20" cy="40" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<circle cx="20" cy="160" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="60,40 120,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="60,160 120,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="120" cy="40" r="2.8" fill="currentColor"/>
+<circle cx="120" cy="160" r="2.8" fill="currentColor"/>
+<polyline points="120,40 120,82.0 126,85.0 114,91.0 126,97.0 114,103.0 126,109.0 114,115.0 120,118.0 120,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="130" y="104.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">i</tspan><tspan dy="-4"> </tspan></text>
+<text x="102" y="92" font-size="13" text-anchor="start" fill="currentColor">+</text>
+<text x="102" y="118" font-size="13" text-anchor="start" fill="currentColor">−</text>
+<polygon points="210,80 230,100 210,120 190,100" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="210" y="98" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="210" y="111" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="236" y="104" font-size="12" text-anchor="start" fill="currentColor" font-style="italic">A<tspan dy="4" font-size="0.72em">vo</tspan><tspan dy="-4"> </tspan>V<tspan dy="4" font-size="0.72em">i</tspan><tspan dy="-4"> </tspan></text>
+<text x="90" y="105" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">i</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="210,80 210,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="210,40 230,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="230,40 247.5,40 250.83333333333334,34 257.5,46 264.1666666666667,34 270.8333333333333,46 277.5,34 284.1666666666667,46 287.5,40 305,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="267.5" y="28" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="305,40 340,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="210,120 210,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="210,160 340,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="340" cy="40" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<circle cx="340" cy="160" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<rect x="80" y="20" width="240" height="160" rx="22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 4"/></svg></figure></div>
+<div class="figs-2"><div>
+<p><b>Q.</b> How Find <i>R</i><sub><span class="fill">o</span></sub> ?</p>
+<ul class="tight">
+<li>Ground <span class="fill">the input</span><sup class="inf">†</sup></li>
+</ul>
+<p class="indent">→ <math alttext="A_{vo}V_i"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math> = <span class="fill">0</span></p>
+<ul class="tight">
+<li>Apply <math alttext="V"><mrow><mrow class="term" data-term="V"><mi>V</mi></mrow></mrow></math><sub><span class="fill">S</span></sub> &amp; <span class="fill">a variable <math alttext="R"><mrow><mrow class="term" data-term="R"><mi>R</mi></mrow></mrow></math> in series</span><sup class="inf">†</sup></li>
+<li>Measure <span class="fill"><math alttext="V_o"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math></span><sup class="inf">†</sup></li>
+<li>Adjust <math alttext="R"><mrow><mrow class="term" data-term="R"><mi>R</mi></mrow></mrow></math> until</li>
+</ul>
+<p class="indent"><math alttext="V_o"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> = <span class="fill"><math alttext="V_S/2"><mrow><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mn>2</mn></mrow></math></span><sup class="inf">†</sup></p>
+<p class="indent">→ <math alttext="R"><mrow><mrow class="term" data-term="R"><mi>R</mi></mrow></mrow></math> = <span class="fill"><math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math></span></p>
+</div><figure><svg class="sch" viewBox="0 0 360 190" width="360" style="max-width:360px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Amplifier model: input resistance R_i, controlled source A_vo V_i, output resistance R_o"><polyline points="20,40 60,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="20,160 60,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="20" cy="40" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<circle cx="20" cy="160" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="60,40 120,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="60,160 120,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="120" cy="40" r="2.8" fill="currentColor"/>
+<circle cx="120" cy="160" r="2.8" fill="currentColor"/>
+<polyline points="120,40 120,82.0 126,85.0 114,91.0 126,97.0 114,103.0 126,109.0 114,115.0 120,118.0 120,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="130" y="104.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">i</tspan><tspan dy="-4"> </tspan></text>
+<text x="102" y="92" font-size="13" text-anchor="start" fill="currentColor">+</text>
+<text x="102" y="118" font-size="13" text-anchor="start" fill="currentColor">−</text>
+<polygon points="210,80 230,100 210,120 190,100" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="210" y="98" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="210" y="111" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="236" y="104" font-size="12" text-anchor="start" fill="currentColor" font-style="italic">A<tspan dy="4" font-size="0.72em">vo</tspan><tspan dy="-4"> </tspan>V<tspan dy="4" font-size="0.72em">i</tspan><tspan dy="-4"> </tspan></text>
+<text x="90" y="105" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">i</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="210,80 210,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="210,40 230,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="230,40 247.5,40 250.83333333333334,34 257.5,46 264.1666666666667,34 270.8333333333333,46 277.5,34 284.1666666666667,46 287.5,40 305,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="267.5" y="28" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="305,40 340,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="210,120 210,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="210,160 340,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="340" cy="40" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<circle cx="340" cy="160" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<rect x="80" y="20" width="240" height="160" rx="22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 4"/></svg></figure></div>
+<details class="xp"><summary>Expansion note: why grounding the input isolates <math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math></summary>
+<p>With the input grounded, <math alttext="V_i = 0"><mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>=</mo><mn>0</mn></mrow></math> and the controlled source is zero, so the only thing left between the output terminals is <math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math>. A source applied at the output through a variable resistor then forms a divider with <math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math>, and <math alttext="V_o = V_S/2"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mn>2</mn></mrow></math> when <math alttext="R = R_o"><mrow><mrow class="term" data-term="R"><mi>R</mi></mrow><mo>=</mo><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math>.</p>
+</details>
+</section>
+
+<section class="part" id="mosfetamp">
+<span class="pg">15-6</span>
+<h2>MOSFET as an Amplifier</h2>
+<p><b>Analytically ?</b></p>
+<p><span class="fill">small</span>-signal model</p>
+<figure><svg class="sch" viewBox="0 0 330 140" width="330" style="max-width:330px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Small-signal model box with two output terminals"><rect x="30" y="30" width="170" height="90" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="200,50 280,50" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="280,50 273.5,52.6 273.5,47.4" fill="currentColor"/>
+<polyline points="200,100 280,100" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="280,100 273.5,102.6 273.5,97.4" fill="currentColor"/>
+<text x="295" y="54" font-size="16" text-anchor="middle" fill="currentColor">×</text>
+<text x="295" y="104" font-size="16" text-anchor="middle" fill="currentColor">×</text></svg></figure>
+<p class="indent">→ <math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> = <span class="fill"><math alttext="\dfrac{v_x}{i_x}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="v_x"><msub><mi>v</mi><mi mathvariant="normal">x</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="i_x"><msub><mi>i</mi><mi mathvariant="normal">x</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math></span></p>
+<details class="xp"><summary>Expansion note: what <math alttext="v_x"><mrow><mrow class="term" data-term="v_x"><msub><mi>v</mi><mi mathvariant="normal">x</mi></msub></mrow></mrow></math> and <math alttext="i_x"><mrow><mrow class="term" data-term="i_x"><msub><mi>i</mi><mi mathvariant="normal">x</mi></msub></mrow></mrow></math> are</summary>
+<p>To find an output resistance by calculation, set the independent sources of the small-signal model to zero, connect a test source <math alttext="v_x"><mrow><mrow class="term" data-term="v_x"><msub><mi>v</mi><mi mathvariant="normal">x</mi></msub></mrow></mrow></math> across the output terminals and find the current <math alttext="i_x"><mrow><mrow class="term" data-term="i_x"><msub><mi>i</mi><mi mathvariant="normal">x</mi></msub></mrow></mrow></math> it delivers. The ratio is the resistance looking into the output.</p>
+</details>
+<p><u>Key Attributes</u> :</p>
+<ol class="steps">
+<li><span class="sl">1.</span><div><p>Voltage Gain</p></div></li>
+<li><span class="sl">2.</span><div><p>Input Resistance</p></div></li>
+<li><span class="sl">3.</span><div><p>Output Resistance</p></div></li>
+<li><span class="sl">4.</span><div><p><span class="fill">Signal swing</span></p></div></li>
+<li><span class="sl">5.</span><div><p><span class="fill">Linearity</span></p></div></li>
+</ol>
+<p>(*) We will operate our <span class="fill">MOSFET</span> in <span class="fill">saturation</span> where it behaves as a <span class="fill">voltage</span>-controlled <span class="fill">current</span> source</p>
+<div class="figs-2"><figure><svg class="sch" viewBox="0 0 330 270" width="330" style="max-width:330px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Common-source stage: MOSFET with drain resistor R_D to V_DD, output at the drain"><polyline points="141,124 141,156" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="116,140 141,140" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="150,120 150,131" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="150,135 150,145" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="150,149 150,160" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="150,124 170,124 170,100" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="150,156 170,156 170,180" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="150,140 170,140 170,156" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="152,140 160,136 160,144" fill="currentColor"/>
+<polyline points="170,40 170,28" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="170,20 165,30 175,30" fill="currentColor"/>
+<text x="170" y="15" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="170,40 170,47.0 176,50.0 164,56.0 176,62.0 164,68.0 176,74.0 164,80.0 170,83.0 170,90" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="182" y="69.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">D</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="170,90 170,100" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="170" cy="100" r="2.8" fill="currentColor"/>
+<polyline points="170,100 250,100" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="250" cy="100" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="262" y="104" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="150,55 150,85" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="150,85 147.4,78.5 152.6,78.5" fill="currentColor"/>
+<text x="140" y="75" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">I<tspan dy="4" font-size="0.72em">D</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="170,180 170,215" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="170,215 170,225" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="158,225 182,225" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="162.5,229.5 177.5,229.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="167,234 173,234" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="116,140 80,140" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="80" cy="175" r="15" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="80" y="169" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="80" y="187" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<polyline points="80,140 80,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="80,190 80,215" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="80,215 170,215" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="52" y="179" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">GS</tspan><tspan dy="-4"> </tspan></text></svg></figure>
+<div>
+<p><math alttext="V_{GS}"><mrow><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow></mrow></math> &gt; <span class="fill"><math alttext="V_t"><mrow><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow></mrow></math></span></p>
+<p><math alttext="V_{DS}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow></mrow></math> &gt; <span class="fill"><math alttext="V_{OV}"><mrow><mrow class="term" data-term="V_OV"><msub><mi>V</mi><mrow><mi mathvariant="normal">OV</mi></mrow></msub></mrow></mrow></math></span></p>
+<p><math alttext="V_{GD}"><mrow><mrow class="term" data-term="V_GD"><msub><mi>V</mi><mrow><mi mathvariant="normal">GD</mi></mrow></msub></mrow></mrow></math> &lt; <span class="fill"><math alttext="V_t"><mrow><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow></mrow></math></span></p>
+</div></div>
+<p class="indent"><math alttext="I_D"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> = <math alttext="\tfrac{1}{2}K_n"><mrow><mstyle displaystyle="false"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow></mrow></math> ( <i>V</i><sub><span class="fill">GS</span></sub> − <i>V</i><sub><span class="fill">t</span></sub> )<sup><span class="fill">2</span></sup></p>
+<details class="xp"><summary>Expansion note: three conditions, one region</summary>
+<p><math alttext="V_{GS} &gt; V_t"><mrow><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow><mo>&gt;</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow></mrow></math> means a channel exists. <math alttext="V_{DS} &gt; V_{OV}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow><mo>&gt;</mo><mrow class="term" data-term="V_OV"><msub><mi>V</mi><mrow><mi mathvariant="normal">OV</mi></mrow></msub></mrow></mrow></math> (with <math alttext="V_{OV} = V_{GS}-V_t"><mrow><mrow class="term" data-term="V_OV"><msub><mi>V</mi><mrow><mi mathvariant="normal">OV</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow></mrow></math>) and <math alttext="V_{GD} &lt; V_t"><mrow><mrow class="term" data-term="V_GD"><msub><mi>V</mi><mrow><mi mathvariant="normal">GD</mi></mrow></msub></mrow><mo>&lt;</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow></mrow></math> say the same thing about the drain end: the channel has pinched off, and the current no longer depends on <math alttext="V_{DS}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow></mrow></math>. That is why the device acts like a current source controlled by <math alttext="V_{GS}"><mrow><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow></mrow></math>.</p>
+</details>
+</section>
+
+<section class="part" id="csamp">
+<span class="pg">15-7</span>
+<h2>Common Source Amplifier</h2>
+<p>KVL : <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math> <span class="fill">−</span> <math alttext="I_D"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> <span class="fill"><math alttext="R_D"><mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> −</span> <i>V</i><sub><span class="fill">o</span></sub> = <span class="fill">0</span></p>
+<p class="indent"><math alttext="V_o"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> = <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math> <span class="fill">−</span> <math alttext="I_D"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> <span class="fill"><math alttext="R_D"><mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math></span></p>
+<h3>3 operating modes</h3>
+<p>(1) <math alttext="V_{GS}"><mrow><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow></mrow></math> <span class="fill">&lt;</span> <math alttext="V_t"><mrow><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow></mrow></math> → <span class="fill">cutoff</span> → <math alttext="I_D"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> = <span class="fill">0</span></p>
+<p class="indent"><math alttext="V_o"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> = <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math> − <math alttext="I_D R_D"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> = <span class="fill"><math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math></span></p>
+<p>(2) <math alttext="V_{DS}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow></mrow></math> <span class="fill">≥</span> <math alttext="V_{OV}"><mrow><mrow class="term" data-term="V_OV"><msub><mi>V</mi><mrow><mi mathvariant="normal">OV</mi></mrow></msub></mrow></mrow></math> → <span class="fill">saturation</span> → <math alttext="I_D"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> = <math alttext="\tfrac{1}{2}K_n(V_{GS}-V_t)^2"><mrow><mstyle displaystyle="false"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mo stretchy="false">(</mo><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow></math></p>
+<p class="indent"><math alttext="V_o"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> = <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math> − <span class="fill"><math alttext="\tfrac{1}{2}K_nR_D(V_{GS}-V_t)^2"><mrow><mstyle displaystyle="false"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow><mo stretchy="false">(</mo><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow></math></span></p>
+<p>(3) <math alttext="V_{DS}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow></mrow></math> <span class="fill">&lt;</span> <math alttext="V_{OV}"><mrow><mrow class="term" data-term="V_OV"><msub><mi>V</mi><mrow><mi mathvariant="normal">OV</mi></mrow></msub></mrow></mrow></math> → <span class="fill">triode</span> → <math alttext="I_D"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> = <math alttext="K_n\left[(V_{GS}-V_t)V_{DS} - \tfrac{1}{2}V_{DS}^2\right]"><mrow><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow><mo stretchy="true">[</mo><mo stretchy="false">(</mo><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow><mo stretchy="false">)</mo><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow><mo>−</mo><mstyle displaystyle="false"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow class="term" data-term="V_DS"><msubsup><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow><mn>2</mn></msubsup></mrow><mo stretchy="true">]</mo></mrow></mrow></math></p>
+<details class="xp"><summary>Expansion note: reading the three modes</summary>
+<p>In cutoff no current flows, so there is no voltage across <math alttext="R_D"><mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> and the output sits at the supply. In saturation the current follows the square law, so <math alttext="V_o"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> falls as <math alttext="V_{GS}"><mrow><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow></mrow></math> rises. When <math alttext="V_o"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> has fallen so far that <math alttext="V_{DS}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow></mrow></math> drops below <math alttext="V_{OV}"><mrow><mrow class="term" data-term="V_OV"><msub><mi>V</mi><mrow><mi mathvariant="normal">OV</mi></mrow></msub></mrow></mrow></math>, the transistor enters triode and the current is given by the triode equation. Both formulas for <math alttext="I_D"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> meet at <math alttext="V_{DS} = V_{OV}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="V_OV"><msub><mi>V</mi><mrow><mi mathvariant="normal">OV</mi></mrow></msub></mrow></mrow></math>.</p>
+</details>
+<p>(*) We can sketch <i>V</i><sub><span class="fill">DS</span></sub> vs <i>V</i><sub><span class="fill">GS</span></sub> to create what is called the V<span class="fill">oltage</span> T<span class="fill">ransfer</span> C<span class="fill">haracteristic</span></p>
+<p>Let's sketch it!</p>
+</section>
+
+<section class="part" id="vtc">
+<span class="pg">15-8</span>
+<h2>Voltage Transfer Characteristic</h2>
+<figure><svg class="sch" viewBox="0 0 490 300" width="490" style="max-width:490px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Voltage transfer characteristic axes with V_DD, V_DS,B, V_t, V_GS,B and V_DD marked"><g transform="translate(70,0)">
+<polyline points="70,240 70,20" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="70,20 72.6,26.5 67.4,26.5" fill="currentColor"/>
+<polyline points="40,240 395,240" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="395,240 388.5,242.6 388.5,237.4" fill="currentColor"/>
+<text x="80" y="20" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DS</tspan><tspan dy="-4"> </tspan></text>
+<text x="392" y="258" font-size="14" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">GS</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="70,55 346,55" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+<polyline points="70,170 340,170" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+<polyline points="150,30 150,240" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+<polyline points="230,30 230,240" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+<polyline points="340,30 340,240" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+<polyline points="70,40 150,40" fill="none" stroke="currentColor" stroke-width="1.2"/>
+<polygon points="150,40 144.4,42.2 144.4,37.8" fill="currentColor"/>
+<polyline points="150,40 70,40" fill="none" stroke="currentColor" stroke-width="1.2"/>
+<polygon points="70,40 75.6,37.8 75.6,42.2" fill="currentColor"/>
+<polyline points="150,40 230,40" fill="none" stroke="currentColor" stroke-width="1.2"/>
+<polygon points="230,40 224.4,42.2 224.4,37.8" fill="currentColor"/>
+<polyline points="230,40 150,40" fill="none" stroke="currentColor" stroke-width="1.2"/>
+<polygon points="150,40 155.6,37.8 155.6,42.2" fill="currentColor"/>
+<polyline points="230,40 340,40" fill="none" stroke="currentColor" stroke-width="1.2"/>
+<polygon points="340,40 334.4,42.2 334.4,37.8" fill="currentColor"/>
+<polyline points="340,40 230,40" fill="none" stroke="currentColor" stroke-width="1.2"/>
+<polygon points="230,40 235.6,37.8 235.6,42.2" fill="currentColor"/>
+<text x="62" y="59" font-size="14" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<text x="62" y="174" font-size="12" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DS,B</tspan><tspan dy="-4"> </tspan> = V<tspan dy="4" font-size="0.72em">OV,B</tspan><tspan dy="-4"> </tspan></text>
+<text x="150" y="258" font-size="14" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">t</tspan><tspan dy="-4"> </tspan></text>
+<text x="230" y="258" font-size="14" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">GS,B</tspan><tspan dy="-4"> </tspan></text>
+<text x="340" y="258" font-size="14" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+</g></svg></figure>
+<p>(*) We will want to operate between <span class="fill"><math alttext="V_t"><mrow><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow></mrow></math></span> and <span class="fill"><math alttext="V_{GS,B}"><mrow><mrow class="term" data-term="V_GS,B"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi><mo>,</mo><mi mathvariant="normal">B</mi></mrow></msub></mrow></mrow></math></span></p>
+<p>But this is <span class="fill">nonlinear</span>, how do we get amplification ?</p>
+<details class="xp"><summary>Expansion note: why a curved characteristic can still amplify</summary>
+<p>Over a small enough stretch the curve is nearly straight. If the bias point sits on the steep part and the signal is small, the output follows the input with a nearly constant slope, which is the small-signal gain. The next pages find the steepest point and where to place the bias.</p>
+</details>
+<h3>Point B Operation</h3>
+<p class="indent"><math alttext="V_{DS}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow></mrow></math> <span class="fill">=</span> <math alttext="V_{GS}"><mrow><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow></mrow></math> <span class="fill">−</span> <math alttext="V_t"><mrow><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow></mrow></math></p>
+<p>But recall</p>
+<p class="indent"><math alttext="V_{DS}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow></mrow></math> <span class="fill">=</span> <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math> <span class="fill">−</span> <math alttext="R_DI_D"><mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> = <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math> − <math alttext="\tfrac{1}{2}K_nR_D"><mrow><mstyle displaystyle="false"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> ( <i>V</i><sub><span class="fill">GS</span></sub> − <i>V</i><sub><span class="fill">t</span></sub> )<sup><span class="fill">2</span></sup></p>
+<p>so with <math alttext="V_{GS}-V_t"><mrow><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow></mrow></math> = <span class="fill"><math alttext="V_{DS}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow></mrow></math></span> we get</p>
+<p class="indent"><math alttext="V_{DS}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow></mrow></math> = <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math> − <math alttext="\tfrac{1}{2}K_nR_D"><mrow><mstyle displaystyle="false"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> <span class="fill"><math alttext="V_{DS}^2"><mrow><mrow class="term" data-term="V_DS"><msubsup><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow><mn>2</mn></msubsup></mrow></mrow></math></span></p>
+<p>Rearranging</p>
+<p class="indent"><span class="fill"><math alttext="\tfrac{1}{2}K_nR_D"><mrow><mstyle displaystyle="false"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math></span> <math alttext="V_{DS}^2"><mrow><mrow class="term" data-term="V_DS"><msubsup><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow><mn>2</mn></msubsup></mrow></mrow></math> <span class="fill">+</span> <math alttext="V_{DS}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow></mrow></math> <span class="fill">−<math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math></span> = 0</p>
+<details class="xp"><summary>Expansion note: why <math alttext="V_{DS}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow></mrow></math> equals <math alttext="V_{GS}-V_t"><mrow><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow></mrow></math> at point B</summary>
+<p>Point B is the boundary between saturation and triode, where <math alttext="V_{DS} = V_{OV} = V_{GS}-V_t"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="V_OV"><msub><mi>V</mi><mrow><mi mathvariant="normal">OV</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow></mrow></math>. Substituting this into the saturation expression for <math alttext="V_{DS} = V_{DD}-R_DI_D"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> gives a quadratic in the single unknown <math alttext="V_{DS}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow></mrow></math>.</p>
+</details>
+
+<span class="pg">15-9</span>
+<h3>Quadratic Formula</h3>
+<p class="indent"><math alttext="V_{DS,B}"><mrow><mrow class="term" data-term="V_DS,B"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi><mo>,</mo><mi mathvariant="normal">B</mi></mrow></msub></mrow></mrow></math> = <span class="fill"><math alttext="-1"><mrow><mo form="prefix" lspace="0" rspace="0.04em">−</mo><mn>1</mn></mrow></math></span> ± √( <span class="fill">1</span> − 4 <span class="fill"><math alttext="\left(\tfrac{1}{2}K_nR_D\right)(-V_{DD})"><mrow><mrow><mo stretchy="true">(</mo><mstyle displaystyle="false"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow><mo stretchy="true">)</mo></mrow><mo stretchy="false">(</mo><mo form="prefix" lspace="0" rspace="0.04em">−</mo><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow><mo stretchy="false">)</mo></mrow></math></span> ) ⁄ <math alttext="2\left(\tfrac{1}{2}K_nR_D\right)"><mrow><mn>2</mn><mrow><mo stretchy="true">(</mo><mstyle displaystyle="false"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow><mo stretchy="true">)</mo></mrow></mrow></math></p>
+<p>Only the " <span class="fill">+</span> " solution is</p>
+<p class="indent"><math alttext="V_{DS,B}"><mrow><mrow class="term" data-term="V_DS,B"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi><mo>,</mo><mi mathvariant="normal">B</mi></mrow></msub></mrow></mrow></math> = <span class="fill"><math alttext="\sqrt{1+2K_nR_DV_{DD}}"><mrow><msqrt><mrow><mn>1</mn><mo>+</mo><mn>2</mn><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></msqrt></mrow></math></span> − 1 ⁄ <math alttext="K_nR_D"><mrow><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> = <span class="fill"><math alttext="V_{OV,B}"><mrow><mrow class="term" data-term="V_OV,B"><msub><mi>V</mi><mrow><mi mathvariant="normal">OV</mi><mo>,</mo><mi mathvariant="normal">B</mi></mrow></msub></mrow></mrow></math></span></p>
+<p>Then</p>
+<p class="indent"><math alttext="V_{GS,B}"><mrow><mrow class="term" data-term="V_GS,B"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi><mo>,</mo><mi mathvariant="normal">B</mi></mrow></msub></mrow></mrow></math> = <span class="fill"><math alttext="V_t + V_{DS,B}"><mrow><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="V_DS,B"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi><mo>,</mo><mi mathvariant="normal">B</mi></mrow></msub></mrow></mrow></math></span></p>
+<details class="xp"><summary>Expansion note: why only the plus sign is kept</summary>
+<p>With <math alttext="a = \tfrac{1}{2}K_nR_D"><mrow><mi>a</mi><mo>=</mo><mstyle displaystyle="false"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math>, <math alttext="b = 1"><mrow><mi>b</mi><mo>=</mo><mn>1</mn></mrow></math> and <math alttext="c = -V_{DD}"><mrow><mi>c</mi><mo>=</mo><mo form="prefix" lspace="0" rspace="0.04em">−</mo><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math>, the discriminant <math alttext="1 + 4aV_{DD}"><mrow><mn>1</mn><mo>+</mo><mn>4</mn><mi>a</mi><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math> is larger than 1, so the square root is larger than 1. The minus sign would give a negative <math alttext="V_{DS}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow></mrow></math>, which a transistor in this circuit cannot have, so only the plus solution is physical.</p>
+<math display="block" alttext="V_{DS,B} = \frac{-1+\sqrt{1+2K_nR_DV_{DD}}}{K_nR_D}"><mrow><mrow class="term" data-term="V_DS,B"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi><mo>,</mo><mi mathvariant="normal">B</mi></mrow></msub></mrow><mo>=</mo><mfrac><mrow><mo form="prefix" lspace="0" rspace="0.04em">−</mo><mn>1</mn><mo>+</mo><msqrt><mrow><mn>1</mn><mo>+</mo><mn>2</mn><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></msqrt></mrow><mrow><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></mfrac></mrow></math>
+</details>
+<p>(*) We don't want to operate at <span class="fill">B</span> because it borders <span class="fill">triode</span> but it will tell us the <span class="fill">maximum</span> gain achievable !</p>
+<details class="xp"><summary>Expansion note: why point B sets the upper limit on gain</summary>
+<p>On the saturation part of the curve the slope <math alttext="dV_{DS}/dV_{GS}"><mrow><mi>d</mi><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mi>d</mi><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow></mrow></math> is steepest at its far end, point B, just before the device enters triode. The slope is the gain, so B marks the largest gain the circuit can give. Biasing exactly there would leave no room for the signal to swing downward in <math alttext="V_{DS}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow></mrow></math>, which is why it is only a reference.</p>
+</details>
+<h3>Biasing : Establishing the <span class="fill">Q</span>-Point</h3>
+<figure><svg class="sch" viewBox="0 0 440 300" width="440" style="max-width:440px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Voltage transfer characteristic with points A, B and C and bias points between A and B"><polyline points="60,230 60,25" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="60,25 62.6,31.5 57.4,31.5" fill="currentColor"/>
+<polyline points="40,230 420,230" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="420,230 413.5,232.6 413.5,227.4" fill="currentColor"/>
+<text x="68" y="25" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DS</tspan><tspan dy="-4"> </tspan></text>
+<text x="418" y="222" font-size="14" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">GS</tspan><tspan dy="-4"> </tspan></text>
+<text x="54" y="64.0" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="60.0,60.0 61.3,60.0 62.6,60.0 64.0,60.0 65.3,60.0 66.6,60.0 67.9,60.0 69.2,60.0 70.6,60.0 71.9,60.0 73.2,60.0 74.5,60.0 75.8,60.0 77.2,60.0 78.5,60.0 79.8,60.0 81.1,60.0 82.4,60.0 83.8,60.0 85.1,60.0 86.4,60.0 87.7,60.0 89.0,60.0 90.4,60.0 91.7,60.0 93.0,60.0 94.3,60.0 95.6,60.0 97.0,60.0 98.3,60.0 99.6,60.0 100.9,60.0 102.2,60.0 103.6,60.0 104.9,60.0 106.2,60.0 107.5,60.0 108.8,60.0 110.2,60.0 111.5,60.0 112.8,60.0 114.1,60.0 115.4,60.0 116.8,60.0 118.1,60.0 119.4,60.0 120.7,60.0 122.0,60.0 123.4,60.0 124.7,60.0 126.0,60.0 127.3,60.0 128.6,60.1 130.0,60.1 131.3,60.2 132.6,60.3 133.9,60.5 135.2,60.7 136.6,60.9 137.9,61.1 139.2,61.4 140.5,61.6 141.8,62.0 143.2,62.3 144.5,62.7 145.8,63.1 147.1,63.5 148.4,63.9 149.8,64.4 151.1,64.9 152.4,65.4 153.7,66.0 155.0,66.6 156.4,67.2 157.7,67.8 159.0,68.5 160.3,69.2 161.6,69.9 163.0,70.7 164.3,71.4 165.6,72.2 166.9,73.1 168.2,73.9 169.6,74.8 170.9,75.7 172.2,76.7 173.5,77.6 174.8,78.6 176.2,79.6 177.5,80.7 178.8,81.8 180.1,82.9 181.4,84.0 182.8,85.1 184.1,86.3 185.4,87.5 186.7,88.8 188.0,90.0 189.4,91.3 190.7,92.7 192.0,94.0 193.3,95.4 194.6,96.8 196.0,98.2 197.3,99.7 198.6,101.1 199.9,102.6 201.2,104.2 202.6,105.8 203.9,107.3 205.2,109.0 206.5,110.6 207.8,112.3 209.2,114.0 210.5,115.7 211.8,117.5 213.1,119.2 214.4,121.1 215.8,122.9 217.1,124.7 218.4,126.6 219.7,128.6 221.0,130.5 222.4,132.5 223.7,134.5 225.0,136.5 226.3,138.6 227.6,140.6 229.0,142.7 230.3,144.9 231.6,147.0 232.9,149.2 234.2,151.4 235.6,153.7 236.9,156.0 238.2,158.3 239.5,160.6 240.8,162.9 242.2,165.3 243.5,167.7 244.8,170.1 246.1,172.1 247.4,173.9 248.8,175.4 250.1,176.8 251.4,178.0 252.7,179.2 254.0,180.2 255.4,181.2 256.7,182.1 258.0,183.0 259.3,183.8 260.6,184.6 262.0,185.3 263.3,186.0 264.6,186.7 265.9,187.3 267.2,188.0 268.6,188.5 269.9,189.1 271.2,189.7 272.5,190.2 273.8,190.7 275.2,191.2 276.5,191.6 277.8,192.1 279.1,192.5 280.4,193.0 281.8,193.4 283.1,193.8 284.4,194.2 285.7,194.6 287.0,194.9 288.4,195.3 289.7,195.7 291.0,196.0 292.3,196.3 293.6,196.7 295.0,197.0 296.3,197.3 297.6,197.6 298.9,197.9 300.2,198.2 301.6,198.5 302.9,198.8 304.2,199.0 305.5,199.3 306.8,199.6 308.2,199.8 309.5,200.1 310.8,200.3 312.1,200.6 313.4,200.8 314.8,201.0 316.1,201.3 317.4,201.5 318.7,201.7 320.0,201.9 321.4,202.1 322.7,202.3 324.0,202.5 325.3,202.7 326.6,202.9 328.0,203.1 329.3,203.3 330.6,203.5 331.9,203.7 333.2,203.9 334.6,204.1 335.9,204.3 337.2,204.4 338.5,204.6 339.8,204.8 341.2,204.9 342.5,205.1 343.8,205.3 345.1,205.4 346.4,205.6 347.8,205.7 349.1,205.9 350.4,206.0 351.7,206.2 353.0,206.3 354.4,206.5 355.7,206.6 357.0,206.8 358.3,206.9 359.6,207.0 361.0,207.2 362.3,207.3 363.6,207.4 364.9,207.6 366.2,207.7 367.6,207.8 368.9,208.0 370.2,208.1 371.5,208.2 372.8,208.3 374.2,208.4 375.5,208.6 376.8,208.7 378.1,208.8 379.4,208.9 380.8,209.0 382.1,209.1 383.4,209.2 384.7,209.4 386.0,209.5 387.4,209.6 388.7,209.7 390.0,209.8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<circle cx="126.0" cy="60.0" r="2.8" fill="currentColor"/>
+<text x="132.0" y="52.0" font-size="14" text-anchor="start" fill="currentColor">A</text>
+<circle cx="244.2249979335427" cy="169.0962131857507" r="2.8" fill="currentColor"/>
+<text x="252.2249979335427" y="161.0962131857507" font-size="14" text-anchor="start" fill="currentColor">B</text>
+<circle cx="390.0" cy="209.7742444904131" r="2.8" fill="currentColor"/>
+<text x="398.0" y="201.7742444904131" font-size="14" text-anchor="start" fill="currentColor">C</text>
+<polyline points="126.0,60.0 126.0,230" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="4 3"/>
+<polyline points="244.2249979335427,169.0962131857507 244.2249979335427,230" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="4 3"/>
+<polyline points="60,169.0962131857507 244.2249979335427,169.0962131857507" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="4 3"/>
+<circle cx="162.3" cy="70.28500000000003" r="2.8" fill="currentColor"/>
+<polyline points="162.3,70.28500000000003 162.3,230" fill="none" stroke="currentColor" stroke-width="1.0" stroke-dasharray="4 3"/>
+<polyline points="162.3,70.28500000000003 277.8,70.28500000000003" fill="none" stroke="currentColor" stroke-width="1.0" stroke-dasharray="4 3"/>
+<circle cx="175.5" cy="79.125" r="2.8" fill="currentColor"/>
+<polyline points="175.5,79.125 175.5,230" fill="none" stroke="currentColor" stroke-width="1.0" stroke-dasharray="4 3"/>
+<polyline points="175.5,79.125 277.8,79.125" fill="none" stroke="currentColor" stroke-width="1.0" stroke-dasharray="4 3"/>
+<circle cx="188.7" cy="90.685" r="2.8" fill="currentColor"/>
+<polyline points="188.7,90.685 188.7,230" fill="none" stroke="currentColor" stroke-width="1.0" stroke-dasharray="4 3"/>
+<polyline points="188.7,90.685 277.8,90.685" fill="none" stroke="currentColor" stroke-width="1.0" stroke-dasharray="4 3"/>
+<text x="390.0" y="248" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text></svg></figure>
+
+<span class="pg">15-10</span>
+<p>− Find <span class="fill">linear</span> section of VTC</p>
+<p>− If <math alttext="V_{GS}"><mrow><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow></mrow></math> = <i>V</i><sub><span class="fill">GS</span></sub> + <math alttext="v_{gs}"><mrow><mrow class="term" data-term="v_gs"><msub><mi>v</mi><mrow><mi mathvariant="normal">gs</mi></mrow></msub></mrow></mrow></math> &nbsp;&nbsp; (↑ <span class="fill">DC bias</span> &nbsp; ↑ <span class="fill">ac signal</span>)</p>
+<p class="indent"><math alttext="v_{gs}"><mrow><mrow class="term" data-term="v_gs"><msub><mi>v</mi><mrow><mi mathvariant="normal">gs</mi></mrow></msub></mrow></mrow></math> too <span class="fill">large</span> → nonlinear</p>
+<p class="indent">Q too close to cutoff → pos. <span class="fill">swing</span></p>
+<p class="indent">'' insufficient</p>
+<p class="indent">Q too close to triode → neg <span class="fill">swing</span></p>
+<p class="indent">'' insufficient</p>
+<p>(*) Location of <span class="fill">Q</span> is key</p>
+<p class="indent">→ Get sufficient <span class="fill">gain</span></p>
+<p class="indent">→ Get sufficient <span class="fill">swing</span></p>
+<details class="xp"><summary>Expansion note: gain, swing and linearity pull in different directions</summary>
+<p>The steepest part of the VTC (largest gain) is near point B, but that is also close to triode, so a downward signal swing is cut off. Placing Q near cutoff instead cuts off the upward swing. A Q in the middle of the sloping part leaves room for both swings, at a somewhat lower gain. And whatever the position, <math alttext="v_{gs}"><mrow><mrow class="term" data-term="v_gs"><msub><mi>v</mi><mrow><mi mathvariant="normal">gs</mi></mrow></msub></mrow></mrow></math> has to stay small enough that the curve is nearly straight over its range, or the output is distorted.</p>
+</details>
+</section>
+
+<section class="part" id="appendix">
+<h2>Appendix</h2>
+
+<div id="guide-types">
+<h3>A. Problem Types in This Notetaker and How to Solve Them</h3>
+
+<details class="ap"><summary>A1. Overall gain of an amplifier between a source and a load</summary>
+<h4>Recognize it</h4>
+<p>A source <math alttext="V_S"><mrow><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></math> with resistance <math alttext="R_S"><mrow><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></math> drives an amplifier modeled by <math alttext="R_i"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math>, <math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> and <math alttext="A_{vo}"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow></mrow></math>, and the amplifier drives a load <math alttext="R_L"><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow></math>. You are asked for <math alttext="V_o/V_S"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></math> or for what the resistances must satisfy.</p>
+<figure><svg class="sch" viewBox="0 0 360 190" width="360" style="max-width:360px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two-port amplifier model with R_i, R_o and A_vo"><polyline points="20,40 60,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="20,160 60,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="20" cy="40" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<circle cx="20" cy="160" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="60,40 120,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="60,160 120,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="120" cy="40" r="2.8" fill="currentColor"/>
+<circle cx="120" cy="160" r="2.8" fill="currentColor"/>
+<polyline points="120,40 120,82.0 126,85.0 114,91.0 126,97.0 114,103.0 126,109.0 114,115.0 120,118.0 120,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="130" y="104.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">i</tspan><tspan dy="-4"> </tspan></text>
+<text x="102" y="92" font-size="13" text-anchor="start" fill="currentColor">+</text>
+<text x="102" y="118" font-size="13" text-anchor="start" fill="currentColor">−</text>
+<polygon points="210,80 230,100 210,120 190,100" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="210" y="98" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="210" y="111" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="236" y="104" font-size="12" text-anchor="start" fill="currentColor" font-style="italic">A<tspan dy="4" font-size="0.72em">vo</tspan><tspan dy="-4"> </tspan>V<tspan dy="4" font-size="0.72em">i</tspan><tspan dy="-4"> </tspan></text>
+<text x="90" y="105" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">i</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="210,80 210,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="210,40 230,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="230,40 247.5,40 250.83333333333334,34 257.5,46 264.1666666666667,34 270.8333333333333,46 277.5,34 284.1666666666667,46 287.5,40 305,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="267.5" y="28" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="305,40 340,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="210,120 210,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="210,160 340,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="340" cy="40" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<circle cx="340" cy="160" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<rect x="80" y="20" width="240" height="160" rx="22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 4"/></svg><figcaption>Two-port amplifier model: <math alttext="R_i"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math> at the input, <math alttext="A_{vo}V_i"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math> in series with <math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> at the output.</figcaption></figure>
+<h4>Method</h4>
+<ol class="tight">
+<li>Input divider: <math alttext="V_i = V_S\dfrac{R_i}{R_i+R_S}"><mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math>.</li>
+<li>Controlled source: <math alttext="A_{vo}V_i"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math>.</li>
+<li>Output divider: <math alttext="V_o = A_{vo}V_i\dfrac{R_L}{R_L+R_o}"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math>.</li>
+<li>Combine: <math alttext="G = \dfrac{V_o}{V_S} = \dfrac{R_i}{R_i+R_S}A_{vo}\dfrac{R_L}{R_L+R_o}"><mrow><mrow class="term" data-term="G"><mi>G</mi></mrow><mo>=</mo><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></mfrac></mstyle><mo>=</mo><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></mfrac></mstyle><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math>.</li>
+</ol>
+<h4>Checks</h4>
+<ul class="tight">
+<li>Each divider factor is less than 1, so <math alttext="|G| &lt; |A_{vo}|"><mrow><mo stretchy="false" lspace="0" rspace="0">|</mo><mrow class="term" data-term="G"><mi>G</mi></mrow><mo stretchy="false" lspace="0" rspace="0">|</mo><mo>&lt;</mo><mo stretchy="false" lspace="0" rspace="0">|</mo><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow><mo stretchy="false" lspace="0" rspace="0">|</mo></mrow></math>.</li>
+<li>If <math alttext="R_i \gg R_S"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>≫</mo><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></math> and <math alttext="R_L \gg R_o"><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow><mo>≫</mo><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math>, <math alttext="G \approx A_{vo}"><mrow><mrow class="term" data-term="G"><mi>G</mi></mrow><mo>≈</mo><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow></mrow></math>.</li>
+</ul>
+<h4>Common mistakes</h4>
+<ul class="tight">
+<li>Using <math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> in the input divider or <math alttext="R_S"><mrow><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></math> in the output divider.</li>
+<li>Forgetting that <math alttext="A_{vo}"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow></mrow></math> is the open-circuit gain: it applies only before the output divider.</li>
+</ul>
+<p><i>Worked in these notes:</i> pp. 15-2, 15-3.</p>
+</details>
+
+<details class="ap"><summary>A2. Analyzing a cascade of amplifier stages</summary>
+<h4>Recognize it</h4>
+<p>Several stages are connected output to input, each modeled by <math alttext="R_i"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math>, <math alttext="A_{vo}"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow></mrow></math> and <math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math>. You need <math alttext="A_v"><mrow><mrow class="term" data-term="A_v"><msub><mi>A</mi><mi mathvariant="normal">v</mi></msub></mrow></mrow></math> or <math alttext="G_v"><mrow><mrow class="term" data-term="G_v"><msub><mi>G</mi><mi mathvariant="normal">v</mi></msub></mrow></mrow></math>.</p>
+<h4>Method</h4>
+<ol class="tight">
+<li>For each stage find its loaded gain: <math alttext="A_{vk} = A_{vo,k}\dfrac{R_{i,k+1}}{R_{i,k+1}+R_{o,k}}"><mrow><mrow class="term" data-term="A_vk"><msub><mi>A</mi><mrow><mi mathvariant="normal">vk</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="A_vo,k"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi><mo>,</mo><mi mathvariant="normal">k</mi></mrow></msub></mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="R_i,k+1"><msub><mi>R</mi><mrow><mi mathvariant="normal">i</mi><mo>,</mo><mi mathvariant="normal">k</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow></mrow><mrow><mrow class="term" data-term="R_i,k+1"><msub><mi>R</mi><mrow><mi mathvariant="normal">i</mi><mo>,</mo><mi mathvariant="normal">k</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><mo>+</mo><mrow class="term" data-term="R_o,k"><msub><mi>R</mi><mrow><mi mathvariant="normal">o</mi><mo>,</mo><mi mathvariant="normal">k</mi></mrow></msub></mrow></mrow></mfrac></mstyle></mrow></math>; for the last stage use <math alttext="R_L"><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow></math>.</li>
+<li>Multiply: <math alttext="A_v = A_{v1}A_{v2}A_{v3}"><mrow><mrow class="term" data-term="A_v"><msub><mi>A</mi><mi mathvariant="normal">v</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="A_v1"><msub><mi>A</mi><mrow><mi mathvariant="normal">v</mi><mn>1</mn></mrow></msub></mrow><mrow class="term" data-term="A_v2"><msub><mi>A</mi><mrow><mi mathvariant="normal">v</mi><mn>2</mn></mrow></msub></mrow><mrow class="term" data-term="A_v3"><msub><mi>A</mi><mrow><mi mathvariant="normal">v</mi><mn>3</mn></mrow></msub></mrow></mrow></math> (from the input of stage 1 to the load).</li>
+<li>Include the source: <math alttext="G_v = \dfrac{R_{i1}}{R_{i1}+R_S}A_v"><mrow><mrow class="term" data-term="G_v"><msub><mi>G</mi><mi mathvariant="normal">v</mi></msub></mrow><mo>=</mo><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="R_i1"><msub><mi>R</mi><mrow><mi mathvariant="normal">i</mi><mn>1</mn></mrow></msub></mrow></mrow><mrow><mrow class="term" data-term="R_i1"><msub><mi>R</mi><mrow><mi mathvariant="normal">i</mi><mn>1</mn></mrow></msub></mrow><mo>+</mo><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></mfrac></mstyle><mrow class="term" data-term="A_v"><msub><mi>A</mi><mi mathvariant="normal">v</mi></msub></mrow></mrow></math>.</li>
+</ol>
+<h4>Checks</h4>
+<ul class="tight">
+<li>Removing a stage changes the loading on the one before it, so the gain is not simply divided by that stage's gain (for the notes' cascade, dropping stage 3 drops the gain by about a factor of 9).</li>
+<li><math alttext="A_v"><mrow><mrow class="term" data-term="A_v"><msub><mi>A</mi><mi mathvariant="normal">v</mi></msub></mrow></mrow></math> never includes <math alttext="R_S"><mrow><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></math>; <math alttext="G_v"><mrow><mrow class="term" data-term="G_v"><msub><mi>G</mi><mi mathvariant="normal">v</mi></msub></mrow></mrow></math> does.</li>
+</ul>
+<h4>Common mistakes</h4>
+<ul class="tight">
+<li>Multiplying the open-circuit gains and forgetting the loading dividers.</li>
+<li>Taking the loading divider from the wrong side: it is the stage's own <math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> against the next stage's <math alttext="R_i"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math>.</li>
+</ul>
+<p><i>Worked in these notes:</i> p. 15-4 (three-stage cascade).</p>
+</details>
+
+<details class="ap"><summary>A3. Measuring <math alttext="R_i"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math>, <math alttext="A_{vo}"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow></mrow></math> and <math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> experimentally</summary>
+<h4>Recognize it</h4>
+<p>"How experimentally determine …": the amplifier is a black box and you may only apply sources and measure voltages.</p>
+<h4>Method</h4>
+<ol class="tight">
+<li><math alttext="R_i"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math>: put a variable resistor <math alttext="R"><mrow><mrow class="term" data-term="R"><mi>R</mi></mrow></mrow></math> in series with the source, adjust until <math alttext="V_i = V_S/2"><mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mn>2</mn></mrow></math>; then <math alttext="R = R_i"><mrow><mrow class="term" data-term="R"><mi>R</mi></mrow><mo>=</mo><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math>.</li>
+<li><math alttext="A_{vo}"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow></mrow></math>: remove the load, apply a signal, measure <math alttext="V_o"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> and <math alttext="V_i"><mrow><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math>; <math alttext="A_{vo} = V_o/V_i"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math>.</li>
+<li><math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math>: ground the input so the controlled source is zero, apply a source at the output through a variable resistor <math alttext="R"><mrow><mrow class="term" data-term="R"><mi>R</mi></mrow></mrow></math> and adjust until <math alttext="V_o = V_S/2"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mn>2</mn></mrow></math>; then <math alttext="R = R_o"><mrow><mrow class="term" data-term="R"><mi>R</mi></mrow><mo>=</mo><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math>.</li>
+</ol>
+<h4>Common mistakes</h4>
+<ul class="tight">
+<li>Measuring <math alttext="A_{vo}"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow></mrow></math> with the load attached: that gives the loaded gain.</li>
+<li>Leaving the input signal on while measuring <math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math>.</li>
+</ul>
+<p><i>Worked in these notes:</i> p. 15-5.</p>
+</details>
+
+<details class="ap"><summary>A4. Finding the region of a common-source stage and its output voltage</summary>
+<h4>Recognize it</h4>
+<p>A MOSFET with drain resistor <math alttext="R_D"><mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> and supply <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math> is biased by a given <math alttext="V_{GS}"><mrow><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow></mrow></math>. Find <math alttext="I_D"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> and <math alttext="V_o"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math>.</p>
+<figure><svg class="sch" viewBox="0 0 330 270" width="330" style="max-width:330px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Common-source stage: MOSFET with drain resistor R_D to V_DD, output at the drain"><polyline points="141,124 141,156" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="116,140 141,140" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="150,120 150,131" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="150,135 150,145" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="150,149 150,160" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="150,124 170,124 170,100" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="150,156 170,156 170,180" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="150,140 170,140 170,156" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="152,140 160,136 160,144" fill="currentColor"/>
+<polyline points="170,40 170,28" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="170,20 165,30 175,30" fill="currentColor"/>
+<text x="170" y="15" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="170,40 170,47.0 176,50.0 164,56.0 176,62.0 164,68.0 176,74.0 164,80.0 170,83.0 170,90" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="182" y="69.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">D</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="170,90 170,100" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="170" cy="100" r="2.8" fill="currentColor"/>
+<polyline points="170,100 250,100" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="250" cy="100" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="262" y="104" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="150,55 150,85" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="150,85 147.4,78.5 152.6,78.5" fill="currentColor"/>
+<text x="140" y="75" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">I<tspan dy="4" font-size="0.72em">D</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="170,180 170,215" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="170,215 170,225" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="158,225 182,225" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="162.5,229.5 177.5,229.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="167,234 173,234" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="116,140 80,140" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="80" cy="175" r="15" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="80" y="169" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="80" y="187" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<polyline points="80,140 80,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="80,190 80,215" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="80,215 170,215" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="52" y="179" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">GS</tspan><tspan dy="-4"> </tspan></text></svg><figcaption>Common-source stage: <math alttext="V_o = V_{DD} - I_DR_D"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math>.</figcaption></figure>
+<h4>Method</h4>
+<ol class="tight">
+<li>KVL: <math alttext="V_o = V_{DD} - I_DR_D"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math>.</li>
+<li>If <math alttext="V_{GS} &lt; V_t"><mrow><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow><mo>&lt;</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow></mrow></math>: cutoff, <math alttext="I_D = 0"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow><mo>=</mo><mn>0</mn></mrow></math>, <math alttext="V_o = V_{DD}"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math>.</li>
+<li>Otherwise assume saturation: <math alttext="I_D = \tfrac{1}{2}K_n(V_{GS}-V_t)^2"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow><mo>=</mo><mstyle displaystyle="false"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mo stretchy="false">(</mo><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow></math>, <math alttext="V_o = V_{DD} - \tfrac{1}{2}K_nR_D(V_{GS}-V_t)^2"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow><mo>−</mo><mstyle displaystyle="false"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow><mo stretchy="false">(</mo><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow></math>.</li>
+<li>Check <math alttext="V_{DS} \ge V_{OV}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow><mo>≥</mo><mrow class="term" data-term="V_OV"><msub><mi>V</mi><mrow><mi mathvariant="normal">OV</mi></mrow></msub></mrow></mrow></math>. If not, use triode: <math alttext="I_D = K_n[(V_{GS}-V_t)V_{DS} - \tfrac{1}{2}V_{DS}^2]"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mo stretchy="false">[</mo><mo stretchy="false">(</mo><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow><mo stretchy="false">)</mo><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow><mo>−</mo><mstyle displaystyle="false"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow class="term" data-term="V_DS"><msubsup><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow><mn>2</mn></msubsup></mrow><mo stretchy="false">]</mo></mrow></math> with <math alttext="V_{DS} = V_o"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math>.</li>
+</ol>
+<h4>Common mistakes</h4>
+<ul class="tight">
+<li>Using the saturation equation without checking <math alttext="V_{DS}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow></mrow></math>.</li>
+<li>Comparing <math alttext="V_{DS}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow></mrow></math> with <math alttext="V_t"><mrow><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow></mrow></math> instead of <math alttext="V_{OV}"><mrow><mrow class="term" data-term="V_OV"><msub><mi>V</mi><mrow><mi mathvariant="normal">OV</mi></mrow></msub></mrow></mrow></math>.</li>
+</ul>
+<p><i>Worked in these notes:</i> pp. 15-6, 15-7.</p>
+</details>
+
+<details class="ap"><summary>A5. Locating point B on the voltage transfer characteristic</summary>
+<h4>Recognize it</h4>
+<p>Find the largest gain a common-source stage can give, given <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math>, <math alttext="K_n"><mrow><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow></mrow></math> and <math alttext="R_D"><mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math>.</p>
+<h4>Method</h4>
+<ol class="tight">
+<li>At B, <math alttext="V_{DS} = V_{GS}-V_t"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow></mrow></math> and <math alttext="V_{DS} = V_{DD} - \tfrac{1}{2}K_nR_DV_{DS}^2"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow><mo>−</mo><mstyle displaystyle="false"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow><mrow class="term" data-term="V_DS"><msubsup><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow><mn>2</mn></msubsup></mrow></mrow></math>.</li>
+<li>Rearrange: <math alttext="\tfrac{1}{2}K_nR_DV_{DS}^2 + V_{DS} - V_{DD} = 0"><mrow><mstyle displaystyle="false"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow><mrow class="term" data-term="V_DS"><msubsup><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow><mn>2</mn></msubsup></mrow><mo>+</mo><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow><mo>=</mo><mn>0</mn></mrow></math>.</li>
+<li>Quadratic formula, keeping the plus sign: <math alttext="V_{DS,B} = \dfrac{\sqrt{1+2K_nR_DV_{DD}}-1}{K_nR_D}"><mrow><mrow class="term" data-term="V_DS,B"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi><mo>,</mo><mi mathvariant="normal">B</mi></mrow></msub></mrow><mo>=</mo><mstyle displaystyle="true"><mfrac><mrow><msqrt><mrow><mn>1</mn><mo>+</mo><mn>2</mn><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></msqrt><mo>−</mo><mn>1</mn></mrow><mrow><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math>.</li>
+<li><math alttext="V_{GS,B} = V_t + V_{DS,B}"><mrow><mrow class="term" data-term="V_GS,B"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi><mo>,</mo><mi mathvariant="normal">B</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="V_DS,B"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi><mo>,</mo><mi mathvariant="normal">B</mi></mrow></msub></mrow></mrow></math>.</li>
+</ol>
+<h4>Checks</h4>
+<ul class="tight">
+<li><math alttext="0 &lt; V_{DS,B} &lt; V_{DD}"><mrow><mn>0</mn><mo>&lt;</mo><mrow class="term" data-term="V_DS,B"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi><mo>,</mo><mi mathvariant="normal">B</mi></mrow></msub></mrow><mo>&lt;</mo><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math>.</li>
+</ul>
+<h4>Common mistakes</h4>
+<ul class="tight">
+<li>Keeping the minus root, which is negative.</li>
+<li>Forgetting that the coefficient of <math alttext="V_{DS}^2"><mrow><mrow class="term" data-term="V_DS"><msubsup><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow><mn>2</mn></msubsup></mrow></mrow></math> is <math alttext="\tfrac{1}{2}K_nR_D"><mrow><mstyle displaystyle="false"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> rather than 1.</li>
+</ul>
+<p><i>Worked in these notes:</i> pp. 15-8, 15-9.</p>
+</details>
+
+<details class="ap"><summary>A6. Choosing the Q-point</summary>
+<h4>Recognize it</h4>
+<p>"Biasing: establishing the Q-point": pick the DC point on the VTC.</p>
+<h4>Method</h4>
+<ol class="tight">
+<li>Restrict yourself to the sloping part of the VTC between A and B.</li>
+<li>Close to B: more gain but little room for the output to move toward triode.</li>
+<li>Close to A: less gain and little room toward cutoff.</li>
+<li>Check that <math alttext="v_{gs}"><mrow><mrow class="term" data-term="v_gs"><msub><mi>v</mi><mrow><mi mathvariant="normal">gs</mi></mrow></msub></mrow></mrow></math> is small enough that the section is linear.</li>
+</ol>
+<h4>Common mistakes</h4>
+<ul class="tight">
+<li>Maximizing gain only and ignoring the swing.</li>
+<li>Biasing at B itself.</li>
+</ul>
+<p><i>Worked in these notes:</i> pp. 15-9, 15-10.</p>
+</details>
+</div>
+
+<div id="guide-topics">
+<h3>B. Topics Covered by the Lesson 15 Notes</h3>
+<p>Everything in the lesson, grouped by topic, with page numbers.</p>
+<details class="ap"><summary>B1. Amplifier basics</summary>
+<ul class="tight">
+<li>DC supplies provide the extra power for amplification, <math alttext="P_{DC} = V_{CC}I_{CC}+V_{EE}I_{EE}"><mrow><mrow class="term" data-term="P_DC"><msub><mi>P</mi><mrow><mi mathvariant="normal">DC</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="V_CC"><msub><mi>V</mi><mrow><mi mathvariant="normal">CC</mi></mrow></msub></mrow><mrow class="term" data-term="I_CC"><msub><mi>I</mi><mrow><mi mathvariant="normal">CC</mi></mrow></msub></mrow><mo>+</mo><mrow class="term" data-term="V_EE"><msub><mi>V</mi><mrow><mi mathvariant="normal">EE</mi></mrow></msub></mrow><mrow class="term" data-term="I_EE"><msub><mi>I</mi><mrow><mi mathvariant="normal">EE</mi></mrow></msub></mrow></mrow></math> (15-1).</li>
+<li>Supplies limit the output voltage (15-1).</li>
+<li>Voltage, current and power gain; ratios and decibels (15-1).</li>
+</ul>
+</details>
+<details class="ap"><summary>B2. Amplifier models</summary>
+<ul class="tight">
+<li>Open-loop op amp model, <math alttext="R_{out}"><mrow><mrow class="term" data-term="R_out"><msub><mi>R</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow></mrow></math>, <math alttext="R_{in}"><mrow><mrow class="term" data-term="R_in"><msub><mi>R</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow></mrow></math>, <math alttext="A"><mrow><mrow class="term" data-term="A"><mi>A</mi></mrow></mrow></math> (15-2).</li>
+<li>Inverting configuration; input and output dividers (15-2, 15-3).</li>
+<li>Three parameters: <math alttext="R_i"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math>, <math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math>, <math alttext="A_{vo}"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow></mrow></math> (15-2).</li>
+<li>Matching <math alttext="R_i \gg R_S"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>≫</mo><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></math> and <math alttext="R_L \gg R_o"><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow><mo>≫</mo><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> (15-3).</li>
+</ul>
+</details>
+<details class="ap"><summary>B3. Cascaded amplifiers</summary>
+<ul class="tight">
+<li>Stage-by-stage loading, <math alttext="A_v"><mrow><mrow class="term" data-term="A_v"><msub><mi>A</mi><mi mathvariant="normal">v</mi></msub></mrow></mrow></math> and <math alttext="G_v"><mrow><mrow class="term" data-term="G_v"><msub><mi>G</mi><mi mathvariant="normal">v</mi></msub></mrow></mrow></math> (15-4).</li>
+<li>Roles of input, middle and output stages (15-4).</li>
+</ul>
+</details>
+<details class="ap"><summary>B4. Finding the model parameters</summary>
+<ul class="tight">
+<li>Experimentally: <math alttext="R_i"><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></math>, <math alttext="A_{vo}"><mrow><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow></mrow></math>, <math alttext="R_o"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> (15-5).</li>
+<li>Analytically: <math alttext="R_o = v_x/i_x"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="v_x"><msub><mi>v</mi><mi mathvariant="normal">x</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="i_x"><msub><mi>i</mi><mi mathvariant="normal">x</mi></msub></mrow></mrow></math> with a small-signal model (15-6).</li>
+</ul>
+</details>
+<details class="ap"><summary>B5. MOSFET amplifier</summary>
+<ul class="tight">
+<li>Key attributes: gain, <math alttext="R_{in}"><mrow><mrow class="term" data-term="R_in"><msub><mi>R</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow></mrow></math>, <math alttext="R_{out}"><mrow><mrow class="term" data-term="R_out"><msub><mi>R</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow></mrow></math>, signal swing, linearity (15-6).</li>
+<li>Saturation as a voltage-controlled current source (15-6).</li>
+<li>Common-source stage; cutoff, saturation, triode (15-7).</li>
+<li>Voltage transfer characteristic and point B (15-7 to 15-9).</li>
+<li>Q-point, gain and swing, linearity (15-9, 15-10).</li>
+</ul>
+</details>
+</div>
+
+<div id="guide-eqs">
+<h3>C. Equations Used Throughout</h3>
+<details class="ap"><summary>C1. Gain and models</summary>
+<p><math alttext="A_v = \dfrac{v_o}{v_i}"><mrow><mrow class="term" data-term="A_v"><msub><mi>A</mi><mi mathvariant="normal">v</mi></msub></mrow><mo>=</mo><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="v_o"><msub><mi>v</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="v_i"><msub><mi>v</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math>, <math alttext="A_i = \dfrac{i_o}{i_i}"><mrow><mrow class="term" data-term="A_i"><msub><mi>A</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>=</mo><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="i_o"><msub><mi>i</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="i_i"><msub><mi>i</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math>, <math alttext="A_p = \dfrac{v_oi_o}{v_ii_i}"><mrow><mrow class="term" data-term="A_p"><msub><mi>A</mi><mi mathvariant="normal">p</mi></msub></mrow><mo>=</mo><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="v_o"><msub><mi>v</mi><mi mathvariant="normal">o</mi></msub></mrow><mrow class="term" data-term="i_o"><msub><mi>i</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="v_i"><msub><mi>v</mi><mi mathvariant="normal">i</mi></msub></mrow><mrow class="term" data-term="i_i"><msub><mi>i</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math></p>
+<p><math alttext="G = \dfrac{V_o}{V_S} = \dfrac{R_i}{R_i+R_S}A_{vo}\dfrac{R_L}{R_L+R_o}"><mrow><mrow class="term" data-term="G"><mi>G</mi></mrow><mo>=</mo><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></mfrac></mstyle><mo>=</mo><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="R_i"><msub><mi>R</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></mfrac></mstyle><mrow class="term" data-term="A_vo"><msub><mi>A</mi><mrow><mi mathvariant="normal">vo</mi></mrow></msub></mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math></p>
+<p>Cascade: <math alttext="G_v = \dfrac{R_{i1}}{R_{i1}+R_S}A_{v1}A_{v2}A_{v3}"><mrow><mrow class="term" data-term="G_v"><msub><mi>G</mi><mi mathvariant="normal">v</mi></msub></mrow><mo>=</mo><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="R_i1"><msub><mi>R</mi><mrow><mi mathvariant="normal">i</mi><mn>1</mn></mrow></msub></mrow></mrow><mrow><mrow class="term" data-term="R_i1"><msub><mi>R</mi><mrow><mi mathvariant="normal">i</mi><mn>1</mn></mrow></msub></mrow><mo>+</mo><mrow class="term" data-term="R_S"><msub><mi>R</mi><mi mathvariant="normal">S</mi></msub></mrow></mrow></mfrac></mstyle><mrow class="term" data-term="A_v1"><msub><mi>A</mi><mrow><mi mathvariant="normal">v</mi><mn>1</mn></mrow></msub></mrow><mrow class="term" data-term="A_v2"><msub><mi>A</mi><mrow><mi mathvariant="normal">v</mi><mn>2</mn></mrow></msub></mrow><mrow class="term" data-term="A_v3"><msub><mi>A</mi><mrow><mi mathvariant="normal">v</mi><mn>3</mn></mrow></msub></mrow></mrow></math></p>
+<p><math alttext="P_{DC} = V_{CC}I_{CC}+V_{EE}I_{EE}"><mrow><mrow class="term" data-term="P_DC"><msub><mi>P</mi><mrow><mi mathvariant="normal">DC</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="V_CC"><msub><mi>V</mi><mrow><mi mathvariant="normal">CC</mi></mrow></msub></mrow><mrow class="term" data-term="I_CC"><msub><mi>I</mi><mrow><mi mathvariant="normal">CC</mi></mrow></msub></mrow><mo>+</mo><mrow class="term" data-term="V_EE"><msub><mi>V</mi><mrow><mi mathvariant="normal">EE</mi></mrow></msub></mrow><mrow class="term" data-term="I_EE"><msub><mi>I</mi><mrow><mi mathvariant="normal">EE</mi></mrow></msub></mrow></mrow></math></p>
+</details>
+<details class="ap"><summary>C2. MOSFET and common-source stage</summary>
+<p>Saturation: <math alttext="V_{GS} &gt; V_t"><mrow><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow><mo>&gt;</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow></mrow></math>, <math alttext="V_{DS} &gt; V_{OV}"><mrow><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow><mo>&gt;</mo><mrow class="term" data-term="V_OV"><msub><mi>V</mi><mrow><mi mathvariant="normal">OV</mi></mrow></msub></mrow></mrow></math>, <math alttext="V_{GD} &lt; V_t"><mrow><mrow class="term" data-term="V_GD"><msub><mi>V</mi><mrow><mi mathvariant="normal">GD</mi></mrow></msub></mrow><mo>&lt;</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow></mrow></math>; <math alttext="I_D = \tfrac{1}{2}K_n(V_{GS}-V_t)^2"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow><mo>=</mo><mstyle displaystyle="false"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mo stretchy="false">(</mo><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow></math></p>
+<p>Triode: <math alttext="I_D = K_n[(V_{GS}-V_t)V_{DS} - \tfrac{1}{2}V_{DS}^2]"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mo stretchy="false">[</mo><mo stretchy="false">(</mo><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow><mo stretchy="false">)</mo><mrow class="term" data-term="V_DS"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow></msub></mrow><mo>−</mo><mstyle displaystyle="false"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow class="term" data-term="V_DS"><msubsup><mi>V</mi><mrow><mi mathvariant="normal">DS</mi></mrow><mn>2</mn></msubsup></mrow><mo stretchy="false">]</mo></mrow></math></p>
+<p><math alttext="V_o = V_{DD} - I_DR_D"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math></p>
+</details>
+<details class="ap"><summary>C3. Point B</summary>
+<p><math alttext="V_{DS,B} = \dfrac{\sqrt{1+2K_nR_DV_{DD}}-1}{K_nR_D}"><mrow><mrow class="term" data-term="V_DS,B"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi><mo>,</mo><mi mathvariant="normal">B</mi></mrow></msub></mrow><mo>=</mo><mstyle displaystyle="true"><mfrac><mrow><msqrt><mrow><mn>1</mn><mo>+</mo><mn>2</mn><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></msqrt><mo>−</mo><mn>1</mn></mrow><mrow><mrow class="term" data-term="K_n"><msub><mi>K</mi><mi mathvariant="normal">n</mi></msub></mrow><mrow class="term" data-term="R_D"><msub><mi>R</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math>, <math alttext="V_{GS,B} = V_t + V_{DS,B}"><mrow><mrow class="term" data-term="V_GS,B"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi><mo>,</mo><mi mathvariant="normal">B</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="V_t"><msub><mi>V</mi><mi mathvariant="normal">t</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="V_DS,B"><msub><mi>V</mi><mrow><mi mathvariant="normal">DS</mi><mo>,</mo><mi mathvariant="normal">B</mi></mrow></msub></mrow></mrow></math></p>
+</details>
+</div>
+</section>
+<footer><p>Completed from ECE321_L15_B.pdf, notetaker pages 15-1 to 15-10. The source and load values of the cascade on page 15-4 follow Example 1.3 of the course text.</p><p>Highlighted text fills a source blank (underlined when printed). † marks a value reconstructed from the simulations or the lesson; [handout value] marks a value given only in the named handout.</p></footer></main><script type="application/json" id="glossary">{"math": {"A": ["A", "Open-loop voltage gain of the op amp."], "A_i": ["A_i", "Current gain: output current over input current, i_o/i_i."], "A_p": ["A_p", "Power gain: load power over input power, v_o i_o /(v_i i_i). It equals A_v A_i."], "A_v": ["A_v", "Voltage gain from the amplifier input to the output (it does not include the source resistance)."], "A_v1": ["A_v1", "Loaded voltage gain of stage 1 of the cascade."], "A_v2": ["A_v2", "Loaded voltage gain of stage 2 of the cascade."], "A_v3": ["A_v3", "Loaded voltage gain of stage 3 of the cascade."], "A_vk": ["A_vk", "Loaded voltage gain of stage k."], "A_vo": ["A_vo", "Open-circuit voltage gain: output over input with no load connected."], "A_vo,k": ["A_vo,k", "Open-circuit voltage gain of stage k."], "A_vo1": ["A_vo1", "Open-circuit voltage gain of stage 1."], "A_vo2": ["A_vo2", "Open-circuit voltage gain of stage 2."], "A_vo3": ["A_vo3", "Open-circuit voltage gain of stage 3."], "G": ["G", "Gain from the source voltage V_S to the output voltage V_o, including source and load resistances."], "G_v": ["G_v", "Overall voltage gain from the source to the load; it includes the loss at the input."], "I_CC": ["I_CC", "Current drawn from the positive supply."], "I_D": ["I_D", "Drain current of the MOSFET."], "I_EE": ["I_EE", "Current drawn from the negative supply."], "K_n": ["K_n", "Device transconductance parameter in I_D = ½K_n V_OV²."], "P_DC": ["P_DC", "Total power delivered by the DC supplies."], "R": ["R", "A resistor; in the measurement methods, the variable resistor that is adjusted."], "R_D": ["R_D", "Drain resistor, from the drain to V_DD."], "R_L": ["R_L", "Load resistance."], "R_OUT": ["R_OUT", "Output resistance of the op amp."], "R_S": ["R_S", "Source (signal generator) resistance."], "R_i": ["R_i", "Input resistance of the amplifier."], "R_i,k+1": ["R_i,k+1", "Input resistance of the stage after stage k."], "R_i1": ["R_i1", "Input resistance of stage 1."], "R_i2": ["R_i2", "Input resistance of stage 2."], "R_i3": ["R_i3", "Input resistance of stage 3."], "R_in": ["R_in", "Input resistance of the amplifier."], "R_o": ["R_o", "Output resistance of the amplifier."], "R_o,k": ["R_o,k", "Output resistance of stage k."], "R_o1": ["R_o1", "Output resistance of stage 1."], "R_o2": ["R_o2", "Output resistance of stage 2."], "R_o3": ["R_o3", "Output resistance of stage 3."], "R_out": ["R_out", "Output resistance of the amplifier."], "V": ["V", "Voltage."], "V_CC": ["V_CC", "Positive DC supply voltage."], "V_DD": ["V_DD", "Positive DC supply voltage of the MOSFET circuit."], "V_DS": ["V_DS", "Drain-to-source voltage. Must be at least V_OV for saturation."], "V_DS,B": ["V_DS,B", "Drain-to-source voltage at point B, the edge of saturation (equal to V_OV there)."], "V_EE": ["V_EE", "Magnitude of the negative DC supply voltage."], "V_GD": ["V_GD", "Gate-to-drain voltage. In saturation it is below V_t."], "V_GS": ["V_GS", "Gate-to-source voltage; the DC bias value or the total, as the text says."], "V_GS,B": ["V_GS,B", "Gate-to-source voltage at point B."], "V_L": ["V_L", "Voltage across the load."], "V_Load": ["V_Load", "Voltage across the load."], "V_OV": ["V_OV", "Overdrive voltage V_GS − V_t."], "V_OV,B": ["V_OV,B", "Overdrive voltage at point B."], "V_S": ["V_S", "Source (signal generator) voltage."], "V_i": ["V_i", "Voltage at the input terminals of the amplifier."], "V_o": ["V_o", "Output voltage."], "V_t": ["V_t", "Threshold voltage of the MOSFET."], "i_i": ["i_i", "Input current."], "i_o": ["i_o", "Output current."], "i_x": ["i_x", "Current delivered by the test source."], "v_gs": ["v_gs", "Signal part of the gate-source voltage."], "v_i": ["v_i", "Input voltage."], "v_o": ["v_o", "Output voltage."], "v_x": ["v_x", "Test voltage applied across the output terminals."]}, "text": {"op amp": ["Op amp", "Operational amplifier: a high-gain differential amplifier with high input and low output resistance."], "MOSFET": ["MOSFET", "Metal-oxide-semiconductor field-effect transistor."], "KVL": ["KVL", "Kirchhoff's voltage law: voltages around a loop sum to zero."], "DC": ["DC", "Direct current: steady values with no signal."], "ac": ["ac", "Alternating current: the signal part of a voltage or current."], "VTC": ["VTC", "Voltage transfer characteristic: output voltage plotted against input voltage."], "Q-point": ["Q-point", "Quiescent (bias) point: the DC operating point on the VTC."], "dB": ["dB", "Decibel: 20 log10 of a voltage or current gain, 10 log10 of a power gain."], "decibels": ["Decibels", "Logarithmic gain unit: 20 log10 of a voltage or current gain, 10 log10 of a power gain."], "saturation": ["Saturation", "MOSFET region with V_GS > V_t and V_DS ≥ V_OV: the drain current follows the square law and the device can amplify. (For an op amp: output stuck at a supply limit.)"], "cutoff": ["Cutoff", "MOSFET region with V_GS < V_t: the device is off and I_D = 0."], "triode": ["Triode", "MOSFET region with V_DS < V_OV: the device acts like a voltage-controlled resistor."], "overdrive": ["Overdrive", "V_OV = V_GS − V_t."], "threshold": ["Threshold voltage", "V_t: the gate-source voltage at which the MOSFET starts to conduct."], "input resistance": ["Input resistance", "Resistance seen looking into the input terminals."], "output resistance": ["Output resistance", "Resistance seen looking back into the output terminals."], "open-circuit": ["Open-circuit", "With the load removed, so no output current flows."], "small-signal": ["Small-signal", "A model valid only for signals small enough that the device responds linearly."], "cascade": ["Cascade", "Amplifier stages connected output to input."], "cascaded": ["Cascaded", "Connected output to input, so each stage loads the previous one."], "linearity": ["Linearity", "The output is proportional to the input."], "signal swing": ["Signal swing", "The range over which the output signal can move without clipping."], "swing": ["Swing", "How far the output can move above and below its bias value without clipping."], "bias": ["Bias", "The DC voltages and currents that set the operating point."], "biasing": ["Biasing", "Establishing the DC operating point."], "current source": ["Current source", "A source whose current is set by a control quantity, not by the voltage across it."], "transfer characteristic": ["Transfer characteristic", "Output plotted against input."], "amplification": ["Amplification", "Increasing the power of a signal."], "unity gain": ["Unity gain", "A gain of 1."], "buffer": ["Buffer", "A stage with gain near 1 and low output resistance that isolates a load."]}}</script><script>
+(function () {
+  var root = document.documentElement;
+  var KEY = 'notes-mode';
+  var sw = document.getElementById('mode-switch');
+  var all = function () { return Array.prototype.slice.call(document.querySelectorAll('details')); };
+  var notes = function () { return Array.prototype.slice.call(document.querySelectorAll('details.xp')); };
+
+  /* Printer-friendly mode opens every dropdown; leaving it restores exactly
+     the dropdowns the reader had open before switching. */
+  var before = null;
+  function enterPrint() {
+    before = all().map(function (d) { return d.open; });
+    all().forEach(function (d) { d.open = true; });
+  }
+  function leavePrint() {
+    var list = all();
+    list.forEach(function (d, i) { d.open = before ? !!before[i] : false; });
+    before = null;
+  }
+  function setMode(print, initial) {
+    var wasPrint = root.getAttribute('data-mode') === 'print' && !initial;
+    if (print) root.setAttribute('data-mode', 'print'); else root.removeAttribute('data-mode');
+    if (sw) sw.setAttribute('aria-checked', print ? 'true' : 'false');
+    if (print && (initial || !wasPrint)) enterPrint();
+    if (!print && wasPrint) leavePrint();
+  }
+  var stored = 'dark';
+  try { stored = localStorage.getItem(KEY) || 'dark'; } catch (e) {}
+  setMode(stored === 'print', true);
+  if (sw) sw.addEventListener('click', function () {
+    var print = root.getAttribute('data-mode') !== 'print';
+    setMode(print, false);
+    try { localStorage.setItem(KEY, print ? 'print' : 'dark'); } catch (e) {}
+  });
+
+  /* Real printing from dark mode: open everything, then put it back. */
+  var printing = null;
+  addEventListener('beforeprint', function () {
+    printing = all().map(function (d) { return d.open; });
+    all().forEach(function (d) { d.open = true; });
+  });
+  addEventListener('afterprint', function () {
+    if (printing) all().forEach(function (d, i) { d.open = !!printing[i]; });
+    printing = null;
+  });
+
+  var b = document.getElementById('xp-toggle');
+  if (b) b.addEventListener('click', function () {
+    var open = notes().some(function (d) { return !d.open; });
+    notes().forEach(function (d) { d.open = open; });
+    b.textContent = open ? 'Close all expansion notes' : 'Open all expansion notes';
+  });
+})();
+</script>
+<script>
+/* Hover definitions. Variables in the math are tagged at build time
+   (mrow.term[data-term]); acronyms and ECE terms in running text are wrapped
+   here from the same glossary. Tooltips are off in printer-friendly mode. */
+(function () {
+  var root = document.documentElement;
+  var data = JSON.parse(document.getElementById('glossary').textContent);
+  var TEXT = data.text, MATH = data.math, LOWER = {};
+  Object.keys(TEXT).forEach(function (k) { if (k === k.toLowerCase()) LOWER[k] = TEXT[k]; });
+
+  var esc = function (s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); };
+  var keys = Object.keys(TEXT).sort(function (a, b) { return b.length - a.length; });
+  var re = new RegExp('(?<![A-Za-z0-9])(' + keys.map(esc).join('|') + ')(?![A-Za-z0-9])', 'gi');
+  var lookup = function (m) { return TEXT[m] || LOWER[m.toLowerCase()] || null; };
+  var SKIP = 'math, svg, script, style, button, .controls, h1, h2, h3, h4, .term, #tip';
+
+  var page = document.querySelector('.page');
+  var walker = document.createTreeWalker(page, NodeFilter.SHOW_TEXT, {
+    acceptNode: function (n) {
+      if (!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+      return n.parentElement.closest(SKIP) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+    }
+  });
+  var nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(function (n) {
+    var text = n.nodeValue, last = 0, m, frag = null;
+    re.lastIndex = 0;
+    while ((m = re.exec(text))) {
+      var entry = lookup(m[0]);
+      if (!entry) continue;
+      frag = frag || document.createDocumentFragment();
+      frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+      var span = document.createElement('span');
+      span.className = 'term'; span.setAttribute('data-text', m[0]); span.textContent = m[0];
+      frag.appendChild(span); last = m.index + m[0].length;
+    }
+    if (frag) { frag.appendChild(document.createTextNode(text.slice(last))); n.parentNode.replaceChild(frag, n); }
+  });
+
+  var tip = document.createElement('div');
+  tip.id = 'tip'; tip.className = 'tip'; tip.setAttribute('role', 'tooltip'); tip.hidden = true;
+  document.body.appendChild(tip);
+
+  function label(s) {   /* "V_GS" -> V<sub>GS</sub>, built as DOM nodes */
+    var b = document.createElement('b'), i = s.indexOf('_');
+    if (i < 0) { b.textContent = s; return b; }
+    b.appendChild(document.createTextNode(s.slice(0, i)));
+    var sub = document.createElement('sub'); sub.textContent = s.slice(i + 1); b.appendChild(sub);
+    return b;
+  }
+  function rich(text) {   /* "V_GS − V_t" -> V<sub>GS</sub> − V<sub>t</sub> */
+    var frag = document.createDocumentFragment(), re2 = /([A-Za-zλ])_([A-Za-z0-9]+(?:,[A-Za-z]+)?)/g, last = 0, m;
+    while ((m = re2.exec(text))) {
+      frag.appendChild(document.createTextNode(text.slice(last, m.index) + m[1]));
+      var sub = document.createElement('sub'); sub.textContent = m[2]; frag.appendChild(sub);
+      last = m.index + m[0].length;
+    }
+    frag.appendChild(document.createTextNode(text.slice(last)));
+    return frag;
+  }
+  var current = null;
+  function show(el) {
+    if (root.getAttribute('data-mode') === 'print') return;
+    var entry = el.hasAttribute('data-term') ? MATH[el.getAttribute('data-term')] : lookup(el.getAttribute('data-text') || '');
+    if (!entry) return;
+    tip.textContent = '';
+    tip.appendChild(label(entry[0]));
+    tip.appendChild(rich(entry[1]));
+    tip.hidden = false; current = el;
+    var r = el.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
+    var left = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8);
+    var top = r.bottom + 8;
+    if (top + h > innerHeight - 8) top = r.top - h - 8;
+    tip.style.left = left + 'px'; tip.style.top = Math.max(8, top) + 'px';
+  }
+  function hide() { tip.hidden = true; current = null; }
+  var termOf = function (t) { return t && t.closest ? t.closest('.term') : null; };
+
+  /* Mouse: the box appears only after the pointer rests on a term for 1 s. */
+  var DELAY = 1000, timer = null, pending = null;
+  function cancel() { clearTimeout(timer); timer = null; pending = null; }
+  document.addEventListener('mouseover', function (e) {
+    var t = termOf(e.target);
+    if (!t || t === current || t === pending) return;
+    cancel(); pending = t;
+    timer = setTimeout(function () { if (pending === t) show(t); pending = null; }, DELAY);
+  });
+  document.addEventListener('mouseout', function (e) {
+    var t = termOf(e.target);
+    if (t && !t.contains(e.relatedTarget)) { if (t === pending) cancel(); if (t === current) hide(); }
+  });
+  document.addEventListener('pointerup', function (e) {
+    if (e.pointerType === 'mouse') return;
+    var t = termOf(e.target);
+    if (t && t !== current) show(t); else hide();
+  });
+  addEventListener('scroll', function () { cancel(); hide(); }, { passive: true });
+  addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
+  var sw = document.getElementById('mode-switch');
+  if (sw) sw.addEventListener('click', hide);
+})();
+</script>
+<script src="../assets/ai.js"></script></body></html>

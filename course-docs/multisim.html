@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multisim Installation & Setup Guide · ECE 321 Electronics I</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+<link rel="stylesheet" href="../assets/navbar.css"></head>
+<body>
+  <a class="skip" href="#main-content">Skip to document content</a>
+
+  <header class="site-nav"><a class="brand" href="../index.html#home"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 16C8 5 12 5 16 16S24 27 28 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>ECE <strong>321</strong></a><nav class="nav-links" aria-label="Course navigation"><a href="../index.html#home">Home</a><a href="../index.html#syllabus">Syllabus</a><a href="../equation-sheets/index.html">Equation sheets</a><a href="../course-docs/index.html" class="active" aria-current="page">Course docs</a><a href="../index.html#homework">Reading guides</a><a href="../index.html#lessons">Lesson guides</a><a href="../index.html#study">Study sessions</a></nav><span class="semester"><i></i> FALL 2026</span></header>
+
+  <main id="main-content" class="doc-container">
+    <div class="doc-header">
+      <div class="doc-header-main">
+        <p class="doc-eyebrow">SOFTWARE SETUP & LICENSING</p>
+        <h1 class="doc-title">Multisim Installation & Activation Guide</h1>
+        <p class="doc-desc">Official step-by-step instructions for installing and activating National Instruments Multisim Education Edition with USAFA licensing.</p>
+      </div>
+      <div class="doc-actions">
+        <button class="btn btn-primary" onclick="window.print()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print / PDF (Lightmode)
+        </button>
+        <a class="btn" href="index.html">All Course Docs</a>
+      </div>
+    </div>
+
+    <!-- CREDENTIALS CALLOUT -->
+    <div class="card" style="border-left: 4px solid var(--accent); margin-bottom: 2rem;">
+      <h2 style="font-size: 1.25rem; color: var(--head); margin-top: 0;">USAFA License Information</h2>
+      <table class="doc-table">
+        <tbody>
+          <tr><td style="width: 220px;"><strong>Organization</strong></td><td><code>USAFA</code></td></tr>
+          <tr><td><strong>Email</strong></td><td>Use your official <code>@afacademy.af.edu</code> cadet email</td></tr>
+          <tr><td><strong>Serial Number</strong></td><td>Provided by your instructor (not published on this site)</td></tr>
+          <tr><td><strong>Product Version</strong></td><td>Auto-filled after selecting Education Edition</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <section class="card doc-section">
+      <h2 style="font-size: 1.35rem; color: var(--head); margin-top: 0; border-bottom: 2px solid var(--line); padding-bottom: 0.5rem;">
+        Step-by-Step Activation Instructions
+      </h2>
+
+      <ol class="steps-list" style="margin-top: 1.5rem;">
+        <li>
+          <strong>Open the NI Product Activation Portal:</strong><br>
+          Navigate to: <a href="https://www.ni.com/nilg-activate/jsp/customer_activate_details.jsp?p_serial_number" target="_blank" rel="noopener" style="color: var(--blue);">NI License Activation Portal ↗</a><br>
+          Enter your <strong>First and Last Name</strong>, <strong>USAFA</strong> as Organization, your official cadet email, and the serial number your instructor gave you.
+          <p class="eq-notes"><em>Note:</em> You must enter your serial number before you can select the product you want to activate.</p>
+          <figure class="doc-figure" style="max-width: 600px; margin: 1rem 0;">
+            <img src="../assets/docs/multisim/image1.jpeg" alt="NI Product Activation Form">
+            <figcaption>Step 1: Enter User Information and USAFA Serial Number</figcaption>
+          </figure>
+        </li>
+
+        <li>
+          <strong>Select Product Edition:</strong><br>
+          After entering the serial number, select <strong>Multisim Education Edition</strong>. The portal will automatically populate your operating system and product version fields.
+          <figure class="doc-figure" style="max-width: 600px; margin: 1rem 0;">
+            <img src="../assets/docs/multisim/image2.jpeg" alt="Select Multisim Education Edition">
+            <figcaption>Step 2: Multisim Education Edition Selection</figcaption>
+          </figure>
+        </li>
+
+        <li>
+          <strong>Obtain Your Unique Computer ID:</strong><br>
+          To find your Computer ID, you must download and run the <strong>NI License Manager</strong>:<br>
+          Download link: <a href="https://www.ni.com/en/support/downloads/software-products/download/packaged.license-manager.521647.html" target="_blank" rel="noopener" style="color: var(--blue);">NI License Manager Download ↗</a><br>
+          Once installed, open NI License Manager, click on <strong>Computer</strong> in the top menu bar, and view your 16-character Computer ID.
+        </li>
+
+        <li>
+          <strong>Generate & Receive Activation Code:</strong><br>
+          Submit the Activation Code Generation Form. National Instruments will send your 20-character Activation Code via email.
+        </li>
+
+        <li>
+          <strong>Download Multisim & Apply Code:</strong><br>
+          Download the Multisim software installer from:<br>
+          <a href="https://www.ni.com/en/support/downloads/software-products/download.multisim.html#452133" target="_blank" rel="noopener" style="color: var(--blue);">National Instruments Multisim Software Download ↗</a><br>
+          Run the installer, enter your Activation Code when prompted, and complete the installation wizard by clicking Next / Accept.
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="doc-footer">
+    <p>ECE 321 Electronics I · Department of Electrical & Computer Engineering · United States Air Force Academy</p>
+    <p><a href="index.html">← Back to Course Documents Overview</a> · <a href="#main-content">Back to Top ↑</a></p>
+  </footer>
+</body>
+</html>

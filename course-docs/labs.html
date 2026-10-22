@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laboratory Handouts & Guides · ECE 321 Electronics I</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+<link rel="stylesheet" href="../assets/navbar.css"></head>
+<body>
+  <a class="skip" href="#main-content">Skip to document content</a>
+
+  <header class="site-nav"><a class="brand" href="../index.html#home"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 16C8 5 12 5 16 16S24 27 28 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>ECE <strong>321</strong></a><nav class="nav-links" aria-label="Course navigation"><a href="../index.html#home">Home</a><a href="../index.html#syllabus">Syllabus</a><a href="../equation-sheets/index.html">Equation sheets</a><a href="../course-docs/index.html" class="active" aria-current="page">Course docs</a><a href="../index.html#homework">Reading guides</a><a href="../index.html#lessons">Lesson guides</a><a href="../index.html#study">Study sessions</a></nav><span class="semester"><i></i> FALL 2026</span></header>
+
+  <main id="main-content" class="doc-container">
+    <div class="doc-header">
+      <div class="doc-header-main">
+        <p class="doc-eyebrow">LABORATORY EXPERIMENTS & HANDOUTS</p>
+        <h1 class="doc-title">ECE 321: Laboratory Handouts & Instructions</h1>
+        <p class="doc-desc">Complete laboratory assignment guides, prelab requirements, measurement procedures, schematics, and analysis prompts for Labs 1, 2, and 3.</p>
+      </div>
+      <div class="doc-actions">
+        <button class="btn btn-primary" onclick="window.print()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print / PDF (Lightmode)
+        </button>
+        <a class="btn" href="index.html">All Course Docs</a>
+      </div>
+    </div>
+
+    <nav class="jump-nav" aria-label="Jump to lab">
+      <span>Jump to:</span>
+      <a href="#lab1">Lab 1: Diode Characterization & Regulator</a>
+      <a href="#lab1-prelab">Lab 1 Pre-Lab</a>
+      <a href="#lab2">Lab 2: MOSFET Characterization</a>
+      <a href="#lab3">Lab 3: Multi-Stage FET Amplifier</a>
+    </nav>
+
+    <!-- LAB 1 -->
+    <section id="lab1" class="doc-section">
+      <h2 class="section-title">
+        Lab 1: Diode Characterization and Voltage Regulator
+        <span class="tag">Lesson 7</span>
+      </h2>
+
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <h3 class="card-title">Lab Exercise #1 Handout (v4, Fall 2026)</h3>
+        <p style="margin: 0.5rem 0; line-height: 1.6;">ECE 321 Lab Exercise #1 v4   F26</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">“Diode Characterization and Voltage Regulator”</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Part 1: Diode Characterization</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">We will use a variable power supply and four different resistors to sweep the operating range of a 1N4150 diode (DO-35 package). The circuit we will use is shown next (from the prelab)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">We will use the values of RLim shown in the table below and collect up the current values to the right of those.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">RLim</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Required Currents to be Measured</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">24k (1/4W)</p>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">100A</h4>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">200A</h4>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">400A</h4>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">800A</h4>
+<p style="margin: 0.5rem 0; line-height: 1.6;">2.4k (1/4W)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">1mA</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">2mA</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">4mA</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">8mA</p>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">240 (1/4W)</h4>
+<p style="margin: 0.5rem 0; line-height: 1.6;">10mA</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">20mA</p>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">56  (1W)</h4>
+<p style="margin: 0.5rem 0; line-height: 1.6;">40mA</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">80mA</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">100mA</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Your procedure should capture the following: (1) the VCC source should always be zeroed out before taking any measurements for a given resistance value; (2) you should be able to just swap in and out the new resistors; (3) ensure that the ammeter is always reading DC (press the orange top button indicated to get DC); (4) use the appropriate ammeter scale (mA vs mA) based on your measurement range; (5) slowly increase the DC voltage until your ammeter reads approximately the desired lowest current; (6) record the diode current and voltage; (7) continue increasing VCC until you’ve captured each data point for that RLim.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Once you have the 13 data points, use your pre-lab curve fit process to find “n” and “IS” for RP equal to 0.75W, 1.0W, and 1.5W.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Part 2: Diode Regulator</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">The requirements for the Diode Regulator are as follows:</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">The input voltages are 5VDC and 1Vpp, 1kHz, sine from the FG</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">RLoad should be 1kW</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">RLim should be a fixed 1/4W resistor; RPot should be a standard-value potentiometer</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Each diode should be model 1N4150 (cathode indicated by bar on package)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">With both input voltages applied, the load voltage VL should remain between 2.5V and 3.0V</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">The Line Regulation (LR) should be less than 15%</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Your design should permit you to examine values of source resistance that span 500W so you can determine which RPot value minimizes the LR</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">An efficient way of measuring the DC operating point for each potentiometer setting is to use a single DMM set to measure DC voltage and alternately connect it to measure VS, VR, and VL as shown in the figure above. From that data and having measured the resistances RLim and RLoad, you can compute the current through the potentiometer, the load current, and then using KCL the current down through the diodes. Since you will now have the potentiometer current and can find the voltage across the potentiometer, you can compute the potentiometer’s set resistance (this value should be less than the total potentiometer resistance). You can then, assuming each diode is identical, calculate the individual diode voltage.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">You should simultaneously have your oscope monitoring VS and VL on channels 1 and 2.   Set the scope to measure the peak-to-peak values. Use AC coupling and ensure that each signal is big enough on the screen for the scope to generate a good measurement.  From that data, you can compute the Line Regulation.  Identify the maximum and minimum values of the output voltage (cursors).  Print off a scope plot for your input and output voltages at the minimum LR setting (white background).</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">You should have about 10 data points spanning the extremes of the potentiometer (0W to 500W) and locating the minimum LR point. Tables similar to the following are useful</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Important: the FG AC output should be adjusted each data point so that it reads about 1Vpp on the scope. At the same point, adjust the FG offset value (measured as VS by the DMM) so that it reads 5VDC. These values will change based on the FG loading as shown by the figure below so bump it up or down as required to read 1Vpp and 5VDC.  If you don’t, we are not comparing apples to apples.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Collect these quantities (k goes from 1 to 10, the number of data points we desire)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">k</p>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">VS (DC DMM)</h4>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">VR (DC DMM)</h4>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">VL (DC DMM)</h4>
+<p style="margin: 0.5rem 0; line-height: 1.6;">∆Vin,pp (scope)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">∆Vout,pp (scope)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">1</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">⋮</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">10</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">You can then calculate remaining quantities</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">k</p>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">V100W</h4>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">(KVL)</h4>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">IR=I100W</h4>
+<p style="margin: 0.5rem 0; line-height: 1.6;">(pot)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">(Ohm’s Law)</p>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">IL</h4>
+<p style="margin: 0.5rem 0; line-height: 1.6;">(load)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">(Ohm’s Law)</p>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">ID</h4>
+<p style="margin: 0.5rem 0; line-height: 1.6;">(diodes)</p>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">(KCL)</h4>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Vpot</p>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">(KVL)</h4>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Rpot</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">(Ohm’s Law)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">VL,min</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">(VL - 0.5∆Vout,pp)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">VL,max</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">(VL + 0.5∆Vout,pp)</p>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">LR</h4>
+<p style="margin: 0.5rem 0; line-height: 1.6;">∆Vout,pp∆Vin,pp</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">1</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">⋮</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">10</p>
+<li style="margin-bottom: 0.35rem;">Have the instructor verify that your data looks reasonable:  _________________</li>
+<p style="margin: 0.5rem 0; line-height: 1.6;">To simplify data collection, it is easiest to turn the potentiometer, take the data, and compute the potentiometer resistance then it would be to manually remove it and set its value with the ohmmeter (but either approach is fine).</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">What should be in your lab notebook</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">A table of contents page at the front</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Lab number and title</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Lab sections</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Short statement of objective for each section</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Figure + any settings on FG, DMMs, and scope</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Procedure (enough detail that another ECE cadet could reproduce your results)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Data (organized and clear based on your Figure + Procedure)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">If any data is calculated, list the equation used</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Synopsis of findings and lessons learned</p>
+<li style="margin-bottom: 0.35rem;">The notebook does not have to look perfect. Items can be scratched out and corrected. It should not be messy or disorganized.</li>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Questions to be considered in your lab report</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Using your voltage regulator Multisim circuit from the prelab, modify the parameters for IS, RP, and N found in the hardware lab. Determine which set of parameters (for RP = 0.75, 1.0, 1.5ohm) tend to more accurately represent your data</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Analytically compute the DC operating point of your voltage regulator for the potentiometer setting that yielded the minimum LR. Use both a constant voltage drop model approach and the Gauss-Seidel iterative approach. Compare the results with your collected data.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Use the computed diode DC current to create a small-signal model of your circuit. Compute the peak-to-peak output voltage variation and the variation across one diode. Is the diode voltage ripple small enough to validate the small-signal assumption?  What is the line regulation that this small-signal model would predict?  How does this compare with your data?</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Lab Report</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Your work is now spread out over pre-lab, lab notebook, and a lab report. In order to be reasonable and not make the lab report duplicate information too badly, we will focus the report on the following items:</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Course, Lab # and title, cadet names, date, section</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">What you learned from Part 1 (narrative form, figure reference)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Synopsis of objective</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Synopsis of approach</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Synopsis of data</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Conclusions</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">What you learned from Part 2 (narrative form, figure reference)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Synopsis of objective</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Synopsis of approach</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Synopsis of data</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Show your simulation and discuss how you used</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Show your oscope plot of input and output voltages for the lowest LR. Discuss if this was consistent with your analysis</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Conclusions</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Answer the questions on page 3 (you may attach hand-written work as an appendix, everything in the body should be typed, including any equations used therein)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Note, the lab notebook will capture objectives, procedure, and data.  The pre-lab will document part of the analysis. Additional analysis should be provided in the lab report. The bulk of conclusions should be in the report.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">The lab report should be typed, 3rd person, pages numbered, any figures labeled, any equations numbered, figures should be big enough and clear, and any assistance clearly documented.</p>
+      </div>
+
+      <div id="lab1-prelab" class="card" style="border-left: 3px solid var(--blue);">
+        <h3 class="card-title" style="color: var(--blue);">Pre-Lab 1 Preparation & Calculations</h3>
+        <p style="margin: 0.5rem 0; line-height: 1.6;">ECE 321 Pre-Lab 1 (F26)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">The pre-lab will be broken up into two parts: understanding how to collect data to “characterize” our diode and exploring the performance of four diodes in series serving as a “voltage regulator”</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Part 1: Diode Characterization</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">If we look inside a typical Multisim diode model, we will find a number of parameters. The first three shown below will be of particular interest:  IS, RP, and N.  These are the saturation current, parasitic resistance, and the ideality factor.  We see that the default N is the ideal value of 1.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">The diode model, as shown below, includes a diode modeled by the Shockley diode equation plus a parasitic resistance RP to model contact and other non-ideal internal drops.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">We will collect data (measured voltage and current) sufficient to get the best fit for our parameters IS and n.  The first step will be to assume a value for RP. We see above that our diode model uses 1.  A better fit will typically require a bigger value than that.  Next, we will take all of our measured data and back out the voltage drop across the internal diode in the figure above</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">(1)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">If we consider the Shockley diode equation and note that the “-1” term is relevant only at extremely small current, we simplify to</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">(2)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">If we take the natural log (ln) of both sides and distribute</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">(3)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">The last term in (3) simplifies, so our expression takes the final form</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">(4)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Which is the form of a line, , with “y” being the natural log of the diode current and “x” being the internal diode voltage. So, if we can get good fit values for “m” and “b” from our data set, then it is straight-forward to establish values for “n” and “IS”.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">(5)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Thankfully, Matlab has a function “polyfit” that will perform the least-squares “best fit” for us. The syntax is</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">&gt;&gt; p  =  polyfit( x,  y,   order )</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Where “x” and “y” are your VD and ln(ID) vectors of data points (google if you forget how to load values into a Matlab vector), and “order” is the order of the polynomial you wish to fit through (so, in our case order = 1, thus we want a line). The output “p” will be the polynomial coefficients in descending powers (so coefficients of x1 then x0, thus “m” and “b”).  OK, here’s your warmup tasks.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Question 1: Google what it means to have a “least squares best fit”. Explain it in your own words.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">A least squares best fit finds the line that best represents the data by minimizing the total squared differences between the measured points and the predicted line.A</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Problem 1: Given information below from our diode data sheet about the range of possible voltages for a given current level, use the average of the two values (so for 1mA, use (0.620 + 0.540)/2. Assume these are the measured voltages across the diode. Assume an RP = 1.5, compute the voltages VD using eqn (1), then fit a line (polyfit) through the ln(ID) vs VD data points and find m and b. Compute the corresponding IS and n from eqn (5).</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Next, we need to consider how we can model our given diode from the lab that might not exactly have the same data numbers we just worked considered in Problem 1. How can we assemble some measured currents and voltages? Let’s consider the following circuit. Here, we have an adjustable positive supply, a current limiting resistor, our Device Under Test (DUT) the 1N4150 diode, and two DMMs (one configured to measure the DC diode current and the other to measure the DC diode voltage). Our goal is to collect data over a wide range of currents so our data fit will be adequate for both large and small currents through the diode.  For your information, 200mA is about the largest current that we will want to pass through the diode and not thermally stress it.  We will stay below that value.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">If the limit resistor has too large of a resistance for the desired current through it, then it might require too large of a voltage source value (Ohm’s Law) or it could exceed the power rating of the resistance (P=I2R). So, to use convenient resistors in the lab, we will find that we will want to use different resistor values as we consider different ranges of current.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Problem 2: Given the table below, determine the source voltage (KVL) and the required resistor power for the four ranges of currents (13 values) and the listed RLim values. For the diode drop, assume a worst case value as given in the data sheet table (e.g., at 1mA, assume VD is 0.62V. Do a simple interpolation for values not listed). Our design goal is that we keep our source voltage under 25V and above 1.5V. Also, make sure the dissipated power of RLim stays below the listed rated power.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Resistance</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Desired</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Current</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Calculated Voltage</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Calculated R Power</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">RLim = 56</p>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">1W</h4>
+<p style="margin: 0.5rem 0; line-height: 1.6;">100mA</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">6.520</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">0.56</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">80mA</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">5.376</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">0.3584</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">40mA</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">3.076</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">0.0896</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">RLim = 240</p>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">1/4W</h4>
+<p style="margin: 0.5rem 0; line-height: 1.6;">20mA</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">5.570</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">0.096</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">10mA</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">3.140</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">0.024</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">RLim = 2.4k</p>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">1/4W</h4>
+<p style="margin: 0.5rem 0; line-height: 1.6;">8mA</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">19.913</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">0.1536</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">4mA</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">10.260</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">0.0384</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">2mA</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">5.433</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">0.0096</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">1mA</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">3.020</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">0.0024</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">RLim = 24k</p>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">1/4W</h4>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">800A</h4>
+<p style="margin: 0.5rem 0; line-height: 1.6;">19.816</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">0.01536</p>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">400A</h4>
+<p style="margin: 0.5rem 0; line-height: 1.6;">10.208</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">0.00384</p>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">200A</h4>
+<p style="margin: 0.5rem 0; line-height: 1.6;">5.404</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">0.00096</p>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">100A</h4>
+<p style="margin: 0.5rem 0; line-height: 1.6;">3.002</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">0.00024</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Question 2: Are all supply voltages &lt; 25V and &gt; 1.5V?</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Yes. All calculated supply voltages are less than 25 V and greater than 1.5 V.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Question 3: Are all resistor powers less than either 1/4W or 1W depending on the resistor rated value?</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Yes. All calculated resistor powers are below their respective 1/4 W or 1 W power ratings.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Part 2: Diode Regulator</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Because the Shockley current relationship is exponential and steep, the voltage change across it is relatively small for large changes of current through it. So, it functions well as a cheap voltage regulator (with somewhere between 0.65V and 0.75V across diode). We wish to design a circuit where the load voltage always stays between 2.5V and 3V with an input 5VDC with a 1kHz 1Vpp signal riding on top it (created in lab by our Function Generator). The load will be a fixed 1k resistor. Our idea is to series-combine four identical 1N4150 diodes and place them across the load. We will need to “design” the resistance between the source and load, shown below as RLim+RPot. Our requirement is to meet the specification of always staying between 2.5V and 3V while keeping line regulation (LR=∆Vout∆Vin) less than 15%.  We will experimentally then try to minimize the LR by exploring changes in the source-side resistance.  We include RLim since the potentiometer may be inadvertently set all the way to zero and we want to safely limit the current in our diodes.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Observation 1: assuming the input voltage variation will create an output variation around the DC operating point, this suggests that we would like to operate midway between 2.5VDC and 3VDC.  That voltage will divide evenly between identical diodes. That will set the desired DC operating point across the diode.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Observation 2: based on our diode data from Problem 1, that voltage will correspond to DC diode current of somewhere between 1mA and 10mA.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Observation 3: the DC diode voltage sets the load current so the range of input current should be known by KCL (ID + IRLoad). The input current will depend on the DC input voltage, the desired load voltage, and the source-side resistance 5V-VLoadRLim+RPot. You should be able to estimate this range of resistance.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Observation 4: The small-signal dynamic resistance of the diode is rd=VTID. We can make it smaller by increasing the DC diode current but that will also increase the DC diode voltage.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Problem 3: Use the above observations to estimate a reasonable range for RLim + RPot. Potentiometer values we have in the lab include: 100W, 200W, 500W, 1kW, 2kW.  What would be a good choice?</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">The desired load voltage is 2.75 V, giving a load current of 2.75 mA. With a diode current range of 1–10 mA, the total source current is 3.75–12.75 mA. Using R = (5 - 2.75)/I, the reasonable resistance range for RLim + RPot is approximately 176–600 Ω. Therefore, a 500 Ω potentiometer is a good choice.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Problem 4: Simulate the circuit in Multisim. Modify the 1N4150 models to reflect the value assumed for RP in part 1 and the values found for IS and N. Make the fixed resistance (shown below as R1)equal to 100. Choose a potentiometer from Basic -&gt; Variable Resistance. You will hook it up as shown below (you can also just use a second resistor and manually change its value as required). If you do use the potentiometer, note typing “A” or “a “ will allow you to change the setting on the potentiometer (displayed as a percentage). First, do a DC Operating Point analysis to see how your total source resistance choice sets the output voltage. Again, we are trying to get between 2.5VDC and 3.0VDC.  When you are happy, do a Transient Analysis, with ICs determined automatically, and watch the output voltage.  Measure the peak-to-peak output voltage and you know the peak-to-peak input voltage, so you can calculate the Line Regulation. Does it satisfy the 15% requirement?  If you change the potentiometer setting, does the output voltage stay within 2.5V and 3V?  Does the LR increase or decrease?</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Using a 500 Ω potentiometer set to 30%, the DC output voltage stayed within the required 2.5 V to 3.0 V range. From the transient analysis, the maximum output voltage was 2.8103 V and the minimum was 2.6915 V, giving a peak-to-peak output of 0.1188 V. Since the input is 1 Vpp, the line regulation is 11.88%. This satisfies the requirement that LR be less than 15%. Decreasing the potentiometer resistance reduced the line regulation while keeping the output voltage within the required range.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Problem 5: Given the figure below, show that by measuring node voltages VS, VR, and VL that you can</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Compute the voltage across the known resistor RLim then the current through it (write the equation)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Compute the load current (write the equation)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Use KCL to compute the current through the diodes (write the equation)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Compute the voltage across the potentiometer and the current through it and then find the potentiometer resistance setting from those values (show equations)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Compute the voltage across an individual diode assuming that they are identical</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Voltage across RLim and current through it:</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">VRLim = VS - VR</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">IRLim = (VS - VR) / 100Ω</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Load current:</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">ILoad = VL / 1000Ω</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Diode current using KCL:</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">ID = IRLim - ILoad</p>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">ID = (VS - VR)/100 - VL/1000</h4>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Potentiometer voltage, current, and resistance:</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">VRPot = VR - VL</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">IRPot = IRLim</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">RPot = (VR - VL) / IRPot</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">For your 500Ω potentiometer at 30%:</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">RPot = 0.30(500) = 150Ω</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Voltage across one diode:</p>
+<h4 style="color: var(--accent); margin: 1.25rem 0 0.5rem; font-size: 1.05rem;">VD = VL / 4</h4>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Using approximately VL = 2.75V:</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">VD = 2.75/4 = 0.6875V per diode.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">We will use these equations when we make adjustments to the potentiometer and calculate data so don’t lose them!</p>
+      </div>
+    </section>
+
+    <!-- LAB 2 -->
+    <section id="lab2" class="doc-section">
+      <h2 class="section-title">
+        Lab 2: Transistor Characterization with Curve Tracer
+        <span class="tag">Lesson 12</span>
+      </h2>
+
+      <div style="display: flex; gap: 0.6rem; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap;">
+        <a class="btn btn-sm" href="../assets/docs/labs/ECE321_Lab2_TransistorCharacterization_F26.pdf" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Official Lab 2 PDF ↗
+        </a>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Lab Exercise #2 Handout (ZVN2106A NMOS Characterization)</h3>
+        <p style="margin: 0.5rem 0; line-height: 1.6;">ECE321 Lab 2: Transistor Characterization with Curve Tracer F26v1</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Discussion: In this lab, we will use the Keithley 2604B Source Meter to collect data to characterize our ZVN2106 NMOS transistor and find estimates of our four desired model parameters: Vt, Kn, l, and ro (the transistor output resistance). As shown below, the 2604B has two channels and we will need them both to control the terminal voltages VGS and VDS while measuring the transistor’s ID. We will use the Kickstart software to configure the channel settings and design our intended experiment (you should have had a brief introduction to it in Practical Exercise #4).</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Hardware Setup: The basic lab setup is captured by the figure below. What data is captured and how voltages are varied are controlled by the Kickstart software.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">We can realize this setup using the Keithley 8101-PIV test fixture. The test fixture is configured by inserting the ZVN2106 NMOS in the D-G-B terminals as shown on the next page. Note, the transistor pinout is given as follows. Verify by finding the body diode using the DMM diode function as shown in class.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Since the Body and Source are connected internal to the transistor package, the B and S terminals are the same. This setup should remain the same for the three parts of the lab.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">PART A: Transfer Characteristic (Vt determination)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Discussion: We will hold VDS constant (at a value that will be reasonable for future amplifier designs), sweep VGS over values that we might anticipate the threshold voltage, and create the VGS vs ID curve. The gate voltage where our drain current is sufficiently small is what we will identify as Vt.  Given that our amplifier designs will likely focus around drain currents of 1mA to 20mA, we will pick 50mA as our sufficiently small point.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">The transfer characteristic from the ZVN2106 datasheet is as follows</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Note, here VDS is held at 10V and we sweep VGS from 0 to 10V. We are anticipating Vt to be in the range of 1.6V to 1.9V, so we will focus our sweep closer to the “action” and thus anticipate much smaller currents as shown above. We will also hold VDS at a “bias” value of 5V because that will be a good point to consider in our future amplifier designs.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Let’s review how to configure the Kickstart software. Open Kickstart, choose My2604B, then select IV Characterizer. This should open up the settings panel (below). Change the labels on SMU1 and SMU2 and configure the VDS settings as shown below.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Now let’s move to the second channel and configure the VGS settings</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Click Run. Toggle from Settings to Graph and Table. Provided this range of VGS values is adequate (meaning we see a drain current of around 50mA), then export the Transfer Characteristic and Data Table and record the specific value of VGS which will be your threshold voltage. If your threshold voltage is not in this range, then you must modify “Start” and “Stop” and possibly increase “Sweep Points” to get a data point close to 50mA.</p>
+<li style="margin-bottom: 0.35rem;">Report your value to the instructor: __________________</li>
+<p style="margin: 0.5rem 0; line-height: 1.6;">PART B: MOSFET Family of Curves</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Next, we will generate our family of curves (ID vs VDS for specific values of VGS). So, we will be sweeping both VDS and VGS, but we will now want to use the Stepper capability so we fix VGS at specific values, then proceed to sweep VDS. Thus, we will need to change our VDS setting mode to sweep and we will choose the range of 0V to 7V. If we go much higher, we risk drawing higher ID values, heating up the device, and seeing weird data. For VGS, we want to create 6 curves all above Vt. The Kickstart settings are as shown next.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">VDS Channel Settings (note, we are applying a hard limit of 40mA on ID)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">VGS Channel Settings (note, our range of 1.9V to 2.4V depends on Vt. You should adjust it as required based on your PART A findings)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Hit Run. Switch to Graph and Table to view your results. Does your curve look as expected? If content, export your Graph and Table (excel)</p>
+<li style="margin-bottom: 0.35rem;">Have the instructor confirm your results: __________________</li>
+<p style="margin: 0.5rem 0; line-height: 1.6;">PART C: Specific Data Points of Interest</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Now we want to investigate specific ID vs VDS curves to establish values of l, Kn, and ro. We are going to focus in on finding three specific curves that yield saturation currents that we may use in our future amplifier design: 4mA, 8mA, and 12mA. Note, we will want to individually collect these curves</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">We will start by creating the 4mA curve.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Change VGS mode from Sweep to Bias</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Choose a value for VGS (above Vt but below say 2.4V where the ID currents might start getting excessive)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Keep VDS mode on Sweep, Current Limit at 0.04A, and 71 sweep points</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Hit run, view your data. Iterate until your curve approximately goes through about VDS = 6V and ID = 4mA. At that VGS point, export your Graph and Table (excel)</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Next, repeat that process to create the following 8mA curve, once again adjust VGS until you approximately go through VDS = 5V and ID = 8mA. At that point, export your Graph and Table (excel).</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Finally, repeat one final time to create the following 12mA curve, once again adjust VGS until you approximately go through VDS = 4V and ID = 12mA. At that point, export your Graph and Table (excel).</p>
+<li style="margin-bottom: 0.35rem;">Have the instructor confirm your results: __________________</li>
+<p style="margin: 0.5rem 0; line-height: 1.6;">PART D: Analysis</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">For each of the three tables you exported from PART C, strip off the points that are comfortably in saturation. To ensure we are not pulling points close to the triode boundary choose values of VDS &gt; 2* (VGS – Vt) and beyond</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Export this excel data into Matlab</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Use the polyfit function to fit a line through your data, identifying the slope m and y-intercept b</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">For each of the three lines, compute the transistor output resistance ro, the Early Voltage VA, and the channel length modulation parameter l.  Find the average of the three l’s.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Finally, let’s compute the MOSFET transconductance Kn for the three data points (VDS, ID): (6V, 4mA), (5V, 8mA), and (4V, 12mA). DO NOT ignore channel length modulation. Find the average of these three values of Kn.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Finally2, plug your values of Vt, Kn, and l into the Multisim Virtual Diode component and create a family of curves similar to what you produced in PART B. Assess how well your Multisim model captures your data.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">Hand In:</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">PART A: Plot of the transfer characteristic and your reported value of VGS = Vt at 50mA. Highlight on your Table of data where you established Vt.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">PART B: Plot of Family of Curves and your Table of output data</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">PART C: Plots of your 4mA, 8mA, and 12mA VDS vs ID curves.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">PART D: Your results and any calculations for questions 3, 4, and 5. Your simulation circuit diagram and the associated Family of Curves. Your assessment of the Multisim output.</p>
+<p style="margin: 0.5rem 0; line-height: 1.6;">NO formal lab report or lab notebook submission as the procedure is captured in this document.</p>
+      </div>
+    </section>
+
+    <!-- LAB 3 -->
+    <section id="lab3" class="doc-section">
+      <h2 class="section-title">
+        Lab 3: Multi-Stage FET Amplifier Design & Build
+        <span class="tag">Lessons 21–24</span>
+      </h2>
+
+      <div style="display: flex; gap: 0.6rem; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap;">
+        <a class="btn btn-sm" href="../assets/docs/labs/ECE321_Lab3_MultistageFETamplifier_F26.pdf" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Official Lab 3 PDF ↗
+        </a>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Lab Exercise #3 Handout (CS + CD Cascade)</h3>
+        <p class="eq-notes" style="margin-bottom: 1rem;">
+          In this multi-week design lab (Lessons 21–24), cadets design, simulate in Multisim, and build a two-stage FET amplifier (Common-Source stage driving a Common-Drain buffer stage) to achieve target voltage gain and deliver output swing into an 80 Ω load.
+        </p>
+        
+        
+        <div class="eq-block blue-accent" style="margin-bottom: 1.25rem;">
+          <div class="eq-label">Handout Section 1</div>
+          <pre style="white-space: pre-wrap; font-family: inherit; margin: 0; line-height: 1.6; color: var(--ink);">1 
+ 
+ECE321 Lab 3: Multi-Stage FET Ampliﬁer 
+Goal: In this lab, you will gain experience designing a multi-stage ampliﬁer to meet 
+speciﬁcations and satisfy constraints. You will perform design using equations derived 
+from small-signal and large-signal MOSFET models, verify performance using Multisim 
+simulation, build and instrument the ampliﬁers  in the laboratory, and collect data to verify 
+that your design meets the speciﬁcations while performing any required troubleshooting 
+and circuit modiﬁcation.  
+Architecture: Your ﬁnal product should track the circuit below which includes a Common-
+Source (CS) ampliﬁer (blue) followed by a Common Drain (CD) ampliﬁer (green). Coupling 
+capacitors (red) link in the source, the stages, and the load. 
+RG1,CS
+RG2,CS
+Cc2
+Cby1
++
+_
+Vo,CS
+VDD
+RG1,CD
+RG2,CD
+ID,CD
+VD,CD
+VS,CD
+VG,CD  
+RS,CD
+RLoad
+Cc3
++
+_
+Vo,CD
+QCD  
+Cc1
++
+_
+VFG
+RFG
++
+_
+Vin
+Function 
+Generator
+VDD
+RS2,CS
+RD,CS
+ID,CS
+VD,CS
+VS,CS
+VG,CS  
+RS1,CS
+QCS  
+ 
+ 
+Speciﬁcations &amp; Constraints: It is understood that all parts and measurement equipment 
+should originate from the 2G-24 laboratory. In addition, it is speciﬁed that: 
+1. The DC power supply voltage is constrained to be: 10𝑉𝑉≤𝑉𝑉𝐷𝐷𝐷𝐷≤20𝑉𝑉. The same 
+voltage must be supplied to each stage. 
+2. The coupling (Cc1, Cc2, Cc3) and bypass capacitors (Cby1) must be electrolytic and be 
+in the range   10𝜇𝜇𝜇𝜇≤𝐶𝐶≤100𝜇𝜇𝜇𝜇 with suitable rated voltages. 
+3. All resistors should be rated 1/4W unless strongly justiﬁed otherwise. 
+4. The transistor must be the ZVN2106 NMOS. Absent curve tracer data, assume 
+typical parameter values: Kn = 80mA/V2, Vt = 2.0V, and VA = 100V.</pre>
+        </div>
+        
+
+        <div class="eq-block blue-accent" style="margin-bottom: 1.25rem;">
+          <div class="eq-label">Handout Section 2</div>
+          <pre style="white-space: pre-wrap; font-family: inherit; margin: 0; line-height: 1.6; color: var(--ink);">2 
+ 
+5. The ampliﬁer must be designed, built, and veriﬁed in stages, then integrated and 
+tested. 
+6. The Function Generator (FG) will serve as the input and will be set to 1kHz, Hi Z 
+output, with the peak-to-peak amplitude adjusted as required. It can be assumed 
+that the output resistance of the FG is 50Ω. 
+7. No potentiometers should be used to realize any of the 8 required resistors. 
+Further, each resistor must be realized by using no more than 2 standard resistors, 
+putting them either in series or parallel. 
+The remaining speciﬁcations/constraints apply to each stage: 
+CS-Ampliﬁer Stage 
+8. The gain with a 100kΩ load must satisfy: −15 𝑉𝑉/𝑉𝑉≤𝐴𝐴𝑣𝑣≤−30 𝑉𝑉/𝑉𝑉. The expected 
+load resistance for this stage must satisfy: 𝑅𝑅𝐿𝐿≥100𝑘𝑘Ω. 
+9. The drain current must satisfy: 𝐼𝐼𝐷𝐷,𝐶𝐶𝐶𝐶≤5𝑚𝑚𝑚𝑚. 
+10. The input resistance must satisfy: 100𝑘𝑘Ω ≤𝑅𝑅𝑖𝑖,𝐶𝐶𝐶𝐶≤150𝑘𝑘Ω. 
+11. The output resistance must satisfy: 𝑅𝑅𝑜𝑜,𝐶𝐶𝐶𝐶≤5.1𝑘𝑘Ω. 
+12. The input signal must be capacitor-coupled into the stage. 
+13. The output voltage must be capable of achieving at least 3.2Vpp with no visible 
+distortion. 
+14. The power dissipation for each part must satisfy: 𝑃𝑃𝐷𝐷≤0.75 × 𝑃𝑃𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟. 
+ 
+CD-Ampliﬁer Stage 
+15. The load resistance will be 𝑅𝑅𝐿𝐿𝑜𝑜𝑜𝑜𝑜𝑜= 200Ω. 
+16. The output voltage should reach a maximum voltage of 3Vpp with no visible 
+distortion (obvious clipping, ﬂattening, or pinching). 
+17. The gain with a 200Ω load can be anticipated to be around: 𝐴𝐴𝑣𝑣≤0.85 𝑉𝑉/𝑉𝑉. 
+18. The multistage gain should satisfy −12 𝑉𝑉/𝑉𝑉≤𝐴𝐴𝑣𝑣≤−30 𝑉𝑉/𝑉𝑉 
+19. The input resistance must satisfy: 𝑅𝑅𝑖𝑖,𝐶𝐶𝐶𝐶≥100𝑘𝑘Ω. 
+20. The output resistance must satisfy: 𝑅𝑅𝑜𝑜,𝐶𝐶𝐶𝐶≤100Ω. 
+21. The drain current must satisfy: 𝐼𝐼𝐷𝐷,𝐶𝐶𝐶𝐶≤50𝑚𝑚𝑚𝑚. 
+22. The drain-to-source voltage must satisfy: 𝑉𝑉𝐷𝐷𝐷𝐷,𝐶𝐶𝐶𝐶≤11𝑉𝑉. 
+23. The power dissipation for each part must satisfy: 𝑃𝑃𝐷𝐷≤0.75 × 𝑃𝑃𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟. 
+24. The Total Harmonic Voltage of the output voltage (THDv) must be &lt; 5% with bonus 
+points awarded for less than 3% (and for the lowest THDv for the section).</pre>
+        </div>
+        
+
+        <div class="eq-block blue-accent" style="margin-bottom: 1.25rem;">
+          <div class="eq-label">Handout Section 3</div>
+          <pre style="white-space: pre-wrap; font-family: inherit; margin: 0; line-height: 1.6; color: var(--ink);">3 
+ 
+Day 1 Expectations: 
+• Arrive with a CS-ampliﬁer design that has been built, tested, and veriﬁed in Multisim 
+with a load resistance of 100kΩ.  Have the design documented. Know the required 
+polarities for Cc1, Cc2, Cby1.</pre>
+          <figure class="doc-figure" style="margin: 1.25rem 0;">
+            <img src="../assets/docs/labs/lab3_cs_schematic.png" alt="Lab 3 Day 1 CS-Amplifier Circuit Schematic" style="max-width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 4px;">
+            <figcaption>Figure: Day 1 CS-Amplifier circuit schematic with function generator, biasing network, and bypass capacitor.</figcaption>
+          </figure>
+          <pre style="white-space: pre-wrap; font-family: inherit; margin: 0; line-height: 1.6; color: var(--ink);">• Build the circuit in the lab adhering to the aforestated requirements on the power 
+supply, function generator, capacitors, resistors, and transistor 
+o Measure and record all resistor values 
+o Being mindful that you will later couple in a second stage, layout your circuit 
+such that it is easy to instrument and troubleshoot. Make efficient use of 
+power supply and ground rails, and avoid using unnecessarily long wires, the 
+same color for all wires, and convoluted wiring paths 
+ 
+• Verify the DC operating point: ID,CS, VD,CS, VS,CS, and VG,CS  with the DMM. Note, the 
+drain current can be found by measuring the resistance across RD,CS [at altitude, with 
+a very dry environment, we naturally build up static electricity that can inadvertently 
+damage a transistor.  The gate voltage being too low is a common indicator that the 
+gate insulation has been damaged.] 
+ 
+*** Demonstrate your output for the instructor: _______________________</pre>
+        </div>
+        
+
+        <div class="eq-block blue-accent" style="margin-bottom: 1.25rem;">
+          <div class="eq-label">Handout Section 4</div>
+          <pre style="white-space: pre-wrap; font-family: inherit; margin: 0; line-height: 1.6; color: var(--ink);">4 
+ 
+• Show that the DC operating point changes if Cc1 or Cc2 are replaced by a wire. 
+ 
+• Verify the gain with the oscope; measure it separately for output voltages of about 
+1.5Vpp, 2.5Vpp, and 3.5Vpp. 
+ 
+• If your DC operating point and gain results are signiﬁcantly different from your 
+Multisim simulation, consider tweaking your simulation parameter values Vt and Kn 
+until you see better correspondence. 
+ 
+• Investigate and record how the gain changes as the load resistance is changed 
+between 100kΩ, 10kΩ, 1kΩ, and 200Ω.  Keep the input voltage around 100mV. 
+Explain using the small-signal model why this variation is happening. 
+ 
+• Verify the input resistance spec using one of the two methods described below:</pre>
+          <figure class="doc-figure" style="margin: 1.25rem 0;">
+            <img src="../assets/docs/labs/lab3_ri_measurement.png" alt="Lab 3 Input Resistance Ri Measurement Techniques" style="max-width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 4px;">
+            <figcaption>Figure: Methods for measuring input resistance (Ri): (1) Potentiometer half-voltage method (adjust Rpot until V2pp = 0.5 V1pp), (2) Series test resistor method (Ri = Rtest · V2pp / (V1pp − V2pp)).</figcaption>
+          </figure>
+          <pre style="white-space: pre-wrap; font-family: inherit; margin: 0; line-height: 1.6; color: var(--ink);">• Verify the output resistance spec using one of the two methods described below:</pre>
+          <figure class="doc-figure" style="margin: 1.25rem 0;">
+            <img src="../assets/docs/labs/lab3_ro_measurement.png" alt="Lab 3 Output Resistance Ro Measurement Techniques" style="max-width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 4px;">
+            <figcaption>Figure: Methods for measuring output resistance (Ro): (1) Potentiometer half-voltage method with shorted input (Ro = Rpot,set), (2) Shunt test resistor method (Ro = Rtest · (V1pp − V2pp) / V2pp).</figcaption>
+          </figure>
+          <pre style="white-space: pre-wrap; font-family: inherit; margin: 0; line-height: 1.6; color: var(--ink);">*** Demonstrate your output for the instructor: _______________________</pre>
+        </div>
+        
+
+        <div class="eq-block blue-accent" style="margin-bottom: 1.25rem;">
+          <div class="eq-label">Handout Section 5</div>
+          <pre style="white-space: pre-wrap; font-family: inherit; margin: 0; line-height: 1.6; color: var(--ink);">5 
+ 
+Day 2 Expectations: 
+• Arrive with a CD-ampliﬁer design that has been built, tested, and veriﬁed in Multisim 
+with a load resistance of 200Ω and an input voltage of sufficient amplitude to give a 
+3Vpp output voltage. Know the correct polarities for Cc2 and Cc3.</pre>
+          <figure class="doc-figure" style="margin: 1.25rem 0;">
+            <img src="../assets/docs/labs/lab3_cd_schematic.png" alt="Lab 3 Day 2 CD-Amplifier Source-Follower Circuit Schematic" style="max-width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 4px;">
+            <figcaption>Figure: Day 2 CD-Amplifier (source-follower) circuit schematic driving a 200 Ω load.</figcaption>
+          </figure>
+          <pre style="white-space: pre-wrap; font-family: inherit; margin: 0; line-height: 1.6; color: var(--ink);">• Build the circuit in the lab adhering to the same recommendations as before. DO 
+NOT couple it to the CS-ampliﬁer. Use the FG as the input.  
+ 
+• Verify the DC operating point ID,CD, VD,CD, VS,CD, and VG,CD  with the DMM. 
+ 
+*** Demonstrate your output for the instructor: _______________________ 
+• Measure the gain with the oscope; measure it for an output voltage of 3.0Vpp (adjust 
+the FG input amplitude accordingly). 
+ 
+• Verify the output resistance spec (as described previously). Note, this measurement 
+is historically difficult because our output resistance should be small meaning the 
+FG will be loaded. 
+ 
+• Note, we will not measure the input resistance as out CS-ampliﬁer design and 
+measurement should give us sufficient conﬁdence here.</pre>
+        </div>
+        
+
+        <div class="eq-block blue-accent" style="margin-bottom: 1.25rem;">
+          <div class="eq-label">Handout Section 6</div>
+          <pre style="white-space: pre-wrap; font-family: inherit; margin: 0; line-height: 1.6; color: var(--ink);">6 
+ 
+Day 3 Expectations: 
+• Arrive with an integrated CS-ampliﬁer +  CD-ampliﬁer design that has been built, 
+tested, and veriﬁed in Multisim with a load resistance of 200Ω and an input voltage 
+of sufficient amplitude to give a 3Vpp output voltage. 
+ 
+• You should now know the DC bias voltages VD,CS and VG,CD and should be able to 
+identify the correct polarity for Cc2.</pre>
+          <figure class="doc-figure" style="margin: 1.25rem 0;">
+            <img src="../assets/docs/labs/lab3_cascade_schematic.png" alt="Lab 3 Day 3 Integrated CS + CD Multistage Amplifier Schematic" style="max-width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 4px;">
+            <figcaption>Figure: Day 3 Complete cascaded multi-stage amplifier schematic (CS stage coupled to CD stage via Cc2).</figcaption>
+          </figure>
+          <pre style="white-space: pre-wrap; font-family: inherit; margin: 0; line-height: 1.6; color: var(--ink);">• Couple the CS-ampliﬁer to the CD-ampliﬁer via capacitor Cc2.  
+ 
+• Conﬁrm that the DC bias points remain as expected using the DMM (ID and VDS are 
+sufficient for each stage) 
+ 
+• Adjust the FG to achieve an output voltage across the 200Ω load of 3Vpp. Make sure 
+that the output voltage has no visible distortion, then measure the gain and verify 
+that it meets the speciﬁcation.  Print off the scope image showing input and 
+output voltage and their measurements. 
+ 
+ 
+*** Demonstrate your output for the instructor: _______________________</pre>
+        </div>
+        
+
+        <div class="eq-block blue-accent" style="margin-bottom: 1.25rem;">
+          <div class="eq-label">Handout Section 7</div>
+          <pre style="white-space: pre-wrap; font-family: inherit; margin: 0; line-height: 1.6; color: var(--ink);">7 
+ 
+• Measure and record your output voltage THD using the distortion analyzer 
+(instructions in this appendix). Verify that it meets speciﬁcations. Take a clear 
+readable image of the analyzer output. 
+ 
+*** Demonstrate your output for the instructor: _______________________ 
+ 
+• Time-permitting, consider a redesign of the CS-ampliﬁer stage to lower your 
+achieved THDv level. Document your results. 
+ 
+Follow-Up Questions:  
+1. Using Multisim only, describe and investigate how you can accommodate a smaller 
+value of RLoad.  How small can you go? 
+ 
+2. Use Multisim to verify the power dissipation for each component (you can ignore the 
+resistors connected to the gate because if you selected them properly, these power 
+levels should be quite small). Note, the power dissipation for the transistor is found 
+from 𝑃𝑃𝐷𝐷= 𝑉𝑉𝐷𝐷𝐷𝐷× 𝐼𝐼𝐷𝐷. Discuss what to do with the AC variation. 
+ 
+3. Draw your multistage ampliﬁer using the basic ampliﬁer model (Ri, Ro, Avo) 
+ 
+4. Discuss errors between your theoretical calculations, simulations, and hardware 
+measurements. Consider what might be the dominant sources of error. Consider 
+things like model errors, measurement errors, and component variation. 
+Documentation 
+• All test setups and data collection should be reported in your lab notebook 
+ 
+• The lab report should document and summarize the investigation of each day’s 
+work. It should include answers to all questions posed. It should include simulation 
+diagrams and any associated DC Operating Point, Transient, and THD studies that 
+you conducted to verify your design. It should also include your design steps and a 
+ﬁnal diagram with all of the measured component values (not capacitors).  Finally, 
+you should include a discussion of whether all speciﬁcations were met and lessons 
+learned.</pre>
+        </div>
+        
+
+        <div class="eq-block blue-accent" style="margin-bottom: 1.25rem;">
+          <div class="eq-label">Handout Section 8</div>
+          <pre style="white-space: pre-wrap; font-family: inherit; margin: 0; line-height: 1.6; color: var(--ink);">8 
+ 
+Appendix: Measurement of THD Using the HP 3561A Dynamic Signal Analyzer</pre>
+          <figure class="doc-figure" style="margin: 1.25rem 0;">
+            <img src="../assets/docs/labs/lab3_hp3561a_front_panel.png" alt="Figure 1: HP 3561A Dynamic Signal Analyzer Front Panel" style="max-width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 4px;">
+            <figcaption>Figure 1. HP 3561A Dynamic Signal Analyzer front panel diagram and keypad layout.</figcaption>
+          </figure>
+          <pre style="white-space: pre-wrap; font-family: inherit; margin: 0; line-height: 1.6; color: var(--ink);">1. The HP 3561A Dynamic Signal Analyzer will be used to measure the Total Harmonic 
+Distortion (THD) of your amplifier. 
+NOTE:  You must use a single (possibly distorted) sine wave as the input signal to the 
+signal analyzer because it will reference an internal sine wave in the analyzer itself. 
+2. Press “ON.” 
+ 
+3. Apply the signal to be analyzed (Vout = Red Lead) into the Signal Analyzer.  Make sure 
+you connect the Black lead to GROUND = 0V. 
+ 
+                    
+4. Press “SPCL MKR” (special marker) 
+ 
+5. Press the menu button corresponding to “HARMONIC.”  The Signal Analyzer should 
+display THD in dB at the bottom of the screen; however, the remaining steps are 
+required for a proper THD reading in %. 
+ 
+6. Press the menu button corresponding to “DEFINE FUND FRQ.”  Use the keypad to 
+enter the input fundamental frequency (e.g, f0 = 1000 Hz for vin(t) = 2 sin(2π1000t) V).  
+Press the menu button corresponding the proper units (i.e., Hz, kHz, MHz).  The 
+purpose of this step is to match your signal with the reference signal of the Signal 
+Analyzer. 
+ 
+7. Press “FREQ.” 
+ 
+8. Press the menu button corresponding to “DEFINE SPAN” and enter 10 kHz.  The 
+purpose of this step is view the fundamental and first nine harmonics in frequency 
+domain. (Assuming you are using a 1kHz signal.) 
+ 
+9. Press “VERT SCALE.” 
+ 
+10. Press the menu button corresponding to “LINEAR LOG” to obtain the THD as a 
+percentage (rather than dB).  Record the THD</pre>
+        </div>
+        
+      </div>
+    </section>
+  </main>
+
+  <footer class="doc-footer">
+    <p>ECE 321 Electronics I · Department of Electrical & Computer Engineering · United States Air Force Academy</p>
+    <p><a href="index.html">← Back to Course Documents Overview</a> · <a href="#main-content">Back to Top ↑</a></p>
+  </footer>
+</body>
+</html>

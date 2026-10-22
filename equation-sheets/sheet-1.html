@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ECE 321 Equation Sheet 1: Semiconductor Physics & Diodes · ECE 321</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+<link rel="stylesheet" href="../assets/navbar.css"></head>
+<body>
+  <a class="skip" href="#main-content">Skip to document content</a>
+
+  <header class="site-nav"><a class="brand" href="../index.html#home"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 16C8 5 12 5 16 16S24 27 28 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>ECE <strong>321</strong></a><nav class="nav-links" aria-label="Course navigation"><a href="../index.html#home">Home</a><a href="../index.html#syllabus">Syllabus</a><a href="../equation-sheets/index.html" class="active" aria-current="page">Equation sheets</a><a href="../course-docs/index.html">Course docs</a><a href="../index.html#homework">Reading guides</a><a href="../index.html#lessons">Lesson guides</a><a href="../index.html#study">Study sessions</a></nav><span class="semester"><i></i> FALL 2026</span></header>
+
+  <main id="main-content" class="doc-container">
+    <div class="doc-header">
+      <div class="doc-header-main">
+        <p class="doc-eyebrow">UNIT 1 · OFFICIAL EQUATION SHEET (FALL 2026)</p>
+        <h1 class="doc-title">ECE 321 Unit 1 Equation Sheet: Semiconductor Physics & Diodes</h1>
+        <p class="doc-desc">Official reference sheet for Lessons 1–7 covering physical constants, carrier statistics, drift and diffusion, p-n junction physics, and diode models.</p>
+      </div>
+      <div class="doc-actions">
+        <a class="btn btn-primary" href="../assets/equations/ECE321_Eqnsheet1v3_F26.pdf" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print Official PDF (Lightmode)
+        </a>
+        <a class="btn" href="../assets/equations/ECE321_Eqnsheet1v3_F26.pdf" download="ECE321_Unit1_EquationSheet.pdf">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download PDF
+        </a>
+        <a class="btn" href="index.html">All Sheets</a>
+      </div>
+    </div>
+
+    <nav class="jump-nav" aria-label="Sections on this sheet">
+      <span>Jump to:</span>
+      <a href="#constants">Constants & Carriers</a>
+      <a href="#materials">Material Properties</a>
+      <a href="#carrier-motion">Carrier Motion (Drift & Diffusion)</a>
+      <a href="#pn-junction">p-n Junction Physics</a>
+      <a href="#periodic-table">Periodic Table</a>
+      <a href="#diode-capacitance">Diode Capacitance</a>
+      <a href="#diode-models">Diode Circuit Models</a>
+      <a href="#small-signal">Small-Signal & Zener</a>
+    </nav>
+
+    <!-- SECTION 1: CONSTANTS & CARRIERS -->
+    <section id="constants" class="doc-section">
+      <h2 class="section-title">
+        1. Fundamental Physical Constants & Carrier Concentrations
+        <span class="tag">Lessons 1–2</span>
+      </h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="card-title">Physical Constants</h3>
+          <table class="doc-table">
+            <thead><tr><th>Quantity</th><th>Symbol</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td>Planck’s Constant</td><td><em>h</em></td><td>6.626 × 10<sup>−34</sup> J·s<br>4.141 × 10<sup>−15</sup> eV·s</td></tr>
+              <tr><td>Boltzmann’s Constant</td><td><em>k</em></td><td>1.38 × 10<sup>−23</sup> J/K<br>8.62 × 10<sup>−5</sup> eV/K</td></tr>
+              <tr><td>Speed of Light</td><td><em>c</em></td><td>2.998 × 10<sup>8</sup> m/s</td></tr>
+              <tr><td>Elementary Charge</td><td><em>q</em></td><td>1.602 × 10<sup>−19</sup> C</td></tr>
+              <tr><td>Temperature Conversion</td><td><em>T</em> (K)</td><td><em>T</em> (°C) + 273.15</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Photon Energy & Electric Field</h3>
+          <div class="eq-block">
+            <div class="eq-label">Photon Energy Relation</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><mi>E</mi><mo>=</mo><mfrac><mrow><mi>h</mi><mi>c</mi></mrow><mi>λ</mi></mfrac><mo>=</mo><mfrac><mrow><mn>1240</mn><mtext>&nbsp;eV</mtext><mo>·</mo><mtext>nm</mtext></mrow><mrow><mi>λ</mi><mtext>&nbsp;(nm)</mtext></mrow></mfrac></mrow></math>
+            </div>
+            <p class="eq-notes">1 eV = 1.602 × 10<sup>−19</sup> J</p>
+          </div>
+          <div class="eq-block blue-accent">
+            <div class="eq-label">Uniform Electric Field</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><mi>E</mi><mo>=</mo><mfrac><mi>V</mi><mi>L</mi></mfrac><mspace width="1em"/><mtext>(V/cm)</mtext></mrow></math>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 1.25rem;">
+        <div class="eq-block">
+          <div class="eq-label">Intrinsic Carrier Concentration (n<sub>i</sub>)</div>
+          <div class="eq-formula">
+            <math display="block"><mrow><msub><mi>n</mi><mi>i</mi></msub><mo>=</mo><mi>B</mi><mo>·</mo><msup><mi>T</mi><mrow><mn>3</mn><mo>/</mo><mn>2</mn></mrow></msup><mo>·</mo><msup><mi>e</mi><mrow><mo>−</mo><msub><mi>E</mi><mi>g</mi></msub><mo>/</mo><mo stretchy="false">(</mo><mn>2</mn><mi>k</mi><mi>T</mi><mo stretchy="false">)</mo></mrow></msup></mrow></math>
+          </div>
+          <p class="eq-notes">
+            For Silicon (Si): <em>B</em> = 7.3 × 10<sup>15</sup> cm<sup>−3</sup>·K<sup>−3/2</sup>, <em>E<sub>g</sub></em> = 1.12 eV.<br>
+            At <em>T</em> = 300 K: <strong><em>n<sub>i,Si</sub></em> = 1.5 × 10<sup>10</sup> cm<sup>−3</sup></strong>
+          </p>
+        </div>
+
+        <div class="eq-block yellow-accent">
+          <div class="eq-label">Mass-Action Law & Doped Semiconductor Equilibrium</div>
+          <div class="eq-formula">
+            <math display="block"><mrow><mi>n</mi><mo>·</mo><mi>p</mi><mo>=</mo><msubsup><mi>n</mi><mi>i</mi><mn>2</mn></msubsup></mrow></math>
+          </div>
+          <p class="eq-notes">
+            <strong>n-type material:</strong> <em>n<sub>n0</sub></em> ≅ <em>N<sub>D</sub></em>, &nbsp; <em>p<sub>n0</sub></em> = <em>n<sub>i</sub></em><sup>2</sup> / <em>N<sub>D</sub></em><br>
+            <strong>p-type material:</strong> <em>p<sub>p0</sub></em> ≅ <em>N<sub>A</sub></em>, &nbsp; <em>n<sub>p0</sub></em> = <em>n<sub>i</sub></em><sup>2</sup> / <em>N<sub>A</sub></em>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: MATERIAL PROPERTIES -->
+    <section id="materials" class="doc-section">
+      <h2 class="section-title">
+        2. Semiconductor Material Properties & Unit Conversions
+        <span class="tag">Silicon · Germanium · Gallium Arsenide</span>
+      </h2>
+
+      <div class="table-wrap">
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>Material</th>
+              <th>Bandgap Energy <em>E<sub>g</sub></em> (eV)</th>
+              <th>Electron Mobility <em>μ<sub>n</sub></em> (cm²·V<sup>−1</sup>·s<sup>−1</sup>)</th>
+              <th>Hole Mobility <em>μ<sub>p</sub></em> (cm²·V<sup>−1</sup>·s<sup>−1</sup>)</th>
+              <th>Diffusion <em>D<sub>n</sub></em> (cm²/s)</th>
+              <th>Diffusion <em>D<sub>p</sub></em> (cm²/s)</th>
+              <th>Atom Density (atoms/cm³)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Silicon (Si)</strong></td>
+              <td>1.12</td>
+              <td>1360</td>
+              <td>460</td>
+              <td>34</td>
+              <td>11.5</td>
+              <td>5.0 × 10<sup>22</sup></td>
+            </tr>
+            <tr>
+              <td><strong>Germanium (Ge)</strong></td>
+              <td>0.66</td>
+              <td>3900</td>
+              <td>1900</td>
+              <td>97.5</td>
+              <td>47.5</td>
+              <td>4.4 × 10<sup>22</sup></td>
+            </tr>
+            <tr>
+              <td><strong>Gallium Arsenide (GaAs)</strong></td>
+              <td>1.42</td>
+              <td>8000</td>
+              <td>320</td>
+              <td>200</td>
+              <td>8.0</td>
+              <td>4.42 × 10<sup>22</sup></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Metric Length Conversions</h3>
+        <p>1 cm = 10,000 μm = 1 × 10<sup>7</sup> nm &nbsp;|&nbsp; 1 μm = 1,000 nm &nbsp;|&nbsp; 1 (μm)² = 1 × 10<sup>−8</sup> cm²</p>
+      </div>
+    </section>
+
+    <!-- SECTION 3: CARRIER MOTION -->
+    <section id="carrier-motion" class="doc-section">
+      <h2 class="section-title">
+        3. Carrier Motion: Drift, Diffusion & Einstein Relation
+        <span class="tag">Lesson 2</span>
+      </h2>
+
+      <div class="grid-2">
+        <div class="eq-block blue-accent">
+          <div class="eq-label">Diffusion Current Density</div>
+          <div class="eq-formula">
+            <math display="block"><mrow><msub><mi>J</mi><mrow><mi>p</mi><mo>,</mo><mtext>diff</mtext></mrow></msub><mo>=</mo><mo>−</mo><mi>q</mi><msub><mi>D</mi><mi>p</mi></msub><mfrac><mrow><mi>d</mi><mi>p</mi></mrow><mrow><mi>d</mi><mi>x</mi></mrow></mfrac><mspace width="1.5em"/><msub><mi>J</mi><mrow><mi>n</mi><mo>,</mo><mtext>diff</mtext></mrow></msub><mo>=</mo><mo>+</mo><mi>q</mi><msub><mi>D</mi><mi>n</mi></msub><mfrac><mrow><mi>d</mi><mi>n</mi></mrow><mrow><mi>d</mi><mi>x</mi></mrow></mfrac></mrow></math>
+          </div>
+          <p class="eq-notes">Units: A/cm²</p>
+        </div>
+
+        <div class="eq-block yellow-accent">
+          <div class="eq-label">Drift Current Density & Microscopic Ohm's Law</div>
+          <div class="eq-formula">
+            <math display="block"><mrow><msub><mi>J</mi><mtext>drift</mtext></msub><mo>=</mo><mi>q</mi><mo stretchy="false">(</mo><mi>p</mi><msub><mi>μ</mi><mi>p</mi></msub><mo>+</mo><mi>n</mi><msub><mi>μ</mi><mi>n</mi></msub><mo stretchy="false">)</mo><mi>E</mi><mo>=</mo><mi>σ</mi><mi>E</mi><mo>=</mo><mfrac><mi>E</mi><mi>ρ</mi></mfrac></mrow></math>
+          </div>
+          <p class="eq-notes"><em>v<sub>p</sub></em> = <em>μ<sub>p</sub></em> <em>E</em>, &nbsp; <em>v<sub>n</sub></em> = −<em>μ<sub>n</sub></em> <em>E</em>, &nbsp; <em>I</em> = <em>v</em> · <em>q</em> · <em>A</em> · (carrier density)</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="eq-block">
+          <div class="eq-label">Resistivity (ρ)</div>
+          <div class="eq-formula">
+            <math display="block"><mrow><mi>ρ</mi><mo>=</mo><mfrac><mn>1</mn><mrow><mi>q</mi><mo stretchy="false">(</mo><mi>p</mi><msub><mi>μ</mi><mi>p</mi></msub><mo>+</mo><mi>n</mi><msub><mi>μ</mi><mi>n</mi></msub><mo stretchy="false">)</mo></mrow></mfrac><mspace width="1em"/><mtext>(Ω·cm)</mtext></mrow></math>
+          </div>
+          <p class="eq-notes"><em>μ<sub>n</sub></em> and <em>μ<sub>p</sub></em> decrease with increasing doping concentration due to impurity scattering.</p>
+        </div>
+
+        <div class="eq-block purple-accent">
+          <div class="eq-label">Einstein Relationship & Thermal Voltage</div>
+          <div class="eq-formula">
+            <math display="block"><mrow><mfrac><msub><mi>D</mi><mi>n</mi></msub><msub><mi>μ</mi><mi>n</mi></msub></mfrac><mo>=</mo><mfrac><msub><mi>D</mi><mi>p</mi></msub><msub><mi>μ</mi><mi>p</mi></msub></mfrac><mo>=</mo><msub><mi>V</mi><mi>T</mi></msub><mo>=</mo><mfrac><mrow><mi>k</mi><mi>T</mi></mrow><mi>q</mi></mfrac></mrow></math>
+          </div>
+          <p class="eq-notes">
+            <strong><em>V<sub>T</sub></em> = 25.9 mV</strong> at <em>T</em> = 300 K (standard room temp)<br>
+            <strong><em>V<sub>T</sub></em> = 25.0 mV</strong> at <em>T</em> = 290 K
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: PN JUNCTION -->
+    <section id="pn-junction" class="doc-section">
+      <h2 class="section-title">
+        4. PN-Junction Physics & Diode Equations
+        <span class="tag">Lessons 2–3</span>
+      </h2>
+
+      <div class="grid-2">
+        <div class="eq-block blue-accent">
+          <div class="eq-label">Built-In Barrier Voltage (V<sub>0</sub>)</div>
+          <div class="eq-formula">
+            <math display="block"><mrow><msub><mi>V</mi><mn>0</mn></msub><mo>=</mo><msub><mi>V</mi><mi>T</mi></msub><mo>·</mo><mi>ln</mi><mrow><mo>(</mo><mfrac><mrow><msub><mi>N</mi><mi>A</mi></msub><msub><mi>N</mi><mi>D</mi></msub></mrow><msubsup><mi>n</mi><mi>i</mi><mn>2</mn></msubsup></mfrac><mo>)</mo></mrow></mrow></math>
+          </div>
+        </div>
+
+        <div class="eq-block yellow-accent">
+          <div class="eq-label">Depletion Region Width (W)</div>
+          <div class="eq-formula">
+            <math display="block"><mrow><mi>W</mi><mo>=</mo><msqrt><mrow><mfrac><mrow><mn>2</mn><msub><mi>ε</mi><mi>s</mi></msub></mrow><mi>q</mi></mfrac><mrow><mo>(</mo><mfrac><mn>1</mn><msub><mi>N</mi><mi>A</mi></msub></mfrac><mo>+</mo><mfrac><mn>1</mn><msub><mi>N</mi><mi>D</mi></msub></mfrac><mo>)</mo></mrow><mo stretchy="false">(</mo><msub><mi>V</mi><mn>0</mn></msub><mo>+</mo><msub><mi>V</mi><mi>R</mi></msub><mo stretchy="false">)</mo></mrow></msqrt></mrow></math>
+          </div>
+          <p class="eq-notes">
+            Silicon permittivity: <em>ε<sub>s</sub></em> = 11.7 · <em>ε</em><sub>0</sub> = 1.04 × 10<sup>−12</sup> F/cm<br>
+            Forward bias: replace (<em>V</em><sub>0</sub> + <em>V<sub>R</sub></em>) with (<em>V</em><sub>0</sub> − <em>V<sub>F</sub></em>).
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="eq-block">
+          <div class="eq-label">Depletion Depths & Charge Neutrality</div>
+          <div class="eq-formula">
+            <math display="block"><mrow><msub><mi>x</mi><mi>n</mi></msub><mo>=</mo><mi>W</mi><mfrac><msub><mi>N</mi><mi>A</mi></msub><mrow><msub><mi>N</mi><mi>A</mi></msub><mo>+</mo><msub><mi>N</mi><mi>D</mi></msub></mrow></mfrac><mspace width="1em"/><msub><mi>x</mi><mi>p</mi></msub><mo>=</mo><mi>W</mi><mfrac><msub><mi>N</mi><mi>D</mi></msub><mrow><msub><mi>N</mi><mi>A</mi></msub><mo>+</mo><msub><mi>N</mi><mi>D</mi></msub></mrow></mfrac></mrow></math>
+          </div>
+          <p class="eq-notes">
+            Charge Balance: <em>q A x<sub>p</sub> N<sub>A</sub></em> = <em>q A x<sub>n</sub> N<sub>D</sub></em> &nbsp;⇒&nbsp; <em>x<sub>n</sub> / x<sub>p</sub></em> = <em>N<sub>A</sub> / N<sub>D</sub></em><br>
+            Total Width: <em>W</em> = <em>x<sub>n</sub></em> + <em>x<sub>p</sub></em>
+          </p>
+        </div>
+
+        <div class="eq-block purple-accent">
+          <div class="eq-label">Reverse Saturation Current & Shockley Equation</div>
+          <div class="eq-formula">
+            <math display="block"><mrow><msub><mi>I</mi><mi>S</mi></msub><mo>=</mo><mi>q</mi><mi>A</mi><msubsup><mi>n</mi><mi>i</mi><mn>2</mn></msubsup><mrow><mo>(</mo><mfrac><msub><mi>D</mi><mi>p</mi></msub><mrow><msub><mi>L</mi><mi>p</mi></msub><msub><mi>N</mi><mi>D</mi></msub></mrow></mfrac><mo>+</mo><mfrac><msub><mi>D</mi><mi>n</mi></msub><mrow><msub><mi>L</mi><mi>n</mi></msub><msub><mi>N</mi><mi>A</mi></msub></mrow></mfrac><mo>)</mo></mrow></mrow></math>
+          </div>
+          <div class="eq-formula">
+            <math display="block"><mrow><msub><mi>I</mi><mi>D</mi></msub><mo>=</mo><msub><mi>I</mi><mi>S</mi></msub><mo stretchy="false">(</mo><msup><mi>e</mi><mrow><msub><mi>V</mi><mi>D</mi></msub><mo>/</mo><mo stretchy="false">(</mo><mi>n</mi><msub><mi>V</mi><mi>T</mi></msub><mo stretchy="false">)</mo></mrow></msup><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></math>
+          </div>
+          <p class="eq-notes"><em>n</em>: ideality factor (1 ≤ <em>n</em> ≤ 2). <em>n</em> = 1 for ideal diffusion.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: PERIODIC TABLE -->
+    <section id="periodic-table" class="doc-section">
+      <h2 class="section-title">
+        5. Periodic Table of the Elements
+        <span class="tag">Semiconductor Reference</span>
+      </h2>
+      <figure class="doc-figure">
+        <img src="../assets/equations/ECE321_Eqnsheet1v3_F26_p3_img1.png" alt="Periodic Table of the Elements from ECE 321 Equation Sheet 1" style="max-height: 480px; width: auto; border: 1px solid var(--rule);">
+        <figcaption>Periodic Table of the Elements (highlighting Group III acceptors B, Al, Ga, In; Group IV semiconductors C, Si, Ge; and Group V donors N, P, As, Sb).</figcaption>
+      </figure>
+    </section>
+
+    <!-- SECTION 6: DIODE CAPACITANCE -->
+    <section id="diode-capacitance" class="doc-section">
+      <h2 class="section-title">
+        6. Diode Junction Capacitance (Reverse Bias)
+        <span class="tag">Lesson 6</span>
+      </h2>
+
+      <div class="grid-2">
+        <div class="eq-block blue-accent">
+          <div class="eq-label">Junction Capacitance (C<sub>j</sub>)</div>
+          <div class="eq-formula">
+            <math display="block"><mrow><msub><mi>C</mi><mi>j</mi></msub><mo>=</mo><mfrac><msub><mi>C</mi><mrow><mi>j</mi><mn>0</mn></mrow></msub><msup><mrow><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mfrac><msub><mi>V</mi><mi>R</mi></msub><msub><mi>V</mi><mn>0</mn></msub></mfrac><mo stretchy="false">)</mo></mrow><mi>m</mi></msup></mfrac></mrow></math>
+          </div>
+          <p class="eq-notes">Grading coefficient: 1/3 ≤ <em>m</em> ≤ 1/2 (typically <em>m</em> = 1/2 for abrupt step junction, 1/3 for linearly graded).</p>
+        </div>
+
+        <div class="eq-block">
+          <div class="eq-label">Zero-Bias Junction Capacitance (C<sub>j0</sub>)</div>
+          <div class="eq-formula">
+            <math display="block"><mrow><msub><mi>C</mi><mrow><mi>j</mi><mn>0</mn></mrow></msub><mo>=</mo><mi>A</mi><msqrt><mrow><mfrac><mrow><msub><mi>ε</mi><mi>s</mi></msub><mi>q</mi></mrow><mn>2</mn></mfrac><mrow><mo>(</mo><mfrac><mrow><msub><mi>N</mi><mi>A</mi></msub><msub><mi>N</mi><mi>D</mi></msub></mrow><mrow><msub><mi>N</mi><mi>A</mi></msub><mo>+</mo><msub><mi>N</mi><mi>D</mi></msub></mrow></mfrac><mo>)</mo></mrow><mfrac><mn>1</mn><msub><mi>V</mi><mn>0</mn></msub></mfrac></mrow></msqrt></mrow></math>
+          </div>
+          <p class="eq-notes"><em>C<sub>j0</sub></em> represents junction capacitance at zero applied voltage (<em>V<sub>R</sub></em> = 0).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: DIODE CIRCUIT MODELS -->
+    <section id="diode-models" class="doc-section">
+      <h2 class="section-title">
+        7. Diode Circuit Analysis Models
+        <span class="tag">Lessons 4–5</span>
+      </h2>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3 class="card-title">1. Ideal Diode Model</h3>
+          <p><strong>ON state (Short Circuit):</strong><br><em>V<sub>D</sub></em> = 0 V<br><strong>Verify:</strong> <em>I<sub>D</sub></em> &gt; 0</p>
+          <hr style="border: 0; border-top: 1px solid var(--rule); margin: 0.75rem 0;">
+          <p><strong>OFF state (Open Circuit):</strong><br><em>I<sub>D</sub></em> = 0 A<br><strong>Verify:</strong> <em>V<sub>D</sub></em> &lt; 0 V</p>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">2. Constant Voltage Drop (CVD)</h3>
+          <p><strong>ON state (0.7V Source):</strong><br><em>V<sub>D</sub></em> = 0.7 V<br><strong>Verify:</strong> <em>I<sub>D</sub></em> &gt; 0</p>
+          <hr style="border: 0; border-top: 1px solid var(--rule); margin: 0.75rem 0;">
+          <p><strong>OFF state (Open Circuit):</strong><br><em>I<sub>D</sub></em> = 0 A<br><strong>Verify:</strong> <em>V<sub>D</sub></em> &lt; 0.7 V</p>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">3. Shockley Diode Model</h3>
+          <div class="eq-formula">
+            <math display="block"><mrow><msub><mi>I</mi><mi>D</mi></msub><mo>≈</mo><msub><mi>I</mi><mi>S</mi></msub><msup><mi>e</mi><mrow><msub><mi>V</mi><mi>D</mi></msub><mo>/</mo><mo stretchy="false">(</mo><mi>n</mi><msub><mi>V</mi><mi>T</mi></msub><mo stretchy="false">)</mo></mrow></msup></mrow></math>
+          </div>
+          <p>Provides exact exponential I-V curve for forward bias. Inversion gives:</p>
+          <div class="eq-formula">
+            <math display="block"><mrow><msub><mi>V</mi><mi>D</mi></msub><mo>=</mo><mi>n</mi><msub><mi>V</mi><mi>T</mi></msub><mi>ln</mi><mo stretchy="false">(</mo><msub><mi>I</mi><mi>D</mi></msub><mo>/</mo><msub><mi>I</mi><mi>S</mi></msub><mo stretchy="false">)</mo></mrow></math>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 1.25rem;">
+        <h3 class="card-title">Gauss-Seidel Iterative Update Equations</h3>
+        <div class="grid-2">
+          <div class="eq-block blue-accent">
+            <div class="eq-label">Load Line Update</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>I</mi><mrow><mi>D</mi><mn>2</mn></mrow></msub><mo>=</mo><mfrac><mrow><msub><mi>V</mi><mrow><mi>t</mi><mi>h</mi></mrow></msub><mo>−</mo><mi>k</mi><msub><mi>V</mi><mrow><mi>D</mi><mn>1</mn></mrow></msub></mrow><msub><mi>R</mi><mrow><mi>t</mi><mi>h</mi></mrow></msub></mfrac></mrow></math>
+            </div>
+            <p class="eq-notes"><em>k</em>: number of identical diodes connected in series.</p>
+          </div>
+          <div class="eq-block yellow-accent">
+            <div class="eq-label">Shockley Voltage Update</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>V</mi><mrow><mi>D</mi><mn>2</mn></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>D</mi><mn>1</mn></mrow></msub><mo>+</mo><mi>n</mi><msub><mi>V</mi><mi>T</mi></msub><mi>ln</mi><mrow><mo>(</mo><mfrac><msub><mi>I</mi><mrow><mi>D</mi><mn>2</mn></mrow></msub><msub><mi>I</mi><mrow><mi>D</mi><mn>1</mn></mrow></msub></mfrac><mo>)</mo></mrow></mrow></math>
+            </div>
+            <p class="eq-notes">Iterate until Δ<em>V<sub>D</sub></em> converges to within desired tolerance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: SMALL SIGNAL & ZENER -->
+    <section id="small-signal" class="doc-section">
+      <h2 class="section-title">
+        8. Diode Small-Signal Model, Voltage Regulation & Zener
+        <span class="tag">Lesson 6</span>
+      </h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="card-title">Small-Signal Notation & Dynamic Resistance</h3>
+          <div class="eq-block purple-accent">
+            <div class="eq-label">Total Instantaneous Signal</div>
+            <p><em>i<sub>D</sub></em> = <em>I<sub>D</sub></em> + <em>i<sub>d</sub></em> &nbsp;|&nbsp; <em>v<sub>D</sub></em> = <em>V<sub>D</sub></em> + <em>v<sub>d</sub></em></p>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>i</mi><mi>D</mi></msub><mo>=</mo><msub><mi>I</mi><mi>D</mi></msub><msup><mi>e</mi><mrow><msub><mi>v</mi><mi>d</mi></msub><mo>/</mo><mo stretchy="false">(</mo><mi>n</mi><msub><mi>V</mi><mi>T</mi></msub><mo stretchy="false">)</mo></mrow></msup><mo>≈</mo><msub><mi>I</mi><mi>D</mi></msub><mo>+</mo><mfrac><msub><mi>v</mi><mi>d</mi></msub><msub><mi>r</mi><mi>d</mi></msub></mfrac></mrow></math>
+            </div>
+          </div>
+          <div class="eq-block">
+            <div class="eq-label">Dynamic Resistance (r<sub>d</sub>)</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>r</mi><mi>d</mi></msub><mo>=</mo><mfrac><mrow><mi>n</mi><msub><mi>V</mi><mi>T</mi></msub></mrow><msub><mi>I</mi><mi>D</mi></msub></mfrac></mrow></math>
+            </div>
+            <p class="eq-notes">Linearity test: valid for small signal amplitude <strong><em>v<sub>d</sub></em> ≤ 5 mV × <em>n</em></strong>.</p>
+          </div>
+          <div class="eq-block blue-accent">
+            <div class="eq-label">Line Regulation</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><mtext>Line Reg</mtext><mo>=</mo><mfrac><mrow><mi>Δ</mi><msub><mi>V</mi><mrow><mi>o</mi><mi>u</mi><mi>t</mi></mrow></msub></mrow><mrow><mi>Δ</mi><msub><mi>V</mi><mrow><mi>i</mi><mi>n</mi></mrow></msub></mrow></mfrac></mrow></math>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Zener Diode Characteristics</h3>
+          <div class="eq-block yellow-accent">
+            <div class="eq-label">Zener Voltage in Breakdown</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>V</mi><mi>Z</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>Z</mi><mn>0</mn></mrow></msub><mo>+</mo><msub><mi>I</mi><mi>Z</mi></msub><msub><mi>r</mi><mi>z</mi></msub></mrow></math>
+            </div>
+            <p class="eq-notes">
+              Given knee/operating point (<em>V<sub>Z</sub></em>, <em>I<sub>Z</sub></em>):<br>
+              <strong><em>V</em><sub><em>Z</em>0</sub> = <em>V<sub>Z</sub></em> − <em>r<sub>z</sub> I<sub>Z</sub></em></strong>
+            </p>
+          </div>
+          <div class="eq-block">
+            <div class="eq-label">Zener Power Dissipation</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>P</mi><mi>Z</mi></msub><mo>=</mo><msub><mi>I</mi><mi>Z</mi></msub><msub><mi>V</mi><mi>Z</mi></msub><mo>=</mo><msub><mi>I</mi><mi>Z</mi></msub><mo stretchy="false">(</mo><msub><mi>V</mi><mrow><mi>Z</mi><mn>0</mn></mrow></msub><mo>+</mo><msub><mi>I</mi><mi>Z</mi></msub><msub><mi>r</mi><mi>z</mi></msub><mo stretchy="false">)</mo></mrow></math>
+            </div>
+          </div>
+
+          <h4 style="margin: 1rem 0 0.5rem; font-size: 0.95rem; color: var(--head);">Diode Schematic Symbols</h4>
+          <div style="display: flex; gap: 1.5rem; align-items: center; justify-content: space-around; background: var(--surface-2); padding: 0.75rem; border-radius: var(--radius); border: 1px solid var(--rule);">
+            <div style="text-align: center;">
+              <svg width="70" height="40" viewBox="0 0 70 40">
+                <line x1="5" y1="20" x2="30" y2="20" stroke="#f4f6fa" stroke-width="2"/>
+                <polygon points="30,10 30,30 50,20" fill="#f4f6fa"/>
+                <line x1="50" y1="10" x2="50" y2="30" stroke="#f4f6fa" stroke-width="2"/>
+                <line x1="50" y1="20" x2="65" y2="20" stroke="#f4f6fa" stroke-width="2"/>
+              </svg>
+              <div style="font-size: 0.75rem; color: var(--muted);">Standard Diode</div>
+            </div>
+            <div style="text-align: center;">
+              <svg width="70" height="40" viewBox="0 0 70 40">
+                <line x1="5" y1="20" x2="30" y2="20" stroke="#6cc7ff" stroke-width="2"/>
+                <polygon points="30,10 30,30 50,20" fill="#6cc7ff"/>
+                <path d="M45,10 h5 v20 h-5" fill="none" stroke="#6cc7ff" stroke-width="2"/>
+                <line x1="50" y1="20" x2="65" y2="20" stroke="#6cc7ff" stroke-width="2"/>
+              </svg>
+              <div style="font-size: 0.75rem; color: var(--blue);">Schottky</div>
+            </div>
+            <div style="text-align: center;">
+              <svg width="70" height="40" viewBox="0 0 70 40">
+                <line x1="5" y1="20" x2="30" y2="20" stroke="#ffd166" stroke-width="2"/>
+                <polygon points="30,10 30,30 50,20" fill="#ffd166"/>
+                <path d="M46,8 L50,10 v20 L54,32" fill="none" stroke="#ffd166" stroke-width="2"/>
+                <line x1="50" y1="20" x2="65" y2="20" stroke="#ffd166" stroke-width="2"/>
+              </svg>
+              <div style="font-size: 0.75rem; color: var(--yellow);">Zener</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="doc-footer">
+    <p>ECE 321 Electronics I · Department of Electrical & Computer Engineering · United States Air Force Academy</p>
+    <p><a href="index.html">← Back to Equation Sheets Overview</a> · <a href="#main-content">Back to Top ↑</a></p>
+  </footer>
+</body>
+</html>

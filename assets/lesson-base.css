@@ -1,0 +1,214 @@
+
+/* Layout: a single typeset column of course notes. Screen default is a vivid
+   dark reading theme: deep ink-navy ground, bright text, electric cyan for
+   structure (step labels, markers, defined terms) and amber for filled-in
+   answers, like highlighter on the printed blank. The printer-friendly switch
+   (html[data-mode="print"]) and real printing swap every token to the plain
+   black-on-white document style. */
+:root {
+  --bg: #0e1220;
+  --surface: #161c2e;
+  --surface-2: #1d2540;
+  --ink: #eef1f7;
+  --head: #ffffff;
+  --muted: #b3bdd2;
+  --rule: #2c3651;
+  --line: #36446a;
+  --box: #34416a;
+  --accent: #4fd1ff;
+  --note-ink: #9fdfff;
+  --fill-ink: #ffd36b;
+  --fill-rule: #ffad1f;
+  --term-hover: rgba(79, 209, 255, 0.16);
+  --h2-rule: #4fd1ff;
+  --shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+  --weight: 430;
+  --radius: 8px;
+  --font-body: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+  --font-head: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-math: "STIX Two Math", "Cambria Math", "Latin Modern Math", math;
+  --size: 18.5px;
+  --leading: 1.72;
+  --head-align: left;
+  color-scheme: dark;
+}
+/* Printer-friendly: white paper, black ink, one serif, outlines only. */
+:root[data-mode="print"] {
+  --bg: #ffffff; --surface: #ffffff; --surface-2: #ffffff; --ink: #111111; --head: #111111; --muted: #444444;
+  --rule: #8a8a8a; --line: #111111; --box: #111111; --accent: #111111; --note-ink: #111111;
+  --fill-ink: #111111; --fill-rule: #111111; --term-hover: transparent;
+  --h2-rule: transparent; --shadow: none; --weight: 400;
+  --radius: 0;
+  --font-body: "STIX Two Text", "STIX Two", "Times New Roman", Cambria, Georgia, serif;
+  --font-head: "STIX Two Text", "STIX Two", "Times New Roman", Cambria, Georgia, serif;
+  --size: 17px; --leading: 1.5; --head-align: center;
+  color-scheme: light;
+}
+html, body { background: var(--bg); }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: var(--size); line-height: var(--leading); font-weight: var(--weight);
+  -webkit-font-smoothing: antialiased;
+  padding-inline: 16px; padding-block: 1.5rem 4rem; margin: 0;
+}
+.page { max-width: 44rem; margin: 0 auto; }
+math { font-family: var(--font-math); font-size: 1.04em; }
+math[display="block"] { margin: 0.45rem 0 0.35rem; overflow-x: auto; overflow-y: hidden; padding-block: 2px; }
+
+h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; text-wrap: balance; color: var(--head); }
+h1 { font-size: 1.9rem; line-height: 1.2; margin: 0.3rem 0 0.4rem; text-align: var(--head-align); }
+.course { text-align: var(--head-align); font-family: var(--font-head); font-size: 0.95rem; margin: 0; color: var(--accent); letter-spacing: 0.04em; }
+:root[data-mode="print"] .course { color: var(--ink); letter-spacing: 0; font-size: 1rem; }
+h2 { font-size: 1.4rem; line-height: 1.25; margin: 0 0 0.75rem; padding-bottom: 0.35rem; border-bottom: 2px solid var(--h2-rule); }
+h3 { font-size: 1.12rem; margin: 2rem 0 0.6rem; }
+p { margin: 0.5rem 0; }
+.muted { color: var(--muted); }
+a, a:visited { color: inherit; text-decoration: none; }
+b, strong { font-weight: 700; }
+
+/* Top controls: hidden on paper. */
+.controls { display: flex; flex-wrap: wrap; gap: 0.6rem 1.4rem; align-items: center; justify-content: flex-end; margin-bottom: 1.2rem; font-family: var(--font-head); font-size: 0.9rem; color: var(--muted); }
+.switch { display: inline-flex; align-items: center; gap: 0.55rem; background: none; border: 0; padding: 0; color: inherit; font: inherit; cursor: pointer; }
+.switch .track { width: 2.4rem; height: 1.35rem; border-radius: 1rem; border: 1px solid var(--line); background: var(--surface); position: relative; flex: none; }
+.switch .knob { position: absolute; top: 0.14rem; left: 0.16rem; width: 0.95rem; height: 0.95rem; border-radius: 50%; background: var(--muted); transition: transform 0.15s ease, background 0.15s ease; }
+.switch[aria-checked="true"] .knob { transform: translateX(1.02rem); background: var(--ink); }
+.switch:focus-visible, .xp-all:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+:root[data-mode="print"] .xp-all { display: none; }
+.xp-all { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 0.2em; text-decoration-color: var(--rule); }
+@media (prefers-reduced-motion: reduce) { .switch .knob { transition: none; } }
+
+header.top { margin-bottom: 1.4rem; }
+.topics { margin: 0.8rem 0 0; padding-left: 1.4rem; }
+.topics li { margin: 0.25rem 0; }
+
+section.part { margin-top: 3rem; }
+section.ref { margin-top: 1.4rem; padding: 0.8rem 1.1rem 0.9rem; border: 1px solid var(--box); background: var(--surface); border-radius: var(--radius); }
+section.ref h2 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+.refgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.2rem 1.5rem; }
+.refgrid > div { min-width: 0; }
+.refgrid p { margin: 0.25rem 0; }
+
+/* Filled-in blanks: written on an underline, like ink on the printed blank. */
+.fill { border-bottom: 1.5px solid var(--fill-rule); padding: 0 0.15em; color: var(--fill-ink); }
+:root[data-mode="print"] .fill { border-bottom-width: 1px; }
+.fill math { font-size: 1em; }
+td .fill { border-bottom: 0; padding: 0; }
+/* A fill holding a fraction or root is drawn as a box, so the rule sits under
+   the denominator instead of cutting through it at the text baseline. */
+.fill:has(mfrac, msqrt, mroot) { display: inline-block; max-width: 100%; padding-bottom: 0.2em; line-height: 1.2; }
+.inf { font-size: 0.75em; margin-left: 0.05em; color: var(--fill-rule); }
+.pg { display: block; text-align: right; font-family: var(--font-head); font-size: 0.8rem; color: var(--muted); margin: 1.4rem 0 0.2rem; }
+:root[data-mode="print"] .pg { font-style: italic; font-size: 0.85rem; }
+
+/* Dropdowns: expansion notes (.xp) and appendix entries (.ap). Closed on screen, open in print. */
+details.xp, details.ap { border: 1px solid var(--rule); border-radius: var(--radius); background: var(--surface); margin: 0.4rem 0 0.8rem; padding: 0 0.9rem; }
+details.xp { break-inside: avoid; }
+details.xp > summary, details.ap > summary { cursor: pointer; padding: 0.35rem 0; list-style: none; }
+details.xp > summary { font-style: italic; font-size: 0.95rem; color: var(--note-ink); }
+details.ap > summary { font-family: var(--font-head); font-weight: 700; }
+details.xp > summary::-webkit-details-marker, details.ap > summary::-webkit-details-marker { display: none; }
+details.xp > summary::before, details.ap > summary::before { content: "▸\00a0"; font-style: normal; color: var(--accent); }
+details.xp[open] > summary::before, details.ap[open] > summary::before { content: "▾\00a0"; }
+details.xp[open], details.ap[open] { padding-bottom: 0.45rem; }
+details.xp p { margin: 0.3rem 0; font-size: 0.97rem; }
+details.ap h4 { font-size: 0.98rem; margin: 0.8rem 0 0.2rem; }
+
+.given { border: 1px solid var(--box); background: var(--surface); border-radius: var(--radius); padding: 0.6rem 1rem; margin: 0.8rem 0 1rem; }
+.given dl { display: grid; grid-template-columns: 4.2rem 1fr; gap: 0.25rem 0.8rem; margin: 0; }
+.given dt { font-weight: 700; }
+.given dd { margin: 0; min-width: 0; }
+
+figure { margin: 1rem 0 1.2rem; break-inside: avoid; }
+figure .sch { display: block; width: 100%; height: auto; color: var(--ink); margin: 0 auto; }
+figcaption { font-size: 0.92rem; margin-top: 0.35rem; text-align: center; color: var(--muted); }
+:root[data-mode="print"] figcaption { color: var(--ink); }
+figcaption b { font-weight: 700; color: var(--ink); }
+.sch .v { fill: var(--muted); }
+.sch text { font-family: var(--font-body); }
+.sch circle[fill="#ffffff"] { fill: var(--bg); }
+.fig-wrap { overflow-x: auto; }
+.figs-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: end; }
+.figs-2 > figure { min-width: 0; margin: 0.5rem 0; }
+
+ol.steps { list-style: none; margin: 0.6rem 0 0; padding: 0; }
+ol.steps > li { display: grid; grid-template-columns: 4.6rem 1fr; gap: 0.8rem; padding: 0.6rem 0; break-inside: avoid; }
+ol.steps > li > div { min-width: 0; }
+.sl { font-family: var(--font-head); font-weight: 700; padding-top: 0.1rem; color: var(--accent); }
+:root[data-mode="print"] .sl { color: var(--ink); }
+.do { margin: 0 0 0.15rem; font-style: italic; }
+.why { margin: 0.2rem 0 0; font-size: 0.97rem; }
+.ok { font-weight: 700; white-space: nowrap; }
+
+.tbl { overflow-x: auto; margin: 0.8rem 0 1rem; }
+table { border-collapse: collapse; width: 100%; font-size: 0.95rem; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 0.35rem 0.6rem; border: 1px solid var(--line); vertical-align: top; }
+th { font-weight: 700; background: var(--surface-2); color: var(--head); font-family: var(--font-head); font-size: 0.9rem; }
+td.n, th.n { text-align: right; }
+caption { caption-side: top; text-align: center; font-style: italic; padding-bottom: 0.3rem; color: var(--muted); }
+
+.note { border: 1px solid var(--box); background: var(--surface); border-radius: var(--radius); padding: 0.5rem 1rem; margin: 1rem 0; }
+.note p { margin: 0.3rem 0; }
+.note .label { font-weight: 700; font-family: var(--font-head); color: var(--accent); }
+:root[data-mode="print"] .note .label { color: var(--ink); }
+
+/* Defined terms: rest the pointer 1 s (or tap) for a definition. No underline; a faint
+   highlight on hover is the only mark. Off in printer-friendly mode. */
+.term { cursor: help; }
+mrow.term { border-radius: 3px; }
+.term:hover { background: var(--term-hover); border-radius: 3px; }
+:root[data-mode="print"] .term { cursor: auto; background: none; }
+.tip { position: fixed; z-index: 50; max-width: min(20rem, calc(100vw - 32px)); background: var(--surface-2); color: var(--ink);
+  border: 1px solid var(--accent); border-radius: var(--radius); padding: 0.5rem 0.7rem; box-shadow: var(--shadow);
+  font-family: var(--font-head); font-size: 0.84rem; line-height: 1.45; font-weight: 400; pointer-events: none; }
+.tip b { display: block; color: var(--accent); margin-bottom: 0.15rem; font-size: 0.9rem; }
+.tip sub { font-size: 0.75em; }
+:root[data-mode="print"] .tip { display: none !important; }
+
+ul.tight, ol.tight { margin: 0.4rem 0; padding-left: 1.3rem; }
+.indent { margin-left: 2.5rem; }
+ol.paren { list-style: none; padding-left: 2.5rem; counter-reset: paren; }
+ol.paren > li { counter-increment: paren; position: relative; }
+ol.paren > li::before { content: "(" counter(paren) ")"; position: absolute; left: -2.2rem; }
+ul.tight li, ol.tight li { margin: 0.2rem 0; }
+
+footer { margin-top: 2.5rem; padding-top: 0.6rem; border-top: 1px solid var(--line); font-size: 0.9rem; color: var(--muted); }
+footer p { margin: 0.25rem 0; }
+:root[data-mode="print"] footer { font-style: italic; color: var(--ink); }
+
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  h1 { font-size: 1.55rem; }
+  .refgrid { grid-template-columns: 1fr; }
+  .figs-2 { grid-template-columns: 1fr !important; }
+  ol.steps > li { grid-template-columns: 1fr; gap: 0.1rem; }
+  .given dl { grid-template-columns: 1fr; }
+  .controls { justify-content: flex-start; }
+}
+
+@page { size: letter; margin: 0.75in; }
+@media print {
+  :root {
+    --bg: #ffffff; --surface: #ffffff; --surface-2: #ffffff; --ink: #111111; --head: #111111; --muted: #444444;
+    --rule: #8a8a8a; --line: #111111; --box: #111111; --accent: #111111; --note-ink: #111111;
+    --fill-ink: #111111; --fill-rule: #111111; --term-hover: transparent;
+    --h2-rule: transparent; --shadow: none; --weight: 400;
+    --radius: 0;
+    --font-body: "STIX Two Text", "STIX Two", "Times New Roman", Cambria, Georgia, serif;
+    --font-head: "STIX Two Text", "STIX Two", "Times New Roman", Cambria, Georgia, serif;
+    --head-align: center;
+    color-scheme: light;
+  }
+  body { font-size: 11pt; line-height: 1.4; padding: 0; }
+  .page { max-width: none; }
+  .controls, .tip { display: none !important; }
+  .term { background: none; }
+  .course, .sl, figcaption, footer, caption, details.xp > summary { color: var(--ink); }
+  section.part { break-before: page; margin-top: 0; }
+  #guide-types, #guide-topics, #guide-eqs { break-before: page; }
+  h3 { break-after: avoid; margin-top: 1.3rem; }
+  figure, .tbl, .note, .given, ol.steps > li, section.ref, details.xp { break-inside: avoid; }
+  figure .sch { max-height: 2.6in; width: auto; max-width: 100%; }
+  .figs-2 figure .sch { max-height: 2.3in; }
+  details > summary::before, details[open] > summary::before { content: ""; }
+  details::details-content { content-visibility: visible; display: block; }
+}

@@ -1,0 +1,108 @@
+/* Navigation is never part of the original printer-friendly document. */
+.course-nav { display:none; }
+@media screen {
+  :root:not([data-mode="print"]) {
+    --bg:#06080c; --surface:#0d1118; --surface-2:#151b25; --ink:#f4f6fa; --head:#f4f6fa;
+    --muted:#c9d2de; --rule:#232c3a; --line:#232c3a; --box:#232c3a; --accent:#ff8f5a;
+    --note-ink:#ff8f5a; --fill-ink:#ffd166; --fill-rule:#ffd166; --amber:#ffd166; --amber-ink:#ffd166;
+    --term-hover:rgba(255,143,90,.16); --h2-rule:#ff8f5a; --shadow:none; --weight:400;
+    --radius:6px; --font-body:Inter,"Segoe UI",Arial,sans-serif; --font-head:Inter,"Segoe UI",Arial,sans-serif;
+    --size:17.5px; --leading:1.72;
+  }
+  html:not([data-mode="print"]) body { padding:0 0 48px; }
+  html:not([data-mode="print"]) .page, html:not([data-mode="print"]) .wrap { max-width:940px; padding:45px 30px 0; }
+  html:not([data-mode="print"]) h1 { font-size:clamp(27px,3.5vw,42px);font-weight:500;letter-spacing:-1px;line-height:1.25; }
+  html:not([data-mode="print"]) h2 { font-size:25px;font-weight:500; }
+  html:not([data-mode="print"]) h3 { font-size:20px;font-weight:600; }
+  html:not([data-mode="print"]) .course, html:not([data-mode="print"]) .eyebrow { font:11px Consolas,monospace;letter-spacing:1.5px;color:var(--accent); }
+  html:not([data-mode="print"]) .course-nav { display:flex;align-items:center;gap:28px;justify-content:space-between;width:100%;height:52px;padding:0 4.5%;position:sticky;top:0;z-index:50;background:#06080cf5;border-bottom:1px solid #232c3a;box-sizing:border-box;font:12px "Segoe UI",Arial,sans-serif; }
+  .course-nav a { text-decoration:none;border:0;color:#b0bac9; }
+  .course-nav .course-brand { display:flex;align-items:center;gap:5px;font-size:18px;color:#f4f6fa;white-space:nowrap; }
+  .course-brand b { color:#ff8f5a;font-weight:600; }
+  .course-brand>span { width:30px;height:30px;display:grid;place-items:center;background:#ff8f5a;border-radius:6px;margin-right:7px;color:#06080c; }
+  .course-brand svg { width:27px;height:27px; }
+  .course-nav nav { display:flex;gap:25px;align-self:stretch;align-items:center;min-width:0;overflow-x:auto;scrollbar-width:none; }
+  .course-nav nav a { display:flex;height:100%;align-items:center;white-space:nowrap;flex-shrink:0;box-sizing:border-box; }
+  .course-nav a[aria-current], .course-nav a:hover { color:#ff8f5a; }
+  .course-nav a[aria-current] { border-bottom:2px solid #ff8f5a; }
+  .course-semester { font:10px Consolas,monospace;letter-spacing:1.5px;color:#b0bac9;white-space:nowrap; }
+  html:not([data-mode="print"]) a:focus-visible,html:not([data-mode="print"]) button:focus-visible,html:not([data-mode="print"]) summary:focus-visible { outline:2px solid #ff8f5a;outline-offset:3px; }
+  html:not([data-mode="print"]) table { min-width:0;width:100%; }
+  html:not([data-mode="print"]) td,html:not([data-mode="print"]) th { overflow-wrap:anywhere; }
+  html:not([data-mode="print"]) figure { max-width:100%; }
+  html:not([data-mode="print"]) img,html:not([data-mode="print"]) svg { max-width:100%;height:auto; }
+  html:not([data-mode="print"]) math[display="block"] { max-width:100%;overflow-x:auto; }
+  /* Reading-guide jump bar sticks below the course nav; anchors clear both bars. */
+  html:not([data-mode="print"]) nav.jump { top:52px; }
+  html:not([data-mode="print"]) section.prob { scroll-margin-top:calc(52px + var(--jump-h, 3rem) + 12px); }
+  nav.jump .grp { font:11px Consolas,monospace;letter-spacing:1.5px;color:var(--muted);align-self:center;margin-left:.4rem; }
+  nav.jump .grp:first-child { margin-left:0; }
+  @media(max-width:700px) {
+    html:not([data-mode="print"]) nav.jump { top:48px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none; }
+    html:not([data-mode="print"]) nav.jump > * { flex-shrink:0; }
+    html:not([data-mode="print"]) section.prob { scroll-margin-top:calc(48px + var(--jump-h, 3rem) + 12px); }
+  }
+  @media(max-width:700px) {
+    html:not([data-mode="print"]) .course-nav { height:48px;padding:0 12px;gap:16px; }
+    .course-nav .course-brand { font-size:15px; }
+    .course-brand>span { width:26px;height:26px;margin-right:3px; }
+    .course-nav nav { gap:18px;font-size:11px;flex:1; }
+    .course-semester { display:none; }
+    html:not([data-mode="print"]) .page,html:not([data-mode="print"]) .wrap { padding:30px 18px 0; }
+  }
+}
+
+/* Readability layer: screen only, never applied in printer-friendly mode or print. */
+@media screen {
+  html:not([data-mode="print"]) body { -webkit-font-smoothing:antialiased; }
+  html:not([data-mode="print"]) .page, html:not([data-mode="print"]) .wrap { max-width:980px; }
+  html:not([data-mode="print"]) p, html:not([data-mode="print"]) li { color:#f4f6fa; }
+  html:not([data-mode="print"]) math { font-size:1.14em; }
+  /* Discreet on screen: a soft tint instead of an underline, a tiny dim dagger. Print keeps both. */
+  html:not([data-mode="print"]) .fill { color:#ffe08a; border-bottom:0; background:rgba(255,224,138,.09); border-radius:4px; padding:.02em .3em; }
+  html:not([data-mode="print"]) td .fill { background:none; padding:0; }
+  html:not([data-mode="print"]) .fill:has(mfrac, msqrt, mroot) { padding-bottom:.1em; }
+  html:not([data-mode="print"]) .inf { color:#ffe08a; font-size:.6em; opacity:.6; margin-left:.1em; vertical-align:super; line-height:0; }
+  html:not([data-mode="print"]) .pg { font:600 .95rem Consolas,monospace; color:#ffb08a; letter-spacing:.5px; margin-top:2rem; }
+  html:not([data-mode="print"]) .course, html:not([data-mode="print"]) .eyebrow { font-size:12.5px; }
+  html:not([data-mode="print"]) .controls { font-size:1rem; color:var(--muted); }
+  html:not([data-mode="print"]) .xp-all { text-decoration-color:var(--accent); }
+  html:not([data-mode="print"]) h2 { font-size:28px; margin-top:.5rem; }
+  html:not([data-mode="print"]) h3 { font-size:22px; }
+  html:not([data-mode="print"]) details.xp, html:not([data-mode="print"]) details.ap, html:not([data-mode="print"]) details.rs { background:#101620; border-color:#34425a; }
+  html:not([data-mode="print"]) details.xp { border-left:3px solid var(--accent); }
+  html:not([data-mode="print"]) details.xp > summary { font-style:normal; font-weight:600; font-size:1.02rem; color:#ffd0b5; padding:.55rem 0; }
+  html:not([data-mode="print"]) details.ap > summary, html:not([data-mode="print"]) details.rs > summary { font-size:1.1rem; padding:.7rem 0; color:#f4f6fa; }
+  html:not([data-mode="print"]) details.xp > summary:hover, html:not([data-mode="print"]) details.ap > summary:hover, html:not([data-mode="print"]) details.rs > summary:hover { color:#fff; }
+  html:not([data-mode="print"]) details.xp[open] > summary, html:not([data-mode="print"]) details.ap[open] > summary, html:not([data-mode="print"]) details.rs[open] > summary { border-bottom:1px solid #34425a; margin-bottom:.4rem; }
+  html:not([data-mode="print"]) details.xp p, html:not([data-mode="print"]) details.xp li { font-size:1.04rem; line-height:1.7; }
+  html:not([data-mode="print"]) details.rs > summary h3 .src { color:var(--muted); font-size:.85rem; }
+  html:not([data-mode="print"]) .lbl { font-size:.82rem; letter-spacing:.06em; color:#c9d2de; }
+  html:not([data-mode="print"]) .step > .lbl, html:not([data-mode="print"]) .result > .lbl, html:not([data-mode="print"]) .ex .lbl, html:not([data-mode="print"]) .toolkit > .lbl { color:#ffb08a; }
+  html:not([data-mode="print"]) .sl { font-size:1.02rem; color:#ffb08a; }
+  html:not([data-mode="print"]) .frow .s { font-size:.86rem; color:#c9d2de; }
+  html:not([data-mode="print"]) .frow .d, html:not([data-mode="print"]) .step .why, html:not([data-mode="print"]) .ans { font-size:1rem; color:#dfe6ef; }
+  html:not([data-mode="print"]) .eq .tag { font-size:.92rem; color:#c9d2de; }
+  html:not([data-mode="print"]) .legend, html:not([data-mode="print"]) .key, html:not([data-mode="print"]) .note, html:not([data-mode="print"]) .topic { font-size:.95rem; color:#dfe6ef; }
+  html:not([data-mode="print"]) figcaption { font-size:1rem; color:#dfe6ef; }
+  html:not([data-mode="print"]) figure.plate figcaption, html:not([data-mode="print"]) figure.plate figcaption * { font-size:.95rem; color:#1b2330; }
+  html:not([data-mode="print"]) figure.plate figcaption b { color:#0b4f7a; font-weight:700; }
+  html:not([data-mode="print"]) .course-nav { background:#06080c !important; }
+  html:not([data-mode="print"]) .sch .v { fill:#dfe6ef; }
+  html:not([data-mode="print"]) footer { font-size:.95rem; color:#c9d2de; }
+  html:not([data-mode="print"]) table { font-size:1rem; }
+  html:not([data-mode="print"]) th { font-size:.9rem; color:#fff; background:#1a2332; }
+  html:not([data-mode="print"]) th, html:not([data-mode="print"]) td { border-color:#34425a; }
+  html:not([data-mode="print"]) .quote, html:not([data-mode="print"]) .toolkit, html:not([data-mode="print"]) .ex { background:#101620; }
+  html:not([data-mode="print"]) .question { background:#161d2a; }
+  html:not([data-mode="print"]) .summary { border-color:#6b7a92; }
+  html:not([data-mode="print"]) nav.jump a { font-size:1rem; padding:.3rem .9rem; color:#ffb08a; }
+  html:not([data-mode="print"]) nav.jump .grp { font-size:12.5px; color:#c9d2de; }
+  .course-nav { font-size:13.5px !important; }
+  .course-semester { font-size:11px !important; color:#c9d2de !important; }
+  html:not([data-mode="print"]) .tip { font-size:.95rem; line-height:1.5; max-width:min(24rem, calc(100vw - 32px)); background:#1a2332; }
+}
+html:not([data-mode="print"]) .fill:has(mfrac, msqrt, mroot) { overflow-x:auto; overflow-y:hidden; }
+@media screen and (max-width:560px) { html:not([data-mode="print"]) body { font-size:16.5px; } html:not([data-mode="print"]) h2 { font-size:24px; } html:not([data-mode="print"]) math { font-size:1.06em; } }
+
+.model-credit{margin:.65rem 0 0;padding-top:.5rem;border-top:1px solid var(--line);font:10px/1.5 system-ui,sans-serif;color:var(--muted)}.model-credit span{margin-right:.45rem;color:var(--accent);font-weight:600;letter-spacing:.06em;text-transform:uppercase}

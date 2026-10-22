@@ -1,0 +1,230 @@
+
+/* Layout: one reading column, a section per homework problem. Screen default is
+   the vivid dark reading theme shared with the filled-notetaker skill: deep
+   ink-navy ground, bright text, electric cyan for structure and quoted reading,
+   amber for the problem statements and derived formulas. Book figures sit on
+   white plates in both modes so scans stay legible. The printer-friendly switch
+   (html[data-mode="print"]) and real printing swap every token to plain
+   black-on-white with outlines only. */
+:root {
+  --bg: #0e1220;
+  --surface: #161c2e;
+  --surface-2: #1d2540;
+  --ink: #eef1f7;
+  --head: #ffffff;
+  --muted: #b3bdd2;
+  --rule: #2c3651;
+  --line: #36446a;
+  --box: #34416a;
+  --accent: #4fd1ff;
+  --note-ink: #9fdfff;
+  --amber: #ffad1f;
+  --amber-ink: #ffd36b;
+  --term-hover: rgba(79, 209, 255, 0.16);
+  --h2-rule: #4fd1ff;
+  --shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+  --plate: #ffffff;
+  --weight: 430;
+  --radius: 8px;
+  --font-body: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+  --font-head: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-math: "STIX Two Math", "Cambria Math", "Latin Modern Math", math;
+  --size: 18.5px;
+  --leading: 1.72;
+  --head-align: left;
+  color-scheme: dark;
+}
+/* Printer-friendly: white paper, black ink, one serif, outlines only. */
+:root[data-mode="print"] {
+  --bg: #ffffff; --surface: #ffffff; --surface-2: #ffffff; --ink: #111111; --head: #111111; --muted: #444444;
+  --rule: #8a8a8a; --line: #111111; --box: #111111; --accent: #111111; --note-ink: #111111;
+  --amber: #111111; --amber-ink: #111111; --term-hover: transparent;
+  --h2-rule: transparent; --shadow: none; --weight: 400;
+  --radius: 0;
+  --font-body: "STIX Two Text", "STIX Two", "Times New Roman", Cambria, Georgia, serif;
+  --font-head: "STIX Two Text", "STIX Two", "Times New Roman", Cambria, Georgia, serif;
+  --size: 17px; --leading: 1.5; --head-align: center;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: var(--size); line-height: var(--leading); font-weight: var(--weight);
+  -webkit-font-smoothing: antialiased;
+  padding-inline: 16px; padding-block: 1.5rem 4rem; margin: 0;
+}
+.wrap { max-width: 52rem; margin: 0 auto; }
+math { font-family: var(--font-math); font-size: 1.04em; }
+math[display="block"] { margin: 0.2rem 0; overflow-x: auto; overflow-y: hidden; padding-block: 2px; }
+a, a:visited { color: inherit; text-decoration: none; }
+b, strong { font-weight: 700; }
+h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; text-wrap: balance; color: var(--head); }
+
+/* Top controls: hidden on paper. */
+.controls { display: flex; flex-wrap: wrap; gap: 0.6rem 1.4rem; align-items: center; justify-content: flex-end; margin-bottom: 1.2rem; font-family: var(--font-head); font-size: 0.9rem; color: var(--muted); }
+.switch { display: inline-flex; align-items: center; gap: 0.55rem; background: none; border: 0; padding: 0; color: inherit; font: inherit; cursor: pointer; }
+.switch .track { width: 2.4rem; height: 1.35rem; border-radius: 1rem; border: 1px solid var(--line); background: var(--surface); position: relative; flex: none; }
+.switch .knob { position: absolute; top: 0.14rem; left: 0.16rem; width: 0.95rem; height: 0.95rem; border-radius: 50%; background: var(--muted); transition: transform 0.15s ease, background 0.15s ease; }
+.switch[aria-checked="true"] .knob { transform: translateX(1.02rem); background: var(--ink); }
+.switch:focus-visible, .xp-all:focus-visible, summary:focus-visible, nav.jump a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+:root[data-mode="print"] .xp-all { display: none; }
+.xp-all { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 0.2em; text-decoration-color: var(--rule); }
+@media (prefers-reduced-motion: reduce) { .switch .knob { transition: none; } }
+
+/* Header */
+header.top { padding-block: 0 1.2rem; border-bottom: 1px solid var(--line); }
+.eyebrow { font-family: var(--font-head); font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-align: var(--head-align); }
+h1 { font-size: 1.95rem; line-height: 1.2; margin: 0.3rem 0 0.8rem; text-align: var(--head-align); }
+.legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; font-family: var(--font-head); font-size: 0.85rem; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 0.45rem; }
+.sw { width: 0.9rem; height: 0.9rem; border-radius: 2px; display: inline-block; }
+.sw.q { background: var(--surface-2); border-left: 3px solid var(--amber); }
+.sw.r { background: var(--surface); border-left: 3px solid var(--accent); }
+.sw.s { border: 1px dashed var(--muted); }
+.sw.t { background: var(--surface-2); border: 1px solid var(--box); }
+.key { font-family: var(--font-head); font-size: 0.85rem; color: var(--muted); margin: 0.6rem 0 0; }
+.key .der { color: var(--amber); font-weight: 700; }
+:root[data-mode="print"] .eyebrow { text-transform: none; letter-spacing: 0; color: var(--ink); font-size: 1rem; }
+:root[data-mode="print"] .legend, :root[data-mode="print"] .key { justify-content: center; text-align: center; }
+
+/* Jump bar */
+nav.jump { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 0.5rem; padding-block: 0.6rem; }
+nav.jump a { font-family: var(--font-head); font-size: 0.9rem; font-weight: 700; color: var(--accent); padding: 0.2rem 0.8rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-variant-numeric: tabular-nums; }
+nav.jump a:hover { background: var(--surface-2); border-color: var(--accent); }
+
+/* Problem sections */
+section.prob { padding-block: 2.2rem 0.5rem; border-bottom: 1px solid var(--line); scroll-margin-top: 4rem; }
+h2 { font-size: 1.75rem; line-height: 1.2; margin: 0 0 0.3rem; padding-bottom: 0.35rem; border-bottom: 2px solid var(--h2-rule); display: flex; align-items: baseline; gap: 0.8rem; flex-wrap: wrap; }
+h2 .num { font-size: 0.9rem; font-weight: 400; color: var(--accent); font-variant-numeric: tabular-nums; }
+.topic { color: var(--muted); margin: 0.4rem 0 1.1rem; font-family: var(--font-head); font-size: 0.95rem; }
+h3 { font-size: 1.2rem; margin: 1.9rem 0 0.4rem; }
+h3 .src { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-left: 0.4rem; }
+h4 { font-size: 1rem; margin: 1.2rem 0 0.3rem; }
+p { margin: 0.5rem 0; }
+.lbl { font-family: var(--font-head); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 0.35rem; font-weight: 700; }
+:root[data-mode="print"] .lbl { text-transform: none; letter-spacing: 0; font-style: italic; font-weight: 400; font-size: 0.85rem; }
+
+/* The three kinds of text: verbatim problem, quoted reading, summarized reading. */
+.question { background: var(--surface-2); border-left: 4px solid var(--amber); padding: 0.9rem 1.2rem; border-radius: 0 var(--radius) var(--radius) 0; margin: 0 0 0.6rem; }
+.question p { margin: 0 0 0.5rem; }
+.question p:last-child, .question ol:last-child { margin-bottom: 0; }
+.question ol { margin: 0.4rem 0 0; padding-left: 1.6rem; }
+.question li { margin-bottom: 0.35rem; }
+.quote { background: var(--surface); border-left: 3px solid var(--accent); padding: 0.75rem 1.1rem; margin: 0.8rem 0; border-radius: 0 var(--radius) var(--radius) 0; }
+.quote p { margin: 0 0 0.6rem; }
+.quote p:last-child { margin-bottom: 0; }
+.summary { border: 1px dashed var(--muted); padding: 0.75rem 1.1rem; margin: 0.8rem 0; border-radius: var(--radius); }
+.summary p { margin: 0 0 0.5rem; }
+.summary p:last-child { margin-bottom: 0; }
+.summary ul, .quote ul { margin: 0.25rem 0 0; padding-left: 1.4rem; }
+.summary li, .quote li { margin-bottom: 0.25rem; }
+:root[data-mode="print"] .question { border-left-width: 3px; border-top: 1px solid var(--box); border-right: 1px solid var(--box); border-bottom: 1px solid var(--box); }
+
+/* Numbered equations */
+.eq { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0.8rem; margin: 0.6rem 0; }
+.eq .m { min-width: 0; overflow-x: auto; }
+.eq .tag { font-family: var(--font-head); font-size: 0.85rem; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* Book figures: always on a white plate so black-on-white scans read in dark mode. */
+figure.plate { margin: 1rem 0; background: var(--plate); border: 1px solid var(--line); border-radius: var(--radius); padding: 0.75rem; break-inside: avoid; }
+figure.plate img { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+figure.plate.small img { max-width: min(100%, 360px); }
+figure.plate.med img { max-width: min(100%, 560px); }
+figure.plate figcaption { font-family: var(--font-head); font-size: 0.82rem; color: #2b3340; margin-top: 0.5rem; line-height: 1.45; }
+figure.plate figcaption b { color: #0b4f7a; }
+:root[data-mode="print"] figure.plate figcaption { font-family: var(--font-body); color: #111111; }
+:root[data-mode="print"] figure.plate figcaption b { color: #111111; }
+
+/* Variables table */
+.vars { overflow-x: auto; margin: 0.8rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.65rem; border: 1px solid var(--line); }
+th { font-family: var(--font-head); font-size: 0.8rem; font-weight: 700; color: var(--head); background: var(--surface-2); }
+td:first-child { white-space: nowrap; width: 1%; }
+
+/* Related exercise */
+.ex { border: 1px solid var(--box); background: var(--surface); border-radius: var(--radius); padding: 0.85rem 1.1rem; margin: 0.9rem 0; }
+.ex .lbl { color: var(--accent); }
+:root[data-mode="print"] .ex .lbl { color: var(--ink); }
+.ex p { margin: 0 0 0.5rem; }
+.ex p:last-child { margin-bottom: 0; }
+.ans { color: var(--muted); font-size: 0.95rem; }
+.note { font-family: var(--font-head); font-size: 0.88rem; color: var(--muted); }
+
+/* Formula toolkit */
+.toolkit { background: var(--surface-2); border: 1px solid var(--box); border-radius: var(--radius); padding: 0.9rem 1.1rem 0.5rem; margin: 1.1rem 0 0.5rem; }
+.toolkit > .lbl { color: var(--accent); }
+:root[data-mode="print"] .toolkit > .lbl { color: var(--ink); }
+.toolkit > .intro { font-size: 0.95rem; color: var(--muted); margin: 0 0 0.5rem; }
+.toolkit h4 { margin: 0.9rem 0 0.1rem; font-size: 0.92rem; color: var(--accent); }
+:root[data-mode="print"] .toolkit h4 { color: var(--ink); }
+.frow { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) 9.5rem; gap: 0.25rem 1rem; align-items: center; padding: 0.5rem 0; border-top: 1px solid var(--rule); }
+.toolkit h4 + .frow { border-top: none; }
+.frow .f { min-width: 0; overflow-x: auto; }
+.frow .d { font-size: 0.93rem; }
+.frow .s { font-family: var(--font-head); font-size: 0.78rem; color: var(--muted); justify-self: end; text-align: right; }
+.frow .s.der { color: var(--amber); font-weight: 700; }
+:root[data-mode="print"] .frow .s.der { font-style: italic; font-weight: 400; }
+
+/* Expansion notes: dropdowns, closed on screen, open in printer-friendly mode and print. */
+details.xp { border: 1px solid var(--rule); border-radius: var(--radius); background: var(--surface); margin: 0.4rem 0 0.8rem; padding: 0 0.9rem; break-inside: avoid; }
+details.xp > summary { cursor: pointer; padding: 0.35rem 0; list-style: none; font-style: italic; font-size: 0.95rem; color: var(--note-ink); }
+details.xp > summary::-webkit-details-marker { display: none; }
+details.xp > summary::before { content: "▸\00a0"; font-style: normal; color: var(--accent); }
+details.xp[open] > summary::before { content: "▾\00a0"; }
+details.xp[open] { padding-bottom: 0.45rem; }
+details.xp p { margin: 0.3rem 0; font-size: 0.97rem; }
+
+/* Defined terms: rest the pointer 1 s (or tap) for a definition. No underline; a faint
+   highlight on hover is the only mark. Off in printer-friendly mode. */
+.term { cursor: help; }
+mrow.term { border-radius: 3px; }
+.term:hover { background: var(--term-hover); border-radius: 3px; }
+:root[data-mode="print"] .term { cursor: auto; background: none; }
+.tip { position: fixed; z-index: 50; max-width: min(20rem, calc(100vw - 32px)); background: var(--surface-2); color: var(--ink);
+  border: 1px solid var(--accent); border-radius: var(--radius); padding: 0.5rem 0.7rem; box-shadow: var(--shadow);
+  font-family: var(--font-head); font-size: 0.84rem; line-height: 1.45; font-weight: 400; pointer-events: none; }
+.tip b { display: block; color: var(--accent); margin-bottom: 0.15rem; font-size: 0.9rem; }
+.tip sub { font-size: 0.75em; }
+:root[data-mode="print"] .tip { display: none !important; }
+
+footer { margin-top: 2rem; padding-top: 0.6rem; border-top: 1px solid var(--line); font-family: var(--font-head); font-size: 0.88rem; color: var(--muted); }
+:root[data-mode="print"] footer { font-family: var(--font-body); font-style: italic; color: var(--ink); }
+
+@media (max-width: 640px) { .frow { grid-template-columns: 1fr; } .frow .s { justify-self: start; text-align: left; } }
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  h1 { font-size: 1.55rem; }
+  h2 { font-size: 1.45rem; }
+  .question, .quote, .summary { padding: 0.7rem 0.85rem; }
+  .controls { justify-content: flex-start; }
+}
+
+@page { size: letter; margin: 0.75in; }
+@media print {
+  :root {
+    --bg: #ffffff; --surface: #ffffff; --surface-2: #ffffff; --ink: #111111; --head: #111111; --muted: #444444;
+    --rule: #8a8a8a; --line: #111111; --box: #111111; --accent: #111111; --note-ink: #111111;
+    --amber: #111111; --amber-ink: #111111; --term-hover: transparent;
+    --h2-rule: transparent; --shadow: none; --weight: 400;
+    --radius: 0;
+    --font-body: "STIX Two Text", "STIX Two", "Times New Roman", Cambria, Georgia, serif;
+    --font-head: "STIX Two Text", "STIX Two", "Times New Roman", Cambria, Georgia, serif;
+    --head-align: center;
+    color-scheme: light;
+  }
+  body { font-size: 11pt; line-height: 1.4; padding: 0; }
+  .wrap { max-width: none; }
+  .controls, .tip, nav.jump { display: none !important; }
+  .term { background: none; }
+  .eyebrow, h2 .num, .toolkit > .lbl, .toolkit h4, .ex .lbl, details.xp > summary, footer { color: var(--ink); }
+  .lbl { text-transform: none; letter-spacing: 0; font-style: italic; font-weight: 400; }
+  .frow .s.der { font-style: italic; font-weight: 400; }
+  section.prob { break-before: page; border-bottom: 0; padding-top: 0; }
+  h3, h4 { break-after: avoid; }
+  figure.plate, .question, .quote, .summary, .ex, .eq, .frow, details.xp, tr { break-inside: avoid; }
+  figure.plate { border-color: #8a8a8a; }
+  details > summary::before, details[open] > summary::before { content: ""; }
+  details::details-content { content-visibility: visible; display: block; }
+}

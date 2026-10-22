@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ECE 321 Equation Sheet 2: MOSFET Fundamentals & DC Analysis · ECE 321</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+<link rel="stylesheet" href="../assets/navbar.css"></head>
+<body>
+  <a class="skip" href="#main-content">Skip to document content</a>
+
+  <header class="site-nav"><a class="brand" href="../index.html#home"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 16C8 5 12 5 16 16S24 27 28 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>ECE <strong>321</strong></a><nav class="nav-links" aria-label="Course navigation"><a href="../index.html#home">Home</a><a href="../index.html#syllabus">Syllabus</a><a href="../equation-sheets/index.html" class="active" aria-current="page">Equation sheets</a><a href="../course-docs/index.html">Course docs</a><a href="../index.html#homework">Reading guides</a><a href="../index.html#lessons">Lesson guides</a><a href="../index.html#study">Study sessions</a></nav><span class="semester"><i></i> FALL 2026</span></header>
+
+  <main id="main-content" class="doc-container">
+    <div class="doc-header">
+      <div class="doc-header-main">
+        <p class="doc-eyebrow">UNIT 2 · OFFICIAL EQUATION SHEET (FALL 2026)</p>
+        <h1 class="doc-title">ECE 321 Unit 2 Equation Sheet: MOSFET Fundamentals & DC Analysis</h1>
+        <p class="doc-desc">Official reference sheet for Lessons 8–14 covering MOSFET parameters, IV-characteristics in Cutoff, Triode, and Saturation, Channel-Length Modulation, physical device structure, SI prefixes, and DC bias network analysis.</p>
+      </div>
+      <div class="doc-actions">
+        <a class="btn btn-primary" href="../assets/equations/ECE321_Eqnsheet3_F26.pdf" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print Official PDF (Lightmode)
+        </a>
+        <a class="btn" href="../assets/equations/ECE321_Eqnsheet3_F26.pdf" download="ECE321_Unit2_EquationSheet.pdf">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download PDF
+        </a>
+        <a class="btn" href="index.html">All Sheets</a>
+      </div>
+    </div>
+
+    <nav class="jump-nav" aria-label="Sections on this sheet">
+      <span>Jump to:</span>
+      <a href="#symbols">MOSFET Symbols & Parameters</a>
+      <a href="#iv-curves">Modes of Operation & I-V Equations</a>
+      <a href="#structure">n-Channel Physical Structure</a>
+      <a href="#si-prefixes">SI Unit Prefixes & Subscript Notation</a>
+      <a href="#dc-analysis">NMOS DC Bias Circuit Analysis</a>
+    </nav>
+
+    <!-- SECTION 1: SYMBOLS & PARAMETERS -->
+    <section id="symbols" class="doc-section">
+      <h2 class="section-title">
+        1. MOSFET Symbols & Core Physical Parameters
+        <span class="tag">Lessons 8–9</span>
+      </h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="card-title">Transistor Schematic Symbols</h3>
+          <div style="display: flex; gap: 2rem; justify-content: space-around; align-items: center; padding: 1rem 0;">
+            <div style="text-align: center;">
+              <svg width="100" height="90" viewBox="0 0 100 90">
+                <line x1="20" y1="45" x2="45" y2="45" stroke="#f4f6fa" stroke-width="2"/>
+                <line x1="45" y1="20" x2="45" y2="70" stroke="#f4f6fa" stroke-width="3"/>
+                <line x1="55" y1="25" x2="55" y2="65" stroke="#f4f6fa" stroke-width="3" stroke-dasharray="10,4"/>
+                <line x1="55" y1="30" x2="80" y2="30" stroke="#f4f6fa" stroke-width="2"/>
+                <line x1="80" y1="30" x2="80" y2="10" stroke="#f4f6fa" stroke-width="2"/>
+                <line x1="55" y1="60" x2="80" y2="60" stroke="#f4f6fa" stroke-width="2"/>
+                <line x1="80" y1="60" x2="80" y2="80" stroke="#f4f6fa" stroke-width="2"/>
+                <polygon points="56,60 68,54 68,66" fill="#f4f6fa"/>
+                <text x="10" y="49" fill="#b0bac9" font-size="12">G</text>
+                <text x="84" y="16" fill="#b0bac9" font-size="12">D</text>
+                <text x="84" y="80" fill="#b0bac9" font-size="12">S</text>
+              </svg>
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--accent); margin-top: 0.25rem;">NMOS</div>
+              <div style="font-size: 0.75rem; color: var(--muted);">(Source at bottom)</div>
+            </div>
+
+            <div style="text-align: center;">
+              <svg width="100" height="90" viewBox="0 0 100 90">
+                <line x1="20" y1="45" x2="40" y2="45" stroke="#6cc7ff" stroke-width="2"/>
+                <circle cx="43" cy="45" r="3" stroke="#6cc7ff" stroke-width="2" fill="none"/>
+                <line x1="48" y1="20" x2="48" y2="70" stroke="#6cc7ff" stroke-width="3"/>
+                <line x1="58" y1="25" x2="58" y2="65" stroke="#6cc7ff" stroke-width="3" stroke-dasharray="10,4"/>
+                <line x1="58" y1="30" x2="80" y2="30" stroke="#6cc7ff" stroke-width="2"/>
+                <line x1="80" y1="30" x2="80" y2="10" stroke="#6cc7ff" stroke-width="2"/>
+                <line x1="58" y1="60" x2="80" y2="60" stroke="#6cc7ff" stroke-width="2"/>
+                <line x1="80" y1="60" x2="80" y2="80" stroke="#6cc7ff" stroke-width="2"/>
+                <polygon points="70,30 58,24 58,36" fill="#6cc7ff"/>
+                <text x="10" y="49" fill="#b0bac9" font-size="12">G</text>
+                <text x="84" y="16" fill="#b0bac9" font-size="12">S</text>
+                <text x="84" y="80" fill="#b0bac9" font-size="12">D</text>
+              </svg>
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--blue); margin-top: 0.25rem;">PMOS</div>
+              <div style="font-size: 0.75rem; color: var(--muted);">(Source at top in circuit)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Threshold & Overdrive Voltage</h3>
+          <div class="eq-block">
+            <div class="eq-label">Overdrive Voltage (V<sub>ov</sub>)</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>G</mi><mi>S</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mi>t</mi></msub></mrow></math>
+            </div>
+            <p class="eq-notes"><em>V<sub>t</sub></em> is the threshold voltage. Typical values: <strong>0.3 V ≤ <em>V<sub>t</sub></em> ≤ 4.0 V</strong>.</p>
+          </div>
+          <div class="eq-block blue-accent">
+            <div class="eq-label">Channel Charge & Oxide Capacitance</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><mo>|</mo><msub><mi>Q</mi><mrow><mi>c</mi><mi>h</mi><mi>a</mi><mi>n</mi></mrow></msub><mo>|</mo><mo>=</mo><msub><mi>C</mi><mrow><mi>o</mi><mi>x</mi></mrow></msub><mo>·</mo><mi>W</mi><mo>·</mo><mi>L</mi><mo>·</mo><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub><mspace width="1em"/><mtext>(for </mtext><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub><mtext> small)</mtext></mrow></math>
+            </div>
+            <p class="eq-notes">
+              <math><mrow><msub><mi>C</mi><mrow><mi>o</mi><mi>x</mi></mrow></msub><mo>=</mo><mfrac><msub><mi>ε</mi><mrow><mi>o</mi><mi>x</mi></mrow></msub><msub><mi>t</mi><mrow><mi>o</mi><mi>x</mi></mrow></msub></mfrac><mo>=</mo><mfrac><mrow><mn>3.9</mn><msub><mi>ε</mi><mn>0</mn></msub></mrow><msub><mi>t</mi><mrow><mi>o</mi><mi>x</mi></mrow></msub></mfrac></mrow></math> (for SiO<sub>2</sub>, <em>t<sub>ox</sub></em>: oxide thickness).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 1.25rem;">
+        <div class="eq-block yellow-accent">
+          <div class="eq-label">Process Transconductance Parameter (k'<sub>n</sub>)</div>
+          <div class="eq-formula">
+            <math display="block"><mrow><msubsup><mi>k</mi><mi>n</mi><mo>′</mo></msubsup><mo>=</mo><msub><mi>μ</mi><mi>n</mi></msub><mo>·</mo><msub><mi>C</mi><mrow><mi>o</mi><mi>x</mi></mrow></msub><mspace width="1.5em"/><mtext>(A/V²)</mtext></mrow></math>
+          </div>
+          <p class="eq-notes">Determined solely by manufacturing process and fabrication technology.</p>
+        </div>
+
+        <div class="eq-block purple-accent">
+          <div class="eq-label">MOSFET Device Transconductance Parameter (K<sub>n</sub>)</div>
+          <div class="eq-formula">
+            <math display="block"><mrow><msub><mi>K</mi><mi>n</mi></msub><mo>=</mo><msubsup><mi>k</mi><mi>n</mi><mo>′</mo></msubsup><mo>·</mo><mrow><mo>(</mo><mfrac><mi>W</mi><mi>L</mi></mfrac><mo>)</mo></mrow><mspace width="1.5em"/><mtext>(A/V² or mA/V²)</mtext></mrow></math>
+          </div>
+          <p class="eq-notes">Aspect ratio <em>W/L</em> is the designer's primary sizing knob.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: IV CHARACTERISTICS -->
+    <section id="iv-curves" class="doc-section">
+      <h2 class="section-title">
+        2. Modes of Operation & NMOS I-V Characteristics
+        <span class="tag">Lessons 8–10</span>
+      </h2>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="eq-label" style="color: var(--subtle);">Mode 1: Cutoff</div>
+          <h3 class="card-title">Cutoff Region</h3>
+          <p><strong>Condition:</strong><br><math><mrow><msub><mi>V</mi><mrow><mi>G</mi><mi>S</mi></mrow></msub><mo>&lt;</mo><msub><mi>V</mi><mi>t</mi></msub></mrow></math> &nbsp;(i.e. <math><mrow><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub><mo>≤</mo><mn>0</mn></mrow></math>)</p>
+          <div class="eq-formula">
+            <math display="block"><mrow><msub><mi>I</mi><mi>D</mi></msub><mo>=</mo><mn>0</mn><mtext>&nbsp;A</mtext></mrow></math>
+          </div>
+          <p class="eq-notes">No conductive inversion channel connects Drain and Source.</p>
+        </div>
+
+        <div class="card">
+          <div class="eq-label" style="color: var(--blue);">Mode 2: Linear Triode</div>
+          <h3 class="card-title">Deep Triode (Resistor)</h3>
+          <p><strong>Condition:</strong><br><math><mrow><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub><mo>&lt;</mo><mn>50</mn><mtext>&nbsp;mV</mtext><mo>≪</mo><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub></mrow></math></p>
+          <div class="eq-formula">
+            <math display="block"><mrow><msub><mi>I</mi><mi>D</mi></msub><mo>=</mo><msub><mi>K</mi><mi>n</mi></msub><mo>·</mo><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub><mo>·</mo><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub></mrow></math>
+          </div>
+          <div class="eq-formula">
+            <math display="block"><mrow><msub><mi>r</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub><mo>=</mo><mfrac><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub><msub><mi>I</mi><mi>D</mi></msub></mfrac><mo>=</mo><mfrac><mn>1</mn><mrow><msub><mi>K</mi><mi>n</mi></msub><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub></mrow></mfrac></mrow></math>
+          </div>
+          <p class="eq-notes">FET acts as a voltage-controlled linear resistor.</p>
+        </div>
+
+        <div class="card">
+          <div class="eq-label" style="color: var(--yellow);">Mode 3: Parabolic Triode</div>
+          <h3 class="card-title">Triode Region</h3>
+          <p><strong>Condition:</strong><br><math><mrow><mn>50</mn><mtext>&nbsp;mV</mtext><mo>&lt;</mo><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub><mo>&lt;</mo><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub></mrow></math></p>
+          <div class="eq-formula">
+            <math display="block"><mrow><msub><mi>I</mi><mi>D</mi></msub><mo>=</mo><msub><mi>K</mi><mi>n</mi></msub><mrow><mo>[</mo><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msubsup><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow><mn>2</mn></msubsup><mo>]</mo></mrow></mrow></math>
+          </div>
+          <p class="eq-notes">
+            Channel charge Source-side ∝ <em>V<sub>ov</sub></em>.<br>
+            Channel charge Drain-side ∝ (<em>V<sub>ov</sub></em> − <em>V<sub>DS</sub></em>).<br>
+            Average charge: <em>V<sub>ov</sub></em> → <em>V<sub>ov</sub></em> − ½ <em>V<sub>DS</sub></em>.
+          </p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 1.25rem;">
+        <div class="eq-label" style="color: var(--accent);">Mode 4: Saturation (Active Region for Amplification)</div>
+        <h3 class="card-title">Saturation Region (Pinched-Off Channel)</h3>
+        <p><strong>Condition:</strong> <math><mrow><msub><mi>V</mi><mrow><mi>G</mi><mi>S</mi></mrow></msub><mo>≥</mo><msub><mi>V</mi><mi>t</mi></msub></mrow></math> &nbsp;and&nbsp; <math><mrow><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub><mo>≥</mo><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub></mrow></math> &nbsp;(Equivalently: <math><mrow><msub><mi>V</mi><mrow><mi>G</mi><mi>D</mi></mrow></msub><mo>≤</mo><msub><mi>V</mi><mi>t</mi></msub></mrow></math>)</p>
+        
+        <div class="grid-2" style="margin-top: 1rem;">
+          <div class="eq-block">
+            <div class="eq-label">Ideal Saturation Current</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>I</mi><mi>D</mi></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msub><mi>K</mi><mi>n</mi></msub><msubsup><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow><mn>2</mn></msubsup><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msub><mi>K</mi><mi>n</mi></msub><msup><mrow><mo stretchy="false">(</mo><msub><mi>V</mi><mrow><mi>G</mi><mi>S</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow><mn>2</mn></msup></mrow></math>
+            </div>
+            <p class="eq-notes">Current is independent of <em>V<sub>DS</sub></em> when channel length modulation is neglected.</p>
+          </div>
+
+          <div class="eq-block blue-accent">
+            <div class="eq-label">With Channel-Length Modulation (λ)</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>I</mi><mi>D</mi></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msub><mi>K</mi><mi>n</mi></msub><msubsup><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow><mn>2</mn></msubsup><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi>λ</mi><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub><mo stretchy="false">)</mo></mrow></math>
+            </div>
+            <div class="eq-formula">
+              <math display="block"><mrow><mi>λ</mi><mo>=</mo><mfrac><mn>1</mn><msub><mi>V</mi><mi>A</mi></msub></mfrac><mspace width="1.5em"/><msub><mi>r</mi><mi>o</mi></msub><mo>=</mo><mfrac><mrow><msub><mi>V</mi><mi>A</mi></msub><mo>+</mo><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub></mrow><msub><mi>I</mi><mi>D</mi></msub></mfrac><mo>≈</mo><mfrac><msub><mi>V</mi><mi>A</mi></msub><msub><mi>I</mi><mi>D</mi></msub></mfrac><mo>=</mo><mfrac><mn>1</mn><mrow><mi>λ</mi><msub><mi>I</mi><mi>D</mi></msub></mrow></mfrac></mrow></math>
+            </div>
+            <p class="eq-notes"><em>V<sub>A</sub></em>: Early Voltage (intercept of extrapolated saturation characteristics on −<em>V<sub>DS</sub></em> axis).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: PHYSICAL STRUCTURE -->
+    <section id="structure" class="doc-section">
+      <h2 class="section-title">
+        3. n-Channel MOSFET Physical Structure
+        <span class="tag">Device Cross-Section</span>
+      </h2>
+      <figure class="doc-figure">
+        <img src="../assets/equations/ECE321_Eqnsheet3_F26_p2_img1.png" alt="n-channel MOSFET Physical Structure Diagram" style="max-height: 400px; width: auto; border: 1px solid var(--rule);">
+        <figcaption>Cross-sectional view of an n-channel enhancement MOSFET: Source (n+), Drain (n+), p-type substrate (B), Gate dielectric (SiO<sub>2</sub> oxide), and the induced inversion electron channel.</figcaption>
+      </figure>
+    </section>
+
+    <!-- SECTION 4: SI PREFIXES -->
+    <section id="si-prefixes" class="doc-section">
+      <h2 class="section-title">
+        4. SI Unit Prefixes & Double-Subscript Notation
+        <span class="tag">Reference Standards</span>
+      </h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="card-title">SI Unit Prefixes</h3>
+          <table class="doc-table">
+            <thead><tr><th>Prefix</th><th>Symbol</th><th>Multiplier</th></tr></thead>
+            <tbody>
+              <tr><td>atto</td><td>a</td><td>10<sup>−18</sup></td></tr>
+              <tr><td>femto</td><td>f</td><td>10<sup>−15</sup></td></tr>
+              <tr><td>pico</td><td>p</td><td>10<sup>−12</sup></td></tr>
+              <tr><td>nano</td><td>n</td><td>10<sup>−9</sup></td></tr>
+              <tr><td>micro</td><td>μ</td><td>10<sup>−6</sup></td></tr>
+              <tr><td>milli</td><td>m</td><td>10<sup>−3</sup></td></tr>
+              <tr><td>kilo</td><td>k</td><td>10<sup>3</sup></td></tr>
+              <tr><td>mega</td><td>M</td><td>10<sup>6</sup></td></tr>
+              <tr><td>giga</td><td>G</td><td>10<sup>9</sup></td></tr>
+              <tr><td>tera</td><td>T</td><td>10<sup>12</sup></td></tr>
+              <tr><td>peta</td><td>P</td><td>10<sup>15</sup></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Double-Subscript Notation Rules</h3>
+          <p>The voltage between two nodes is defined as the potential of the first subscript relative to the second subscript:</p>
+          <div class="eq-block blue-accent">
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>V</mi><mrow><mi>G</mi><mi>S</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi>G</mi></msub><mo>−</mo><msub><mi>V</mi><mi>S</mi></msub></mrow></math>
+            </div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi>D</mi></msub><mo>−</mo><msub><mi>V</mi><mi>S</mi></msub></mrow></math>
+            </div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>V</mi><mrow><mi>G</mi><mi>D</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi>G</mi></msub><mo>−</mo><msub><mi>V</mi><mi>D</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>G</mi><mi>S</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub></mrow></math>
+            </div>
+          </div>
+          <div class="callout callout-info">
+            <strong>Key Relationship:</strong> To maintain the transistor in <em>Saturation</em>, the Drain-to-Gate junction must not be forward biased by more than <em>V<sub>t</sub></em>:
+            <div style="text-align: center; margin-top: 0.5rem; font-weight: 700;"><em>V<sub>GD</sub></em> ≤ <em>V<sub>t</sub></em> &nbsp;⇔&nbsp; <em>V<sub>DS</sub></em> ≥ <em>V<sub>GS</sub></em> − <em>V<sub>t</sub></em> = <em>V<sub>ov</sub></em></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: DC ANALYSIS -->
+    <section id="dc-analysis" class="doc-section">
+      <h2 class="section-title">
+        5. NMOS Transistor DC Analysis Procedure
+        <span class="tag">Lesson 10</span>
+      </h2>
+
+      <div class="card">
+        <h3 class="card-title">Four-Resistor Bias Network Equations</h3>
+        
+        <div class="grid-2" style="margin-top: 1rem;">
+          <div>
+            <svg viewBox="0 0 320 280" style="width: 100%; max-width: 320px; background: var(--surface-2); border-radius: var(--radius); padding: 10px; border: 1px solid var(--rule);">
+              <!-- VCC rail -->
+              <line x1="40" y1="30" x2="260" y2="30" stroke="#f4f6fa" stroke-width="2"/>
+              <text x="140" y="22" fill="#ffd166" font-size="13" font-weight="700">VCC (or VDD)</text>
+              <!-- RG1 -->
+              <line x1="80" y1="30" x2="80" y2="55" stroke="#f4f6fa" stroke-width="2"/>
+              <rect x="73" y="55" width="14" height="40" fill="none" stroke="#6cc7ff" stroke-width="2"/>
+              <text x="50" y="80" fill="#6cc7ff" font-size="12">RG1</text>
+              <line x1="80" y1="95" x2="80" y2="150" stroke="#f4f6fa" stroke-width="2"/>
+              <!-- Gate connection -->
+              <circle cx="80" cy="130" r="3" fill="#ff8f5a"/>
+              <text x="65" y="134" fill="#ff8f5a" font-size="12" font-weight="700">VG</text>
+              <line x1="80" y1="130" x2="160" y2="130" stroke="#f4f6fa" stroke-width="2"/>
+              <!-- RG2 -->
+              <line x1="80" y1="130" x2="80" y2="165" stroke="#f4f6fa" stroke-width="2"/>
+              <rect x="73" y="165" width="14" height="40" fill="none" stroke="#6cc7ff" stroke-width="2"/>
+              <text x="50" y="190" fill="#6cc7ff" font-size="12">RG2</text>
+              <line x1="80" y1="205" x2="80" y2="240" stroke="#f4f6fa" stroke-width="2"/>
+              <!-- Ground left -->
+              <line x1="70" y1="240" x2="90" y2="240" stroke="#f4f6fa" stroke-width="2"/>
+              <line x1="74" y1="244" x2="86" y2="244" stroke="#f4f6fa" stroke-width="1.5"/>
+              <line x1="77" y1="248" x2="83" y2="248" stroke="#f4f6fa" stroke-width="1"/>
+              <!-- RD -->
+              <line x1="200" y1="30" x2="200" y2="55" stroke="#f4f6fa" stroke-width="2"/>
+              <rect x="193" y="55" width="14" height="40" fill="none" stroke="#ff8f5a" stroke-width="2"/>
+              <text x="215" y="80" fill="#ff8f5a" font-size="12">RD</text>
+              <line x1="200" y1="95" x2="200" y2="110" stroke="#f4f6fa" stroke-width="2"/>
+              <circle cx="200" cy="110" r="3" fill="#ffd166"/>
+              <text x="215" y="115" fill="#ffd166" font-size="12" font-weight="700">VD</text>
+              <!-- FET -->
+              <line x1="160" y1="110" x2="160" y2="150" stroke="#f4f6fa" stroke-width="3"/>
+              <line x1="170" y1="110" x2="170" y2="150" stroke="#f4f6fa" stroke-width="3" stroke-dasharray="8,3"/>
+              <line x1="170" y1="115" x2="200" y2="115" stroke="#f4f6fa" stroke-width="2"/>
+              <line x1="170" y1="145" x2="200" y2="145" stroke="#f4f6fa" stroke-width="2"/>
+              <!-- Arrow on Source -->
+              <polygon points="172,145 184,139 184,151" fill="#f4f6fa"/>
+              <circle cx="200" cy="155" r="3" fill="#6cc7ff"/>
+              <text x="215" y="160" fill="#6cc7ff" font-size="12" font-weight="700">VS</text>
+              <!-- RS -->
+              <line x1="200" y1="145" x2="200" y2="175" stroke="#f4f6fa" stroke-width="2"/>
+              <rect x="193" y="175" width="14" height="40" fill="none" stroke="#6cc7ff" stroke-width="2"/>
+              <text x="215" y="200" fill="#6cc7ff" font-size="12">RS</text>
+              <line x1="200" y1="215" x2="200" y2="240" stroke="#f4f6fa" stroke-width="2"/>
+              <!-- Ground right -->
+              <line x1="190" y1="240" x2="210" y2="240" stroke="#f4f6fa" stroke-width="2"/>
+              <line x1="194" y1="244" x2="206" y2="244" stroke="#f4f6fa" stroke-width="1.5"/>
+              <line x1="197" y1="248" x2="203" y2="248" stroke="#f4f6fa" stroke-width="1"/>
+            </svg>
+          </div>
+
+          <div>
+            <table class="doc-table">
+              <thead><tr><th>Parameter</th><th>Formula</th></tr></thead>
+              <tbody>
+                <tr><td>Gate Voltage <em>V<sub>G</sub></em></td><td><math><mrow><msub><mi>V</mi><mi>G</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>C</mi><mi>C</mi></mrow></msub><mo>·</mo><mfrac><msub><mi>R</mi><mrow><mi>G</mi><mn>2</mn></mrow></msub><mrow><msub><mi>R</mi><mrow><mi>G</mi><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>R</mi><mrow><mi>G</mi><mn>2</mn></mrow></msub></mrow></mfrac></mrow></math></td></tr>
+                <tr><td>Source Voltage <em>V<sub>S</sub></em></td><td><math><mrow><msub><mi>V</mi><mi>S</mi></msub><mo>=</mo><msub><mi>R</mi><mi>S</mi></msub><mo>·</mo><msub><mi>I</mi><mi>D</mi></msub></mrow></math></td></tr>
+                <tr><td>Drain Voltage <em>V<sub>D</sub></em></td><td><math><mrow><msub><mi>V</mi><mi>D</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>C</mi><mi>C</mi></mrow></msub><mo>−</mo><msub><mi>R</mi><mi>D</mi></msub><mo>·</mo><msub><mi>I</mi><mi>D</mi></msub></mrow></math></td></tr>
+                <tr><td>Gate-to-Source <em>V<sub>GS</sub></em></td><td><math><mrow><msub><mi>V</mi><mrow><mi>G</mi><mi>S</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi>G</mi></msub><mo>−</mo><msub><mi>V</mi><mi>S</mi></msub><mo>=</mo><msub><mi>V</mi><mi>G</mi></msub><mo>−</mo><msub><mi>R</mi><mi>S</mi></msub><msub><mi>I</mi><mi>D</mi></msub></mrow></math></td></tr>
+                <tr><td>Drain-to-Source <em>V<sub>DS</sub></em></td><td><math><mrow><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi>D</mi></msub><mo>−</mo><msub><mi>V</mi><mi>S</mi></msub></mrow></math></td></tr>
+                <tr><td>Gate-to-Drain <em>V<sub>GD</sub></em></td><td><math><mrow><msub><mi>V</mi><mrow><mi>G</mi><mi>D</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi>G</mi></msub><mo>−</mo><msub><mi>V</mi><mi>D</mi></msub></mrow></math></td></tr>
+                <tr><td>Overdrive <em>V<sub>ov</sub></em></td><td><math><mrow><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>G</mi><mi>S</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mi>t</mi></msub></mrow></math></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="callout callout-accent" style="margin-top: 1.5rem;">
+          <strong>Standard Solution Technique:</strong>
+          <ol style="margin: 0.5rem 0 0; padding-left: 1.25rem;">
+            <li>Calculate open-circuit gate voltage <em>V<sub>G</sub></em> using the voltage divider (since gate current <em>I<sub>G</sub></em> = 0).</li>
+            <li>Assume the device is operating in <strong>Saturation</strong>: <math><mrow><msub><mi>I</mi><mi>D</mi></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msub><mi>K</mi><mi>n</mi></msub><msup><mrow><mo stretchy="false">(</mo><msub><mi>V</mi><mi>G</mi></msub><mo>−</mo><msub><mi>R</mi><mi>S</mi></msub><msub><mi>I</mi><mi>D</mi></msub><mo>−</mo><msub><mi>V</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow><mn>2</mn></msup></mrow></math>.</li>
+            <li>Solve the resulting quadratic equation for <em>I<sub>D</sub></em> (select the root yielding <em>V<sub>GS</sub></em> &gt; <em>V<sub>t</sub></em>).</li>
+            <li>Calculate <em>V<sub>D</sub></em> and <em>V<sub>S</sub></em>, then compute <em>V<sub>DS</sub></em> = <em>V<sub>D</sub></em> − <em>V<sub>S</sub></em>.</li>
+            <li><strong>Confirm Saturation:</strong> Verify that <math><mrow><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub><mo>≥</mo><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub></mrow></math> (or <math><mrow><msub><mi>V</mi><mrow><mi>G</mi><mi>D</mi></mrow></msub><mo>≤</mo><msub><mi>V</mi><mi>t</mi></msub></mrow></math>). If not, re-solve assuming Triode mode.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="doc-footer">
+    <p>ECE 321 Electronics I · Department of Electrical & Computer Engineering · United States Air Force Academy</p>
+    <p><a href="index.html">← Back to Equation Sheets Overview</a> · <a href="#main-content">Back to Top ↑</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,527 @@
+{
+  "lessons": [
+    {
+      "topic": "Course Introduction; Semiconductor Physics: Electrons, Holes, Intrinsic Carriers, Bandgap Energy, Doping",
+      "exercise": "",
+      "reading": "3.1-3.2",
+      "assigned": "3.1, 3.2",
+      "due": "",
+      "lesson": 1
+    },
+    {
+      "topic": "Current in Semiconductors: Drift and Diffusion; PN-junction: Bound Charge, Depletion Region, Barrier Voltage",
+      "exercise": "PE1",
+      "reading": "3.3",
+      "assigned": "3.4, 3.5, 3.8, 3.9",
+      "due": "",
+      "lesson": 2
+    },
+    {
+      "topic": "PN-junction: Thermal Voltage, Depletion Region Width, Forward Bias, Reverse Bias; Shockley Diode Equation; Ideality Factor n",
+      "exercise": "PE2",
+      "reading": "3.4-3.5",
+      "assigned": "3.14, 3.16",
+      "due": "HW1: L1, L2",
+      "lesson": 3
+    },
+    {
+      "topic": "Compensated Doping; Ideal Diode Analysis: Assume, Analyze, Confirm; IV-Characteristic",
+      "exercise": "PE3",
+      "reading": "4.1-4.3",
+      "assigned": "3.23, 3.25",
+      "due": "",
+      "lesson": 4
+    },
+    {
+      "topic": "Ideal Diode Examples; Constant Voltage Drop Model; Gauss-Seidel Analysis with Shockley Diode Equation; Breakdown: Avalanche & Zener",
+      "exercise": "",
+      "reading": "4.2-4.3",
+      "assigned": "Quiz 1; 4.2bc, 4.3a, 4.4ceh (MS)",
+      "due": "HW2: L3, L4",
+      "lesson": 5
+    },
+    {
+      "topic": "Small-Signal Diode Model; Notation; Dynamic Resistance; Voltage Regulation; Zener Regulator; Lab 1 Introduction",
+      "exercise": "Prelab1 time",
+      "reading": "4.4-4.5",
+      "assigned": "Prelab1; 4.36, 4.38, 4.47, 4.49",
+      "due": "",
+      "lesson": 6
+    },
+    {
+      "topic": "Lab 1: Diode Characterization and Regulator",
+      "exercise": "",
+      "reading": "",
+      "assigned": "",
+      "due": "Prelab 1ab",
+      "lesson": 7
+    },
+    {
+      "topic": "MOSFETs: Structure, Terminals, Double-Subscript Notation, N-Channel, Enhancement Mode; Creating a Channel for Current; Triode & Saturation; IV-curve; Channel Modulation",
+      "exercise": "Lab 1 Time",
+      "reading": "5.1-5.2",
+      "assigned": "5.5, 5.10, 5.13",
+      "due": "HW3: L5, L6",
+      "lesson": 8
+    },
+    {
+      "topic": "MOSFETs: Review Cutoff, Triode, Saturation; NMOS Symbols; PMOS; Analysis of Modes of Operation; Circuit Models",
+      "exercise": "Lab 1 Time",
+      "reading": "5.2-5.3",
+      "assigned": "Quiz 2; 5.26acde, 5.40",
+      "due": "",
+      "lesson": 9
+    },
+    {
+      "topic": "MOSFET DC Circuit Analysis Examples",
+      "exercise": "",
+      "reading": "5.3",
+      "assigned": "Quiz 3; 5.47",
+      "due": "HW4: L8, L9",
+      "lesson": 10
+    },
+    {
+      "topic": "MOSFET Body Diode; Family of Curves; Lab 2 Introduction",
+      "exercise": "PE4",
+      "reading": "5.3",
+      "assigned": "",
+      "due": "Lab1",
+      "lesson": 11
+    },
+    {
+      "topic": "Lab 2: MOSFET Characterization",
+      "exercise": "",
+      "reading": "",
+      "assigned": "",
+      "due": "HW5: L10",
+      "lesson": 12
+    },
+    {
+      "topic": "GR1 Review: Semiconductor Physics; Diode Fundamentals; Diode Models and Analysis; MOSFET Fundamentals; MOSFET Models and Analysis",
+      "exercise": "",
+      "reading": "",
+      "assigned": "",
+      "due": "",
+      "lesson": 13
+    },
+    {
+      "topic": "GR #1: Lessons 1-13",
+      "exercise": "",
+      "reading": "",
+      "assigned": "",
+      "due": "",
+      "lesson": 14
+    },
+    {
+      "topic": "MOSFET Amplifier Models: Rin, Rout, Open-Circuit Gain; Attributes: Voltage Gain, Signal Swing, Linearity; Voltage Transfer Curve; Biasing; Small-Signal Gain; MOSFET Transconductance (gm)",
+      "exercise": "PE5",
+      "reading": "1.4-1.5; 7.1-7.2",
+      "assigned": "1.15ab, 1.56, 7.1, 7.2, 7.8",
+      "due": "Lab2; SP1",
+      "lesson": 15
+    },
+    {
+      "topic": "MOSFET Small-Signal T-Model; Design Approach #1: No Source Resistance; Design Approach #2: Negative Feedback Rs",
+      "exercise": "PE6",
+      "reading": "7.3",
+      "assigned": "7.27, 7.30",
+      "due": "SP2",
+      "lesson": 16
+    },
+    {
+      "topic": "Amplifier Configurations: CS, CG, CD; Finding Input Resistance, Output Resistance, and Voltage Gain",
+      "exercise": "PE6 (cont)",
+      "reading": "7.3-7.4",
+      "assigned": "7.31, 7.33, 7.64",
+      "due": "HW6: L15",
+      "lesson": 17
+    },
+    {
+      "topic": "Amplifier Design Examples: CS",
+      "exercise": "PE7",
+      "reading": "7.5",
+      "assigned": "7.92, 7.103",
+      "due": "SP3; HW7: L16",
+      "lesson": 18
+    },
+    {
+      "topic": "Amplifier Design Example: CS",
+      "exercise": "",
+      "reading": "7.5",
+      "assigned": "Quiz 4; 7.118, 7.121a",
+      "due": "HW8: L17",
+      "lesson": 19
+    },
+    {
+      "topic": "Amplifier Design Examples: CD",
+      "exercise": "",
+      "reading": "7.5",
+      "assigned": "Quiz 5",
+      "due": "",
+      "lesson": 20
+    },
+    {
+      "topic": "Lab 3 Overview",
+      "exercise": "PreLab3 time",
+      "reading": "",
+      "assigned": "Ethics 1",
+      "due": "SP4; HW9: L18, L19",
+      "lesson": 21
+    },
+    {
+      "topic": "Lab 3: Multi-Stage Amplifier (CS Build)",
+      "exercise": "",
+      "reading": "",
+      "assigned": "",
+      "due": "Prelab 3a",
+      "lesson": 22
+    },
+    {
+      "topic": "Lab 3: Multi-Stage Amplifier (CS Demo + CD Build)",
+      "exercise": "",
+      "reading": "",
+      "assigned": "",
+      "due": "Prelab 3b",
+      "lesson": 23
+    },
+    {
+      "topic": "Lab 3: Multi-Stage Amplifier (CD Demo)",
+      "exercise": "",
+      "reading": "",
+      "assigned": "",
+      "due": "Prelab 3c",
+      "lesson": 24
+    },
+    {
+      "topic": "A Day with Bipolar Junction Transistors (BJTs): Structure; Collector, Base, Emitter; Current Flow; Beta; Symbol; Model; Saturation, Active, Cutoff; IV-Curve; DC Analysis",
+      "exercise": "PE8",
+      "reading": "6.1-6.3",
+      "assigned": "6.35d",
+      "due": "SP5",
+      "lesson": 25
+    },
+    {
+      "topic": "GR2 Review: CS NMOS Amplifier Design; CD NMOS Amplifier Design; Cascaded Amplifier Design; Operating Point Determination; Rin, Rout, Av Derivation; PMOS Design; Voltage Swing",
+      "exercise": "",
+      "reading": "",
+      "assigned": "",
+      "due": "Ethics1",
+      "lesson": 26
+    },
+    {
+      "topic": "GR #2: Lessons 15-26",
+      "exercise": "",
+      "reading": "",
+      "assigned": "",
+      "due": "",
+      "lesson": 27
+    },
+    {
+      "topic": "Digital Logic Circuits: TTL, NMOS, CMOS; Symbols; Power Dissipation, Propagation Delay, Chip Area; The Logic Inverter; PullUp and PullDown Networks; Synthesis",
+      "exercise": "PE9",
+      "reading": "16.1-16.2",
+      "assigned": "Ethics2; 16.5, 16.7",
+      "due": "SP6",
+      "lesson": 28
+    },
+    {
+      "topic": "CMOS Logic Inverter: Voltage Transfer Curve; Propagation/Transition Time Definitions",
+      "exercise": "PE10",
+      "reading": "16.2-16.3; 17.1",
+      "assigned": "16.18, 16.28",
+      "due": "Lab3; SP7",
+      "lesson": 29
+    },
+    {
+      "topic": "Propagation Time Derivation: Method 1 Average Current, Method 2 Equivalent Resistance",
+      "exercise": "PE11",
+      "reading": "17.1",
+      "assigned": "Quiz 6; 17.14, 17.15, 17.26",
+      "due": "SP8; HW10: L25, L28, L29",
+      "lesson": 30
+    },
+    {
+      "topic": "Sizing Transistors to Optimize Delay; Power Dissipation; Driving Large Capacitance",
+      "exercise": "PE12",
+      "reading": "17.2-17.3",
+      "assigned": "16.13, 17.22",
+      "due": "Ethics2; SP9",
+      "lesson": 31
+    },
+    {
+      "topic": "Pass Transistors, Transmission Gates, Latches, Flip Flops",
+      "exercise": "",
+      "reading": "18.1-18.2",
+      "assigned": "Quiz 7; 18.1, 18.17",
+      "due": "HW11: L30, L31",
+      "lesson": 32
+    },
+    {
+      "topic": "Lab 4 Introduction",
+      "exercise": "PreLab4 time",
+      "reading": "",
+      "assigned": "",
+      "due": "SP10; HW12: L32",
+      "lesson": 33
+    },
+    {
+      "topic": "Lab 4: Part 1 (Multisim)",
+      "exercise": "",
+      "reading": "",
+      "assigned": "",
+      "due": "Prelab4a; SP11",
+      "lesson": 34
+    },
+    {
+      "topic": "Lab 4: Part 2 (Multisim)",
+      "exercise": "",
+      "reading": "",
+      "assigned": "",
+      "due": "Prelab 4b",
+      "lesson": 35
+    },
+    {
+      "topic": "Lab 4: Part 3 (Multisim)",
+      "exercise": "",
+      "reading": "",
+      "assigned": "",
+      "due": "Prelab 4c",
+      "lesson": 36
+    },
+    {
+      "topic": "Making the CMOS SR Latch Work",
+      "exercise": "PE13",
+      "reading": "18.2",
+      "assigned": "18.27",
+      "due": "Ethics3; SP12",
+      "lesson": 37
+    },
+    {
+      "topic": "Computer Memory; 6-Transistor (6T) Static RAM Cell; Differential Sense Amplifier; Equalization and Pre-Charge Circuit",
+      "exercise": "PE14",
+      "reading": "18.3-18.4",
+      "assigned": "18.43",
+      "due": "Lab4; SP13",
+      "lesson": 38
+    },
+    {
+      "topic": "SR-Latch Exercise; Lab Practical Preview",
+      "exercise": "",
+      "reading": "18.4",
+      "assigned": "Quiz 8",
+      "due": "HW13: L37, L38",
+      "lesson": 39
+    },
+    {
+      "topic": "Lab Practical",
+      "exercise": "",
+      "reading": "",
+      "assigned": "",
+      "due": "",
+      "lesson": 40
+    },
+    {
+      "topic": "Final Review: Semiconductor Physics; Diode Fundamentals; Diode Circuit Analysis; Transistor Fundamentals; Transistor Amplifier Design & Analysis; Transistor Logic; Memory",
+      "exercise": "",
+      "reading": "",
+      "assigned": "",
+      "due": "",
+      "lesson": 41
+    }
+  ],
+  "homework": [
+    {
+      "number": 1,
+      "lessons": [
+        1,
+        2
+      ],
+      "chapters": [
+        3
+      ]
+    },
+    {
+      "number": 2,
+      "lessons": [
+        3,
+        4
+      ],
+      "chapters": [
+        3,
+        4
+      ]
+    },
+    {
+      "number": 3,
+      "lessons": [
+        5,
+        6
+      ],
+      "chapters": [
+        4
+      ]
+    },
+    {
+      "number": 4,
+      "lessons": [
+        8,
+        9
+      ],
+      "chapters": [
+        5
+      ]
+    },
+    {
+      "number": 5,
+      "lessons": [
+        10
+      ],
+      "chapters": [
+        5
+      ]
+    },
+    {
+      "number": 6,
+      "lessons": [
+        15
+      ],
+      "chapters": [
+        1,
+        7
+      ]
+    },
+    {
+      "number": 7,
+      "lessons": [
+        16
+      ],
+      "chapters": [
+        7
+      ]
+    },
+    {
+      "number": 8,
+      "lessons": [
+        17
+      ],
+      "chapters": [
+        7
+      ]
+    },
+    {
+      "number": 9,
+      "lessons": [
+        18,
+        19
+      ],
+      "chapters": [
+        7
+      ]
+    },
+    {
+      "number": 10,
+      "lessons": [
+        25,
+        28,
+        29
+      ],
+      "chapters": [
+        6,
+        16,
+        17
+      ]
+    },
+    {
+      "number": 11,
+      "lessons": [
+        30,
+        31
+      ],
+      "chapters": [
+        16,
+        17
+      ]
+    },
+    {
+      "number": 12,
+      "lessons": [
+        32
+      ],
+      "chapters": [
+        18
+      ]
+    },
+    {
+      "number": 13,
+      "lessons": [
+        37,
+        38
+      ],
+      "chapters": [
+        18
+      ]
+    }
+  ],
+  "tutorials": [
+    {
+      "slug": "semiconductor-carriers",
+      "title": "Semiconductor carriers",
+      "description": "Doping, intrinsic carriers, drift and diffusion"
+    },
+    {
+      "slug": "pn-junctions",
+      "title": "PN junctions",
+      "description": "Barrier voltage, thermal voltage and depletion width"
+    },
+    {
+      "slug": "ideal-diodes",
+      "title": "Ideal diode circuits",
+      "description": "Assume, analyze and confirm"
+    },
+    {
+      "slug": "diode-models",
+      "title": "Diode models & regulators",
+      "description": "Shockley equation, small-signal models and Zener regulation"
+    },
+    {
+      "slug": "mosfet-dc",
+      "title": "MOSFET DC analysis",
+      "description": "Operating regions, circuit models and bias points"
+    },
+    {
+      "slug": "amplifier-models",
+      "title": "Small-signal amplifier models",
+      "description": "Transconductance, T-models and equivalent circuits"
+    },
+    {
+      "slug": "amplifier-configurations",
+      "title": "CS, CG & CD amplifiers",
+      "description": "Input resistance, output resistance and voltage gain"
+    },
+    {
+      "slug": "amplifier-design",
+      "title": "Amplifier design",
+      "description": "Biasing, feedback, signal swing and cascaded stages"
+    },
+    {
+      "slug": "bjt-analysis",
+      "title": "BJT circuit analysis",
+      "description": "Active, saturation and cutoff modes"
+    },
+    {
+      "slug": "cmos-logic",
+      "title": "CMOS logic synthesis",
+      "description": "Pull-up networks, pull-down networks and inverter VTCs"
+    },
+    {
+      "slug": "delay-and-power",
+      "title": "Delay, sizing & power",
+      "description": "Average current, equivalent resistance and capacitive loads"
+    },
+    {
+      "slug": "memory-circuits",
+      "title": "Latches & memory",
+      "description": "Transmission gates, SR latches, SRAM and sense amplifiers"
+    }
+  ]
+}

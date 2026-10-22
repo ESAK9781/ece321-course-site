@@ -1,0 +1,592 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lesson 6: Diode Small-Signal Models and Voltage Regulation · ECE 321</title><script>try{if(localStorage.getItem("notes-mode")==="print")document.documentElement.setAttribute("data-mode","print")}catch(e){}</script><link rel="icon" href="../assets/favicon.svg"><link rel="stylesheet" href="../assets/guide-fonts.css"><link rel="stylesheet" href="../assets/lesson-base.css"><link rel="stylesheet" href="../assets/guide-screen.css"><link rel="stylesheet" href="../assets/ai.css"><link rel="stylesheet" href="../assets/navbar.css"></head><body><header class="site-nav"><a class="brand" href="../index.html#home"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 16C8 5 12 5 16 16S24 27 28 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>ECE <strong>321</strong></a><nav class="nav-links" aria-label="Course navigation"><a href="../index.html#home">Home</a><a href="../index.html#syllabus">Syllabus</a><a href="../equation-sheets/index.html">Equation sheets</a><a href="../course-docs/index.html">Course docs</a><a href="../index.html#homework">Reading guides</a><a href="../index.html#lessons" class="active" aria-current="page">Lesson guides</a><a href="../index.html#study">Study sessions</a></nav><span class="semester"><i></i> FALL 2026</span></header><main class="page"><header class="top"><div class="controls"><button id="mode-switch" class="switch" role="switch" aria-checked="false" type="button"><span class="track" aria-hidden="true"><span class="knob"></span></span>Printer-friendly</button><button id="xp-toggle" class="xp-all" type="button">Open all expansion notes</button></div><p class="course eyebrow">ECE 321 / LESSON NOTES</p><h1>Lesson 6: Diode Small-Signal Models and Voltage Regulation</h1></header>﻿<section class="part" id="page-1">
+  <span class="pg">6-1</span>
+  <p>ECE 321 <span class="fill">Lesson #6</span></p>
+  <p>(*) Recap of 5-5 discussion last time.</p>
+  <p>Given a circuit with both a <span class="fill">DC</span><sup class="inf">†</sup> and <span class="fill">AC</span><sup class="inf">†</sup> input:</p>
+  <figure><svg class="sch" viewBox="0 0 520 240" width="520" style="max-width:520px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diode circuit with DC and AC source components"><circle cx="82" cy="100" r="20" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<path d="M74,100 c3,-9 5,-9 8,0 s5,9 8,0" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<text x="56" y="104" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">v<tspan dy="4" font-size="0.72em">ac</tspan><tspan dy="-4"> </tspan></text>
+<circle cx="82" cy="171" r="20" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="82" y="169" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="82" y="182" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="56" y="175" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DC</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="82,80 82,48 158,48" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="158,48 177.0,48 180.0,42 186.0,54 192.0,42 198.0,54 204.0,42 210.0,54 213.0,48 232,48" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="195.0" y="36" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">R</text>
+<polyline points="232,48 326,48 326,79" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="326,121 326,188 82,188 82,191" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="326,83 312,108 340,108" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M312 111H340" stroke="currentColor" stroke-width="2"/>
+<text x="326" y="136" font-size="12" text-anchor="middle" fill="currentColor">D</text>
+<polyline points="365,70 414,35" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="414,35 410.2,40.9 407.2,36.7" fill="currentColor"/>
+<polyline points="365,147 414,181" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="414,181 407.2,179.4 410.1,175.2" fill="currentColor"/></svg></figure>
+  <div class="figs-2"><figure><svg class="sch" viewBox="0 0 250 160" width="250" style="max-width:250px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="DC-only diode circuit"><circle cx="48" cy="80" r="20" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="48" y="78" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="48" y="91" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="22" y="84" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DC</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="48,60 48,34 94,34" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="94,34 103.5,34 106.5,28 112.5,40 118.5,28 124.5,40 130.5,28 136.5,40 139.5,34 149,34" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="121.5" y="22" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">R</text>
+<polyline points="149,34 196,34 196,60" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="196,61 183,84 209,84" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M183 87H209" stroke="currentColor" stroke-width="2"/>
+<polyline points="196,87 196,128 48,128 48,100" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></figure><figure><svg class="sch" viewBox="0 0 250 160" width="250" style="max-width:250px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AC-only diode circuit"><circle cx="48" cy="80" r="20" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<path d="M40,80 c3,-9 5,-9 8,0 s5,9 8,0" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<text x="22" y="84" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">v<tspan dy="4" font-size="0.72em">ac</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="48,60 48,34 94,34" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="94,34 103.5,34 106.5,28 112.5,40 118.5,28 124.5,40 130.5,28 136.5,40 139.5,34 149,34" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="121.5" y="22" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">R</text>
+<polyline points="149,34 196,34 196,60" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="196,61 183,84 209,84" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M183 87H209" stroke="currentColor" stroke-width="2"/>
+<polyline points="196,87 196,128 48,128 48,100" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></figure></div>
+  <p>where <math alttext="r_d="><mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo>=</mo></mrow></math> <span class="fill"><math alttext="\dfrac{V_T}{I_D}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math></span></p>
+  <figure><svg class="sch" viewBox="0 0 440 300" width="440" style="max-width:440px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diode current versus voltage curve with tangent at the operating point"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M55 25V250H415 M60 245C160 244 211 224 258 185C293 155 308 106 321 38"/><path d="M250 250V182H414 M288 250V143H414 M321 250V101H414" stroke-dasharray="6 5"/><path d="M268 207L335 113" stroke-dasharray="4 3"/></g><text x="22" y="34" fill="currentColor">I_D</text><text x="411" y="272" fill="currentColor">V_D</text><text x="335" y="105" fill="currentColor">slope=1/r_d</text><text x="315" y="285" fill="currentColor">Q</text></svg></figure>
+  <details class="xp"><summary>Expansion note: what the tangent at the Q-point represents</summary><p>The curved diode I–V relation can be approximated locally by its tangent around a steady operating point. Its slope is <math alttext="d i_D/d v_D=1/r_d"><mrow><mi>d</mi><mrow class="term" data-term="i_D"><msub><mi>i</mi><mi mathvariant="normal">D</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mi>d</mi><mrow class="term" data-term="v_D"><msub><mi>v</mi><mi mathvariant="normal">D</mi></msub></mrow><mo>=</mo><mn>1</mn><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow></mrow></math>, so a smaller <math alttext="r_d"><mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow></mrow></math> means current changes more for the same small voltage change. The tangent is reliable only near that bias point.</p></details>
+</section>
+
+<section class="part" id="page-2">
+  <span class="pg">6-2</span>
+  <h2>Process</h2>
+  <ol class="tight">
+    <li>DC Analysis: Find the <span class="fill">operating point</span> using the <span class="fill">piecewise-linear</span> model or the <span class="fill">exponential</span>-wise model.</li>
+    <li>Find <span class="fill"><math alttext="r_d"><mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow></mrow></math></span>, small-signal model: <math alttext="r_d="><mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo>=</mo></mrow></math> <span class="fill"><math alttext="V_T/I_D"><mrow><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math></span></li>
+    <li>Analyze to ensure the assumption holds.</li>
+  </ol>
+  <p>Q. What is <span class="fill">small</span> enough?</p>
+  <p>Recall,</p>
+  <p><math display="block" alttext="e^{v_d/V_T}=1+\left(\frac{v_d}{V_T}\right)+\frac{1}{2!}\left(\frac{v_d}{V_T}\right)^2+\frac{1}{3!}\left(\frac{v_d}{V_T}\right)^3+\ldots"><mrow><mrow class="term" data-term="e"><msup><mi>e</mi><mrow><msub><mi mathvariant="normal">v</mi><mi mathvariant="normal">d</mi></msub><mo lspace="0.05em" rspace="0.05em">/</mo><msub><mi mathvariant="normal">V</mi><mi mathvariant="normal">T</mi></msub></mrow></msup></mrow><mo>=</mo><mn>1</mn><mo>+</mo><mrow><mo stretchy="true">(</mo><mfrac><mrow><mrow class="term" data-term="v_d"><msub><mi>v</mi><mi mathvariant="normal">d</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow></mrow></mfrac><mo stretchy="true">)</mo></mrow><mo>+</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn><mo>!</mo></mrow></mfrac><msup><mrow><mo stretchy="true">(</mo><mfrac><mrow><mrow class="term" data-term="v_d"><msub><mi>v</mi><mi mathvariant="normal">d</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow></mrow></mfrac><mo stretchy="true">)</mo></mrow><mn>2</mn></msup><mo>+</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>3</mn><mo>!</mo></mrow></mfrac><msup><mrow><mo stretchy="true">(</mo><mfrac><mrow><mrow class="term" data-term="v_d"><msub><mi>v</mi><mi mathvariant="normal">d</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow></mrow></mfrac><mo stretchy="true">)</mo></mrow><mn>3</mn></msup><mo>+</mo><mo>…</mo></mrow></math></p>
+  <p>Let’s propose to <span class="fill">truncate to first order</span> the series; we want <math alttext="|v_d/V_T|\ll 1"><mrow><mo stretchy="false" lspace="0" rspace="0">|</mo><mrow class="term" data-term="v_d"><msub><mi>v</mi><mi mathvariant="normal">d</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow><mo stretchy="false" lspace="0" rspace="0">|</mo><mo>≪</mo><mn>1</mn></mrow></math>.</p>
+  <p><math display="block" alttext="\frac{v_d}{V_T}=\left(\frac{v_d}{V_T}\right)"><mrow><mfrac><mrow><mrow class="term" data-term="v_d"><msub><mi>v</mi><mi mathvariant="normal">d</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow></mrow></mfrac><mo>=</mo><mrow><mo stretchy="true">(</mo><mfrac><mrow><mrow class="term" data-term="v_d"><msub><mi>v</mi><mi mathvariant="normal">d</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow></mrow></mfrac><mo stretchy="true">)</mo></mrow></mrow></math></p>
+  <p><math display="block" alttext="=\frac{v_d}{V_T}"><mrow><mo>=</mo><mfrac><mrow><mrow class="term" data-term="v_d"><msub><mi>v</mi><mi mathvariant="normal">d</mi></msub></mrow></mrow><mrow><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow></mrow></mfrac></mrow></math></p>
+  <p>or <math alttext="v_d="><mrow><mrow class="term" data-term="v_d"><msub><mi>v</mi><mi mathvariant="normal">d</mi></msub></mrow><mo>=</mo></mrow></math> <span class="fill">the small change in diode voltage</span> <math alttext="\approx"><mrow><mo>≈</mo></mrow></math> <span class="fill">the first-order term</span> or <span class="fill"><math alttext="V_T"><mrow><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow></mrow></math> times the retained dimensionless change</span>.</p>
+  <p>(*) Note, a more complete small-signal model might include <span class="fill"><math alttext="r_s"><mrow><msub><mi>r</mi><mi mathvariant="normal">s</mi></msub></mrow></math></span> in series with <math alttext="r_d"><mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow></mrow></math>.</p>
+  <details class="xp"><summary>Expansion note: when the exponential can be linearized</summary><p>For <math alttext="|v_d|\ll V_T"><mrow><mo stretchy="false" lspace="0" rspace="0">|</mo><mrow class="term" data-term="v_d"><msub><mi>v</mi><mi mathvariant="normal">d</mi></msub></mrow><mo stretchy="false" lspace="0" rspace="0">|</mo><mo>≪</mo><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow></mrow></math>, higher powers of <math alttext="v_d/V_T"><mrow><mrow class="term" data-term="v_d"><msub><mi>v</mi><mi mathvariant="normal">d</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow></mrow></math> are much smaller than the first-order term. This produces a local linear model; it does not replace the exponential model for large excursions or for determining the DC bias point. The usual diode equation also has an ideality factor <math alttext="n"><mrow><mrow class="term" data-term="n"><mi>n</mi></mrow></mrow></math>; this packet's simple relation assumes <math alttext="n=1"><mrow><mrow class="term" data-term="n"><mi>n</mi></mrow><mo>=</mo><mn>1</mn></mrow></math>, so <math alttext="r_d=V_T/I_D"><mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math>.</p></details>
+</section>
+
+<section class="part" id="page-3">
+  <span class="pg">6-3</span>
+  <h2>Voltage Regulations</h2>
+  <p>(*) Keep the <span class="fill">output voltage</span> close to its <span class="fill">desired</span> value despite changes</p>
+  <p class="indent">in (1) <span class="fill">input voltage</span> → <span class="fill">line</span> regulation</p>
+  <p class="indent">(2) <span class="fill">load</span> → <span class="fill">load</span> regulation</p>
+  <figure><svg class="sch" viewBox="0 0 400 170" width="400" style="max-width:400px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Input and output voltage polarities across a two-port"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M20 45H135 M20 125H135 M265 45H380 M265 125H380"/><rect x="135" y="35" width="130" height="100"/></g><text x="45" y="75" fill="currentColor">+</text><text x="45" y="118" fill="currentColor">−</text><text x="90" y="96" fill="currentColor">V_in</text><text x="320" y="75" fill="currentColor">+</text><text x="320" y="118" fill="currentColor">−</text><text x="350" y="96" fill="currentColor">V_out</text></svg></figure>
+  <p>(*) A <span class="fill">forward</span>-biased diode can make a voltage regulator since <math alttext="V_D\approx"><mrow><mrow class="term" data-term="V_D"><msub><mi>V</mi><mi mathvariant="normal">D</mi></msub></mrow><mo>≈</mo></mrow></math> <span class="fill">constant</span>.</p>
+  <p>ex. What is the change in <span class="fill"><math alttext="V_o"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math></span> due to a 1% change in <span class="fill"><math alttext="V_{in}"><mrow><mrow class="term" data-term="V_in"><msub><mi>V</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow></mrow></math></span>?</p>
+  <figure><svg class="sch" viewBox="0 0 460 260" width="460" style="max-width:460px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three forward diodes used as a voltage regulator with an open load port"><polyline points="90,50 90,38" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="90,30 85,40 95,40" fill="currentColor"/>
+<text x="90" y="25" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">in</tspan><tspan dy="-4"> </tspan> = 10 V</text>
+<polyline points="90,50 90,60.5 96,63.5 84,69.5 96,75.5 84,81.5 96,87.5 84,93.5 90,96.5 90,107" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="108" y="76.5" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R</text>
+<text x="108" y="91.5" font-size="11" text-anchor="start" fill="currentColor" class="v">1 kΩ</text>
+<polyline points="90,107 90,117" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="90" cy="117" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="90,117 90,139" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="90,139 79,156 101,156" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M79 158H101" stroke="currentColor" stroke-width="1.7"/>
+<polyline points="90,159 90,170" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="90,170 79,187 101,187" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M79 189H101" stroke="currentColor" stroke-width="1.7"/>
+<polyline points="90,190 90,201" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="90,201 79,218 101,218" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M79 220H101" stroke="currentColor" stroke-width="1.7"/>
+<polyline points="90,220 90,233" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="90,233 90,243" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="78,243 102,243" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="82.5,247.5 97.5,247.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="87,252 93,252" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<circle cx="112" cy="117" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="90,117 112,117" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="146" cy="117" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="146,117 172,117 172,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="172,142 172,156.5 178,159.5 166,165.5 178,171.5 166,177.5 178,183.5 166,189.5 172,192.5 172,207" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="190" y="172.5" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">L</tspan><tspan dy="-4"> </tspan></text>
+<text x="190" y="187.5" font-size="11" text-anchor="start" fill="currentColor" class="v">1 kΩ</text>
+<polyline points="172,207 172,217" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="160,217 184,217" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="164.5,221.5 179.5,221.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="169,226 175,226" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<text x="129" y="106" font-size="12" text-anchor="middle" fill="currentColor">+ V<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan> −</text></svg></figure>
+  <p><u>Idea:</u> Expect <math alttext="V_o\approx"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo>≈</mo></mrow></math> <span class="fill">3(0.7 V)=2.1 V</span><sup class="inf">†</sup></p>
+  <ol class="steps"><li><span class="sl">Step 1</span><div><p class="do">Solve for <span class="fill"><math alttext="I_D"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math></span> at load.</p><figure><svg class="sch" viewBox="0 0 350 190" width="350" style="max-width:350px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One-volt small-signal source feeding a one-kilohm resistor to represent the input variation"><circle cx="70" cy="95" r="23" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="70" y="93" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="70" y="106" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="41" y="99" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">1 V</text>
+<polyline points="70,72 70,42 155,42" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="155,42 155,62.0 161,65.0 149,71.0 161,77.0 149,83.0 161,89.0 149,95.0 155,98.0 155,118" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="173" y="78.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R</text>
+<text x="173" y="93.0" font-size="11" text-anchor="start" fill="currentColor" class="v">1 kΩ</text>
+<polyline points="155,118 155,151" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="128,47 147,47" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="147,47 140.5,49.6 140.5,44.4" fill="currentColor"/>
+<text x="122" y="36" font-size="11" text-anchor="start" fill="currentColor" font-style="italic">I<tspan dy="4" font-size="0.72em">1k</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="70,118 70,151" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></figure></div></li></ol>
+</section>
+
+<section class="part" id="page-4">
+  <span class="pg">6-4</span>
+  <p>so <math alttext="I_D="><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow><mo>=</mo></mrow></math> <span class="fill"><math alttext="\dfrac{10-2.1}{1\,k\Omega}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mn>10</mn><mo>−</mo><mn>2.1</mn></mrow><mrow><mn>1</mn><mspace width="0.17em"/><mi>k</mi><mi mathvariant="normal">Ω</mi></mrow></mfrac></mstyle></mrow></math></span> <math alttext="="><mrow><mo>=</mo></mrow></math> <span class="fill">7.9 mA</span><sup class="inf">?</sup></p>
+  <ol class="steps"><li><span class="sl">Step 2</span><div><p class="do">Establish <span class="fill">small-signal</span> resistance of each <span class="fill">diode</span>: <math alttext="r_d="><mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo>=</mo></mrow></math> <span class="fill"><math alttext="V_T/I_D"><mrow><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math></span> <math alttext="="><mrow><mo>=</mo></mrow></math> <span class="fill"><math alttext="26\,\unit{mV}/7.9\,\unit{mA}"><mrow><mn>26</mn><mspace width="0.17em"/><mspace width="0.22em"/><mtext>mV</mtext><mo lspace="0.05em" rspace="0.05em">/</mo><mn>7.9</mn><mspace width="0.17em"/><mspace width="0.22em"/><mtext>mA</mtext></mrow></math></span> <math alttext="="><mrow><mo>=</mo></mrow></math> <span class="fill">3.29 Ω</span></p><p>So <span class="fill"><math alttext="3r_d=9.87\,\Omega"><mrow><mn>3</mn><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo>=</mo><mn>9.87</mn><mspace width="0.17em"/><mi mathvariant="normal">Ω</mi></mrow></math></span><sup class="inf">†</sup></p><figure><svg class="sch" viewBox="0 0 470 220" width="470" style="max-width:470px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Linearized three-diode regulator circuit"><circle cx="60" cy="108" r="24" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="60" y="106" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="60" y="119" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="30" y="112" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">ΔV<tspan dy="4" font-size="0.72em">in</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="60,84 60,42 122,42" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122,42 154.5,42 157.5,36 163.5,48 169.5,36 175.5,48 181.5,36 187.5,48 190.5,42 223,42" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="172.5" y="30" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">R</text>
+<text x="172.5" y="64" font-size="11" text-anchor="middle" fill="currentColor" class="v">1 kΩ</text>
+<polyline points="223,42 350,42 350,65" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="350,65 350,69.0 356,71.25 344,75.75 356,80.25 344,84.75 356,89.25 344,93.75 350,96.0 350,100" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="367" y="86.5" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">r<tspan dy="4" font-size="0.72em">d</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="350,100 350,104.0 356,106.41666666666667 344,111.25 356,116.08333333333333 344,120.91666666666667 356,125.75 344,130.58333333333334 350,133.0 350,137" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="367" y="122.5" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">r<tspan dy="4" font-size="0.72em">d</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="350,137 350,141.0 356,143.25 344,147.75 356,152.25 344,156.75 356,161.25 344,165.75 350,168.0 350,172" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="367" y="158.5" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">r<tspan dy="4" font-size="0.72em">d</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="350,172 350,188 60,188 60,132" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></figure></div></li></ol>
+  <ol class="steps"><li><span class="sl">Step 3</span><div><p class="do">Find <math alttext="V_D"><mrow><mrow class="term" data-term="V_D"><msub><mi>V</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> and <math alttext="V_{out}"><mrow><mrow class="term" data-term="V_out"><msub><mi>V</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow></mrow></math>.</p><p><math alttext="\Delta V_D="><mrow><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_D"><msub><mi>V</mi><mi mathvariant="normal">D</mi></msub></mrow><mo>=</mo></mrow></math> <span class="fill"><math alttext="\dfrac{3r_d}{1\,k\Omega+3r_d}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mn>3</mn><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow></mrow><mrow><mn>1</mn><mspace width="0.17em"/><mi>k</mi><mi mathvariant="normal">Ω</mi><mo>+</mo><mn>3</mn><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math></span> × <span class="fill"><math alttext="1\,V"><mrow><mn>1</mn><mspace width="0.17em"/><mrow class="term" data-term="V"><mi>V</mi></mrow></mrow></math></span> <math alttext="="><mrow><mo>=</mo></mrow></math> <span class="fill">9.77 mV</span><sup class="inf">†</sup></p><p>For small signal</p><p><math alttext="\Delta V_{out}="><mrow><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_out"><msub><mi>V</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow><mo>=</mo></mrow></math> <span class="fill"><math alttext="\dfrac{3r_d}{1\,k\Omega+3r_d}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mn>3</mn><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow></mrow><mrow><mn>1</mn><mspace width="0.17em"/><mi>k</mi><mi mathvariant="normal">Ω</mi><mo>+</mo><mn>3</mn><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math></span> × <math alttext="V_{in}="><mrow><mrow class="term" data-term="V_in"><msub><mi>V</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow><mo>=</mo></mrow></math> <span class="fill"><math alttext="0.00977\,V_{in}"><mrow><mn>0.00977</mn><mspace width="0.17em"/><mrow class="term" data-term="V_in"><msub><mi>V</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow></mrow></math></span><sup class="inf">†</sup></p><p>such that we define</p><p>DEF: Regulation LR <math alttext="="><mrow><mo>=</mo></mrow></math> <math alttext="V_{out}/V_{in}"><mrow><mrow class="term" data-term="V_out"><msub><mi>V</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="V_in"><msub><mi>V</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow></mrow></math></p><p>so here LR <math alttext="="><mrow><mo>=</mo></mrow></math> <span class="fill"><math alttext="\Delta V_{out}/\Delta V_{in}=0.00977\,\mathrm{V/V}"><mrow><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_out"><msub><mi>V</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_in"><msub><mi>V</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow><mo>=</mo><mn>0.00977</mn><mspace width="0.17em"/><mi mathvariant="normal">V/V</mi></mrow></math></span><sup class="inf">†</sup> or <span class="fill">0.977%</span><sup class="inf">†</sup></p></div></li></ol>
+  <details class="xp"><summary>Expansion note: why three diodes give a small line-regulation ratio</summary><p>The 1 kΩ resistor and the three incremental diode resistances form a divider. With <math alttext="I_D=7.9"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow><mo>=</mo><mn>7.9</mn></mrow></math> mA and <math alttext="V_T=26"><mrow><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow><mo>=</mo><mn>26</mn></mrow></math> mV, each <math alttext="r_d=3.29"><mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo>=</mo><mn>3.29</mn></mrow></math> Ω, so the string is only 9.87 Ω. Thus <math alttext="\Delta V_o/\Delta V_i=9.87/(1000+9.87)=0.00977"><mrow><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>=</mo><mn>9.87</mn><mo lspace="0.05em" rspace="0.05em">/</mo><mo stretchy="false">(</mo><mn>1000</mn><mo>+</mo><mn>9.87</mn><mo stretchy="false">)</mo><mo>=</mo><mn>0.00977</mn></mrow></math> V/V: a 1 V input perturbation changes the output by about 9.77 mV.</p></details>
+</section>
+
+<section class="part" id="page-5">
+  <span class="pg">6-5</span>
+  <p>Q. What happens when we attach the load?</p>
+  <figure><svg class="sch" viewBox="0 0 420 275" width="420" style="max-width:420px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three forward diodes in parallel with load resistor at the regulator output"><circle cx="65" cy="137" r="22" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="65" y="135" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="65" y="148" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="37" y="141" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">V</text>
+<polyline points="65,115 65,49 145,49" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="145,49 145,58.0 151,61.0 139,67.0 151,73.0 139,79.0 151,85.0 139,91.0 145,94.0 145,103" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="157" y="74.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R</text>
+<text x="157" y="89.0" font-size="11" text-anchor="start" fill="currentColor" class="v">1 kΩ</text>
+<polyline points="145,103 145,119" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="145,119 134,136 156,136" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M134 138H156" stroke="currentColor" stroke-width="1.7"/>
+<polyline points="145,139 145,151" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="145,151 134,168 156,168" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M134 170H156" stroke="currentColor" stroke-width="1.7"/>
+<polyline points="145,171 145,183" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="145,183 134,200 156,200" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M134 202H156" stroke="currentColor" stroke-width="1.7"/>
+<polyline points="145,203 145,236 65,236 65,159" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="145,103 290,103" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="290,103 290,135.0 296,138.0 284,144.0 296,150.0 284,156.0 296,162.0 284,168.0 290,171.0 290,203" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="308" y="157.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">L</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="290,203 290,236 145,236" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="222" y="94" font-size="12" text-anchor="middle" fill="currentColor">+ V<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan> −</text>
+<polyline points="122,120 122,172" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="122,172 119.4,165.5 124.6,165.5" fill="currentColor"/>
+<text x="112" y="153" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">I</text></svg></figure>
+  <ul class="tight">
+    <li><math alttext="V_o\approx"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo>≈</mo></mrow></math> <span class="fill">2.1 V</span><sup class="inf">†</sup></li>
+    <li><math alttext="I_{out}\approx"><mrow><mrow class="term" data-term="I_out"><msub><mi>I</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow><mo>≈</mo></mrow></math> <span class="fill"><math alttext="V_o/R_L"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow></math></span></li>
+    <li><math alttext="I_D="><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow><mo>=</mo></mrow></math> <span class="fill"><math alttext="(V-V_o)/(1\,k\Omega)-I_{out}"><mrow><mo stretchy="false">(</mo><mrow class="term" data-term="V"><mi>V</mi></mrow><mo>−</mo><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo stretchy="false">)</mo><mo lspace="0.05em" rspace="0.05em">/</mo><mo stretchy="false">(</mo><mn>1</mn><mspace width="0.17em"/><mi>k</mi><mi mathvariant="normal">Ω</mi><mo stretchy="false">)</mo><mo>−</mo><mrow class="term" data-term="I_out"><msub><mi>I</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow></mrow></math></span></li>
+    <li><math alttext="r_d="><mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo>=</mo></mrow></math> <span class="fill"><math alttext="V_T/I_D"><mrow><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math></span> <math alttext="="><mrow><mo>=</mo></mrow></math> <span class="fill"><math alttext="26\,\unit{mV}/I_D"><mrow><mn>26</mn><mspace width="0.17em"/><mspace width="0.22em"/><mtext>mV</mtext><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math></span></li>
+  </ul>
+  <p>(*) For small signal</p>
+  <figure><svg class="sch" viewBox="0 0 500 255" width="500" style="max-width:500px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Loaded three-diode regulator small-signal equivalent"><circle cx="60" cy="122" r="24" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="60" y="120" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="60" y="133" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="30" y="126" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">ΔV<tspan dy="4" font-size="0.72em">in</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="60,98 60,45 138,45" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="138,45 172.0,45 175.0,39 181.0,51 187.0,39 193.0,51 199.0,39 205.0,51 208.0,45 242,45" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="190.0" y="33" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">R</text>
+<text x="190.0" y="67" font-size="11" text-anchor="middle" fill="currentColor" class="v">1 kΩ</text>
+<polyline points="242,45 335,45 335,75" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="335,75 335,108.5 341,111.5 329,117.5 341,123.5 329,129.5 341,135.5 329,141.5 335,144.5 335,178" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="350" y="130.5" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">3r<tspan dy="4" font-size="0.72em">d</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="335,178 335,209 60,209 60,146" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="335,75 420,75" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="420,75 420,108.5 426,111.5 414,117.5 426,123.5 414,129.5 426,135.5 414,141.5 420,144.5 420,178" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="406" y="130.5" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">L</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="420,178 420,209 335,209" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="385" y="66" font-size="12" text-anchor="middle" fill="currentColor">+ V<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan> −</text></svg></figure>
+  <figure><svg class="sch" viewBox="0 0 400 220" width="400" style="max-width:400px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Thevenin equivalent of regulator source and small-signal output network driving the load"><circle cx="65" cy="110" r="24" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="65" y="108" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="65" y="121" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="35" y="114" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">ΔV<tspan dy="4" font-size="0.72em">th</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="65,86 65,45 126,45" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="126,45 158.0,45 161.0,39 167.0,51 173.0,39 179.0,51 185.0,39 191.0,51 194.0,45 226,45" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="176.0" y="33" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">th</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="226,45 300,45 300,77" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="300,77 300,95.5 306,98.5 294,104.5 306,110.5 294,116.5 306,122.5 294,128.5 300,131.5 300,150" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="318" y="117.5" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">L</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="300,150 300,180 65,180 65,134" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="257" y="69" font-size="12" text-anchor="middle" fill="currentColor">+ ΔV<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan> −</text></svg></figure>
+  <details class="xp"><summary>Expansion note: how the load shares the diode-string current</summary><p>The 1 kΩ series-resistor current divides between the load and the diode string. At a regulated output, <math alttext="I_{out}=V_o/R_L"><mrow><mrow class="term" data-term="I_out"><msub><mi>I</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow></math> and <math alttext="I_D=(V-V_o)/1\,k\Omega-I_{out}"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow><mo>=</mo><mo stretchy="false">(</mo><mrow class="term" data-term="V"><mi>V</mi></mrow><mo>−</mo><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo stretchy="false">)</mo><mo lspace="0.05em" rspace="0.05em">/</mo><mn>1</mn><mspace width="0.17em"/><mi>k</mi><mi mathvariant="normal">Ω</mi><mo>−</mo><mrow class="term" data-term="I_out"><msub><mi>I</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow></mrow></math>. The small-signal diode resistance must use this reduced diode current; if the load pulls <math alttext="I_D"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> below the Zener/diode's useful conducting range, the constant-output approximation fails.</p></details>
+</section>
+
+<section class="part" id="page-6">
+  <span class="pg">6-6</span>
+  <p>(*) From which we can find</p>
+  <p><math alttext="\Delta V_{out}="><mrow><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_out"><msub><mi>V</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow><mo>=</mo></mrow></math> <span class="fill"><math alttext="\dfrac{(3r_d\parallel R_L)}{1\,k\Omega+(3r_d\parallel R_L)}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mo stretchy="false">(</mo><mn>3</mn><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo>∥</mo><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow><mo stretchy="false">)</mo></mrow><mrow><mn>1</mn><mspace width="0.17em"/><mi>k</mi><mi mathvariant="normal">Ω</mi><mo>+</mo><mo stretchy="false">(</mo><mn>3</mn><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo>∥</mo><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow><mo stretchy="false">)</mo></mrow></mfrac></mstyle></mrow></math></span> × <span class="fill"><math alttext="\Delta V_{in}"><mrow><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_in"><msub><mi>V</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow></mrow></math></span></p>
+  <p>or</p>
+  <p><math alttext="\dfrac{\Delta V_{out}}{\Delta V_{in}}="><mrow><mstyle displaystyle="true"><mfrac><mrow><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_out"><msub><mi>V</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow></mrow><mrow><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_in"><msub><mi>V</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow></mrow></mfrac></mstyle><mo>=</mo></mrow></math> <span class="fill"><math alttext="\dfrac{3r_d\parallel R_L}{1\,k\Omega+(3r_d\parallel R_L)}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mn>3</mn><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo>∥</mo><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow><mrow><mn>1</mn><mspace width="0.17em"/><mi>k</mi><mi mathvariant="normal">Ω</mi><mo>+</mo><mo stretchy="false">(</mo><mn>3</mn><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo>∥</mo><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow><mo stretchy="false">)</mo></mrow></mfrac></mstyle></mrow></math></span> <math alttext="\to"><mrow><mo>→</mo></mrow></math> <span class="fill">0.0</span> or <span class="fill">a small line-regulation ratio</span></p>
+  <p>Q. Is our estimate of <span class="fill">small line regulation</span> good enough?</p>
+  <h2>Zener Regulator</h2>
+  <p>(*) The Zener diode exploits the <span class="fill">reverse-breakdown</span> region as illustrated</p>
+  <div class="figs-2"><figure><svg class="sch" viewBox="0 0 460 300" width="460" style="max-width:460px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diode I-V characteristic with forward conduction above the voltage axis and reverse breakdown below it"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M60 25V245H420 M61 242C143 240 191 228 224 203C251 181 270 149 281 104C292 68 304 43 324 27 M60 246C83 253 102 267 112 289"/><path d="M250 175L308 90" stroke-dasharray="5 4"/></g><text x="29" y="32" fill="currentColor">I_D</text><text x="411" y="267" fill="currentColor">V_D</text><text x="64" y="285" fill="currentColor">breakdown</text><text x="301" y="82" fill="currentColor">forward branch</text></svg></figure><figure><svg class="sch" viewBox="0 0 220 110" width="220" style="max-width:220px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Forward diode symbol"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M25 55H85 M135 55H195 M85 35L115 55L85 75Z M135 35V75"/></g><text x="110" y="101" text-anchor="middle" fill="currentColor">diode</text></svg></figure><figure><svg class="sch" viewBox="0 0 220 110" width="220" style="max-width:220px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zener diode symbol"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M25 55H86 M135 55H195 M86 35L115 55L86 75Z M135 35V75 M135 35L129 29 M135 35L143 31 M135 75L129 81 M135 75L143 79"/></g><text x="110" y="101" text-anchor="middle" fill="currentColor">Zener diode (reverse biased)</text></svg></figure></div>
+  <p>(*) We typically operate <span class="fill">in reverse bias</span><sup class="inf">†</sup> and so we can <span class="fill">linearize</span> the I-V curve.</p>
+  <details class="xp"><summary>Expansion note: why a loaded regulator can lose regulation</summary><p>The load is in parallel with the diode string in the small-signal circuit. A heavier load both diverts DC current away from the diodes and places a smaller resistance across their incremental resistance. The output then follows more of the input variation, and regulation worsens.</p></details>
+</section>
+
+<section class="part" id="page-7">
+  <span class="pg">6-7</span>
+  <figure><svg class="sch" viewBox="0 0 460 300" width="460" style="max-width:460px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zener voltage plotted against Zener current with a local straight-line approximation"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M60 245V25 M60 150H420 M60 150C46 150 35 151 24 164C12 180 9 214 6 238 M48 153L3 215" stroke-dasharray="0"/></g><text x="40" y="31" fill="currentColor">V_Z</text><text x="411" y="168" fill="currentColor">I_Z</text><text x="193" y="279" fill="currentColor">linearized near operating point</text></svg></figure>
+  <p>and linearize the curve so the slope <math alttext="="><mrow><mo>=</mo></mrow></math> <span class="fill"><math alttext="r_z=\dfrac{dV_Z}{dI_Z}"><mrow><mrow class="term" data-term="r_z"><msub><mi>r</mi><mi mathvariant="normal">z</mi></msub></mrow><mo>=</mo><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mrow class="term" data-term="V_Z"><msub><mi>V</mi><mi mathvariant="normal">Z</mi></msub></mrow></mrow><mrow><mi>d</mi><mrow class="term" data-term="I_Z"><msub><mi>I</mi><mi mathvariant="normal">Z</mi></msub></mrow></mrow></mfrac></mstyle></mrow></math></span><sup class="inf">†</sup></p>
+  <p>and the <span class="fill"><math alttext="V_Z"><mrow><mrow class="term" data-term="V_Z"><msub><mi>V</mi><mi mathvariant="normal">Z</mi></msub></mrow></mrow></math>-axis</span> intercept is <span class="fill"><math alttext="V_{Z0}"><mrow><mrow class="term" data-term="V_Z0"><msub><mi>V</mi><mrow><mi mathvariant="normal">Z</mi><mn>0</mn></mrow></msub></mrow></mrow></math></span> suggesting the model</p>
+  <figure><svg class="sch" viewBox="0 0 330 190" width="330" style="max-width:330px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zener linear model with VZ0 source in series with rz"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M35 45H115 M35 145H115 M215 45H295 M215 145H295 M115 45V60 M115 130V145 M215 45V60 M215 130V145"/><path d="M105 74L125 67L105 81L125 88L105 95L125 102L105 109L125 116"/><circle cx="165" cy="95" r="33"/><path d="M165 116V73"/></g><text x="131" y="101" fill="currentColor">+</text><text x="172" y="104" fill="currentColor">−</text><text x="95" y="137" fill="currentColor">r_z</text><text x="165" y="155" text-anchor="middle" fill="currentColor">V_Z0</text><text x="245" y="38" fill="currentColor">I_Z →</text><text x="235" y="105" fill="currentColor">V_Z</text></svg></figure>
+  <p>(*) We can perform similar analysis once we identify <span class="fill"><math alttext="V_{Z0}"><mrow><mrow class="term" data-term="V_Z0"><msub><mi>V</mi><mrow><mi mathvariant="normal">Z</mi><mn>0</mn></mrow></msub></mrow></mrow></math></span> and <span class="fill"><math alttext="r_z"><mrow><mrow class="term" data-term="r_z"><msub><mi>r</mi><mi mathvariant="normal">z</mi></msub></mrow></mrow></math></span> and put them into a circuit.</p>
+  <p>ex. Given <math alttext="r_z=20\,\Omega"><mrow><mrow class="term" data-term="r_z"><msub><mi>r</mi><mi mathvariant="normal">z</mi></msub></mrow><mo>=</mo><mn>20</mn><mspace width="0.17em"/><mi mathvariant="normal">Ω</mi></mrow></math>, <math alttext="V_{Z0}=6.7\,\unit{V}"><mrow><mrow class="term" data-term="V_Z0"><msub><mi>V</mi><mrow><mi mathvariant="normal">Z</mi><mn>0</mn></mrow></msub></mrow><mo>=</mo><mn>6.7</mn><mspace width="0.17em"/><mspace width="0.22em"/><mtext>V</mtext></mrow></math> for a 6.8 V Zener. Find <math alttext="V_o"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math>.</p>
+  <figure><svg class="sch" viewBox="0 0 440 230" width="440" style="max-width:440px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zener reference example: 10 volt supply, 500 ohm resistor, reverse zener, output"><polyline points="90,52 90,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="90,32 85,42 95,42" fill="currentColor"/>
+<text x="90" y="27" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">S</tspan><tspan dy="-4"> </tspan> = 10 V</text>
+<polyline points="90,52 90,64.0 96,67.0 84,73.0 96,79.0 84,85.0 96,91.0 84,97.0 90,100.0 90,112" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="108" y="80.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R</text>
+<text x="108" y="95.0" font-size="11" text-anchor="start" fill="currentColor" class="v">500 Ω</text>
+<polyline points="90,112 90,138" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="90" cy="138" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="113" y="133" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="90,138 90,163" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<path d="M72 163L90 146L108 163L72 163Z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M72 166H108 M74 169L70 176 M106 169L110 176" fill="none" stroke="currentColor" stroke-width="1.7"/>
+<polyline points="90,177 90,194" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="90,194 90,204" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="78,204 102,204" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="82.5,208.5 97.5,208.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="87,213 93,213" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></figure>
+  <p><math alttext="I_Z="><mrow><mrow class="term" data-term="I_Z"><msub><mi>I</mi><mi mathvariant="normal">Z</mi></msub></mrow><mo>=</mo></mrow></math> <span class="fill"><math alttext="\dfrac{10-6.7}{500+20}\,\unit{A}"><mrow><mstyle displaystyle="true"><mfrac><mrow><mn>10</mn><mo>−</mo><mn>6.7</mn></mrow><mrow><mn>500</mn><mo>+</mo><mn>20</mn></mrow></mfrac></mstyle><mspace width="0.17em"/><mspace width="0.22em"/><mtext>A</mtext></mrow></math></span> <math alttext="="><mrow><mo>=</mo></mrow></math> <span class="fill">6.346 mA</span><sup class="inf">†</sup></p>
+  <details class="xp"><summary>Expansion note: what the Zener model parameters mean</summary><p>Near the chosen reverse-breakdown operating point, the curve is approximated by <math alttext="V_Z=V_{Z0}+r_z I_Z"><mrow><mrow class="term" data-term="V_Z"><msub><mi>V</mi><mi mathvariant="normal">Z</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_Z0"><msub><mi>V</mi><mrow><mi mathvariant="normal">Z</mi><mn>0</mn></mrow></msub></mrow><mo>+</mo><mrow class="term" data-term="r_z"><msub><mi>r</mi><mi mathvariant="normal">z</mi></msub></mrow><mrow class="term" data-term="I_Z"><msub><mi>I</mi><mi mathvariant="normal">Z</mi></msub></mrow></mrow></math>. The intercept <math alttext="V_{Z0}"><mrow><mrow class="term" data-term="V_Z0"><msub><mi>V</mi><mrow><mi mathvariant="normal">Z</mi><mn>0</mn></mrow></msub></mrow></mrow></math> is an extrapolated voltage at zero current for that local line; it is not the exact voltage at every current. The positive incremental resistance gives the local slope.</p></details>
+</section>
+
+<section class="part" id="page-8">
+  <span class="pg">6-8</span>
+  <p>Then <math alttext="V_o="><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo>=</mo></mrow></math> <span class="fill">6.7</span> V + 20 Ω <span class="fill"><math alttext="I_Z"><mrow><mrow class="term" data-term="I_Z"><msub><mi>I</mi><mi mathvariant="normal">Z</mi></msub></mrow></mrow></math></span></p>
+  <p><math alttext="="><mrow><mo>=</mo></mrow></math> <span class="fill"><math alttext="6.7\,\unit{V}+(20\,\Omega)(6.346\,\unit{mA})=6.827\,\unit{V}"><mrow><mn>6.7</mn><mspace width="0.17em"/><mspace width="0.22em"/><mtext>V</mtext><mo>+</mo><mo stretchy="false">(</mo><mn>20</mn><mspace width="0.17em"/><mi mathvariant="normal">Ω</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mn>6.346</mn><mspace width="0.17em"/><mspace width="0.22em"/><mtext>mA</mtext><mo stretchy="false">)</mo><mo>=</mo><mn>6.827</mn><mspace width="0.17em"/><mspace width="0.22em"/><mtext>V</mtext></mrow></math></span><sup class="inf">†</sup></p>
+  <h2>LAB 1 INTRODUCTION</h2>
+  <p>(*) We will analyze and investigate <span class="fill">the diode-string regulator/clipper</span><sup class="inf">†</sup></p>
+  <figure><svg class="sch" viewBox="0 0 330 230" width="330" style="max-width:330px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Unfinished series DC supply plus AC source circuit placeholder from the Lab 1 intro"><circle cx="70" cy="140" r="22" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="70" y="138" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="70" y="151" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="42" y="144" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">v<tspan dy="4" font-size="0.72em">s</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="70,118 70,75" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="50" y="86" font-size="12" text-anchor="start" fill="currentColor">+</text>
+<polyline points="70,75 126,75" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="152,75 232,75" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="70,162 70,202 232,202" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></figure>
+  <p>we desire <span class="fill">[handout value]</span><sup class="inf">†</sup> ≤ <math alttext="V_{out}"><mrow><mrow class="term" data-term="V_out"><msub><mi>V</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow></mrow></math> ≤ <span class="fill">[handout value]</span><sup class="inf">†</sup></p>
+  <p>LR &lt; <span class="fill">[handout value]</span><sup class="inf">†</sup></p>
+  <p>(*) Let's consider</p>
+  <figure><svg class="sch" viewBox="0 0 610 360" width="610" style="max-width:610px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Simulation schematic: V1 5 V and V2 0.5 V peak 1 kHz drive a 200 ohm resistor, four 1N4150 diodes and 1 kilohm load"><circle cx="75" cy="145" r="26" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<path d="M67,145 c3,-9 5,-9 8,0 s5,9 8,0" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<text x="43" y="143" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">V2</text>
+<text x="43" y="157" font-size="11" text-anchor="end" fill="currentColor" class="v">0.5 Vpk, 1 kHz, 0°</text>
+<polyline points="75,119 75,56 135,56" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="53" y="107" font-size="11" text-anchor="start" fill="currentColor">2</text>
+<text x="51" y="180" font-size="11" text-anchor="start" fill="currentColor">1</text>
+<polyline points="75,171 75,221" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="55,221 95,221" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="62,228 88,228" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="55,236 95,236" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="75,236 75,315" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="26" y="264" font-size="12" text-anchor="start" fill="currentColor">V1 5 V</text>
+<text x="51" y="329" font-size="11" text-anchor="start" fill="currentColor">0</text>
+<polyline points="135,56 174.5,56 177.5,50 183.5,62 189.5,50 195.5,62 201.5,50 207.5,62 210.5,56 250,56" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="192.5" y="44" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">R1</text>
+<text x="192.5" y="78" font-size="11" text-anchor="middle" fill="currentColor" class="v">200 Ω</text>
+<text x="257" y="49" font-size="11" text-anchor="start" fill="currentColor">3</text>
+<polyline points="250,56 420,56 420,75" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="420,75 409,92 431,92" fill="currentColor"/><path d="M409 94H431" stroke="currentColor" stroke-width="1.8"/>
+<text x="440" y="85" font-size="12" text-anchor="start" fill="currentColor">D1 1N4150</text>
+<polyline points="420,95 420,125" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="434" y="117" font-size="11" text-anchor="start" fill="currentColor">4</text>
+<polygon points="420,125 409,142 431,142" fill="currentColor"/><path d="M409 144H431" stroke="currentColor" stroke-width="1.8"/>
+<text x="440" y="135" font-size="12" text-anchor="start" fill="currentColor">D2 1N4150</text>
+<polyline points="420,145 420,175" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="434" y="167" font-size="11" text-anchor="start" fill="currentColor">5</text>
+<polygon points="420,175 409,192 431,192" fill="currentColor"/><path d="M409 194H431" stroke="currentColor" stroke-width="1.8"/>
+<text x="440" y="185" font-size="12" text-anchor="start" fill="currentColor">D3 1N4150</text>
+<polyline points="420,195 420,225" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="434" y="217" font-size="11" text-anchor="start" fill="currentColor">6</text>
+<polygon points="420,225 409,242 431,242" fill="currentColor"/><path d="M409 244H431" stroke="currentColor" stroke-width="1.8"/>
+<text x="440" y="235" font-size="12" text-anchor="start" fill="currentColor">D4 1N4150</text>
+<polyline points="420,245 420,315 75,315" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="420,315 420,325" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="408,325 432,325" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="412.5,329.5 427.5,329.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="417,334 423,334" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="420,56 535,56" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="535,56 535,167.5 541,170.5 529,176.5 541,182.5 529,188.5 541,194.5 529,200.5 535,203.5 535,315" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="553" y="183.5" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">L</tspan><tspan dy="-4"> </tspan></text>
+<text x="553" y="198.5" font-size="11" text-anchor="start" fill="currentColor" class="v">1 kΩ</text></svg></figure>
+  <details class="xp"><summary>Expansion note: what is and is not specified for Lab 1</summary><p>The printed simulation schematic specifies its component models and source settings, but this packet has no measured operating point, waveform cursor values, acceptance limits, or complete pre-lab procedure. Those blanks are left as handout values; they should be filled from the actual Lab 1 instructions or simulation, not guessed from this schematic.</p></details>
+</section>
+
+<section class="part" id="page-9">
+  <span class="pg">6-9</span>
+  <p>Q. Where would we like the operating point?</p>
+  <ol class="tight"><li>Open the 1N4150 model</li><li>Run <span class="fill">transient analysis</span><sup class="inf">†</sup><br><math alttext="V_{out}="><mrow><mrow class="term" data-term="V_out"><msub><mi>V</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow><mo>=</mo></mrow></math> <span class="fill">[handout value]</span><sup class="inf">†</sup></li></ol>
+  <p>Q. Do we increase or decrease <math alttext="R"><mrow><mrow class="term" data-term="R"><mi>R</mi></mrow></mrow></math>?</p>
+  <p><math alttext="R="><mrow><mrow class="term" data-term="R"><mi>R</mi></mrow><mo>=</mo></mrow></math> <span class="fill">[handout value]</span><sup class="inf">†</sup> Ω → <span class="fill">[handout value]</span><sup class="inf">†</sup></p>
+  <p><math alttext="R="><mrow><mrow class="term" data-term="R"><mi>R</mi></mrow><mo>=</mo></mrow></math> <span class="fill">[handout value]</span><sup class="inf">†</sup> Ω → <span class="fill">[handout value]</span><sup class="inf">†</sup></p>
+  <p>(*) Let's run a <span class="fill">transient</span> analysis to measure the output variation.</p>
+  <p>IC: determine <math alttext="T_{STOP}="><mrow><mrow class="term" data-term="T_STOP"><msub><mi>T</mi><mrow><mi mathvariant="normal">STOP</mi></mrow></msub></mrow><mo>=</mo></mrow></math> <span class="fill">[handout value]</span><sup class="inf">†</sup></p>
+  <p>if “<span class="fill">[handout value]</span><sup class="inf">†</sup>â€ then <math alttext="T_{MAX}="><mrow><mrow class="term" data-term="T_MAX"><msub><mi>T</mi><mrow><mi mathvariant="normal">MAX</mi></mrow></msub></mrow><mo>=</mo></mrow></math> <span class="fill">[handout value]</span><sup class="inf">†</sup></p>
+  <p>Increase trace width</p>
+  <p>Set cursors to measure <span class="fill"><math alttext="\Delta V_{out}"><mrow><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_out"><msub><mi>V</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow></mrow></math> and <math alttext="\Delta V_{in}"><mrow><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_in"><msub><mi>V</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow></mrow></math></span><sup class="inf">†</sup></p>
+  <p>LR <math alttext="="><mrow><mo>=</mo></mrow></math> <span class="fill"><math alttext="\Delta V_{out}/\Delta V_{in}"><mrow><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_out"><msub><mi>V</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_in"><msub><mi>V</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow></mrow></math></span> <math alttext="="><mrow><mo>=</mo></mrow></math> <span class="fill">[handout value]</span><sup class="inf">†</sup></p>
+</section>
+
+<section class="part" id="page-10">
+  <span class="pg">6-10</span>
+  <p>(*) Vary <span class="fill"><math alttext="R"><mrow><mrow class="term" data-term="R"><mi>R</mi></mrow></mrow></math></span><sup class="inf">†</sup> to minimize <span class="fill">line regulation</span><sup class="inf">†</sup></p>
+  <ul class="tight"><li>Potentiometers we have available:</li></ul>
+  <p>How do we use?</p>
+  <figure><svg class="sch" viewBox="0 0 420 220" width="420" style="max-width:420px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Potentiometer used as an adjustable two-terminal rheostat"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M60 80H152 M152 80L169 70L186 90L203 70L220 90L237 70L254 90L271 80H360 M210 180V126L229 108"/><path d="M222 119L229 108L215 112"/></g><text x="45" y="70" fill="currentColor">end</text><text x="367" y="70" fill="currentColor">end</text><text x="205" y="207" text-anchor="middle" fill="currentColor">wiper</text><text x="210" y="50" text-anchor="middle" fill="currentColor">adjustable R</text></svg></figure>
+  <p>So</p>
+  <p>OFFSET = <span class="fill">[handout value]</span><sup class="inf">†</sup></p>
+  <p>p-p Amp = <span class="fill">[handout value]</span><sup class="inf">†</sup></p>
+  <p>Freq = <span class="fill">[handout value]</span><sup class="inf">†</sup></p>
+  <figure><svg class="sch" viewBox="0 0 520 245" width="520" style="max-width:520px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lab source settings feed a diode string and load"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="28" y="62" width="110" height="78"/><path d="M44 102H55L65 78L78 124L90 91L101 102H121 M138 100H185 M185 100V52H268 M185 100V198H268 M268 52V69 M268 198V181 M268 69L258 84L278 84Z M258 87H278 M268 97V110 M268 110L258 125L278 125Z M258 128H278 M268 138V151 M268 151L258 166L278 166Z M258 169H278 M268 179V198 M268 52H390 M268 198H390 M390 52V77 M390 77L378 88L402 88L390 99L378 110L402 110L390 121L378 132L402 132L390 143L378 154L402 154L390 165V198"/></g><text x="83" y="160" text-anchor="middle" fill="currentColor">OFFSET</text><text x="83" y="179" text-anchor="middle" fill="currentColor">P-P AMP</text><text x="83" y="198" text-anchor="middle" fill="currentColor">Freq</text><text x="454" y="122" fill="currentColor">R_L</text><text x="268" y="35" text-anchor="middle" fill="currentColor">four-diode string</text></svg></figure>
+  <p>Q. How measure small <span class="fill">signal</span><sup class="inf">†</sup> on top of bigger value?</p>
+  <p>Q. How measure <span class="fill">DC</span><sup class="inf">†</sup> operating point?</p>
+  <p>(*) Pre-Lab {<span class="fill">[handout value]</span><sup class="inf">†</sup></p>
+</section>
+
+<section class="part" id="appendix">
+  <h2>Appendix</h2>
+  <div id="guide-types">
+    <h3>A. Problem Types in This Notetaker and How to Solve Them</h3>
+    <details class="ap"><summary>A1. Find a diode's small-signal resistance</summary><p><b>Recognize it:</b> A forward-biased diode has a stated or computed DC current and the question asks for its incremental model.</p><p><b>Method:</b></p><ol class="tight"><li>Find the DC operating current using the large-signal circuit.</li><li>Choose <math alttext="V_T"><mrow><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow></mrow></math> and ideality factor <math alttext="n"><mrow><mrow class="term" data-term="n"><mi>n</mi></mrow></mrow></math>; use <math alttext="r_d=nV_T/I_D"><mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="n"><mi>n</mi></mrow><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math> (the packet's numerical example assumes <math alttext="n=1"><mrow><mrow class="term" data-term="n"><mi>n</mi></mrow><mo>=</mo><mn>1</mn></mrow></math>).</li><li>Add any specified series resistance <math alttext="r_s"><mrow><msub><mi>r</mi><mi mathvariant="normal">s</mi></msub></mrow></math> to the incremental model.</li><li>Check that the signal excursion is small compared with the thermal-voltage scale.</li></ol><p><b>Common mistakes:</b> Use the signal current instead of the DC bias current, or apply the local linear model to a large voltage swing. <b>Worked in these notes:</b> p. 6-4.</p></details>
+    <details class="ap"><summary>A2. Estimate line regulation with a diode string</summary><figure><svg class="sch" viewBox="0 0 460 260" width="460" style="max-width:460px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three forward diodes used as a voltage regulator with an open load port"><polyline points="90,50 90,38" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="90,30 85,40 95,40" fill="currentColor"/>
+<text x="90" y="25" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">in</tspan><tspan dy="-4"> </tspan> = 10 V</text>
+<polyline points="90,50 90,60.5 96,63.5 84,69.5 96,75.5 84,81.5 96,87.5 84,93.5 90,96.5 90,107" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="108" y="76.5" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R</text>
+<text x="108" y="91.5" font-size="11" text-anchor="start" fill="currentColor" class="v">1 kΩ</text>
+<polyline points="90,107 90,117" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="90" cy="117" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="90,117 90,139" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="90,139 79,156 101,156" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M79 158H101" stroke="currentColor" stroke-width="1.7"/>
+<polyline points="90,159 90,170" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="90,170 79,187 101,187" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M79 189H101" stroke="currentColor" stroke-width="1.7"/>
+<polyline points="90,190 90,201" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="90,201 79,218 101,218" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M79 220H101" stroke="currentColor" stroke-width="1.7"/>
+<polyline points="90,220 90,233" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="90,233 90,243" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="78,243 102,243" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="82.5,247.5 97.5,247.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="87,252 93,252" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<circle cx="112" cy="117" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="90,117 112,117" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="146" cy="117" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="146,117 172,117 172,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="172,142 172,156.5 178,159.5 166,165.5 178,171.5 166,177.5 178,183.5 166,189.5 172,192.5 172,207" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="190" y="172.5" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">L</tspan><tspan dy="-4"> </tspan></text>
+<text x="190" y="187.5" font-size="11" text-anchor="start" fill="currentColor" class="v">1 kΩ</text>
+<polyline points="172,207 172,217" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="160,217 184,217" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="164.5,221.5 179.5,221.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="169,226 175,226" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<text x="129" y="106" font-size="12" text-anchor="middle" fill="currentColor">+ V<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan> −</text></svg><figcaption>Three forward diodes shunt the output, driven through a series resistor.</figcaption></figure><p><b>Recognize it:</b> A small source variation is applied while the diode string remains conducting.</p><p><b>Method:</b></p><ol class="tight"><li>Find the DC bias, approximately <math alttext="V_o\approx N V_F"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo>≈</mo><mrow class="term" data-term="N"><mi>N</mi></mrow><mrow class="term" data-term="V_F"><msub><mi>V</mi><mi mathvariant="normal">F</mi></msub></mrow></mrow></math> and <math alttext="I_D=(V_{in}-V_o)/R"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow><mo>=</mo><mo stretchy="false">(</mo><mrow class="term" data-term="V_in"><msub><mi>V</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo stretchy="false">)</mo><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="R"><mi>R</mi></mrow></mrow></math> for an unloaded output.</li><li>Compute string resistance <math alttext="N r_d=N nV_T/I_D"><mrow><mrow class="term" data-term="N"><mi>N</mi></mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="N"><mi>N</mi></mrow><mrow class="term" data-term="n"><mi>n</mi></mrow><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math>.</li><li>For an unloaded output, <math alttext="\Delta V_o/\Delta V_i=Nr_d/(R+Nr_d)"><mrow><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="N"><mi>N</mi></mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mo stretchy="false">(</mo><mrow class="term" data-term="R"><mi>R</mi></mrow><mo>+</mo><mrow class="term" data-term="N"><mi>N</mi></mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo stretchy="false">)</mo></mrow></math>. For a load, replace <math alttext="Nr_d"><mrow><mrow class="term" data-term="N"><mi>N</mi></mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow></mrow></math> by <math alttext="Nr_d\parallel R_L"><mrow><mrow class="term" data-term="N"><mi>N</mi></mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo>∥</mo><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow></math>.</li><li>Multiply by the actual input change if an output change in volts is requested.</li><li>Check that the diodes remain forward conducting after the perturbation.</li></ol><p><b>Common mistakes:</b> Forget the number of series diodes or use the unloaded formula after attaching a load. <b>Worked in these notes:</b> pp. 6-3–6-6.</p></details>
+    <details class="ap"><summary>A3. Analyze a loaded diode regulator</summary><figure><svg class="sch" viewBox="0 0 500 255" width="500" style="max-width:500px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Loaded three-diode regulator small-signal equivalent"><circle cx="60" cy="122" r="24" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="60" y="120" font-size="12" text-anchor="middle" fill="currentColor">+</text>
+<text x="60" y="133" font-size="12" text-anchor="middle" fill="currentColor">−</text>
+<text x="30" y="126" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">ΔV<tspan dy="4" font-size="0.72em">in</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="60,98 60,45 138,45" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="138,45 172.0,45 175.0,39 181.0,51 187.0,39 193.0,51 199.0,39 205.0,51 208.0,45 242,45" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="190.0" y="33" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">R</text>
+<text x="190.0" y="67" font-size="11" text-anchor="middle" fill="currentColor" class="v">1 kΩ</text>
+<polyline points="242,45 335,45 335,75" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="335,75 335,108.5 341,111.5 329,117.5 341,123.5 329,129.5 341,135.5 329,141.5 335,144.5 335,178" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="350" y="130.5" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">3r<tspan dy="4" font-size="0.72em">d</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="335,178 335,209 60,209 60,146" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="335,75 420,75" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="420,75 420,108.5 426,111.5 414,117.5 426,123.5 414,129.5 426,135.5 414,141.5 420,144.5 420,178" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="406" y="130.5" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">R<tspan dy="4" font-size="0.72em">L</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="420,178 420,209 335,209" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="385" y="66" font-size="12" text-anchor="middle" fill="currentColor">+ V<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan> −</text></svg><figcaption>Small-signal load and diode resistance share the output node.</figcaption></figure><p><b>Recognize it:</b> A load resistor is attached across the diode string.</p><p><b>Method:</b></p><ol class="tight"><li>Use the DC circuit to estimate <math alttext="V_o"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow></mrow></math> and the series current.</li><li>Find <math alttext="I_{out}=V_o/R_L"><mrow><mrow class="term" data-term="I_out"><msub><mi>I</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow></math> and subtract it from the resistor current to get <math alttext="I_D"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math>.</li><li>Calculate each diode's <math alttext="r_d=nV_T/I_D"><mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="n"><mi>n</mi></mrow><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math>.</li><li>Compute the output small-signal load <math alttext="N r_d\parallel R_L"><mrow><mrow class="term" data-term="N"><mi>N</mi></mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo>∥</mo><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow></math>.</li><li>Use voltage division with the source resistor to find line regulation; verify <math alttext="I_D&gt;0"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow><mo>&gt;</mo><mn>0</mn></mrow></math> and enough forward bias remains.</li></ol><p><b>Common mistakes:</b> Treat load current as diode current, or omit the parallel load in the AC model. <b>Worked in these notes:</b> pp. 6-5–6-6.</p></details>
+    <details class="ap"><summary>A4. Linearize a Zener diode and find its regulated output</summary><figure><svg class="sch" viewBox="0 0 440 230" width="440" style="max-width:440px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zener reference example: 10 volt supply, 500 ohm resistor, reverse zener, output"><polyline points="90,52 90,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="90,32 85,42 95,42" fill="currentColor"/>
+<text x="90" y="27" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">S</tspan><tspan dy="-4"> </tspan> = 10 V</text>
+<polyline points="90,52 90,64.0 96,67.0 84,73.0 96,79.0 84,85.0 96,91.0 84,97.0 90,100.0 90,112" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="108" y="80.0" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">R</text>
+<text x="108" y="95.0" font-size="11" text-anchor="start" fill="currentColor" class="v">500 Ω</text>
+<polyline points="90,112 90,138" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="90" cy="138" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="113" y="133" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="90,138 90,163" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<path d="M72 163L90 146L108 163L72 163Z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M72 166H108 M74 169L70 176 M106 169L110 176" fill="none" stroke="currentColor" stroke-width="1.7"/>
+<polyline points="90,177 90,194" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="90,194 90,204" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="78,204 102,204" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="82.5,208.5 97.5,208.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="87,213 93,213" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><figcaption>A reverse-biased Zener model is driven through a series resistor.</figcaption></figure><p><b>Recognize it:</b> The source, series resistor, and local Zener parameters <math alttext="V_{Z0}"><mrow><mrow class="term" data-term="V_Z0"><msub><mi>V</mi><mrow><mi mathvariant="normal">Z</mi><mn>0</mn></mrow></msub></mrow></mrow></math> and <math alttext="r_z"><mrow><mrow class="term" data-term="r_z"><msub><mi>r</mi><mi mathvariant="normal">z</mi></msub></mrow></mrow></math> are given.</p><p><b>Method:</b></p><ol class="tight"><li>Use the local model <math alttext="V_Z=V_{Z0}+r_zI_Z"><mrow><mrow class="term" data-term="V_Z"><msub><mi>V</mi><mi mathvariant="normal">Z</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_Z0"><msub><mi>V</mi><mrow><mi mathvariant="normal">Z</mi><mn>0</mn></mrow></msub></mrow><mo>+</mo><mrow class="term" data-term="r_z"><msub><mi>r</mi><mi mathvariant="normal">z</mi></msub></mrow><mrow class="term" data-term="I_Z"><msub><mi>I</mi><mi mathvariant="normal">Z</mi></msub></mrow></mrow></math>.</li><li>Apply KVL: <math alttext="V_S=RI_Z+V_Z"><mrow><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="R"><mi>R</mi></mrow><mrow class="term" data-term="I_Z"><msub><mi>I</mi><mi mathvariant="normal">Z</mi></msub></mrow><mo>+</mo><mrow class="term" data-term="V_Z"><msub><mi>V</mi><mi mathvariant="normal">Z</mi></msub></mrow></mrow></math>.</li><li>Solve <math alttext="I_Z=(V_S-V_{Z0})/(R+r_z)"><mrow><mrow class="term" data-term="I_Z"><msub><mi>I</mi><mi mathvariant="normal">Z</mi></msub></mrow><mo>=</mo><mo stretchy="false">(</mo><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow><mo>−</mo><mrow class="term" data-term="V_Z0"><msub><mi>V</mi><mrow><mi mathvariant="normal">Z</mi><mn>0</mn></mrow></msub></mrow><mo stretchy="false">)</mo><mo lspace="0.05em" rspace="0.05em">/</mo><mo stretchy="false">(</mo><mrow class="term" data-term="R"><mi>R</mi></mrow><mo>+</mo><mrow class="term" data-term="r_z"><msub><mi>r</mi><mi mathvariant="normal">z</mi></msub></mrow><mo stretchy="false">)</mo></mrow></math>.</li><li>Substitute to obtain <math alttext="V_o=V_Z=V_{Z0}+r_zI_Z"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_Z"><msub><mi>V</mi><mi mathvariant="normal">Z</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_Z0"><msub><mi>V</mi><mrow><mi mathvariant="normal">Z</mi><mn>0</mn></mrow></msub></mrow><mo>+</mo><mrow class="term" data-term="r_z"><msub><mi>r</mi><mi mathvariant="normal">z</mi></msub></mrow><mrow class="term" data-term="I_Z"><msub><mi>I</mi><mi mathvariant="normal">Z</mi></msub></mrow></mrow></math>.</li><li>Check the computed current falls inside the Zener's specified operating range and power limit; no such limits are supplied in this example.</li></ol><p><b>Common mistakes:</b> Use a forward-diode drop, reverse the voltage polarity, or use <math alttext="r_z"><mrow><mrow class="term" data-term="r_z"><msub><mi>r</mi><mi mathvariant="normal">z</mi></msub></mrow></mrow></math> as if it were the full Zener voltage. <b>Worked in these notes:</b> pp. 6-7–6-8.</p></details>
+    <details class="ap"><summary>A5. Measure line regulation from a transient simulation</summary><p><b>Recognize it:</b> The input has a small periodic variation about a DC operating level, and the output waveform is to be measured.</p><p><b>Method:</b></p><ol class="tight"><li>Set the model and source values from the lab instructions.</li><li>Run a transient analysis long enough to include steady cycles, with a maximum timestep small enough to resolve the waveform.</li><li>Use cursors to compare corresponding peak/trough values and find <math alttext="\Delta V_{in}"><mrow><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_in"><msub><mi>V</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow></mrow></math> and <math alttext="\Delta V_{out}"><mrow><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_out"><msub><mi>V</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow></mrow></math>.</li><li>Compute <math alttext="LR=\Delta V_{out}/\Delta V_{in}"><mrow><mrow class="term" data-term="L"><mi>L</mi></mrow><mrow class="term" data-term="R"><mi>R</mi></mrow><mo>=</mo><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_out"><msub><mi>V</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_in"><msub><mi>V</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow></mrow></math>, reporting V/V or percent.</li><li>Repeat for the assigned series-resistor settings and compare while checking that the diode current remains in regulation.</li></ol><p><b>Common mistakes:</b> Compare peak-to-peak input against a one-sided output change, include startup transient values, or report a ratio without units/convention. <b>Worked in these notes:</b> pp. 6-8–6-10; numeric simulation results and lab limits are absent.</p></details>
+  </div>
+  <div id="guide-topics">
+    <h3>B. Topics Covered by the Lesson 6 Notes</h3>
+    <p>The notes review diode operating-point and incremental analysis, introduce diode-based voltage regulation and Zener linearization, then preview the Lab 1 regulator/measurement setup, by page.</p>
+    <details class="ap"><summary>B1. Diode bias and small-signal linearization — pp. 6-1–6-2</summary><ul class="tight"><li>Separate DC and AC source components for analysis (p. 6-1).</li><li>Find the DC operating point before calculating the local resistance (pp. 6-1–6-2).</li><li>Use the tangent to the nonlinear diode I–V curve around its operating point (p. 6-1).</li><li>Retain the first Taylor term when the signal voltage is small compared with <math alttext="V_T"><mrow><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow></mrow></math> (p. 6-2).</li><li>Include the optional series resistance in a more complete incremental model (p. 6-2).</li></ul></details>
+    <details class="ap"><summary>B2. Diode-string regulation — pp. 6-3–6-6</summary><ul class="tight"><li>Distinguish changes caused by input voltage from changes caused by load (p. 6-3).</li><li>Use forward-biased junction drops to establish an approximate output level (pp. 6-3–6-5).</li><li>Compute line regulation from a small-signal divider (pp. 6-3–6-4).</li><li>Account for load current when calculating the diode bias current (p. 6-5).</li><li>Place the load in parallel with the diode incremental resistance (pp. 6-5–6-6).</li></ul></details>
+    <details class="ap"><summary>B3. Zener regulation — pp. 6-6–6-8</summary><ul class="tight"><li>Use reverse breakdown to hold a near-constant voltage (p. 6-6).</li><li>Represent a local Zener curve with intercept <math alttext="V_{Z0}"><mrow><mrow class="term" data-term="V_Z0"><msub><mi>V</mi><mrow><mi mathvariant="normal">Z</mi><mn>0</mn></mrow></msub></mrow></mrow></math> and slope <math alttext="r_z"><mrow><mrow class="term" data-term="r_z"><msub><mi>r</mi><mi mathvariant="normal">z</mi></msub></mrow></mrow></math> (pp. 6-7–6-8).</li><li>Use KVL to solve the bias current and output voltage (pp. 6-7–6-8).</li></ul></details>
+    <details class="ap"><summary>B4. Lab 1 simulation preview — pp. 6-8–6-10</summary><ul class="tight"><li>Inspect the operating point and a 1N4150 model (p. 6-9).</li><li>Use transient analysis and waveform cursors to compare input and output changes (pp. 6-9–6-10).</li><li>Use the available potentiometer to vary resistance (p. 6-10).</li><li>Acceptance limits, measurement results and detailed pre-lab values depend on the missing Lab 1 handout (pp. 6-8–6-10).</li></ul></details>
+  </div>
+  <div id="guide-eqs">
+    <h3>C. Equations Used Throughout</h3>
+    <details class="ap"><summary>C1. Diode small-signal model</summary><p>Incremental resistance (ideality factor <math alttext="n"><mrow><mrow class="term" data-term="n"><mi>n</mi></mrow></mrow></math>): <math alttext="r_d=nV_T/I_D"><mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="n"><mi>n</mi></mrow><mrow class="term" data-term="V_T"><msub><mi>V</mi><mi mathvariant="normal">T</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow></mrow></math>.</p><p>First-order exponential expansion: <math alttext="e^x\approx1+x"><mrow><mrow class="term" data-term="e"><msup><mi>e</mi><mi mathvariant="normal">x</mi></msup></mrow><mo>≈</mo><mn>1</mn><mo>+</mo><mrow class="term" data-term="x"><mi>x</mi></mrow></mrow></math> for <math alttext="|x|\ll1"><mrow><mo stretchy="false" lspace="0" rspace="0">|</mo><mrow class="term" data-term="x"><mi>x</mi></mrow><mo stretchy="false" lspace="0" rspace="0">|</mo><mo>≪</mo><mn>1</mn></mrow></math>.</p><p>Optional series resistance: <math alttext="r_{d,total}=r_s+r_d"><mrow><msub><mi>r</mi><mrow><mi mathvariant="normal">d</mi><mo>,</mo><mi mathvariant="normal">total</mi></mrow></msub><mo>=</mo><msub><mi>r</mi><mi mathvariant="normal">s</mi></msub><mo>+</mo><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow></mrow></math>.</p></details>
+    <details class="ap"><summary>C2. Forward diode-string regulator</summary><p>Approximate output: <math alttext="V_o\approx NV_F"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo>≈</mo><mrow class="term" data-term="N"><mi>N</mi></mrow><mrow class="term" data-term="V_F"><msub><mi>V</mi><mi mathvariant="normal">F</mi></msub></mrow></mrow></math> while all <math alttext="N"><mrow><mrow class="term" data-term="N"><mi>N</mi></mrow></mrow></math> junctions conduct.</p><p>Unloaded line regulation: <math alttext="LR=\Delta V_o/\Delta V_i=Nr_d/(R+Nr_d)"><mrow><mrow class="term" data-term="L"><mi>L</mi></mrow><mrow class="term" data-term="R"><mi>R</mi></mrow><mo>=</mo><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_i"><msub><mi>V</mi><mi mathvariant="normal">i</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="N"><mi>N</mi></mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mo stretchy="false">(</mo><mrow class="term" data-term="R"><mi>R</mi></mrow><mo>+</mo><mrow class="term" data-term="N"><mi>N</mi></mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo stretchy="false">)</mo></mrow></math>.</p><p>Loaded output incremental resistance: <math alttext="R_o=Nr_d\parallel R_L"><mrow><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="N"><mi>N</mi></mrow><mrow class="term" data-term="r_d"><msub><mi>r</mi><mi mathvariant="normal">d</mi></msub></mrow><mo>∥</mo><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow></math>.</p><p>Loaded line regulation: <math alttext="LR=R_o/(R+R_o)"><mrow><mrow class="term" data-term="L"><mi>L</mi></mrow><mrow class="term" data-term="R"><mi>R</mi></mrow><mo>=</mo><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mo stretchy="false">(</mo><mrow class="term" data-term="R"><mi>R</mi></mrow><mo>+</mo><mrow class="term" data-term="R_o"><msub><mi>R</mi><mi mathvariant="normal">o</mi></msub></mrow><mo stretchy="false">)</mo></mrow></math>.</p><p>Current split: <math alttext="I_D=(V_{in}-V_o)/R-I_{out}"><mrow><mrow class="term" data-term="I_D"><msub><mi>I</mi><mi mathvariant="normal">D</mi></msub></mrow><mo>=</mo><mo stretchy="false">(</mo><mrow class="term" data-term="V_in"><msub><mi>V</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo stretchy="false">)</mo><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="R"><mi>R</mi></mrow><mo>−</mo><mrow class="term" data-term="I_out"><msub><mi>I</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow></mrow></math> and <math alttext="I_{out}=V_o/R_L"><mrow><mrow class="term" data-term="I_out"><msub><mi>I</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mrow class="term" data-term="R_L"><msub><mi>R</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow></math>.</p></details>
+    <details class="ap"><summary>C3. Local Zener model</summary><p><math alttext="V_Z=V_{Z0}+r_zI_Z"><mrow><mrow class="term" data-term="V_Z"><msub><mi>V</mi><mi mathvariant="normal">Z</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_Z0"><msub><mi>V</mi><mrow><mi mathvariant="normal">Z</mi><mn>0</mn></mrow></msub></mrow><mo>+</mo><mrow class="term" data-term="r_z"><msub><mi>r</mi><mi mathvariant="normal">z</mi></msub></mrow><mrow class="term" data-term="I_Z"><msub><mi>I</mi><mi mathvariant="normal">Z</mi></msub></mrow></mrow></math>.</p><p><math alttext="I_Z=(V_S-V_{Z0})/(R+r_z)"><mrow><mrow class="term" data-term="I_Z"><msub><mi>I</mi><mi mathvariant="normal">Z</mi></msub></mrow><mo>=</mo><mo stretchy="false">(</mo><mrow class="term" data-term="V_S"><msub><mi>V</mi><mi mathvariant="normal">S</mi></msub></mrow><mo>−</mo><mrow class="term" data-term="V_Z0"><msub><mi>V</mi><mrow><mi mathvariant="normal">Z</mi><mn>0</mn></mrow></msub></mrow><mo stretchy="false">)</mo><mo lspace="0.05em" rspace="0.05em">/</mo><mo stretchy="false">(</mo><mrow class="term" data-term="R"><mi>R</mi></mrow><mo>+</mo><mrow class="term" data-term="r_z"><msub><mi>r</mi><mi mathvariant="normal">z</mi></msub></mrow><mo stretchy="false">)</mo></mrow></math>.</p><p><math alttext="V_o=V_{Z0}+r_zI_Z"><mrow><mrow class="term" data-term="V_o"><msub><mi>V</mi><mi mathvariant="normal">o</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_Z0"><msub><mi>V</mi><mrow><mi mathvariant="normal">Z</mi><mn>0</mn></mrow></msub></mrow><mo>+</mo><mrow class="term" data-term="r_z"><msub><mi>r</mi><mi mathvariant="normal">z</mi></msub></mrow><mrow class="term" data-term="I_Z"><msub><mi>I</mi><mi mathvariant="normal">Z</mi></msub></mrow></mrow></math>.</p></details>
+    <details class="ap"><summary>C4. Waveform measurement</summary><p><math alttext="LR=\Delta V_{out}/\Delta V_{in}"><mrow><mrow class="term" data-term="L"><mi>L</mi></mrow><mrow class="term" data-term="R"><mi>R</mi></mrow><mo>=</mo><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_out"><msub><mi>V</mi><mrow><mi mathvariant="normal">out</mi></mrow></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mi mathvariant="normal">Δ</mi><mrow class="term" data-term="V_in"><msub><mi>V</mi><mrow><mi mathvariant="normal">in</mi></mrow></msub></mrow></mrow></math> in V/V; multiply by 100 to express percent.</p></details>
+  </div>
+</section>
+
+
+<footer><p>Completed from ECE321_L6_B.pdf, notetaker pages 6-1 to 6-10. The scan is partly filled and has no selectable text. Calculations use V_T=26 mV and n=1 as an explicit room-temperature diode-model assumption. The Lab 1 handout is not supplied; [handout value]† marks limits, simulation readings, and setup values that the packet does not state.</p><p>Highlighted text fills a source blank (underlined when printed). † marks a value reconstructed from the simulations or the lesson; [handout value] marks a value given only in the named handout.</p><p class="model-credit"><span>AI drafting model</span> OpenAI GPT-6 (Codex)</p></footer></main><script type="application/json" id="glossary">{"math": {"v_d": ["v_d", "The small change in diode voltage about the DC operating point."], "v_D": ["v_D", "Diode voltage; positive from anode to cathode under the reference convention."], "V_T": ["V_T", "Thermal voltage, about 26 mV at room temperature in this guide."], "I_D": ["I_D", "Diode DC operating current."], "r_d": ["r_d", "Incremental diode resistance at the operating point; V_T/I_D for the n=1 model used here."], "i_D": ["i_D", "Small-signal change in diode current about its bias point."], "V_D": ["V_D", "Voltage across a diode, positive from anode to cathode."], "V_o": ["V_o", "Regulated output voltage in the diode examples."], "V_out": ["V_out", "Output voltage of the regulator or lab circuit."], "V_in": ["V_in", "Input voltage applied to the regulator."], "V_DD": ["V_DD", "Positive DC supply voltage."], "R_L": ["R_L", "Load resistance connected across the output."], "I_out": ["I_out", "Current drawn by the load."], "V_Z": ["V_Z", "Voltage across the Zener diode in reverse breakdown."], "V_Z0": ["V_Z0", "Voltage-axis intercept of the local linear Zener model."], "I_Z": ["I_Z", "Reverse current through the Zener diode."], "r_z": ["r_z", "Incremental resistance of the Zener diode near its operating point."], "V_S": ["V_S", "Source voltage feeding the Zener regulator."], "R": ["R", "Series resistance between the source and regulated node."], "R_o": ["R_o", "Equivalent small-signal output resistance of the diode string in parallel with the load."], "V_i": ["V_i", "Input voltage applied to the regulator."], "V_F": ["V_F", "Forward voltage drop of one conducting diode."], "V": ["V", "The generic source voltage in the loaded-diode example."], "N": ["N", "Number of series forward-biased diodes."], "n": ["n", "Diode ideality factor; this guide uses n=1 for the numeric example."], "T_MAX": ["T_MAX", "Maximum timestep in a transient simulation."], "T_STOP": ["T_STOP", "Stop time of a transient simulation."], "e": ["e", "Base of the natural exponential function."], "x": ["x", "Dimensionless argument of the Taylor expansion."], "L": ["L", "The subscript identifying line regulation."], "DeltaV_D": ["ΔV_D", "Small change in forward diode voltage."], "DeltaV_out": ["ΔV_out", "Small change in regulator output voltage."], "DeltaV_in": ["ΔV_in", "Small change in regulator input voltage."]}, "text": {"DC": ["DC", "Direct current or the steady bias value about which a small signal varies."], "AC": ["AC", "Alternating current; here, the time-varying signal component."], "I-V": ["I–V", "Current-versus-voltage characteristic of a device."], "small-signal": ["small-signal", "A linear approximation to changes close to a fixed DC operating point."], "operating point": ["operating point", "The steady voltage and current at which the device is biased."], "Q-point": ["Q-point", "Quiescent operating point; the DC bias point."], "piecewise-linear": ["piecewise-linear", "A device model made from straight-line segments."], "exponential model": ["exponential model", "The diode equation model relating current exponentially to voltage."], "thermal voltage": ["thermal voltage", "The scale V_T in the diode exponential, about 26 mV at room temperature."], "line regulation": ["line regulation", "The change in output divided by the change in input voltage."], "load regulation": ["load regulation", "The output-voltage change as the load changes."], "voltage regulator": ["voltage regulator", "A circuit intended to keep its output voltage nearly fixed as conditions vary."], "Zener diode": ["Zener diode", "A diode designed to operate in reverse breakdown for voltage regulation."], "reverse breakdown": ["reverse breakdown", "The reverse-bias region where a Zener diode conducts while its voltage varies modestly."], "transient analysis": ["transient analysis", "A time-domain simulation that displays circuit voltages and currents over time."], "1N4150": ["1N4150", "The small-signal silicon diode model named in the Lab 1 simulation schematic."], "potentiometer": ["potentiometer", "A three-terminal adjustable resistor with two end terminals and a movable wiper."], "rheostat": ["rheostat", "A variable two-terminal resistance, often made from a potentiometer wiper and one end."], "Vpk": ["Vpk", "Peak amplitude of a periodic voltage."], "DC operating point": ["DC operating point", "The steady-state node voltage/current solution with time-varying sources at their DC value."]}}</script><script>
+(function () {
+  var root = document.documentElement;
+  var KEY = 'notes-mode';
+  var sw = document.getElementById('mode-switch');
+  var all = function () { return Array.prototype.slice.call(document.querySelectorAll('details')); };
+  var notes = function () { return Array.prototype.slice.call(document.querySelectorAll('details.xp')); };
+
+  /* Printer-friendly mode opens every dropdown; leaving it restores exactly
+     the dropdowns the reader had open before switching. */
+  var before = null;
+  function enterPrint() {
+    before = all().map(function (d) { return d.open; });
+    all().forEach(function (d) { d.open = true; });
+  }
+  function leavePrint() {
+    var list = all();
+    list.forEach(function (d, i) { d.open = before ? !!before[i] : false; });
+    before = null;
+  }
+  function setMode(print, initial) {
+    var wasPrint = root.getAttribute('data-mode') === 'print' && !initial;
+    if (print) root.setAttribute('data-mode', 'print'); else root.removeAttribute('data-mode');
+    if (sw) sw.setAttribute('aria-checked', print ? 'true' : 'false');
+    if (print && (initial || !wasPrint)) enterPrint();
+    if (!print && wasPrint) leavePrint();
+  }
+  var stored = 'dark';
+  try { stored = localStorage.getItem(KEY) || 'dark'; } catch (e) {}
+  setMode(stored === 'print', true);
+  if (sw) sw.addEventListener('click', function () {
+    var print = root.getAttribute('data-mode') !== 'print';
+    setMode(print, false);
+    try { localStorage.setItem(KEY, print ? 'print' : 'dark'); } catch (e) {}
+  });
+
+  /* Real printing from dark mode: open everything, then put it back. */
+  var printing = null;
+  addEventListener('beforeprint', function () {
+    printing = all().map(function (d) { return d.open; });
+    all().forEach(function (d) { d.open = true; });
+  });
+  addEventListener('afterprint', function () {
+    if (printing) all().forEach(function (d, i) { d.open = !!printing[i]; });
+    printing = null;
+  });
+
+  var b = document.getElementById('xp-toggle');
+  if (b) b.addEventListener('click', function () {
+    var open = notes().some(function (d) { return !d.open; });
+    notes().forEach(function (d) { d.open = open; });
+    b.textContent = open ? 'Close all expansion notes' : 'Open all expansion notes';
+  });
+})();
+</script>
+<script>
+/* Hover definitions. Variables in the math are tagged at build time
+   (mrow.term[data-term]); acronyms and ECE terms in running text are wrapped
+   here from the same glossary. Tooltips are off in printer-friendly mode. */
+(function () {
+  var root = document.documentElement;
+  var data = JSON.parse(document.getElementById('glossary').textContent);
+  var TEXT = data.text, MATH = data.math, LOWER = {};
+  Object.keys(TEXT).forEach(function (k) { if (k === k.toLowerCase()) LOWER[k] = TEXT[k]; });
+
+  var esc = function (s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); };
+  var keys = Object.keys(TEXT).sort(function (a, b) { return b.length - a.length; });
+  var re = new RegExp('(?<![A-Za-z0-9])(' + keys.map(esc).join('|') + ')(?![A-Za-z0-9])', 'gi');
+  var lookup = function (m) { return TEXT[m] || LOWER[m.toLowerCase()] || null; };
+  var SKIP = 'math, svg, script, style, button, .controls, h1, h2, h3, h4, .term, #tip';
+
+  var page = document.querySelector('.page');
+  var walker = document.createTreeWalker(page, NodeFilter.SHOW_TEXT, {
+    acceptNode: function (n) {
+      if (!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+      return n.parentElement.closest(SKIP) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+    }
+  });
+  var nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(function (n) {
+    var text = n.nodeValue, last = 0, m, frag = null;
+    re.lastIndex = 0;
+    while ((m = re.exec(text))) {
+      var entry = lookup(m[0]);
+      if (!entry) continue;
+      frag = frag || document.createDocumentFragment();
+      frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+      var span = document.createElement('span');
+      span.className = 'term'; span.setAttribute('data-text', m[0]); span.textContent = m[0];
+      frag.appendChild(span); last = m.index + m[0].length;
+    }
+    if (frag) { frag.appendChild(document.createTextNode(text.slice(last))); n.parentNode.replaceChild(frag, n); }
+  });
+
+  var tip = document.createElement('div');
+  tip.id = 'tip'; tip.className = 'tip'; tip.setAttribute('role', 'tooltip'); tip.hidden = true;
+  document.body.appendChild(tip);
+
+  function label(s) {   /* "V_GS" -> V<sub>GS</sub>, built as DOM nodes */
+    var b = document.createElement('b'), i = s.indexOf('_');
+    if (i < 0) { b.textContent = s; return b; }
+    b.appendChild(document.createTextNode(s.slice(0, i)));
+    var sub = document.createElement('sub'); sub.textContent = s.slice(i + 1); b.appendChild(sub);
+    return b;
+  }
+  function rich(text) {   /* "V_GS − V_t" -> V<sub>GS</sub> − V<sub>t</sub> */
+    var frag = document.createDocumentFragment(), re2 = /([A-Za-zλ])_([A-Za-z0-9]+(?:,[A-Za-z]+)?)/g, last = 0, m;
+    while ((m = re2.exec(text))) {
+      frag.appendChild(document.createTextNode(text.slice(last, m.index) + m[1]));
+      var sub = document.createElement('sub'); sub.textContent = m[2]; frag.appendChild(sub);
+      last = m.index + m[0].length;
+    }
+    frag.appendChild(document.createTextNode(text.slice(last)));
+    return frag;
+  }
+  var current = null;
+  function show(el) {
+    if (root.getAttribute('data-mode') === 'print') return;
+    var entry = el.hasAttribute('data-term') ? MATH[el.getAttribute('data-term')] : lookup(el.getAttribute('data-text') || '');
+    if (!entry) return;
+    tip.textContent = '';
+    tip.appendChild(label(entry[0]));
+    tip.appendChild(rich(entry[1]));
+    tip.hidden = false; current = el;
+    var r = el.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
+    var left = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8);
+    var top = r.bottom + 8;
+    if (top + h > innerHeight - 8) top = r.top - h - 8;
+    tip.style.left = left + 'px'; tip.style.top = Math.max(8, top) + 'px';
+  }
+  function hide() { tip.hidden = true; current = null; }
+  var termOf = function (t) { return t && t.closest ? t.closest('.term') : null; };
+
+  /* Mouse: the box appears only after the pointer rests on a term for 1 s. */
+  var DELAY = 1000, timer = null, pending = null;
+  function cancel() { clearTimeout(timer); timer = null; pending = null; }
+  document.addEventListener('mouseover', function (e) {
+    var t = termOf(e.target);
+    if (!t || t === current || t === pending) return;
+    cancel(); pending = t;
+    timer = setTimeout(function () { if (pending === t) show(t); pending = null; }, DELAY);
+  });
+  document.addEventListener('mouseout', function (e) {
+    var t = termOf(e.target);
+    if (t && !t.contains(e.relatedTarget)) { if (t === pending) cancel(); if (t === current) hide(); }
+  });
+  document.addEventListener('pointerup', function (e) {
+    if (e.pointerType === 'mouse') return;
+    var t = termOf(e.target);
+    if (t && t !== current) show(t); else hide();
+  });
+  addEventListener('scroll', function () { cancel(); hide(); }, { passive: true });
+  addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
+  var sw = document.getElementById('mode-switch');
+  if (sw) sw.addEventListener('click', hide);
+})();
+</script>
+<script src="../assets/ai.js"></script></body></html>

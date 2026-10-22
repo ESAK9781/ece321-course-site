@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Course Syllabus (Version 4) · ECE 321 Electronics I</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+  <style>
+    tr.lab-row td { background: rgba(108, 199, 255, 0.05); }
+    tr.exam-row td { background: rgba(255, 122, 168, 0.08); font-weight: 600; }
+  </style>
+<link rel="stylesheet" href="../assets/navbar.css"></head>
+<body>
+  <a class="skip" href="#main-content">Skip to document content</a>
+
+  <header class="site-nav"><a class="brand" href="../index.html#home"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 16C8 5 12 5 16 16S24 27 28 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>ECE <strong>321</strong></a><nav class="nav-links" aria-label="Course navigation"><a href="../index.html#home">Home</a><a href="../index.html#syllabus">Syllabus</a><a href="../equation-sheets/index.html">Equation sheets</a><a href="../course-docs/index.html" class="active" aria-current="page">Course docs</a><a href="../index.html#homework">Reading guides</a><a href="../index.html#lessons">Lesson guides</a><a href="../index.html#study">Study sessions</a></nav><span class="semester"><i></i> FALL 2026</span></header>
+
+  <main id="main-content" class="doc-container">
+    <div class="doc-header">
+      <div class="doc-header-main">
+        <p class="doc-eyebrow">OFFICIAL COURSE SYLLABUS · VERSION 4 (FALL 2026)</p>
+        <h1 class="doc-title">ECE 321: Electronics I — Syllabus</h1>
+        <p class="doc-desc">Complete 41-lesson schedule table detailing lecture topics, textbook readings (Sedra & Smith 8th ed.), practical exercises, homework problem sets, and assessment due dates.</p>
+      </div>
+      <div class="doc-actions">
+        <button class="btn btn-primary" onclick="window.print()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print / PDF (Lightmode)
+        </button>
+        <a class="btn" href="index.html">All Course Docs</a>
+      </div>
+    </div>
+
+    <div class="callout callout-info">
+      <strong>Course Overview:</strong> ECE 321 covers semiconductor physics, diode fundamentals and models, MOSFET amplifier design (CS, CD, CG, multi-stage), BJT fundamentals, CMOS digital logic inverter analysis, and static RAM memory cells. 
+      <strong>Key abbreviations:</strong> PE = Practical Exercise; S&S = Sedra & Smith <em>Microelectronic Circuits</em> (8th ed.); SP = Special Topic Presentation; MS = Multisim computer simulation.
+    </div>
+
+    <div class="table-wrap">
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th style="width: 60px;">Lsn</th>
+            <th style="min-width: 280px;">Topic</th>
+            <th style="min-width: 90px;">Exercise</th>
+            <th style="min-width: 120px;">Reading (S&S)</th>
+            <th style="min-width: 170px;">Assigned</th>
+            <th style="min-width: 130px;">Due</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ><td><strong>1</strong></td><td>Course Introduction; Semiconductor Physics:  Electrons, Holes, Intrinsic Carriers, Bandgap Energy, Doping</td><td></td><td>Sedra &amp; Smith (S&amp;S): 3.1-3.2</td><td>S&amp;S Problems<br>3.1, 3.2</td><td></td></tr><tr ><td><strong>2</strong></td><td>Current in Semiconductors: Drift and Diffusion; PN-junction: Bound Charge, Depletion Region, Barrier Voltage</td><td>PE1</td><td>S&amp;S:<br>3.3</td><td>Problems<br>3.4, 3.5, 3.8, 3.9</td><td></td></tr><tr ><td><strong>3</strong></td><td>PN-junction: Thermal Voltage, Depletion Region Width, Forward Bias, Reverse Bias; Shockley Diode Equation; Ideality Factor “n”</td><td>PE2</td><td>S&amp;S:<br>3.4-3.5</td><td>Problems<br>3.14,3.16</td><td>H1 -&gt; L1, L2</td></tr><tr ><td><strong>4</strong></td><td>Compensated Doping; Ideal Diode Analysis: Assume, Analyze, Confirm; IV-Characteristic</td><td>PE3</td><td>S&amp;S:<br>4.1-4.3</td><td>Problems 3.23,3.25</td><td></td></tr><tr ><td><strong>5</strong></td><td>Ideal Diode Examples; Constant Voltage Drop Model; Gauss-Seidel Analysis with Shockley Diode Equation; Breakdown: Avalanche &amp; Zener</td><td></td><td>S&amp;S:<br>4.2-4.3</td><td>Quiz 1<br>Problems 4.2bc,4.3a,4.4ceh (MS)</td><td>H2 -&gt; L3, L4</td></tr><tr class="lab-row"><td><strong>6</strong></td><td>Small-Signal Diode Model; Notation; Dynamic Resistance; Voltage Regulation; Zener Regulator; Lab 1 Introduction</td><td>Prelab1<br>time</td><td>S&amp;S:<br>4.4-4.5</td><td>Problems 4.36,4.38<br>4.47,4.49<br>Prelab1</td><td></td></tr><tr class="lab-row"><td><strong>7</strong></td><td>Lab 1: Diode Characterization and Regulator</td><td></td><td></td><td></td><td>Prelab 1ab</td></tr><tr ><td><strong>8</strong></td><td>MOSFETs: Structure, Terminals, Double-Subscript Notation, N-Channel, Enhancement Mode; Creating a Channel for Current; Triode &amp; Saturation; IV-curve; Channel Modulation</td><td>Lab 1<br>Time</td><td>S&amp;S:<br>5.1-5.2</td><td>Problems 5.5,5.10 5.13</td><td>H3 -&gt; L5, L6</td></tr><tr ><td><strong>9</strong></td><td>MOSFETs: review cutoff, triode, saturation; NMOS symbols; PMOS; Analysis of Modes of Operation; Circuit Models</td><td>Lab 1<br>Time</td><td>S&amp;S:<br>5.2-5.3</td><td>Quiz 2<br>Problems5.26acde<br>5.40</td><td></td></tr><tr ><td><strong>10</strong></td><td>MOSFET DC Circuit Analysis Examples</td><td></td><td>S&amp;S:<br>5.3</td><td>Quiz 3<br>Problems 5.47</td><td>H4 -&gt; L8, L9</td></tr><tr class="lab-row"><td><strong>11</strong></td><td>MOSFET Body Diode; Family of Curves; Lab 2 Introduction;</td><td>PE4</td><td>S&amp;S:<br>5.3</td><td></td><td>Lab1</td></tr><tr class="lab-row"><td><strong>12</strong></td><td>Lab 2: MOSFET Characterization</td><td></td><td></td><td></td><td>H5 -&gt; L10</td></tr><tr ><td><strong>13</strong></td><td>GR1 Review: Semiconductor Physics; Diode Fundamentals; Diode Models and Analysis; MOSFET Fundamentals; MOSFET Models and Analysis</td><td></td><td></td><td></td><td></td></tr><tr class="exam-row"><td><strong>14</strong></td><td>***** GR #1: Lessons 1-13 *****</td><td></td><td></td><td></td><td></td></tr><tr ><td><strong>15</strong></td><td>MOSFET Amplifier Models: Rin, Rout, Open-Circuit Gain; Attributes: Voltage Gain, Signal Swing, Linearity; Voltage Transfer Curve; Biasing; Small-Signal Gain; MOSFET Transconductance (gm)</td><td>PE5</td><td>S&amp;S:<br>1.4-1.5<br>7.1-7.2</td><td>Problems 1.15ab, 1.56, 7.1, 7.2, 7.8</td><td>Lab2<br>SP1</td></tr><tr ><td><strong>16</strong></td><td>MOSFET Small-Signal T-Model; Design Approach #1: No Source Resistance; Design Approach #2: Negative Feedback Rs</td><td>PE6</td><td>S&amp;S:<br>7.3</td><td>Problems 7.27,7.30</td><td>SP2</td></tr><tr ><td><strong>17</strong></td><td>Amplifier Configurations: CS, CG, CD; Finding Input Resistance, Output Resistance, and Voltage Gain</td><td>PE6 (cont)</td><td>S&amp;S:<br>7.3-7.4</td><td>Problems<br>7.31,7.33<br>7.64</td><td>H6 -&gt; L15</td></tr><tr ><td><strong>18</strong></td><td>Amplifier Design Examples: CS</td><td>PE7</td><td>S&amp;S: 7.5</td><td>Problems 7.92, 7.103</td><td>SP3<br>H7 -&gt; L16</td></tr><tr ><td><strong>19</strong></td><td>Amplifier Design Example: CS</td><td></td><td>S&amp;S: 7.5</td><td>Quiz 4<br>Problems<br>7.118,<br>7.121a</td><td>H8 -&gt; L17</td></tr><tr ><td><strong>20</strong></td><td>Amplifier Design Examples: CD</td><td></td><td>S&amp;S: 7.5</td><td>Quiz 5</td><td></td></tr><tr class="lab-row"><td><strong>21</strong></td><td>Lab 3 Overview</td><td>PreLab3<br>time</td><td></td><td>Ethics 1</td><td>SP4<br>H9-&gt; L18,L19</td></tr><tr class="lab-row"><td><strong>22</strong></td><td>Lab 3: Multi-Stage Amplifier (CS Build)</td><td></td><td></td><td></td><td>Prelab 3a</td></tr><tr class="lab-row"><td><strong>23</strong></td><td>Lab 3: Multi-Stage Amplifier (CS Demo + CD Build)</td><td></td><td></td><td></td><td>Prelab 3b</td></tr><tr class="lab-row"><td><strong>24</strong></td><td>Lab 3: Multi-Stage Amplifier (CD Demo</td><td></td><td></td><td></td><td>Prelab<br>3c</td></tr><tr ><td><strong>25</strong></td><td>A day with Bipolar Junction Transistors (BJTs): Structure; Collector, Base, Emitter; Current Flow; Beta; Symbol; Model; Saturation, Active, Cutoff; IV-Curve; DC Analysis</td><td>PE8</td><td>S&amp;S:<br>6.1-6.3</td><td>Problem<br>6.35d</td><td>SP5</td></tr><tr ><td><strong>26</strong></td><td>GR2 Review: CS NMOS Amplifier Design; CD NMOS Amplifier Design; Cascaded Amplifier Design; Operating Point Determination; Rin, Rout, Av Derivation; PMOS Design; Voltage Swing</td><td></td><td></td><td></td><td>Ethics1</td></tr><tr class="exam-row"><td><strong>27</strong></td><td>***** GR #2: Lessons 15-26 *****</td><td></td><td></td><td></td><td></td></tr><tr ><td><strong>28</strong></td><td>Digital Logic Circuits: TTL, NMOS, CMOS;  Symbols; Power Dissipation, Propagation Delay, Chip Area; The Logic Inverter; PullUp and PullDown Networks;<br>Synthesis</td><td>PE9</td><td>S&amp;S:<br>16.1-16.2</td><td>Problems<br>16.5,16.7<br>Ethics2</td><td>SP6</td></tr><tr ><td><strong>29</strong></td><td>CMOS Logic Inverter: Voltage Transfer Curve; Propagation/Transition Time Definitions</td><td>PE10</td><td>S&amp;S:<br>16.2-16.3 17.1</td><td>Problems 16.18,<br>16.28</td><td>Lab3<br>SP7</td></tr><tr ><td><strong>30</strong></td><td>Propagation Time Derivation: Method 1 Average Current, Method 2 Equivalent Resistance</td><td>PE11</td><td>S&amp;S:<br>17.1</td><td>Quiz 6<br>Problems 17.14,17.1517.26</td><td>H10 -&gt; L25, L28, L29<br>SP8</td></tr><tr ><td><strong>31</strong></td><td>Sizing Transistors to Optimize Delay; Power Dissipation; Driving Large Capacitance</td><td>PE12</td><td>S&amp;S:<br>17.2-17.3</td><td>Problems<br>16.13,<br>17.22</td><td>Ethics2<br>SP9</td></tr><tr ><td><strong>32</strong></td><td>Pass Transistors, Transmission Gates, Latches, Flip Flops</td><td></td><td>S&amp;S:<br>18.1-18.2</td><td>Quiz 7<br>Problems 18.1,18.17</td><td>H11 -&gt;<br>L30,L31</td></tr><tr class="lab-row"><td><strong>33</strong></td><td>Lab 4 Introduction</td><td>PreLab4<br>time</td><td></td><td></td><td>H12 -&gt;L32<br>SP10</td></tr><tr class="lab-row"><td><strong>34</strong></td><td>Lab 4: Part 1 (Multisim)</td><td></td><td></td><td></td><td>Prelab4a<br>SP11</td></tr><tr class="lab-row"><td><strong>35</strong></td><td>Lab 4: Part 2 (Multisim)</td><td></td><td></td><td></td><td>Prelab<br>4b</td></tr><tr class="lab-row"><td><strong>36</strong></td><td>Lab 4: Part 3 (Multisim)</td><td></td><td></td><td></td><td>Prelab<br>4c</td></tr><tr ><td><strong>37</strong></td><td>Making the CMOS SR Latch Work</td><td>PE13</td><td>S&amp;S:<br>18.2</td><td>Problem<br>18.27</td><td>Ethics3<br>SP12</td></tr><tr ><td><strong>38</strong></td><td>Computer Memory; 6-Transistor (6T) Static RAM Cell; Differential Sense Amplifier; Equalization and Pre-Charge Circuit</td><td>PE14</td><td>S&amp;S:<br>18.3-18.4</td><td>Problem 18.43</td><td>Lab4<br>SP13</td></tr><tr class="lab-row"><td><strong>39</strong></td><td>SR-Latch Exercise; Lab Practical Preview</td><td></td><td>S&amp;S:<br>18.4</td><td>Quiz 8</td><td>H13 -&gt;<br>L37, L38</td></tr><tr class="lab-row"><td><strong>40</strong></td><td>**** Lab Practical ****</td><td></td><td></td><td></td><td></td></tr><tr ><td><strong>41</strong></td><td>Final Review: Semiconductor Physics; Diode Fundamentals; Diode Circuit Analysis; Transistor Fundamentals; Transistor Amplifier Design &amp; Analysis; Transistor Logic; Memory</td><td></td><td></td><td></td><td></td></tr><tr class="exam-row"><td><strong></strong></td><td>Final Exam (Cumulative) Time/Date  Week of 12-16 December TBD</td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="margin-top: 2rem;">
+      <h3 class="card-title">Syllabus Notes</h3>
+      <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.95rem; line-height: 1.7;">
+        <li>Due dates indicate assignments due at the start of that designated class period.</li>
+        <li>Homework notation <code>H1 -&gt; L1, L2</code> signifies that Homework 1 covers the material instructed in Lessons 1 and 2.</li>
+        <li>Ethics Case Studies: Ethics 1 assigned L21 (Due L26); Ethics 2 assigned L28 (Due L31); Ethics 3 assigned L37.</li>
+        <li>Any lost time or inclement weather schedule slips will move review sessions to the evening.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="doc-footer">
+    <p>ECE 321 Electronics I · Department of Electrical & Computer Engineering · United States Air Force Academy</p>
+    <p><a href="index.html">← Back to Course Documents Overview</a> · <a href="#main-content">Back to Top ↑</a></p>
+  </footer>
+</body>
+</html>

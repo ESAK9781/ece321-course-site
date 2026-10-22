@@ -1,0 +1,69 @@
+/* Reading-guide panels. A site addition layered on the original
+   reading-base.css; it adds rules for new elements only and does not change
+   any original printer-friendly token, selector or print rule.
+
+   Screen: after the problem statement, every block of a problem section is a
+   collapsed panel: reading sections, textbook examples, related exercises, the
+   formula toolkit and the variables table are <details class="rs"> (an <h3>
+   in the summary); the worked similar problem is section.ws with a toggle
+   button. Both look the same.
+   Printer-friendly mode and print: panels lose their frame and read as plain
+   headed sections. The original mode script opens every <details>;
+   reading-panels.js moves every section.ws into section.ws-appendix before the
+   footer, opened, one worked problem per printed page. */
+
+/* Shared panel frame and toggle row */
+details.rs, section.ws { margin: 0.9rem 0; border: 1px solid var(--box); border-radius: var(--radius); background: var(--surface); }
+details.rs { padding: 0 0.9rem; }
+details.rs[open] { padding-bottom: 0.5rem; }
+details.rs > summary, .ws-toggle { display: flex; align-items: baseline; gap: 0.5rem; cursor: pointer; list-style: none; color: var(--accent); font-family: var(--font-head); font-size: 0.95rem; font-weight: 700; text-align: left; }
+details.rs > summary { padding: 0.6rem 0; }
+details.rs > summary::-webkit-details-marker { display: none; }
+details.rs > summary::before, .ws-toggle::before { content: "▸"; flex: none; }
+details.rs[open] > summary::before, .ws-toggle[aria-expanded="true"]::before { content: "▾"; }
+details.rs > summary h3 { display: inline; margin: 0; font-size: inherit; color: inherit; line-height: 1.4; }
+details.rs > summary h3 .src { font-weight: 400; }
+details.rs > summary:focus-visible, .ws-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+details.rs > .toolkit { margin-top: 0.2rem; }
+
+/* Worked similar problem */
+section.ws { margin-top: 1.4rem; }
+.ws-toggle { width: 100%; background: none; border: 0; padding: 0.6rem 0.9rem; }
+.ws-body { padding: 0 0.9rem 0.6rem; }
+.ws-body > h3:first-child { display: none; }
+.ws .question { border-left-color: var(--accent); }
+.step { border-left: 3px solid var(--accent); padding: 0.2rem 0 0.2rem 1rem; margin: 1rem 0; break-inside: avoid; }
+.step > .lbl { color: var(--accent); }
+.step p { margin: 0 0 0.45rem; }
+.step .why { font-size: 0.93rem; color: var(--muted); }
+.result { background: var(--surface-2); border: 1px solid var(--box); border-radius: var(--radius); padding: 0.75rem 1.1rem; margin: 1rem 0; break-inside: avoid; }
+.result > .lbl { color: var(--accent); }
+.result td:first-child { white-space: normal; width: auto; }
+section.ws-appendix[hidden] { display: none; }
+
+/* Printer-friendly mode: panels read as plain headed sections. */
+:root[data-mode="print"] details.rs, :root[data-mode="print"] section.ws, section.ws-appendix section.ws { border: 0; background: none; margin: 0; padding: 0; }
+:root[data-mode="print"] details.rs > summary { display: block; cursor: auto; padding: 0; color: var(--head); }
+:root[data-mode="print"] details.rs > summary::before { content: ""; }
+:root[data-mode="print"] details.rs > summary h3 { display: block; margin: 1.9rem 0 0.4rem; font-size: 1.2rem; }
+:root[data-mode="print"] .ws-toggle { display: none; }
+:root[data-mode="print"] .ws-body, :root[data-mode="print"] .ws-body[hidden] { display: block; padding: 0; }
+:root[data-mode="print"] .ws-body > h3:first-child { display: block; }
+:root[data-mode="print"] .step { border-left-width: 1px; }
+:root[data-mode="print"] .step > .lbl, :root[data-mode="print"] .result > .lbl { color: var(--ink); }
+:root[data-mode="print"] .result { border-color: var(--box); }
+section.ws-appendix { padding-block: 2.2rem 0.5rem; }
+section.ws-appendix section.ws + section.ws { margin-top: 2.2rem; }
+
+@media print {
+  details.rs, section.ws { border: 0 !important; background: none !important; margin: 0 !important; padding: 0 !important; }
+  details.rs > summary { display: block; padding: 0; color: var(--ink); }
+  details.rs > summary h3 { display: block; margin: 1.3rem 0 0.4rem; font-size: 1.2rem; }
+  .ws-toggle { display: none !important; }
+  .ws-body, .ws-body[hidden] { display: block !important; padding: 0; }
+  .ws-body > h3:first-child { display: block; }
+  .step { border-left-width: 1px; }
+  .step > .lbl, .result > .lbl { color: var(--ink); }
+  section.ws-appendix { break-before: page; padding-top: 0; }
+  section.ws-appendix section.ws + section.ws { break-before: page; margin-top: 0; }
+}

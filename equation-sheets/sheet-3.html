@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ECE 321 Equation Sheet 3: Transistor Amplifiers & BJTs · ECE 321</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+<link rel="stylesheet" href="../assets/navbar.css"></head>
+<body>
+  <a class="skip" href="#main-content">Skip to document content</a>
+
+  <header class="site-nav"><a class="brand" href="../index.html#home"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 16C8 5 12 5 16 16S24 27 28 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>ECE <strong>321</strong></a><nav class="nav-links" aria-label="Course navigation"><a href="../index.html#home">Home</a><a href="../index.html#syllabus">Syllabus</a><a href="../equation-sheets/index.html" class="active" aria-current="page">Equation sheets</a><a href="../course-docs/index.html">Course docs</a><a href="../index.html#homework">Reading guides</a><a href="../index.html#lessons">Lesson guides</a><a href="../index.html#study">Study sessions</a></nav><span class="semester"><i></i> FALL 2026</span></header>
+
+  <main id="main-content" class="doc-container">
+    <div class="doc-header">
+      <div class="doc-header-main">
+        <p class="doc-eyebrow">UNIT 3 · OFFICIAL EQUATION SHEET (FALL 2026)</p>
+        <h1 class="doc-title">ECE 321 Unit 3 Equation Sheet: Transistor Amplifiers & BJTs</h1>
+        <p class="doc-desc">Official reference sheet for Lessons 15–26 (Graded Review 2) covering amplifier behavioral modeling, Common-Source (CS), Common-Drain (CD), and Common-Gate (CG) design procedures, small-signal parameter measurement, power dissipation, and BJT biasing.</p>
+      </div>
+      <div class="doc-actions">
+        <a class="btn btn-primary" href="../assets/equations/ECE321_Eqnsheet4.pdf" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print Official PDF (Lightmode)
+        </a>
+        <a class="btn" href="../assets/equations/ECE321_Eqnsheet4.pdf" download="ECE321_Unit3_EquationSheet.pdf">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download PDF
+        </a>
+        <a class="btn" href="index.html">All Sheets</a>
+      </div>
+    </div>
+
+    <nav class="jump-nav" aria-label="Sections on this sheet">
+      <span>Jump to:</span>
+      <a href="#behavioral-model">Amplifier Behavioral Model</a>
+      <a href="#cs-vtc">CS Voltage Transfer Curve</a>
+      <a href="#cs-no-rs">CS Design (No RS)</a>
+      <a href="#cs-bypassed">CS Design (Fully Bypassed RS)</a>
+      <a href="#cs-part-bypassed">CS Design (Partially Bypassed RS)</a>
+      <a href="#cd-amp">Common-Drain (CD) Design</a>
+      <a href="#cg-table">CG Amp & Parameter Table</a>
+      <a href="#measuring">Small-Signal Measurement</a>
+      <a href="#bjt">BJT Biasing & Small-Signal</a>
+    </nav>
+
+    <!-- SECTION 1: AMPLIFIER BEHAVIORAL MODEL -->
+    <section id="behavioral-model" class="doc-section">
+      <h2 class="section-title">
+        1. Amplifier Behavioral Model & Voltage Gains
+        <span class="tag">Lesson 15</span>
+      </h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="card-title">Three-Parameter Behavioral Model</h3>
+          <p>Any linear amplifier stage is characterized by three core parameters:</p>
+          <ul>
+            <li><strong>Input Resistance (<em>R<sub>i</sub></em>):</strong> Look-in resistance seen by the source.</li>
+            <li><strong>Output Resistance (<em>R<sub>o</sub></em>):</strong> Look-back resistance seen by the load with independent input sources killed.</li>
+            <li><strong>Open-Circuit Voltage Gain (<em>A<sub>vo</sub></em>):</strong> Gain <em>v<sub>o</sub> / v<sub>i</sub></em> when load is disconnected (<em>R<sub>L</sub></em> = ∞).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Voltage Gain Definitions</h3>
+          <div class="eq-block blue-accent">
+            <div class="eq-label">Loaded Voltage Gain (A<sub>v</sub>)</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>A</mi><mi>v</mi></msub><mo>=</mo><mfrac><msub><mi>v</mi><mi>o</mi></msub><msub><mi>v</mi><mi>i</mi></msub></mfrac><mo>=</mo><msub><mi>A</mi><mrow><mi>v</mi><mi>o</mi></mrow></msub><mo>·</mo><mfrac><msub><mi>R</mi><mi>L</mi></msub><mrow><msub><mi>R</mi><mi>o</mi></msub><mo>+</mo><msub><mi>R</mi><mi>L</mi></msub></mrow></mfrac></mrow></math>
+            </div>
+          </div>
+          <div class="eq-block yellow-accent">
+            <div class="eq-label">Overall Voltage Gain (G<sub>v</sub>)</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>G</mi><mi>v</mi></msub><mo>=</mo><mfrac><msub><mi>v</mi><mi>o</mi></msub><msub><mi>v</mi><mi>s</mi></msub></mfrac><mo>=</mo><mfrac><msub><mi>R</mi><mi>i</mi></msub><mrow><msub><mi>R</mi><mi>s</mi></msub><mo>+</mo><msub><mi>R</mi><mi>i</mi></msub></mrow></mfrac><mo>·</mo><msub><mi>A</mi><mrow><mi>v</mi><mi>o</mi></mrow></msub><mo>·</mo><mfrac><msub><mi>R</mi><mi>L</mi></msub><mrow><msub><mi>R</mi><mi>o</mi></msub><mo>+</mo><msub><mi>R</mi><mi>L</mi></msub></mrow></mfrac></mrow></math>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: CS VTC -->
+    <section id="cs-vtc" class="doc-section">
+      <h2 class="section-title">
+        2. Common-Source (CS) Amplifier Voltage Transfer Curve (VTC)
+        <span class="tag">Lesson 15</span>
+      </h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="card-title">Critical Boundary Points on the VTC</h3>
+          <table class="doc-table">
+            <thead><tr><th>Point</th><th>Region</th><th>Conditions</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Point A</strong></td>
+                <td>Cutoff Boundary</td>
+                <td><math><mrow><msub><mi>v</mi><mrow><mi>G</mi><mi>S</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi>t</mi></msub><mo>,</mo><mspace width="0.5em"/><msub><mi>v</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub></mrow></math> (FET turns ON)</td>
+              </tr>
+              <tr>
+                <td><strong>Point B</strong></td>
+                <td>Triode Boundary (Max Gain)</td>
+                <td><math><mrow><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi><mo>,</mo><mi>B</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi><mo>,</mo><mi>B</mi></mrow></msub><mo>=</mo><mfrac><mrow><msqrt><mrow><mn>1</mn><mo>+</mo><mn>2</mn><msub><mi>K</mi><mi>n</mi></msub><msub><mi>R</mi><mi>D</mi></msub><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub></mrow></msqrt><mo>−</mo><mn>1</mn></mrow><mrow><msub><mi>K</mi><mi>n</mi></msub><msub><mi>R</mi><mi>D</mi></msub></mrow></mfrac></mrow></math></td>
+              </tr>
+              <tr>
+                <td><strong>Point C</strong></td>
+                <td>Deep Triode</td>
+                <td><math><mrow><msub><mi>v</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub><mo>≈</mo><mn>0</mn><mtext>&nbsp;V</mtext></mrow></math> (Drain voltage drops near 0 V)</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="eq-notes" style="margin-top: 0.75rem;">
+            To achieve linear amplification without clipping, the operating point Q must be placed in <strong>Saturation (between Points A and B)</strong>.
+          </p>
+        </div>
+
+        <div class="eq-block purple-accent">
+          <div class="eq-label">Small-Signal Gain Derivation from VTC</div>
+          <div class="eq-formula">
+            <math display="block"><mrow><msub><mi>v</mi><mi>D</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub><mo>−</mo><msub><mi>R</mi><mi>D</mi></msub><mo>·</mo><mrow><mo>[</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msub><mi>K</mi><mi>n</mi></msub><msup><mrow><mo stretchy="false">(</mo><msub><mi>v</mi><mrow><mi>G</mi><mi>S</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>]</mo></mrow></mrow></math>
+          </div>
+          <div class="eq-formula">
+            <math display="block"><mrow><msub><mi>A</mi><mrow><mi>v</mi><mi>o</mi></mrow></msub><mo>=</mo><msub><mrow><mfrac><mrow><mi>d</mi><msub><mi>v</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub></mrow><mrow><mi>d</mi><msub><mi>v</mi><mrow><mi>G</mi><mi>S</mi></mrow></msub></mrow></mfrac><mo>|</mo></mrow><mi>Q</mi></msub><mo>=</mo><mo>−</mo><msub><mi>K</mi><mi>n</mi></msub><msub><mi>R</mi><mi>D</mi></msub><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub><mo>=</mo><mo>−</mo><msub><mi>g</mi><mi>m</mi></msub><msub><mi>R</mi><mi>D</mi></msub></mrow></math>
+          </div>
+          <p class="eq-notes">The negative sign indicates a 180° phase inversion between gate input and drain output.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: CS DESIGN NO RS -->
+    <section id="cs-no-rs" class="doc-section">
+      <h2 class="section-title">
+        3. CS-Amplifier Design Procedure (No Source Resistance R<sub>S</sub>)
+        <span class="tag">Lesson 17</span>
+      </h2>
+
+      <div class="card">
+        <ol class="steps-list">
+          <li>
+            <strong>Choose DC Drain Voltage:</strong> Set <math><mrow><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub><mo>=</mo><mfrac><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub><mn>2</mn></mfrac></mrow></math> to center drain voltage between <em>V<sub>DD</sub></em> and ground for symmetric signal swing.
+          </li>
+          <li>
+            <strong>Compute Overdrive Voltage:</strong>
+            <math display="block"><mrow><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub><mo>=</mo><mfrac><mrow><mn>2</mn><mo stretchy="false">(</mo><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub><mo stretchy="false">)</mo></mrow><mrow><mo>|</mo><msub><mi>A</mi><mrow><mi>v</mi><mi>o</mi></mrow></msub><mo>|</mo></mrow></mfrac><mo>=</mo><mfrac><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub><mrow><mo>|</mo><msub><mi>A</mi><mrow><mi>v</mi><mi>o</mi></mrow></msub><mo>|</mo></mrow></mfrac></mrow></math>
+            <em>Check:</em> Ensure <em>V<sub>ov</sub></em> is large enough to maintain linearity (<math><mrow><msub><mi>v</mi><mrow><mi>g</mi><mi>s</mi><mo>,</mo><mi>p</mi><mi>k</mi></mrow></msub><mo>≤</mo><mn>0.2</mn><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub></mrow></math>).
+          </li>
+          <li>
+            <strong>Compute Drain Resistance (R<sub>D</sub>):</strong>
+            <math display="block"><mrow><msub><mi>R</mi><mi>D</mi></msub><mo>=</mo><mfrac><mrow><mo>|</mo><msub><mi>A</mi><mrow><mi>v</mi><mi>o</mi></mrow></msub><mo>|</mo><mo>·</mo><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub></mrow><mrow><msub><mi>K</mi><mi>n</mi></msub><mo>·</mo><msubsup><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow><mn>2</mn></msubsup></mrow></mfrac><mo>=</mo><mfrac><mrow><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub></mrow><msub><mi>I</mi><mi>D</mi></msub></mfrac></mrow></math>
+          </li>
+          <li>
+            <strong>Compute Gate Bias Voltage:</strong> <math><mrow><msub><mi>V</mi><mi>G</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>G</mi><mi>S</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub><mo>+</mo><msub><mi>V</mi><mi>t</mi></msub></mrow></math> (since <em>V<sub>S</sub></em> = 0 V).
+          </li>
+          <li>
+            <strong>Compute Gate Bias Resistors (R<sub>G1</sub>, R<sub>G2</sub>):</strong>
+            <math display="block"><mrow><msub><mi>R</mi><mrow><mi>G</mi><mn>1</mn></mrow></msub><mo>≥</mo><mfrac><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub><msub><mi>V</mi><mi>G</mi></msub></mfrac><msub><mi>R</mi><mrow><mi>i</mi><mi>n</mi></mrow></msub><mspace width="2em"/><msub><mi>R</mi><mrow><mi>G</mi><mn>2</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>R</mi><mrow><mi>G</mi><mn>1</mn></mrow></msub><mrow><mfrac><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub><msub><mi>V</mi><mi>G</mi></msub></mfrac><mo>−</mo><mn>1</mn></mrow></mfrac></mrow></math>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CS DESIGN FULLY BYPASSED RS -->
+    <section id="cs-bypassed" class="doc-section">
+      <h2 class="section-title">
+        4. CS-Amplifier Design Procedure (Fully AC-Bypassed R<sub>S</sub>)
+        <span class="tag">Lesson 18</span>
+      </h2>
+
+      <div class="card">
+        <p class="eq-notes" style="margin-bottom: 1rem;">
+          Adding source resistor <em>R<sub>S</sub></em> stabilizes the DC operating point against variations in <em>K<sub>n</sub></em> and <em>V<sub>t</sub></em>. AC-bypassing <em>R<sub>S</sub></em> with capacitor <em>C<sub>by</sub></em> preserves high small-signal gain (<math><mrow><mo>|</mo><msub><mi>A</mi><mrow><mi>v</mi><mi>o</mi></mrow></msub><mo>|</mo><mo>=</mo><msub><mi>g</mi><mi>m</mi></msub><msub><mi>R</mi><mi>D</mi></msub></mrow></math>).
+        </p>
+        <ol class="steps-list">
+          <li>
+            <strong>Allocate Branch Voltages (Equal Thirds):</strong>
+            <math display="block"><mrow><msub><mi>V</mi><mrow><mi>R</mi><mi>D</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>R</mi><mi>S</mi></mrow></msub><mo>=</mo><mfrac><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub><mn>3</mn></mfrac></mrow></math>
+          </li>
+          <li>
+            <strong>Compute DC Drain Current (I<sub>D</sub>):</strong>
+            <math display="block"><mrow><msub><mi>I</mi><mi>D</mi></msub><mo>=</mo><mfrac><mn>2</mn><msub><mi>K</mi><mi>n</mi></msub></mfrac><msup><mrow><mo>[</mo><mfrac><mrow><mo>|</mo><msub><mi>A</mi><mrow><mi>v</mi><mi>o</mi></mrow></msub><mo>|</mo></mrow><mrow><mfrac><mn>2</mn><mn>3</mn></mfrac><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub></mrow></mfrac><mo>]</mo></mrow><mn>2</mn></msup><mo>=</mo><mfrac><mrow><mn>9</mn><mo>|</mo><msub><mi>A</mi><mrow><mi>v</mi><mi>o</mi></mrow></msub><msup><mo>|</mo><mn>2</mn></msup></mrow><mrow><mn>2</mn><msub><mi>K</mi><mi>n</mi></msub><msubsup><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow><mn>2</mn></msubsup></mrow></mfrac></mrow></math>
+          </li>
+          <li>
+            <strong>Compute Drain & Source Resistors:</strong>
+            <math display="block"><mrow><msub><mi>R</mi><mi>D</mi></msub><mo>=</mo><msub><mi>R</mi><mi>S</mi></msub><mo>=</mo><mfrac><mrow><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub><mo>/</mo><mn>3</mn></mrow><msub><mi>I</mi><mi>D</mi></msub></mfrac></mrow></math>
+          </li>
+          <li>
+            <strong>Compute Overdrive Voltage:</strong>
+            <math display="block"><mrow><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub><mo>=</mo><msqrt><mfrac><mrow><mn>2</mn><msub><mi>I</mi><mi>D</mi></msub></mrow><msub><mi>K</mi><mi>n</mi></msub></mfrac></msqrt><mspace width="2em"/><msub><mi>V</mi><mrow><mi>G</mi><mi>S</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub><mo>+</mo><msub><mi>V</mi><mi>t</mi></msub><mo>,</mo><mspace width="1em"/><msub><mi>V</mi><mi>G</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>G</mi><mi>S</mi></mrow></msub><mo>+</mo><mfrac><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub><mn>3</mn></mfrac></mrow></math>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CS DESIGN PARTIALLY BYPASSED RS -->
+    <section id="cs-part-bypassed" class="doc-section">
+      <h2 class="section-title">
+        5. CS-Amplifier Design (Partially AC-Bypassed R<sub>S</sub>)
+        <span class="tag">Lesson 18–19</span>
+      </h2>
+
+      <div class="card">
+        <p class="eq-notes" style="margin-bottom: 1rem;">
+          Source degeneration resistance <em>R<sub>S1</sub></em> improves linearity and stabilizes voltage gain against <em>K<sub>n</sub></em> variations, while <em>R<sub>S2</sub></em> is AC-bypassed.
+        </p>
+        <ol class="steps-list">
+          <li><strong>Bias Allocation:</strong> Set <math><mrow><msub><mi>V</mi><mrow><mi>R</mi><mi>D</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>R</mi><mi>S</mi></mrow></msub><mo>=</mo><mfrac><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub><mn>3</mn></mfrac></mrow></math>. Choose degeneration condition <strong><em>R<sub>S1</sub> = 1 / g<sub>m</sub></em></strong>.</li>
+          <li>
+            <strong>Compute Drain Current (I<sub>D</sub>):</strong> With <em>R<sub>S1</sub> = 1/g<sub>m</sub></em>, gain is halved (<math><mrow><mo>|</mo><msub><mi>A</mi><mrow><mi>v</mi><mi>o</mi></mrow></msub><mo>|</mo><mo>=</mo><mfrac><mrow><msub><mi>g</mi><mi>m</mi></msub><msub><mi>R</mi><mi>D</mi></msub></mrow><mn>2</mn></mfrac></mrow></math>):
+            <math display="block"><mrow><msub><mi>I</mi><mi>D</mi></msub><mo>=</mo><mfrac><mn>2</mn><msub><mi>K</mi><mi>n</mi></msub></mfrac><msup><mrow><mo>[</mo><mfrac><mrow><mn>6</mn><mo>|</mo><msub><mi>A</mi><mrow><mi>v</mi><mi>o</mi></mrow></msub><mo>|</mo></mrow><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub></mfrac><mo>]</mo></mrow><mn>2</mn></msup></mrow></math>
+          </li>
+          <li><strong>Find R<sub>D</sub> and Total R<sub>S</sub>:</strong> <math><mrow><msub><mi>R</mi><mi>D</mi></msub><mo>=</mo><msub><mi>R</mi><mi>S</mi></msub><mo>=</mo><mfrac><mrow><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub><mo>/</mo><mn>3</mn></mrow><msub><mi>I</mi><mi>D</mi></msub></mfrac></mrow></math>.</li>
+          <li><strong>Compute Overdrive:</strong> <math><mrow><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub><mo>=</mo><msqrt><mfrac><mrow><mn>2</mn><msub><mi>I</mi><mi>D</mi></msub></mrow><msub><mi>K</mi><mi>n</mi></msub></mfrac></msqrt></mrow></math>.</li>
+          <li><strong>Compute Transconductance & Split R<sub>S</sub>:</strong> <math><mrow><msub><mi>g</mi><mi>m</mi></msub><mo>=</mo><msub><mi>K</mi><mi>n</mi></msub><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub></mrow></math>, then <math><mrow><msub><mi>R</mi><mrow><mi>S</mi><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>1</mn><msub><mi>g</mi><mi>m</mi></msub></mfrac></mrow></math> and <math><mrow><msub><mi>R</mi><mrow><mi>S</mi><mn>2</mn></mrow></msub><mo>=</mo><msub><mi>R</mi><mi>S</mi></msub><mo>−</mo><msub><mi>R</mi><mrow><mi>S</mi><mn>1</mn></mrow></msub></mrow></math>.</li>
+          <li><strong>Compute Gate Bias:</strong> <math><mrow><msub><mi>V</mi><mrow><mi>G</mi><mi>S</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub><mo>+</mo><msub><mi>V</mi><mi>t</mi></msub></mrow></math>, &nbsp;<math><mrow><msub><mi>V</mi><mi>G</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>G</mi><mi>S</mi></mrow></msub><mo>+</mo><msub><mi>V</mi><mi>S</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>G</mi><mi>S</mi></mrow></msub><mo>+</mo><mfrac><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub><mn>3</mn></mfrac></mrow></math>.</li>
+          <li><strong>Compute Gate Divider (R<sub>G1</sub>, R<sub>G2</sub>):</strong> <math><mrow><msub><mi>R</mi><mrow><mi>G</mi><mn>1</mn></mrow></msub><mo>≥</mo><mfrac><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub><msub><mi>V</mi><mi>G</mi></msub></mfrac><msub><mi>R</mi><mrow><mi>i</mi><mi>n</mi></mrow></msub></mrow></math>, <math><mrow><msub><mi>R</mi><mrow><mi>G</mi><mn>2</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>R</mi><mrow><mi>G</mi><mn>1</mn></mrow></msub><mrow><mfrac><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub><msub><mi>V</mi><mi>G</mi></msub></mfrac><mo>−</mo><mn>1</mn></mrow></mfrac></mrow></math>.</li>
+          <li><strong>Headroom and Legroom Check:</strong> <math><mrow><msub><mi>v</mi><mrow><mi>d</mi><mo>,</mo><mi>p</mi><mi>k</mi></mrow></msub><mo>=</mo><mo>|</mo><msub><mi>A</mi><mrow><mi>v</mi><mi>o</mi></mrow></msub><mo>|</mo><mo>·</mo><msub><mi>v</mi><mrow><mi>g</mi><mo>,</mo><mi>p</mi><mi>k</mi></mrow></msub></mrow></math>, verify <math><mrow><msub><mi>V</mi><mrow><mi>D</mi><mo>,</mo><mi>max</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi>D</mi></msub><mo>+</mo><msub><mi>v</mi><mrow><mi>d</mi><mo>,</mo><mi>p</mi><mi>k</mi></mrow></msub><mo>≤</mo><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub></mrow></math> and <math><mrow><msub><mi>V</mi><mrow><mi>D</mi><mo>,</mo><mi>min</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi>D</mi></msub><mo>−</mo><msub><mi>v</mi><mrow><mi>d</mi><mo>,</mo><mi>p</mi><mi>k</mi></mrow></msub><mo>≥</mo><msub><mi>V</mi><mi>S</mi></msub><mo>+</mo><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub></mrow></math>.</li>
+          <li><strong>Linearity Check:</strong> <math><mrow><msub><mi>v</mi><mrow><mi>g</mi><mi>s</mi><mo>,</mo><mi>p</mi><mi>k</mi></mrow></msub><mo>=</mo><mfrac><msub><mi>v</mi><mrow><mi>g</mi><mo>,</mo><mi>p</mi><mi>k</mi></mrow></msub><mrow><mn>1</mn><mo>+</mo><msub><mi>g</mi><mi>m</mi></msub><msub><mi>R</mi><mrow><mi>S</mi><mn>1</mn></mrow></msub></mrow></mfrac><mo>≤</mo><mn>0.2</mn><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub></mrow></math>.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION 6: COMMON DRAIN -->
+    <section id="cd-amp" class="doc-section">
+      <h2 class="section-title">
+        6. Common-Drain (CD) Source-Follower Amplifier Design
+        <span class="tag">Lesson 19–20</span>
+      </h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="card-title">CD Behavioral Parameters</h3>
+          <table class="doc-table">
+            <tbody>
+              <tr><td>Input Resistance <em>R<sub>i</sub></em></td><td><em>R<sub>G1</sub></em> ∥ <em>R<sub>G2</sub></em> (Very high)</td></tr>
+              <tr><td>Output Resistance <em>R<sub>o</sub></em></td><td><math><mrow><msub><mi>R</mi><mi>S</mi></msub><mo>∥</mo><mfrac><mn>1</mn><msub><mi>g</mi><mi>m</mi></msub></mfrac><mo>≈</mo><mfrac><mn>1</mn><msub><mi>g</mi><mi>m</mi></msub></mfrac></mrow></math> (Low, drives heavy loads)</td></tr>
+              <tr><td>Open-Circuit Gain <em>A<sub>vo</sub></em></td><td><math><mrow><mfrac><msub><mi>R</mi><mi>S</mi></msub><mrow><msub><mi>R</mi><mi>S</mi></msub><mo>+</mo><mn>1</mn><mo>/</mo><msub><mi>g</mi><mi>m</mi></msub></mrow></mfrac><mo>=</mo><mfrac><mrow><msub><mi>g</mi><mi>m</mi></msub><msub><mi>R</mi><mi>S</mi></msub></mrow><mrow><mn>1</mn><mo>+</mo><msub><mi>g</mi><mi>m</mi></msub><msub><mi>R</mi><mi>S</mi></msub></mrow></mfrac><mo>≈</mo><mn>1</mn></mrow></math></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">CD 11-Step Design Workflow</h3>
+          <ol style="margin: 0; padding-left: 1.25rem; font-size: 0.88rem; line-height: 1.5;">
+            <li>Assume <math><mrow><msub><mi>V</mi><mrow><mi>L</mi><mi>o</mi><mi>a</mi><mi>d</mi><mo>,</mo><mi>p</mi><mi>p</mi></mrow></msub><mo>/</mo><msub><mi>V</mi><mrow><mi>i</mi><mi>n</mi><mo>,</mo><mi>p</mi><mi>p</mi></mrow></msub><mo>≈</mo><mn>0.85</mn></mrow></math> for preliminary sizing.</li>
+            <li>Pick <math><mrow><msub><mi>V</mi><mi>S</mi></msub><mo>≈</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub></mrow></math>.</li>
+            <li>Find peak load current: <math><mrow><msub><mi>I</mi><mrow><mi>L</mi><mi>o</mi><mi>a</mi><mi>d</mi><mo>,</mo><mi>p</mi><mi>k</mi></mrow></msub><mo>=</mo><mfrac><mrow><msub><mi>V</mi><mrow><mi>L</mi><mi>o</mi><mi>a</mi><mi>d</mi><mo>,</mo><mi>p</mi><mi>p</mi></mrow></msub><mo>/</mo><mn>2</mn></mrow><msub><mi>R</mi><mrow><mi>L</mi><mi>o</mi><mi>a</mi><mi>d</mi></mrow></msub></mfrac></mrow></math>.</li>
+            <li>Choose minimum drain current <em>I<sub>D,min</sub></em> (ensures FET never cuts off).</li>
+            <li>Find max source resistor current: <math><mrow><msub><mi>I</mi><mrow><mi>R</mi><mi>S</mi><mo>,</mo><mi>max</mi></mrow></msub><mo>=</mo><msub><mi>I</mi><mrow><mi>D</mi><mo>,</mo><mi>min</mi></mrow></msub><mo>+</mo><msub><mi>I</mi><mrow><mi>L</mi><mi>o</mi><mi>a</mi><mi>d</mi><mo>,</mo><mi>p</mi><mi>k</mi></mrow></msub></mrow></math>.</li>
+            <li>Find minimum voltage across <em>R<sub>S</sub></em>: <math><mrow><msub><mi>V</mi><mrow><mi>R</mi><mi>S</mi><mo>,</mo><mi>min</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi>S</mi></msub><mo>−</mo><mfrac><msub><mi>V</mi><mrow><mi>L</mi><mi>o</mi><mi>a</mi><mi>d</mi><mo>,</mo><mi>p</mi><mi>p</mi></mrow></msub><mn>2</mn></mfrac></mrow></math>.</li>
+            <li>Calculate <em>R<sub>S</sub></em>: <math><mrow><msub><mi>R</mi><mi>S</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>R</mi><mi>S</mi><mo>,</mo><mi>min</mi></mrow></msub><mo>/</mo><msub><mi>I</mi><mrow><mi>R</mi><mi>S</mi><mo>,</mo><mi>max</mi></mrow></msub></mrow></math>.</li>
+            <li>Find quiescent current: <math><mrow><msub><mi>I</mi><mi>D</mi></msub><mo>=</mo><msub><mi>V</mi><mi>S</mi></msub><mo>/</mo><msub><mi>R</mi><mi>S</mi></msub></mrow></math>.</li>
+            <li>Compute <math><mrow><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub><mo>=</mo><msqrt><mrow><mn>2</mn><msub><mi>I</mi><mi>D</mi></msub><mo>/</mo><msub><mi>K</mi><mi>n</mi></msub></mrow></msqrt></mrow></math>.</li>
+            <li>Find gate voltage: <math><mrow><msub><mi>V</mi><mi>G</mi></msub><mo>=</mo><msub><mi>V</mi><mi>S</mi></msub><mo>+</mo><msub><mi>V</mi><mrow><mi>o</mi><mi>v</mi></mrow></msub><mo>+</mo><msub><mi>V</mi><mi>t</mi></msub></mrow></math>.</li>
+            <li>Size gate bias divider: <math><mrow><msub><mi>R</mi><mrow><mi>G</mi><mn>1</mn></mrow></msub><mo>≥</mo><mfrac><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub><msub><mi>V</mi><mi>G</mi></msub></mfrac><msub><mi>R</mi><mrow><mi>i</mi><mi>n</mi></mrow></msub></mrow></math>, <math><mrow><msub><mi>R</mi><mrow><mi>G</mi><mn>2</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>R</mi><mrow><mi>G</mi><mn>1</mn></mrow></msub><mrow><mfrac><msub><mi>V</mi><mrow><mi>D</mi><mi>D</mi></mrow></msub><msub><mi>V</mi><mi>G</mi></msub></mfrac><mo>−</mo><mn>1</mn></mrow></mfrac></mrow></math>.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: CG & PARAMETER TABLE -->
+    <section id="cg-table" class="doc-section">
+      <h2 class="section-title">
+        7. Master Table of MOSFET Amplifier Parameters
+        <span class="tag">Comparison: CS · Degenerated CS · CD · CG</span>
+      </h2>
+
+      <div class="table-wrap">
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>CS (No R<sub>S</sub>)</th>
+              <th>CS (Part-Bypassed R<sub>S1</sub>)</th>
+              <th>Common-Drain (CD)</th>
+              <th>Common-Gate (CG)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Input Resistance (R<sub>i</sub>)</strong></td>
+              <td><em>R<sub>G1</sub></em> ∥ <em>R<sub>G2</sub></em></td>
+              <td><em>R<sub>G1</sub></em> ∥ <em>R<sub>G2</sub></em></td>
+              <td><em>R<sub>G1</sub></em> ∥ <em>R<sub>G2</sub></em></td>
+              <td><math><mrow><msub><mi>R</mi><mi>S</mi></msub><mo>∥</mo><mfrac><mn>1</mn><msub><mi>g</mi><mi>m</mi></msub></mfrac><mo>≈</mo><mfrac><mn>1</mn><msub><mi>g</mi><mi>m</mi></msub></mfrac></mrow></math> (Low)</td>
+            </tr>
+            <tr>
+              <td><strong>Output Resistance (R<sub>o</sub>)</strong></td>
+              <td><em>R<sub>D</sub></em> ∥ <em>r<sub>o</sub></em> ≈ <em>R<sub>D</sub></em></td>
+              <td><math><mrow><msub><mi>R</mi><mi>D</mi></msub><mo>∥</mo><mo stretchy="false">[</mo><msub><mi>r</mi><mi>o</mi></msub><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><msub><mi>g</mi><mi>m</mi></msub><msub><mi>R</mi><mrow><mi>S</mi><mn>1</mn></mrow></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mi>R</mi><mrow><mi>S</mi><mn>1</mn></mrow></msub><mo stretchy="false">]</mo><mo>≈</mo><msub><mi>R</mi><mi>D</mi></msub></mrow></math></td>
+              <td><math><mrow><msub><mi>R</mi><mi>S</mi></msub><mo>∥</mo><mfrac><mn>1</mn><msub><mi>g</mi><mi>m</mi></msub></mfrac><mo>∥</mo><msub><mi>r</mi><mi>o</mi></msub><mo>≈</mo><mfrac><mn>1</mn><msub><mi>g</mi><mi>m</mi></msub></mfrac></mrow></math> (Low)</td>
+              <td><math><mrow><msub><mi>R</mi><mi>D</mi></msub><mo>∥</mo><mo stretchy="false">[</mo><msub><mi>r</mi><mi>o</mi></msub><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><msub><mi>g</mi><mi>m</mi></msub><msub><mi>R</mi><mi>S</mi></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mi>R</mi><mi>S</mi></msub><mo stretchy="false">]</mo><mo>≈</mo><msub><mi>R</mi><mi>D</mi></msub></mrow></math></td>
+            </tr>
+            <tr>
+              <td><strong>Open-Circuit Gain (A<sub>vo</sub>)</strong></td>
+              <td><math><mrow><mo>−</mo><msub><mi>g</mi><mi>m</mi></msub><mo stretchy="false">(</mo><msub><mi>R</mi><mi>D</mi></msub><mo>∥</mo><msub><mi>r</mi><mi>o</mi></msub><mo stretchy="false">)</mo><mo>≈</mo><mo>−</mo><msub><mi>g</mi><mi>m</mi></msub><msub><mi>R</mi><mi>D</mi></msub></mrow></math></td>
+              <td><math><mrow><mfrac><mrow><mo>−</mo><msub><mi>g</mi><mi>m</mi></msub><mo stretchy="false">(</mo><msub><mi>R</mi><mi>D</mi></msub><mo>∥</mo><msub><mi>r</mi><mi>o</mi></msub><mo stretchy="false">)</mo></mrow><mrow><mn>1</mn><mo>+</mo><msub><mi>g</mi><mi>m</mi></msub><msub><mi>R</mi><mrow><mi>S</mi><mn>1</mn></mrow></msub></mrow></mfrac><mo>≈</mo><mfrac><mrow><mo>−</mo><msub><mi>R</mi><mi>D</mi></msub></mrow><mrow><msub><mi>R</mi><mrow><mi>S</mi><mn>1</mn></mrow></msub><mo>+</mo><mn>1</mn><mo>/</mo><msub><mi>g</mi><mi>m</mi></msub></mrow></mfrac></mrow></math></td>
+              <td><math><mrow><mfrac><mrow><msub><mi>g</mi><mi>m</mi></msub><msub><mi>R</mi><mi>S</mi></msub></mrow><mrow><mn>1</mn><mo>+</mo><msub><mi>g</mi><mi>m</mi></msub><msub><mi>R</mi><mi>S</mi></msub></mrow></mfrac><mo>≈</mo><mfrac><msub><mi>R</mi><mi>S</mi></msub><mrow><msub><mi>R</mi><mi>S</mi></msub><mo>+</mo><mn>1</mn><mo>/</mo><msub><mi>g</mi><mi>m</mi></msub></mrow></mfrac><mo>&lt;</mo><mn>1</mn></mrow></math></td>
+              <td><math><mrow><msub><mi>g</mi><mi>m</mi></msub><msub><mi>R</mi><mi>D</mi></msub></mrow></math> (Non-inverting)</td>
+            </tr>
+            <tr>
+              <td><strong>Loaded Gain (A<sub>v</sub>)</strong></td>
+              <td>Replace <em>R<sub>D</sub></em> with <em>R<sub>D</sub></em> ∥ <em>R<sub>L</sub></em></td>
+              <td>Replace <em>R<sub>D</sub></em> with <em>R<sub>D</sub></em> ∥ <em>R<sub>L</sub></em></td>
+              <td>Replace <em>R<sub>S</sub></em> with <em>R<sub>S</sub></em> ∥ <em>R<sub>L</sub></em></td>
+              <td>Replace <em>R<sub>D</sub></em> with <em>R<sub>D</sub></em> ∥ <em>R<sub>L</sub></em></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 8: SMALL SIGNAL MEASUREMENT & POWER -->
+    <section id="measuring" class="doc-section">
+      <h2 class="section-title">
+        8. Measuring Small-Signal Parameters & Power Calculations
+        <span class="tag">Laboratory Procedures</span>
+      </h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="card-title">Laboratory Measurement Procedures</h3>
+          <div class="eq-block blue-accent">
+            <div class="eq-label">Measuring Input Resistance (R<sub>i</sub>)</div>
+            <p><strong>Potentiometer method:</strong> Place potentiometer <em>R<sub>pot</sub></em> in series with input signal generator. Adjust until amplifier input voltage drops to half source generator voltage: <math><mrow><msub><mi>V</mi><mrow><mn>2</mn><mo>,</mo><mi>p</mi><mi>p</mi></mrow></msub><mo>=</mo><mn>0.5</mn><msub><mi>V</mi><mrow><mn>1</mn><mo>,</mo><mi>p</mi><mi>p</mi></mrow></msub></mrow></math>. Then <strong><em>R<sub>i</sub> = R<sub>pot</sub></em></strong>.</p>
+            <p><strong>Test resistor method:</strong> Insert known <em>R<sub>test</sub></em> in series with input. <math><mrow><msub><mi>R</mi><mi>i</mi></msub><mo>=</mo><msub><mi>R</mi><mrow><mi>t</mi><mi>e</mi><mi>s</mi><mi>t</mi></mrow></msub><mo>·</mo><mfrac><msub><mi>V</mi><mrow><mn>2</mn><mo>,</mo><mi>p</mi><mi>p</mi></mrow></msub><mrow><msub><mi>V</mi><mrow><mn>1</mn><mo>,</mo><mi>p</mi><mi>p</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mrow><mn>2</mn><mo>,</mo><mi>p</mi><mi>p</mi></mrow></msub></mrow></mfrac></mrow></math>.</p>
+          </div>
+
+          <div class="eq-block yellow-accent">
+            <div class="eq-label">Measuring Output Resistance (R<sub>o</sub>)</div>
+            <p>Short AC signal source to ground (DC supplies remain ON). Drive output terminal through <em>R<sub>pot</sub></em> or <em>R<sub>test</sub></em> from external signal generator. When <math><mrow><msub><mi>V</mi><mrow><mn>2</mn><mo>,</mo><mi>p</mi><mi>p</mi></mrow></msub><mo>=</mo><mn>0.5</mn><msub><mi>V</mi><mrow><mn>1</mn><mo>,</mo><mi>p</mi><mi>p</mi></mrow></msub></mrow></math>, <strong><em>R<sub>o</sub> = R<sub>pot</sub></em></strong>.</p>
+          </div>
+
+          <div class="eq-block purple-accent">
+            <div class="eq-label">Measuring A<sub>vo</sub> and A<sub>v</sub></div>
+            <p><strong>A<sub>vo</sub>:</strong> Disconnect load (open circuit). <math><mrow><msub><mi>A</mi><mrow><mi>v</mi><mi>o</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>o</mi><mi>u</mi><mi>t</mi><mo>,</mo><mi>p</mi><mi>p</mi></mrow></msub><mo>/</mo><msub><mi>V</mi><mrow><mi>i</mi><mi>n</mi><mo>,</mo><mi>p</mi><mi>p</mi></mrow></msub></mrow></math>.</p>
+            <p><strong>A<sub>v</sub>:</strong> Connect specified load resistance <em>R<sub>L</sub></em>. <math><mrow><msub><mi>A</mi><mi>v</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>o</mi><mi>u</mi><mi>t</mi><mo>,</mo><mi>p</mi><mi>p</mi></mrow></msub><mo>/</mo><msub><mi>V</mi><mrow><mi>i</mi><mi>n</mi><mo>,</mo><mi>p</mi><mi>p</mi></mrow></msub></mrow></math>.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Power Dissipation Calculations</h3>
+          <div class="eq-block">
+            <div class="eq-label">DC Losses</div>
+            <p><strong>MOSFET:</strong> <math display="block"><mrow><msub><mi>P</mi><mrow><mi>d</mi><mi>i</mi><mi>s</mi><mi>s</mi><mo>,</mo><mi>D</mi><mi>C</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>D</mi><mi>S</mi></mrow></msub><mo>·</mo><msub><mi>I</mi><mi>D</mi></msub></mrow></math></p>
+            <p><strong>Resistor:</strong> <math display="block"><mrow><msub><mi>P</mi><mrow><mi>d</mi><mi>i</mi><mi>s</mi><mi>s</mi><mo>,</mo><mi>D</mi><mi>C</mi></mrow></msub><mo>=</mo><mfrac><msubsup><mi>V</mi><mi>R</mi><mn>2</mn></msubsup><mi>R</mi></mfrac><mo>=</mo><msubsup><mi>I</mi><mi>R</mi><mn>2</mn></msubsup><mo>·</mo><mi>R</mi></mrow></math></p>
+          </div>
+
+          <div class="eq-block blue-accent">
+            <div class="eq-label">AC Losses (Sinusoidal Signals)</div>
+            <p><strong>Resistor:</strong>
+              <math display="block"><mrow><msub><mi>V</mi><mrow><mi>r</mi><mi>m</mi><mi>s</mi></mrow></msub><mo>=</mo><mfrac><mrow><msub><mi>V</mi><mrow><mi>p</mi><mi>p</mi></mrow></msub><mo>/</mo><mn>2</mn></mrow><msqrt><mn>2</mn></msqrt></mfrac><mo>=</mo><mfrac><msub><mi>V</mi><mrow><mi>p</mi><mi>k</mi></mrow></msub><msqrt><mn>2</mn></msqrt></mfrac><mspace width="1.5em"/><msub><mi>P</mi><mrow><mi>d</mi><mi>i</mi><mi>s</mi><mi>s</mi><mo>,</mo><mi>A</mi><mi>C</mi></mrow></msub><mo>=</mo><mfrac><msubsup><mi>V</mi><mrow><mi>r</mi><mi>m</mi><mi>s</mi></mrow><mn>2</mn></msubsup><mi>R</mi></mfrac></mrow></math>
+            </p>
+            <p><strong>MOSFET:</strong>
+              <math display="block"><mrow><msub><mi>P</mi><mrow><mi>d</mi><mi>i</mi><mi>s</mi><mi>s</mi><mo>,</mo><mi>A</mi><mi>C</mi></mrow></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msub><mi>v</mi><mrow><mi>d</mi><mi>s</mi><mo>,</mo><mi>p</mi><mi>k</mi></mrow></msub><mo>·</mo><msub><mi>i</mi><mrow><mi>d</mi><mi>s</mi><mo>,</mo><mi>p</mi><mi>k</mi></mrow></msub></mrow></math>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: BJT -->
+    <section id="bjt" class="doc-section">
+      <h2 class="section-title">
+        9. Bipolar Junction Transistor (BJT) Fundamentals & Biasing
+        <span class="tag">Lesson 25</span>
+      </h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="card-title">Active Mode Governing Equations</h3>
+          <div class="eq-block">
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>i</mi><mi>C</mi></msub><mo>=</mo><mi>β</mi><msub><mi>i</mi><mi>B</mi></msub><mspace width="2em"/><msub><mi>i</mi><mi>C</mi></msub><mo>=</mo><mi>α</mi><msub><mi>i</mi><mi>E</mi></msub><mspace width="2em"/><mi>α</mi><mo>=</mo><mfrac><mi>β</mi><mrow><mi>β</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mrow></math>
+            </div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>I</mi><mi>C</mi></msub><mo>=</mo><msub><mi>I</mi><mi>S</mi></msub><msup><mi>e</mi><mrow><msub><mi>V</mi><mrow><mi>B</mi><mi>E</mi></mrow></msub><mo>/</mo><msub><mi>V</mi><mi>T</mi></msub></mrow></msup><mspace width="2em"/><msub><mi>i</mi><mi>E</mi></msub><mo>=</mo><msub><mi>i</mi><mi>B</mi></msub><mo>+</mo><msub><mi>i</mi><mi>C</mi></msub><mo>=</mo><mo stretchy="false">(</mo><mi>β</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><msub><mi>i</mi><mi>B</mi></msub></mrow></math>
+            </div>
+            <p class="eq-notes">For silicon BJT in active mode, standard assumption is <strong><em>V<sub>BE</sub></em> = 0.65 V to 0.7 V</strong>.</p>
+          </div>
+
+          <div class="eq-block blue-accent">
+            <div class="eq-label">Small-Signal Hybrid-π Model</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>g</mi><mi>m</mi></msub><mo>=</mo><mfrac><msub><mi>I</mi><mi>C</mi></msub><msub><mi>V</mi><mi>T</mi></msub></mfrac><mspace width="1.5em"/><msub><mi>r</mi><mi>π</mi></msub><mo>=</mo><mfrac><mi>β</mi><msub><mi>g</mi><mi>m</mi></msub></mfrac><mo>=</mo><mfrac><mrow><mi>β</mi><msub><mi>V</mi><mi>T</mi></msub></mrow><msub><mi>I</mi><mi>C</mi></msub></mfrac><mspace width="1.5em"/><msub><mi>r</mi><mi>o</mi></msub><mo>=</mo><mfrac><msub><mi>V</mi><mi>A</mi></msub><msub><mi>I</mi><mi>C</mi></msub></mfrac></mrow></math>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">BJT Biasing Design Procedure</h3>
+          <p class="eq-notes">Given <em>I<sub>C</sub></em>, <em>β</em>, <em>V<sub>CC</sub></em>, and <em>V<sub>BE</sub></em> = 0.65 V:</p>
+          <ol style="margin: 0.5rem 0 0; padding-left: 1.25rem; font-size: 0.88rem; line-height: 1.6;">
+            <li>Allocate voltages: <math><mrow><msub><mi>V</mi><mrow><mi>R</mi><mi>C</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>C</mi><mi>E</mi></mrow></msub><mo>=</mo><mn>0.4</mn><msub><mi>V</mi><mrow><mi>C</mi><mi>C</mi></mrow></msub></mrow></math> &nbsp;and&nbsp; <math><mrow><msub><mi>V</mi><mrow><mi>R</mi><mi>E</mi></mrow></msub><mo>=</mo><mn>0.2</mn><msub><mi>V</mi><mrow><mi>C</mi><mi>C</mi></mrow></msub></mrow></math>.</li>
+            <li>Compute base current: <math><mrow><msub><mi>I</mi><mi>B</mi></msub><mo>=</mo><msub><mi>I</mi><mi>C</mi></msub><mo>/</mo><mi>β</mi></mrow></math>.</li>
+            <li>Choose divider bleed current: <strong><em>I<sub>RB1</sub> = 50 · I<sub>B</sub></em></strong> (ensures stiff base voltage).</li>
+            <li>Compute collector and emitter resistors: <math><mrow><msub><mi>R</mi><mi>C</mi></msub><mo>=</mo><mfrac><msub><mi>V</mi><mrow><mi>R</mi><mi>C</mi></mrow></msub><msub><mi>I</mi><mi>C</mi></msub></mfrac><mo>,</mo><mspace width="0.5em"/><msub><mi>R</mi><mi>E</mi></msub><mo>=</mo><mfrac><msub><mi>V</mi><mrow><mi>R</mi><mi>E</mi></mrow></msub><mrow><msub><mi>I</mi><mi>C</mi></msub><mo>+</mo><msub><mi>I</mi><mi>B</mi></msub></mrow></mfrac></mrow></math>.</li>
+            <li>Compute base voltage: <math><mrow><msub><mi>V</mi><mrow><mi>R</mi><mi>B</mi><mn>2</mn></mrow></msub><mo>=</mo><msub><mi>V</mi><mi>B</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>B</mi><mi>E</mi></mrow></msub><mo>+</mo><msub><mi>V</mi><mrow><mi>R</mi><mi>E</mi></mrow></msub></mrow></math>.</li>
+            <li>Compute lower bleed current: <math><mrow><msub><mi>I</mi><mrow><mi>R</mi><mi>B</mi><mn>2</mn></mrow></msub><mo>=</mo><msub><mi>I</mi><mrow><mi>R</mi><mi>B</mi><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>I</mi><mi>B</mi></msub></mrow></math>.</li>
+            <li>Compute lower base resistor: <math><mrow><msub><mi>R</mi><mrow><mi>B</mi><mn>2</mn></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>R</mi><mi>B</mi><mn>2</mn></mrow></msub><mo>/</mo><msub><mi>I</mi><mrow><mi>R</mi><mi>B</mi><mn>2</mn></mrow></msub></mrow></math>.</li>
+            <li>Compute upper base resistor: <math><mrow><msub><mi>R</mi><mrow><mi>B</mi><mn>1</mn></mrow></msub><mo>=</mo><mo stretchy="false">(</mo><msub><mi>V</mi><mrow><mi>C</mi><mi>C</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mrow><mi>R</mi><mi>B</mi><mn>2</mn></mrow></msub><mo stretchy="false">)</mo><mo>/</mo><msub><mi>I</mi><mrow><mi>R</mi><mi>B</mi><mn>1</mn></mrow></msub></mrow></math>.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="doc-footer">
+    <p>ECE 321 Electronics I · Department of Electrical & Computer Engineering · United States Air Force Academy</p>
+    <p><a href="index.html">← Back to Equation Sheets Overview</a> · <a href="#main-content">Back to Top ↑</a></p>
+  </footer>
+</body>
+</html>

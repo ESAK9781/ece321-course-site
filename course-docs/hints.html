@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Homework Hint Guide (H1–H13) · ECE 321 Electronics I</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+<link rel="stylesheet" href="../assets/navbar.css"></head>
+<body>
+  <a class="skip" href="#main-content">Skip to document content</a>
+
+  <header class="site-nav"><a class="brand" href="../index.html#home"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 16C8 5 12 5 16 16S24 27 28 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>ECE <strong>321</strong></a><nav class="nav-links" aria-label="Course navigation"><a href="../index.html#home">Home</a><a href="../index.html#syllabus">Syllabus</a><a href="../equation-sheets/index.html">Equation sheets</a><a href="../course-docs/index.html" class="active" aria-current="page">Course docs</a><a href="../index.html#homework">Reading guides</a><a href="../index.html#lessons">Lesson guides</a><a href="../index.html#study">Study sessions</a></nav><span class="semester"><i></i> FALL 2026</span></header>
+
+  <main id="main-content" class="doc-container">
+    <div class="doc-header">
+      <div class="doc-header-main">
+        <p class="doc-eyebrow">OFFICIAL INSTRUCTOR ASSISTANCE · FALL 2026</p>
+        <h1 class="doc-title">ECE 321: Homework Hint Guide (H1–H13)</h1>
+        <p class="doc-desc">Verbatim instructor hints, numerical check ranges, simplifying assumptions, and problem-solving strategies for all 13 homework problem sets.</p>
+      </div>
+      <div class="doc-actions">
+        <button class="btn btn-primary" onclick="window.print()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print / PDF (Lightmode)
+        </button>
+        <a class="btn" href="index.html">All Course Docs</a>
+      </div>
+    </div>
+
+    <nav class="jump-nav" aria-label="Jump to homework set">
+      <span>Jump to:</span>
+      <a href="#h1">H1</a> <a href="#h2">H2</a> <a href="#h3">H3</a> <a href="#h4">H4</a> <a href="#h5">H5</a> <a href="#h6">H6</a> <a href="#h7">H7</a> <a href="#h8">H8</a> <a href="#h9">H9</a> <a href="#h10">H10</a> <a href="#h11">H11</a> <a href="#h12">H12</a> <a href="#h13">H13</a>
+    </nav>
+
+    <div class="callout callout-info" style="margin-bottom: 2rem;">
+      <strong>How to Use:</strong> Attempt each assigned problem independently first. Use these hints to verify your modeling assumptions and check that your computed numerical answers lie within the instructor's target ranges.
+    </div>
+
+    
+    <section id="h1" class="card doc-section" style="margin-bottom: 2rem; scroll-margin-top: 70px;">
+      <h2 style="font-size: 1.35rem; color: var(--head); margin-top: 0; border-bottom: 2px solid var(--line); padding-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+        <span>H1: Lessons 1 and 2</span>
+        <span class="tag" style="font-size: 0.75rem; color: var(--accent); background: var(--surface-2); padding: 0.2rem 0.6rem; border-radius: 12px; border: 1px solid var(--rule);">6 Hints</span>
+      </h2>
+      <div style="margin-top: 1rem;">
+        
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 3.1</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">Direct use of the equation given on L1-10. You must convert Celsius to Kelvin</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 3.2</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">Same equation now using constants for GaAs</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 3.4</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">NA means acceptor impurity so it will set the hole concentration. Use the formula on L1-11 to calculate the electron concentration</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 3.5</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">You know the intrinsic concentration for Si at 300K. Based on its position in the periodic table, you know whether Phosphorus is a donor or acceptor. You can now calculate the electron and hole concentrations using n x p = ni2</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 3.8</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">From the give information, you can find the strength of the Electric field and then directly compute the drift velocities given the mobilities</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 3.9</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">Remember that Electric field strength is V/L and that will be how L enters the formula for current. Expect an L somewhere between 2um and 20um.</p>
+            </div>
+            
+      </div>
+    </section>
+    
+    <section id="h2" class="card doc-section" style="margin-bottom: 2rem; scroll-margin-top: 70px;">
+      <h2 style="font-size: 1.35rem; color: var(--head); margin-top: 0; border-bottom: 2px solid var(--line); padding-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+        <span>H2: Lessons 3 and 4</span>
+        <span class="tag" style="font-size: 0.75rem; color: var(--accent); background: var(--surface-2); padding: 0.2rem 0.6rem; border-radius: 12px; border: 1px solid var(--rule);">4 Hints</span>
+      </h2>
+      <div style="margin-top: 1rem;">
+        
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 3.14 Assume T = 300K so VT is 25.9mV. The permittivity of Silicon (εS ) was given in the notes.  The value for xn should be between 0.25um and 0.32um. In the derivation for xn and xp, we showed how to find the depletion region charge.</p>
+            </div>
+            
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 3.16 With NA &gt;&gt; ND, we find that the W equation becomes independent of NA and you can solve it for V0, the built-in voltage. Make sure to place everything in terms of cm so your units work out. Expect a built-in voltage on the lower end, less than 0.5V. The charge on either side of the junction will be between 2-7fC.</p>
+            </div>
+            
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 3.23  The (reverse) saturation current IS is between 10-20aA (where atto is 10-18) then the diode current using Shockley is between 0.1-0.4mA.</p>
+            </div>
+            
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 3.25 First simplify the Shockley equation by assuming NA &gt;&gt; ND, then the (reverse) saturation current IS will be approximately between 1-4fA (femto = 10-15). You can rearrange the Shockley equation to then solve for the diode voltage V that will yield a diode current of 0.2mA. This value should be in the range 0.6-0.8V.</p>
+            </div>
+            
+      </div>
+    </section>
+    
+    <section id="h3" class="card doc-section" style="margin-bottom: 2rem; scroll-margin-top: 70px;">
+      <h2 style="font-size: 1.35rem; color: var(--head); margin-top: 0; border-bottom: 2px solid var(--line); padding-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+        <span>H3: Lessons 5 and 6</span>
+        <span class="tag" style="font-size: 0.75rem; color: var(--accent); background: var(--surface-2); padding: 0.2rem 0.6rem; border-radius: 12px; border: 1px solid var(--rule);">7 Hints</span>
+      </h2>
+      <div style="margin-top: 1rem;">
+        
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 4.2bc</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">For both circuits, it is helpful to redraw with the +5V and -5V sources connected to a common ground point. Then, assume the “ideal” diode is a short and check to see if the diode current is positive, or assume the diode is an open and check to see if the diode voltage is negative. Once you know the diode status, find the indicated current and voltage.</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 4.3a</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">With the diode cathodes connected to a common point and the anodes to separate voltage sources, it will be reasonable to assume that at most one diode can be “on”.  Use the same assumption process as in 4.2 (verifying the status of each diode) then find the indicated voltage and current . The current should be between 4mA and 8mA.</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 4.4ceh</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">Similar process from 4.2 and 4.3. This time the input is a sinusoid swinging between +5V and -5V. If you assume a diode is “on” then its current must be positive; if you assume a diode is “off” then the voltage across it must be negative. You can check these in Multisim by editing the virtual diode to have an N = 0.01 as we did in class. One of the circuits will pass the signal stay through. For diodes connected anti-parallel, you can resolve an apparent contradiction of 0V across the off diode by assuming the ON diode has a very small positive voltagedrop across it</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 4.36</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">Ignore the “-1” in Shockley. Use it with the given IS and VD = 0.7 to find the corresponding diode current (this is your starting point guess). Use the load line equation to update the current; then use our Shockley voltage update equation. Assume VT = 25mV. The operating point voltage should be between 0.66V and 0.67V.</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 4.38</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">Constant-Voltage Drop (CVD) means assume 0.7V. For part b and using the Shockley equation without the “-1”, use the diode current you found in part (a) and a VD = 0.7V to solve for IS. This value should be between 500aA and 600aA.  For part (c), if you increase IS by 100 you will increase your assumed diode current at 0.7V by 100 (Shockley equation no “-1”). Then use Gauss Seidel process twice. The current should be between 0.8mA and 0.81mA and the voltage between 0.58V and 0.6V.</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 4.47</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">You are given that the Zener diode characteristic goes through the point (3V, 5mA) and has a slope of 1/100W. You need to find the x-intercept point where no current flows to identify the modeling voltage VZo. This value should be between 2.4V and 2.65V.  You can now substitute the Zener model of the resistance in series with VZo. The power dissipated by the Zener is given by the voltage across Rz and VZo times the current through. This will create a quadratic in terms of IZ when set equal to the desired 40mW. The required Zener current will be between 9mA and 12mA. You can use it to then solve for the source voltage (between 14V and 16V) and the Zener voltage (between 3V and 5V).</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 4.49</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">Use the ratio of the Shockley equation to give  iD2iD1=eVD2-VD1/VT. Assume the thermal voltage is 25mV and the change in the diode voltage is the required +5mV, how much does the diode current change? What if the diode voltage swings -5mV, how much does the diode current change? This should be slightly asymmetric. Finally, if you limit the change in current to 10%, so iD2iD1=0.9 or iD2iD1=1.1, what is the corresponding change in voltage?  Again, slightly asymmetric with a peak-to-peak swing of between 4mV and 6mV.</p>
+            </div>
+            
+      </div>
+    </section>
+    
+    <section id="h4" class="card doc-section" style="margin-bottom: 2rem; scroll-margin-top: 70px;">
+      <h2 style="font-size: 1.35rem; color: var(--head); margin-top: 0; border-bottom: 2px solid var(--line); padding-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+        <span>H4: Lessons 8 and 9</span>
+        <span class="tag" style="font-size: 0.75rem; color: var(--accent); background: var(--surface-2); padding: 0.2rem 0.6rem; border-radius: 12px; border: 1px solid var(--rule);">5 Hints</span>
+      </h2>
+      <div style="margin-top: 1rem;">
+        
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 5.5</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">In lesson 8, we gave an expression for rDS (1/gDS) which includes the aspect ratio (W/L) and the over-drive voltage (Vov). The maximum allowable VGS is given as 1.3V. Given the two resistor values, 250W and 1kW, you should have two constraints on WLVov, where Vov = VGS - Vt and Vt = 0.4V.  The constraint that will give you the bigger VGS will be limited by the 1.3V value. Use that one to then set the W given L = 1.13mm.  You can then solve for the second VGS value (this value should be between 0.6V and 0.75V).</p>
+            </div>
+            
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 5.10 For part (a) directly use the definition and the relative permittivity for SiO2 that we gave on page 8-5 of the notes. For part (b), since it is not given, assume l = 0 in the NMOS saturation current equation. You are given Vt = 0.5V and must use that to relate Vov to VGS.  Vov should be between 0.1 and 0.4V.</p>
+            </div>
+            
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 5.13 First, use the simplified iD vs vDS equation for small vDS value then form rDS as the ratio of vDS over iD.  You are given VGS and Vt. Once you have rDS you can compute vDS using the provided drain current.  For the PMOS question, recall that the process transconductance (K’) will depend directly on the mobility (m), while the MOSFET transconductance (K) multiplies K’ by (W/L).  Given the (W/L)n, you should be able to find the required (W/L)P for the equivalent PMOS.</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 5.26acde</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">You should be able to directly calculate VGS and VDS from the given VS, VG, and VD values. As the problem hints, one of the four conditions will yield a negative value of VDS. For that one, you will need to swap what you are calling the “D” and “S” and then compute the rest. You are given Vt = 1V so you will know what the over-drive voltage is and then be able to, for a device not in cutoff, distinguish between triode and saturation.</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 5.40</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">The source is always where the arrow is so VS = 2V, VD = 0.8V, and VG is the voltage going between 2V and 0V (all values inclusive). Refer to Table 5.2 that shows the PMOS device: vSG &lt; Vtp for cutoff, for triode either vSD &lt; Vov  or vDG &gt; Vtp, and for saturation vSD &gt; Vov  or vDG &lt; Vtp. You should find VG values between 0V and 2V that initiate transition between cutoff and saturation and then saturation and triode. Clearly indicate the range of voltages for each.</p>
+            </div>
+            
+      </div>
+    </section>
+    
+    <section id="h5" class="card doc-section" style="margin-bottom: 2rem; scroll-margin-top: 70px;">
+      <h2 style="font-size: 1.35rem; color: var(--head); margin-top: 0; border-bottom: 2px solid var(--line); padding-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+        <span>H5: Lesson 10</span>
+        <span class="tag" style="font-size: 0.75rem; color: var(--accent); background: var(--surface-2); padding: 0.2rem 0.6rem; border-radius: 12px; border: 1px solid var(--rule);">1 Hints</span>
+      </h2>
+      <div style="margin-top: 1rem;">
+        
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 5.47</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">This is an NMOS device with the gate going up to +1.2V  and the source terminal grounded. With the threshold voltage given as Vt =0.4V, you should be able to find the over-drive voltage. Applying the requirement of being on the edge between triode and saturation, you can find the needed drain voltage then calculate the resistance.  RD should be between 6kW and 12kW.</p>
+            </div>
+            
+      </div>
+    </section>
+    
+    <section id="h6" class="card doc-section" style="margin-bottom: 2rem; scroll-margin-top: 70px;">
+      <h2 style="font-size: 1.35rem; color: var(--head); margin-top: 0; border-bottom: 2px solid var(--line); padding-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+        <span>H6: Lesson 15</span>
+        <span class="tag" style="font-size: 0.75rem; color: var(--accent); background: var(--surface-2); padding: 0.2rem 0.6rem; border-radius: 12px; border: 1px solid var(--rule);">5 Hints</span>
+      </h2>
+      <div style="margin-top: 1rem;">
+        
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 1.15ab</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">For VTH leave the specified terminals open circuited and find the voltage using voltage divider; for RTH, turn off the voltage source, connect an ohmmeter between the specified terminals, and find the look-back resistance [RTH should be the same for parts a and b, VTH is smaller for part b than part a]</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 1.56</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">(a) The voltage gain should be between 350 and 425V/V; (b) You must limit the current from the source by having enough input resistance of the amplifier to add to the source output resistance (Ri should be between 30kW and 70kW. The current gain is found by finding the load or output current and dividing by the input current limit; For the power gain, assume sinusoidal values so that the rms value is Vpk/sqrt(2). Use Vrms^2/RLoad to find the output power, for the input power use Irms^2 * R; (c) You are told that the peak value of Avo*Vi is 3V, with RLoad 1kW, find what Ro needs to be to give 2Vpk [Ro should be between 400W and 750W];  (d) given your previous results, the gain Avo should be between 700 and 900V/V; (e ) round Ri up to the closest power of 10 (eg. 100, 1k, 10k, 100k, 1M, etc), round Ro down similarly (eg. 10k, 1k, 100, 10, 1 etc), recompute Avo [its value should be lower by more than 200V/V]</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 7.1</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">Point A should be obvious from the VTC curve we showed in the notes. Point B, we derived the equation [VDS,B should be between 0.15 and 0.2V]</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 7.2</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">Given Kn and VDS,B = Vov,B, you can solve for the drain current in saturation, then knowing VDD and VDS,B, find the resistance; for the case when Kn is doubled, expect RD to be in the range from 5kW to 9kW.</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 7.8</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">You should guess VDS,B = Vov,B = 0.2V. You need an output swing by +0.2 and -0.2. So, that should give you the smallest VDS operating point that keeps the amplifier out of triode.   (b) Solve the eqn for VDS,B from the notes for Kn*RD given VDD and your result from (a) [this value should be between 60 and 90].  The gain is Kn*RD*Vov but you know Vov so you can now calculate this; vgs will be 0.2Vpk/this gain. (c) If you know VDD, VD, and ID, you can find RD [between 8 and 20kW]; (d) If you know Kn*RD and now RD, you can find Kn and with Kn’, you can find W/L [value between 10 and 18].</p>
+            </div>
+            
+      </div>
+    </section>
+    
+    <section id="h7" class="card doc-section" style="margin-bottom: 2rem; scroll-margin-top: 70px;">
+      <h2 style="font-size: 1.35rem; color: var(--head); margin-top: 0; border-bottom: 2px solid var(--line); padding-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+        <span>H7: Lesson 16</span>
+        <span class="tag" style="font-size: 0.75rem; color: var(--accent); background: var(--surface-2); padding: 0.2rem 0.6rem; border-radius: 12px; border: 1px solid var(--rule);">2 Hints</span>
+      </h2>
+      <div style="margin-top: 1rem;">
+        
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 7.27</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">(a) Solve for VOV then calculate gm, you should then have enough information to get the drain current ID. The transistor output resistance ro can then be found by VA/ID where VA is the Early Voltage (this comes from the slope of the ID vs VDS curve in saturation extending back through -VA). (b) Given the drain current, use the expression for gm that depends only on Kn and ID (value should be between 2-3mA/V).  Same expression as above for ro.</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 7.30</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">Draw the small-signal model (short the two DC supplies, use the T-model as it will be easier than the hybrid-pi model). Note, vi is across both 1/gm and RS which are in series. You can find vs by voltage divider. For vd, you will use the current source and drain resistance,  but note the polarity.  The current “I” flows through 1/gm and RS.</p>
+            </div>
+            
+      </div>
+    </section>
+    
+    <section id="h8" class="card doc-section" style="margin-bottom: 2rem; scroll-margin-top: 70px;">
+      <h2 style="font-size: 1.35rem; color: var(--head); margin-top: 0; border-bottom: 2px solid var(--line); padding-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+        <span>H8: Lesson 17</span>
+        <span class="tag" style="font-size: 0.75rem; color: var(--accent); background: var(--surface-2); padding: 0.2rem 0.6rem; border-radius: 12px; border: 1px solid var(--rule);">3 Hints</span>
+      </h2>
+      <div style="margin-top: 1rem;">
+        
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 7.31 With the source grounded and the 22MW resistor between “D” and “G” not carrying any DC current (because the gate doesn’t allow any and the cap blocks otherwise), we can relate VDS and VGS. We also know the drain current from the current source. We can calculate VOV and then gm. Using the small-signal model, we can derive an expression for the gain. Note, the 22MW is between “g” and “d” so that complicates things a bit. Do a nodal equation at the output. Include the resistance ro since we are given VA and know ID and can calculate it. The ro is between “d” and “s”. You should have 4 terms in your nodal (note gm*vi is much bigger than vi/22MW, so you can ignore the latter). The voltage gain magnitude should be between 25 and 30.  If ID increases by x5, how much does VOV increase?  How does this change VGS and then gm and ro. The new gain will be between 35 and 45.</p>
+            </div>
+            
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 7.33 (a) Find VG by voltage divider. Confirm it by using the provided VGS, ID, and RS (by relating VG, VGS, and VS).  Confirm using VD and VS that VDS puts the transistor in saturation. And that VD is consistent with the VDD value and RD and ID.  Finally, show that VOV gives the drain current specified.  (b) Find gm given ID and VOV and ro how we did in the 7.27. (c-d) Two resistors should be seen at the input and 3 resistors should be across the output. Rin should be between 3-4MW, vo/vsig should be between -14 and -15.</p>
+            </div>
+            
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 7.64  This is a very quick problem. Assume “S” is connected to ground and we are not keeping the load open-circuited, so it should figure in. The gain should be between -15 and -30.</p>
+            </div>
+            
+      </div>
+    </section>
+    
+    <section id="h9" class="card doc-section" style="margin-bottom: 2rem; scroll-margin-top: 70px;">
+      <h2 style="font-size: 1.35rem; color: var(--head); margin-top: 0; border-bottom: 2px solid var(--line); padding-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+        <span>H9: Lessons 18 and 19</span>
+        <span class="tag" style="font-size: 0.75rem; color: var(--accent); background: var(--surface-2); padding: 0.2rem 0.6rem; border-radius: 12px; border: 1px solid var(--rule);">4 Hints</span>
+      </h2>
+      <div style="margin-top: 1rem;">
+        
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 7.92</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">With the drain current specified and with the VDD/3 voltage division, you can immediately find RD and RS.  Find VOV, then VGS, then VG. You will need to adjust the RG1 and RG2 equations so you can make the larger of the two 22MW.  Apply the transition criterion for saturation/triode to identify how far the drain is from there.</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 7.103</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">You can calculate VOV from the desired ID and assuming saturation. With the source grounded VD = VDS, so you can apply the VDS test for saturation and provide the required margin. Since the gate resistances will be large, you can assume that the current going through RG1 will be much smaller than ID.  The margin calculation and drain current observation should allow you to calculate RD (should be in the 1kW to 4kW range).  Use VOV to work your way over to VG = VGS. Knowing the worst-case swing in drain voltage, you can get the voltage across RG1.  The voltage allocation should tell you which of RG1 and RG2 must be bigger and set that one to 13MW. The smaller of the gate resistors should be in the 1MW to 2MW range.</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 7.118</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">(a) Find the gate voltage from voltage divider, then find the voltages at the drain and source by Ohm’s Law (you know ID).  Find VGS from the gate and source voltages then VOV given the threshold voltage. Use this to confirm that the circuit is in saturation. Back out Kn from ID and VOV. (b) Draw the small-signal circuit. Note that in Fig 7.57a that RS is completely bypassed by a capacitor so should not be in the small-signal circuit. The output side of the model should have 3 resistors (one being ro). Ri should be in the range of 200-400kW. If you include ro, then GV (which includes the source resistance of 100kW, should be between -7 and -8.  (c) You will need the magnitude of AV which includes the load resistance in there. The value should be between 9 and 10. When you apply the edge of saturation formula, you will need the vgs perturbation to show up both with vDS (gain) and vGS (we did an example in the notes with finding max swing, see Lecture 16-3 ex 2). The max vgs will be between 120-180mV. (d) This means what un-bypassed RS1 is required to accommodate a bigger vg (so in series with both the C and R).  With RS1 (AC small-signal circuit), there is a relationship between vg and vgs that will depend on RS1. This value will be between 400-1000W.</p>
+            </div>
+            
+            <div class="eq-block blue-accent" style="margin-bottom: 0.85rem;">
+              <div class="eq-label" style="font-size: 0.95rem;">Prob 7.121a</div>
+              <p style="margin: 0.35rem 0 0; color: var(--ink); line-height: 1.6;">There is only one resistor connected to the gate, so it should be straight forward to assign it!  The drain current given allows you to find VOV (this value is between 0-0.5V). The threshold voltage allows you to get VGS.  The key is to note no DC supply connects to the gate, so VG = 0.  So, since VGS = VG – VS, that allows you to find VS.  You can then solve for RS since the other side is at -5V. This value is between 5kW and 20kW. You must next find out how low the drain voltage can go and still stay in saturation by incorporating the required 0.8V swing (VGD &lt; Vt, you know VG).  Use this value and that the other side of RD is at +5V to compute RD (value is between 10-20kW).</p>
+            </div>
+            
+      </div>
+    </section>
+    
+    <section id="h10" class="card doc-section" style="margin-bottom: 2rem; scroll-margin-top: 70px;">
+      <h2 style="font-size: 1.35rem; color: var(--head); margin-top: 0; border-bottom: 2px solid var(--line); padding-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+        <span>H10: Lessons 25, 28 and 29</span>
+        <span class="tag" style="font-size: 0.75rem; color: var(--accent); background: var(--surface-2); padding: 0.2rem 0.6rem; border-radius: 12px; border: 1px solid var(--rule);">5 Hints</span>
+      </h2>
+      <div style="margin-top: 1rem;">
+        
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 6.35d</p>
+            </div>
+            
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 16.5</p>
+            </div>
+            
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 16.7</p>
+            </div>
+            
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 16.18</p>
+            </div>
+            
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 16.28</p>
+            </div>
+            
+      </div>
+    </section>
+    
+    <section id="h11" class="card doc-section" style="margin-bottom: 2rem; scroll-margin-top: 70px;">
+      <h2 style="font-size: 1.35rem; color: var(--head); margin-top: 0; border-bottom: 2px solid var(--line); padding-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+        <span>H11: Lessons 30 and 31</span>
+        <span class="tag" style="font-size: 0.75rem; color: var(--accent); background: var(--surface-2); padding: 0.2rem 0.6rem; border-radius: 12px; border: 1px solid var(--rule);">5 Hints</span>
+      </h2>
+      <div style="margin-top: 1rem;">
+        
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 17.14</p>
+            </div>
+            
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 17.15</p>
+            </div>
+            
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 17.26</p>
+            </div>
+            
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 16.13</p>
+            </div>
+            
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 17.22</p>
+            </div>
+            
+      </div>
+    </section>
+    
+    <section id="h12" class="card doc-section" style="margin-bottom: 2rem; scroll-margin-top: 70px;">
+      <h2 style="font-size: 1.35rem; color: var(--head); margin-top: 0; border-bottom: 2px solid var(--line); padding-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+        <span>H12: Lesson 32</span>
+        <span class="tag" style="font-size: 0.75rem; color: var(--accent); background: var(--surface-2); padding: 0.2rem 0.6rem; border-radius: 12px; border: 1px solid var(--rule);">2 Hints</span>
+      </h2>
+      <div style="margin-top: 1rem;">
+        
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 18.1</p>
+            </div>
+            
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 18.17</p>
+            </div>
+            
+      </div>
+    </section>
+    
+    <section id="h13" class="card doc-section" style="margin-bottom: 2rem; scroll-margin-top: 70px;">
+      <h2 style="font-size: 1.35rem; color: var(--head); margin-top: 0; border-bottom: 2px solid var(--line); padding-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+        <span>H13: Lessons 37 and 38</span>
+        <span class="tag" style="font-size: 0.75rem; color: var(--accent); background: var(--surface-2); padding: 0.2rem 0.6rem; border-radius: 12px; border: 1px solid var(--rule);">2 Hints</span>
+      </h2>
+      <div style="margin-top: 1rem;">
+        
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 18.27</p>
+            </div>
+            
+            <div class="eq-block" style="margin-bottom: 0.85rem;">
+              <p style="margin: 0; color: var(--ink); line-height: 1.6;">Prob 18.43</p>
+            </div>
+            
+      </div>
+    </section>
+    
+  </main>
+
+  <footer class="doc-footer">
+    <p>ECE 321 Electronics I · Department of Electrical & Computer Engineering · United States Air Force Academy</p>
+    <p><a href="index.html">← Back to Course Documents Overview</a> · <a href="#main-content">Back to Top ↑</a></p>
+  </footer>
+</body>
+</html>

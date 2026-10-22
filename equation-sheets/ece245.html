@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ECE 245 Helpful Equations Sheet 1 · ECE 321</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+<link rel="stylesheet" href="../assets/navbar.css"></head>
+<body>
+  <a class="skip" href="#main-content">Skip to document content</a>
+
+  <header class="site-nav"><a class="brand" href="../index.html#home"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 16C8 5 12 5 16 16S24 27 28 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>ECE <strong>321</strong></a><nav class="nav-links" aria-label="Course navigation"><a href="../index.html#home">Home</a><a href="../index.html#syllabus">Syllabus</a><a href="../equation-sheets/index.html" class="active" aria-current="page">Equation sheets</a><a href="../course-docs/index.html">Course docs</a><a href="../index.html#homework">Reading guides</a><a href="../index.html#lessons">Lesson guides</a><a href="../index.html#study">Study sessions</a></nav><span class="semester"><i></i> FALL 2026</span></header>
+
+  <main id="main-content" class="doc-container">
+    <div class="doc-header">
+      <div class="doc-header-main">
+        <p class="doc-eyebrow">CIRCUIT ANALYSIS PREREQUISITE REFERENCE</p>
+        <h1 class="doc-title">ECE 245 Helpful Equations Sheet 1</h1>
+        <p class="doc-desc">Fundamental circuit laws, passive sign convention, Kirchhoff's laws, divider relationships, nodal and mesh analysis, source transformation, superposition, Thevenin equivalents, maximum power transfer, and resistor color codes.</p>
+      </div>
+      <div class="doc-actions">
+        <a class="btn btn-primary" href="../assets/equations/ECE245_EqnSheet1.pdf" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print Official PDF (Lightmode)
+        </a>
+        <a class="btn" href="../assets/equations/ECE245_EqnSheet1.pdf" download="ECE245_Circuit_EquationSheet.pdf">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download PDF
+        </a>
+        <a class="btn" href="index.html">All Sheets</a>
+      </div>
+    </div>
+
+    <nav class="jump-nav" aria-label="Sections on this sheet">
+      <span>Jump to:</span>
+      <a href="#fundamentals">Definitions & Laws</a>
+      <a href="#combinations">Resistors & Dividers</a>
+      <a href="#techniques">Nodal, Mesh & Theorems</a>
+      <a href="#thevenin">Thevenin & Max Power</a>
+      <a href="#codes">Color Codes & Sizes</a>
+    </nav>
+
+    <!-- SECTION 1: FUNDAMENTALS -->
+    <section id="fundamentals" class="doc-section">
+      <h2 class="section-title">
+        1. Fundamental Electrical Definitions & Kirchhoff's Laws
+      </h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="card-title">Basic Definitions</h3>
+          <table class="doc-table">
+            <tbody>
+              <tr><td>Current <em>i</em></td><td><math><mrow><mi>i</mi><mo>=</mo><mfrac><mrow><mi>d</mi><mi>q</mi></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac></mrow></math> (ampere = C/s)</td></tr>
+              <tr><td>Voltage <em>v</em></td><td><math><mrow><mi>v</mi><mo>=</mo><mfrac><mrow><mi>d</mi><mi>w</mi></mrow><mrow><mi>d</mi><mi>q</mi></mrow></mfrac><mo>=</mo><mi>i</mi><mi>R</mi></mrow></math> (volt = J/C)</td></tr>
+              <tr><td>Resistance <em>R</em></td><td><math><mrow><mi>R</mi><mo>=</mo><mi>ρ</mi><mfrac><mi>L</mi><mi>A</mi></mfrac><mo>=</mo><mfrac><mi>v</mi><mi>i</mi></mfrac></mrow></math> (ohm = V/A)</td></tr>
+              <tr><td>Power <em>p</em></td><td><math><mrow><mi>p</mi><mo>=</mo><mfrac><mrow><mi>d</mi><mi>w</mi></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mi>v</mi><mi>i</mi><mo>=</mo><msup><mi>i</mi><mn>2</mn></msup><mi>R</mi><mo>=</mo><mfrac><msup><mi>v</mi><mn>2</mn></msup><mi>R</mi></mfrac></mrow></math> (watt = J/s)</td></tr>
+              <tr><td>Energy <em>E</em></td><td><math><mrow><mi>E</mi><mo>=</mo><mo>∫</mo><mi>p</mi><mspace width="0.2em"/><mi>d</mi><mi>t</mi></mrow></math> (joules or kWh)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Passive Sign Convention & Kirchhoff's Laws</h3>
+          <div class="eq-block blue-accent">
+            <div class="eq-label">Passive Sign Convention</div>
+            <p>If current <em>I<sub>X</sub></em> flows into the terminal marked with the positive voltage reference <em>V<sub>X</sub></em>:</p>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>P</mi><mi>X</mi></msub><mo>=</mo><msub><mi>V</mi><mi>X</mi></msub><mo>·</mo><msub><mi>I</mi><mi>X</mi></msub><mspace width="1em"/><mtext>(Power absorbed by Component X)</mtext></mrow></math>
+            </div>
+            <p class="eq-notes">If <em>P<sub>X</sub></em> &gt; 0, power is absorbed; if <em>P<sub>X</sub></em> &lt; 0, power is delivered.</p>
+          </div>
+
+          <div class="eq-block yellow-accent">
+            <div class="eq-label">Kirchhoff's Laws</div>
+            <p><strong>KVL (Voltage Law):</strong> Sum of voltages around any closed loop is zero:</p>
+            <div class="eq-formula">
+              <math display="block"><mrow><munder><mo>∑</mo><mtext>Loop</mtext></munder><mi>V</mi><mo>=</mo><mn>0</mn></mrow></math>
+            </div>
+            <p><strong>KCL (Current Law):</strong> Sum of currents entering any circuit node is zero:</p>
+            <div class="eq-formula">
+              <math display="block"><mrow><munder><mo>∑</mo><mtext>Node</mtext></munder><mi>I</mi><mo>=</mo><mn>0</mn></mrow></math>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: COMBINATIONS & DIVIDERS -->
+    <section id="combinations" class="doc-section">
+      <h2 class="section-title">
+        2. Resistor Combinations & Voltage / Current Dividers
+      </h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="card-title">Series and Parallel Combinations</h3>
+          <div class="eq-block">
+            <div class="eq-label">Series Resistors</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>R</mi><mrow><mi>e</mi><mi>q</mi></mrow></msub><mo>=</mo><msub><mi>R</mi><mn>1</mn></msub><mo>+</mo><msub><mi>R</mi><mn>2</mn></msub><mo>+</mo><msub><mi>R</mi><mn>3</mn></msub><mo>+</mo><mo>…</mo></mrow></math>
+            </div>
+          </div>
+          <div class="eq-block blue-accent">
+            <div class="eq-label">Parallel Resistors</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><mfrac><mn>1</mn><msub><mi>R</mi><mrow><mi>e</mi><mi>q</mi></mrow></msub></mfrac><mo>=</mo><mfrac><mn>1</mn><msub><mi>R</mi><mn>1</mn></msub></mfrac><mo>+</mo><mfrac><mn>1</mn><msub><mi>R</mi><mn>2</mn></msub></mfrac><mo>+</mo><mfrac><mn>1</mn><msub><mi>R</mi><mn>3</mn></msub></mfrac><mo>+</mo><mo>…</mo></mrow></math>
+            </div>
+            <p class="eq-notes">
+              <strong>Two resistors in parallel shortcut:</strong><br>
+              <math><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>∥</mo><msub><mi>R</mi><mn>2</mn></msub><mo>=</mo><mfrac><mrow><msub><mi>R</mi><mn>1</mn></msub><msub><mi>R</mi><mn>2</mn></msub></mrow><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>+</mo><msub><mi>R</mi><mn>2</mn></msub></mrow></mfrac></mrow></math>
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Divider Rules</h3>
+          <div class="eq-block purple-accent">
+            <div class="eq-label">Voltage Divider Rule (Series Circuit)</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>V</mi><mi>X</mi></msub><mo>=</mo><msub><mi>V</mi><mtext>series</mtext></msub><mo>·</mo><mfrac><msub><mi>R</mi><mi>X</mi></msub><mrow><mo>∑</mo><msub><mi>R</mi><mtext>series</mtext></msub></mrow></mfrac></mrow></math>
+            </div>
+          </div>
+          <div class="eq-block yellow-accent">
+            <div class="eq-label">Current Divider Rule (Parallel Circuit)</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>I</mi><mi>X</mi></msub><mo>=</mo><msub><mi>I</mi><mrow><mtext>tot</mtext><mo>,</mo><mo>∥</mo></mrow></msub><mo>·</mo><mfrac><msub><mi>R</mi><mrow><mi>e</mi><mi>q</mi><mo>,</mo><mo>∥</mo></mrow></msub><msub><mi>R</mi><mi>X</mi></msub></mfrac></mrow></math>
+            </div>
+            <p class="eq-notes">
+              For two parallel branches: <math><mrow><msub><mi>I</mi><mn>1</mn></msub><mo>=</mo><msub><mi>I</mi><mtext>tot</mtext></msub><mo>·</mo><mfrac><msub><mi>R</mi><mn>2</mn></msub><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>+</mo><msub><mi>R</mi><mn>2</mn></msub></mrow></mfrac></mrow></math>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SYSTEMATIC ANALYSIS -->
+    <section id="techniques" class="doc-section">
+      <h2 class="section-title">
+        3. Circuit Analysis Techniques & Network Theorems
+      </h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="card-title">Nodal & Mesh Analysis</h3>
+          <div class="eq-block">
+            <div class="eq-label">Nodal Analysis (KCL)</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>I</mi><mrow><mtext>out </mtext><mi>X</mi></mrow></msub><mo>=</mo><mfrac><mrow><msub><mi>V</mi><mi>X</mi></msub><mo>−</mo><msub><mi>V</mi><mi>Y</mi></msub></mrow><msub><mi>R</mi><mrow><mi>X</mi><mi>Y</mi></mrow></msub></mfrac></mrow></math>
+            </div>
+            <p class="eq-notes">Write KCL at each non-reference essential node; express branch currents in terms of node voltages.</p>
+          </div>
+
+          <div class="eq-block blue-accent">
+            <div class="eq-label">Mesh Analysis (KVL)</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>V</mi><mn>12</mn></msub><mo>=</mo><mo stretchy="false">(</mo><msub><mi>I</mi><mn>1</mn></msub><mo>−</mo><msub><mi>I</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mo>·</mo><msub><mi>R</mi><mn>12</mn></msub></mrow></math>
+            </div>
+            <p class="eq-notes">Write KVL around each independent planar mesh loop; express voltage drops in terms of circulating mesh currents.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Source Transformation & Superposition</h3>
+          <div class="eq-block yellow-accent">
+            <div class="eq-label">Source Transformation</div>
+            <p>A real voltage source (<em>V<sub>S</sub></em> in series with <em>R<sub>S</sub></em>) is fully equivalent to a real current source (<em>I<sub>S</sub></em> in parallel with <em>R<sub>S</sub></em>):</p>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>I</mi><mi>S</mi></msub><mo>=</mo><mfrac><msub><mi>V</mi><mi>S</mi></msub><msub><mi>R</mi><mi>S</mi></msub></mfrac><mspace width="2em"/><msub><mi>V</mi><mi>S</mi></msub><mo>=</mo><msub><mi>I</mi><mi>S</mi></msub><mo>·</mo><msub><mi>R</mi><mi>S</mi></msub></mrow></math>
+            </div>
+          </div>
+
+          <div class="eq-block purple-accent">
+            <div class="eq-label">Superposition Theorem</div>
+            <p>In any linear resistive network with multiple independent sources:</p>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>V</mi><mi>X</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi>X</mi><mo>,</mo><mi>S</mi><mn>1</mn><mtext> on</mtext></mrow></msub><mo>+</mo><msub><mi>V</mi><mrow><mi>X</mi><mo>,</mo><mi>S</mi><mn>2</mn><mtext> on</mtext></mrow></msub><mo>+</mo><msub><mi>V</mi><mrow><mi>X</mi><mo>,</mo><mi>S</mi><mn>3</mn><mtext> on</mtext></mrow></msub><mo>+</mo><mo>…</mo></mrow></math>
+            </div>
+            <p class="eq-notes">Deactivate other independent sources: replace independent voltage sources with short circuits (0 V) and independent current sources with open circuits (0 A). Never turn off dependent sources!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: THEVENIN & MAX POWER -->
+    <section id="thevenin" class="doc-section">
+      <h2 class="section-title">
+        4. Thevenin Equivalent & Maximum Power Transfer
+      </h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="card-title">Thevenin / Norton Equivalence</h3>
+          <ol class="steps-list">
+            <li>
+              <strong>Open-Circuit Voltage (V<sub>TH</sub>):</strong> Disconnect network B at terminals <em>m</em> and <em>n</em>. Keep all internal sources in Network A active and find open-circuit terminal voltage:
+              <div style="text-align: center; margin: 0.5rem 0; font-weight: 700;"><em>V<sub>TH</sub> = V<sub>OC</sub></em></div>
+            </li>
+            <li>
+              <strong>Short-Circuit Current (I<sub>SC</sub>):</strong> Short terminals <em>m</em> and <em>n</em> together with sources in A active:
+              <div style="text-align: center; margin: 0.5rem 0; font-weight: 700;"><em>I<sub>N</sub> = I<sub>SC</sub></em></div>
+            </li>
+            <li>
+              <strong>Thevenin Resistance (R<sub>TH</sub>):</strong>
+              <div class="eq-formula">
+                <math display="block"><mrow><msub><mi>R</mi><mrow><mi>T</mi><mi>H</mi></mrow></msub><mo>=</mo><mfrac><msub><mi>V</mi><mrow><mi>O</mi><mi>C</mi></mrow></msub><msub><mi>I</mi><mrow><mi>S</mi><mi>C</mi></mrow></msub></mfrac></mrow></math>
+              </div>
+              <em>Alternative (independent sources only):</em> Turn OFF all independent sources in Network A and compute look-back resistance across terminals <em>m</em> and <em>n</em>.
+            </li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Maximum Power Transfer Theorem</h3>
+          <div class="eq-block accent">
+            <div class="eq-label">Matching Condition</div>
+            <p>To transfer maximum power from a linear network with Thevenin resistance <em>R<sub>TH</sub></em> into a variable load resistor <em>R<sub>Load</sub></em>, choose:</p>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>R</mi><mrow><mi>L</mi><mi>o</mi><mi>a</mi><mi>d</mi></mrow></msub><mo>=</mo><msub><mi>R</mi><mrow><mi>T</mi><mi>H</mi></mrow></msub><mo>=</mo><msub><mi>R</mi><mrow><mi>o</mi><mi>u</mi><mi>t</mi></mrow></msub></mrow></math>
+            </div>
+          </div>
+          <div class="eq-block blue-accent">
+            <div class="eq-label">Maximum Absorbed Load Power</div>
+            <div class="eq-formula">
+              <math display="block"><mrow><msub><mi>P</mi><mrow><mi>L</mi><mi>o</mi><mi>a</mi><mi>d</mi><mo>,</mo><mi>max</mi></mrow></msub><mo>=</mo><mfrac><msubsup><mi>V</mi><mrow><mi>T</mi><mi>H</mi></mrow><mn>2</mn></msubsup><mrow><mn>4</mn><msub><mi>R</mi><mrow><mi>T</mi><mi>H</mi></mrow></msub></mrow></mfrac></mrow></math>
+            </div>
+            <p class="eq-notes">At maximum power transfer, efficiency is 50% (half of total power is dissipated internally inside <em>R<sub>TH</sub></em>).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CODES & SIZES -->
+    <section id="codes" class="doc-section">
+      <h2 class="section-title">
+        5. Resistor Color Codes & Physical Sizes
+      </h2>
+
+      <div class="table-wrap">
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>Color</th>
+              <th>Digit (Bands 1 & 2)</th>
+              <th>Multiplier (Band 3)</th>
+              <th>Tolerance (Band 4)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Black</td><td>0</td><td>10<sup>0</sup> = 1</td><td>—</td></tr>
+            <tr><td>Brown</td><td>1</td><td>10<sup>1</sup> = 10</td><td>±1%</td></tr>
+            <tr><td>Red</td><td>2</td><td>10<sup>2</sup> = 100</td><td>±2%</td></tr>
+            <tr><td>Orange</td><td>3</td><td>10<sup>3</sup> = 1 k</td><td>—</td></tr>
+            <tr><td>Yellow</td><td>4</td><td>10<sup>4</sup> = 10 k</td><td>—</td></tr>
+            <tr><td>Green</td><td>5</td><td>10<sup>5</sup> = 100 k</td><td>±0.5%</td></tr>
+            <tr><td>Blue</td><td>6</td><td>10<sup>6</sup> = 1 M</td><td>±0.25%</td></tr>
+            <tr><td>Violet</td><td>7</td><td>10<sup>7</sup> = 10 M</td><td>±0.1%</td></tr>
+            <tr><td>Gray</td><td>8</td><td>10<sup>8</sup></td><td>±0.05%</td></tr>
+            <tr><td>White</td><td>9</td><td>10<sup>9</sup></td><td>—</td></tr>
+            <tr><td>Gold</td><td>—</td><td>10<sup>−1</sup> = 0.1</td><td><strong>±5%</strong></td></tr>
+            <tr><td>Silver</td><td>—</td><td>10<sup>−2</sup> = 0.01</td><td><strong>±10%</strong></td></tr>
+            <tr><td>None</td><td>—</td><td>—</td><td><strong>±20%</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Through-Hole Resistor Wattage & Approximate Body Sizes</h3>
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>Rated Wattage</th>
+              <th>1/8 W (0.125 W)</th>
+              <th>1/4 W (0.25 W)</th>
+              <th>1/2 W (0.5 W)</th>
+              <th>1 W</th>
+              <th>2 W</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Typical Body Length</strong></td>
+              <td>3.3 mm</td>
+              <td>6.0 mm</td>
+              <td>8.5 mm</td>
+              <td>11.0 mm</td>
+              <td>15.0 mm</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="doc-footer">
+    <p>ECE 321 Electronics I · Department of Electrical & Computer Engineering · United States Air Force Academy</p>
+    <p><a href="index.html">← Back to Equation Sheets Overview</a> · <a href="#main-content">Back to Top ↑</a></p>
+  </footer>
+</body>
+</html>

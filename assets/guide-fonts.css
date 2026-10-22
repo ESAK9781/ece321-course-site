@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'STIX Two Text';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/YA9Er02F12Xkf5whdwKf11l0p7uWhf8lJUzXZT2omsvbURU.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'STIX Two Text';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/YA9Er02F12Xkf5whdwKf11l0p7uWhf8lJUzXZT2omizcURU.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'STIX Two Text';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/YA9Gr02F12Xkf5whdwKf11l0jbKkeidMTtZ5Yihg2SOY.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'STIX Two Text';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/YA9Gr02F12Xkf5whdwKf11l0jbKkeidMTtZ5YiiH3iOY.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'STIX Two Math';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/pONg1hwwL_6M9EkZySr_yteUi1o.ttf") format('truetype');
+}
