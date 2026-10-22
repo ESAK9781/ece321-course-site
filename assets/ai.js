@@ -9,6 +9,8 @@
     anthropic: {name: 'Anthropic', kind: 'llm', model: 'claude-sonnet-5'},
     gemini: {name: 'Gemini', kind: 'llm', model: 'gemini-3.8-flash'}
   };
+  const ROLES = {jev: 'Grades typed answers', openai: 'Grades typed answers and answers questions', anthropic: 'Answers questions', gemini: 'Answers questions'};
+  const docsUrl = id => new URL('../course-docs/ai-setup.html#' + id, ASSET_ROOT).href;
   const DEFAULTS = {
     keys: {jev: '', openai: '', anthropic: '', gemini: ''},
     decisionProvider: 'jev',
@@ -241,7 +243,8 @@
       return () => listeners.delete(listener);
     },
     complete,
-    decide
+    decide,
+    openSettings() { const b = document.querySelector('#ai-settings-open'); if (b) b.click(); }
   });
 
   function logo(provider) {
@@ -262,7 +265,7 @@
       </button>
       <dialog class="ai-dialog" id="ai-settings-dialog" aria-labelledby="ai-dialog-title">
         <form method="dialog" class="ai-dialog-close-wrap"><button class="ai-close" aria-label="Close settings">×</button></form>
-        <div class="ai-dialog-heading"><p class="ai-eyebrow">PERSONAL API CONNECTIONS</p><h2 id="ai-dialog-title">AI settings</h2><p>Choose a decision provider and a text model provider. Your API keys stay in this browser.</p></div>
+        <div class="ai-dialog-heading"><p class="ai-eyebrow">PERSONAL API CONNECTIONS</p><h2 id="ai-dialog-title">AI settings</h2><p>Optional. Connecting a provider lets the study sessions grade short written answers by meaning and answer your follow-up questions; everything else works without it. Your keys stay in this browser.</p><p class="ai-why"><a href="${new URL('../course-docs/ai-setup.html', ASSET_ROOT).href}" target="_blank" rel="noopener">Why this matters and how to get a key ↗</a></p></div>
         <div class="ai-active-grid">
           <label>Decision provider<select id="ai-decision-provider"><option value="jev">Jev</option><option value="openai">OpenAI</option></select></label>
           <label>Text generation<select id="ai-llm-provider"><option value="openai">OpenAI</option><option value="anthropic">Anthropic</option><option value="gemini">Gemini</option></select></label>
@@ -271,7 +274,7 @@
         <div class="ai-provider-list">
           ${['jev', 'openai', 'anthropic', 'gemini'].map(provider => `
             <section class="ai-provider-row" data-provider="${provider}">
-              <div class="ai-provider-brand">${logo(provider)}<span>${PROVIDERS[provider].name}</span></div>
+              <div class="ai-provider-brand">${logo(provider)}<span class="ai-pname"><span>${PROVIDERS[provider].name}<a class="ai-info" href="${docsUrl(provider)}" target="_blank" rel="noopener" aria-label="How to get a ${PROVIDERS[provider].name} API key" title="How to get a ${PROVIDERS[provider].name} API key">i</a></span><small class="ai-role">${ROLES[provider]}</small></span></div>
               <div class="ai-key-control"><label class="sr-only" for="ai-key-${provider}">${PROVIDERS[provider].name} API key</label><input id="ai-key-${provider}" type="password" autocomplete="off" spellcheck="false" placeholder="${provider === 'jev' ? 'sk-…' : 'Paste API key'}"><button class="ai-key-save" type="button" data-save="${provider}">Save</button></div>
               <div class="ai-key-meta"><p class="ai-key-status" id="ai-status-${provider}" aria-live="polite">Not saved</p><button class="ai-key-remove" type="button" data-remove="${provider}" hidden>Remove</button></div>
             </section>`).join('')}
