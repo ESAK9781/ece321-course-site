@@ -94,7 +94,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Amplifier models and cascades",
    "objective": "Define Avo as an open-circuit gain",
-   "prompt": "What does Avo represent in the amplifier model?",
+   "prompt": "In the amplifier model built from Ri, Ro and a controlled source, what does the parameter Avo represent?",
    "answer": {
     "id": "d",
     "text": "The voltage gain from input to output with the load disconnected"
@@ -595,7 +595,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Amplifier models and cascades",
    "objective": "Match stage roles in a multistage amplifier",
-   "prompt": "Which role fits the last stage of a multistage amplifier that drives a low-resistance load?",
+   "prompt": "In a multistage amplifier whose last stage must drive a low-resistance load, which property matters most for that last stage?",
    "answer": {
     "id": "b",
     "text": "A low output resistance so the output divider loses little signal"
@@ -1026,7 +1026,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Measuring Ri, Ro and Avo",
    "objective": "Choose the experimental method for Avo",
-   "prompt": "How must the load be handled when measuring Avo?",
+   "prompt": "When measuring an amplifier's open-circuit gain Avo, how must the load resistor be handled?",
    "answer": {
     "id": "a",
     "text": "It must be removed so the output is unloaded"
@@ -1227,7 +1227,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Measuring Ri, Ro and Avo",
    "objective": "Detect an Ro measurement error",
-   "prompt": "A student leaves the input signal turned on while measuring Ro. What is the problem?",
+   "prompt": "While measuring an amplifier's output resistance Ro, a student leaves the input signal turned on. What goes wrong?",
    "answer": {
     "id": "c",
     "text": "The amplifier keeps producing its own output signal, which hides the divider effect that identifies Ro"
@@ -1448,7 +1448,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Voltage transfer curve and Q-point",
    "objective": "Identify point B on the VTC",
-   "prompt": "What condition defines point B?",
+   "prompt": "On the common-source voltage transfer curve, what condition defines point B?",
    "answer": {
     "id": "d",
     "text": "The drain-source voltage has fallen to the overdrive voltage, the edge between saturation and triode"
@@ -1602,7 +1602,7 @@ window.CourseStudy.registerBank({
    "type": "true-false",
    "topic": "Voltage transfer curve and Q-point",
    "objective": "Compare gain magnitude between A and B",
-   "prompt": "True or false: at every point between A and B the gain magnitude is smaller than at point B.",
+   "prompt": "True or false: on the common-source voltage transfer curve, the gain magnitude at every point between A and B is smaller than the gain magnitude at point B.",
    "answer": {
     "id": "true",
     "text": "True"
@@ -1653,7 +1653,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Voltage transfer curve and Q-point",
    "objective": "Explain why not to bias exactly at B",
-   "prompt": "Why is it a poor idea to place the Q-point exactly at point B?",
+   "prompt": "On the common-source voltage transfer curve, why is it a poor idea to bias the amplifier (place the Q-point) exactly at point B?",
    "answer": {
     "id": "b",
     "text": "The signal would drive the transistor into triode on the downswing, causing distortion"
@@ -1728,7 +1728,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Voltage transfer curve and Q-point",
    "objective": "Explain why not to bias near A",
-   "prompt": "Why is a Q-point close to A also unattractive?",
+   "prompt": "On the common-source voltage transfer curve, why is a Q-point very close to point A also unattractive?",
    "answer": {
     "id": "d",
     "text": "The gain is small there and the output has little room to move toward cutoff"
@@ -2037,7 +2037,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Voltage transfer curve and Q-point",
    "objective": "Name the transistor model used in saturation for amplification",
-   "prompt": "In saturation, how does the MOSFET behave from the point of view of the drain terminal?",
+   "prompt": "In saturation, how does a MOSFET behave as seen from its drain terminal?",
    "answer": {
     "id": "d",
     "text": "Like a voltage-controlled current source: the gate-source voltage sets the drain current"
@@ -2183,7 +2183,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Voltage transfer curve and Q-point",
    "objective": "Interpret a headroom and legroom check",
-   "prompt": "When you check the highest and lowest drain-source voltage reached during the signal swing, what are you verifying?",
+   "prompt": "In a common-source amplifier you check the highest and lowest drain-source voltage reached during the signal swing. What are you verifying?",
    "answer": {
     "id": "d",
     "text": "That the output stays inside saturation at both ends: above the triode limit and below the cutoff/supply limit"
@@ -2548,7 +2548,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Small-signal model and gm",
    "objective": "Say why the vgs-squared term is dropped",
-   "prompt": "When the saturation current is expanded around the bias point, why can the term that depends on vgs squared be neglected?",
+   "prompt": "When the MOSFET's saturation drain current is expanded around the Q-point for small signals, why can the term proportional to vgs squared be neglected?",
    "answer": {
     "id": "a",
     "text": "It is negligible compared with the linear term as long as vgs is much smaller than twice the overdrive voltage"
@@ -3146,7 +3146,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Small-signal model and gm",
    "objective": "Link gain to gm and the drain resistance",
-   "prompt": "In a common-source stage with a grounded source, what two things set the magnitude of the open-circuit gain?",
+   "prompt": "In a common-source stage whose source is grounded (no source resistor), which two quantities set the magnitude of the open-circuit voltage gain?",
    "answer": {
     "id": "a",
     "text": "The transconductance gm and the drain resistance RD"
@@ -3292,7 +3292,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Small-signal model and gm",
    "objective": "Link gain magnitude to the overdrive voltage",
-   "prompt": "With the voltage dropped across RD held fixed, what happens to the gain magnitude of a CS stage as the overdrive voltage VOV is made smaller?",
+   "prompt": "In a common-source stage the DC voltage dropped across RD is held fixed. What happens to the gain magnitude as the overdrive voltage VOV is made smaller?",
    "answer": {
     "id": "a",
     "text": "The gain magnitude increases, because it is inversely proportional to VOV"
@@ -3365,7 +3365,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Small-signal model and gm",
    "objective": "Link a small overdrive to the linearity cost",
-   "prompt": "Why does making the overdrive voltage very small to get more gain cost you linearity?",
+   "prompt": "Making the overdrive voltage VOV very small raises a common-source stage's gain. Why does that cost you linearity?",
    "answer": {
     "id": "c",
     "text": "The signal across gate and source must stay small compared with the overdrive, so a small overdrive leaves very little allowed signal"
@@ -3438,7 +3438,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Small-signal model and gm",
    "objective": "Identify the check that sets the largest input amplitude",
-   "prompt": "What condition limits the largest input amplitude of a common-source amplifier before the output distorts?",
+   "prompt": "What limits how large an input signal a common-source amplifier can handle before its output distorts?",
    "answer": {
     "id": "a",
     "text": "The output must not enter triode: the lowest drain voltage must stay above the edge of saturation"
@@ -3787,7 +3787,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "CS design with no source resistor",
    "objective": "Say how VGS is set when the source is grounded",
-   "prompt": "In a CS amplifier with a grounded source, what sets the gate-source voltage in the design?",
+   "prompt": "In a common-source amplifier whose source is grounded (no source resistor), what sets the DC gate-source voltage VGS in the design?",
    "answer": {
     "id": "d",
     "text": "The gate resistor divider: VG sets VGS directly, since the source is at ground"
@@ -4161,7 +4161,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "CS design with no source resistor",
    "objective": "Explain the VDS starting choice for the CS design",
-   "prompt": "In the CS design procedure, why is the drain-source voltage first chosen near the middle of the supply?",
+   "prompt": "In the common-source design with no source resistor, the first step picks the DC drain-source voltage VDS near the middle of the supply. Why?",
    "answer": {
     "id": "b",
     "text": "It gives balanced room for the output to swing toward cutoff and toward triode; if gain is too low it can be moved closer to point B"
@@ -4234,7 +4234,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "CS design with no source resistor",
    "objective": "Say what the gain target fixes in the CS design",
-   "prompt": "Once the drain-source voltage has been chosen, which design quantity does the target gain magnitude determine?",
+   "prompt": "In the common-source design with no source resistor, once VDS has been chosen, which design quantity does the target gain magnitude determine?",
    "answer": {
     "id": "d",
     "text": "The overdrive voltage VOV"
@@ -4451,7 +4451,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Source resistor feedback and bypassing",
    "objective": "Explain how a source resistor stabilizes the bias",
-   "prompt": "If a transistor parameter change makes the drain current rise in a circuit with a source resistor, how does the circuit oppose the change?",
+   "prompt": "In a common-source circuit with a source resistor RS, a change in a transistor parameter makes the DC drain current start to rise. How does the circuit oppose that change?",
    "answer": {
     "id": "c",
     "text": "The larger current raises the source voltage, which lowers VGS (the gate voltage is fixed by the divider) and pushes the current back down"
@@ -4526,7 +4526,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Source resistor feedback and bypassing",
    "objective": "State the cost of an unbypassed source resistor",
-   "prompt": "What is the price of leaving a source resistor unbypassed in a common-source stage?",
+   "prompt": "What is the price of leaving the source resistor RS of a common-source stage unbypassed (no capacitor across it)?",
    "answer": {
     "id": "a",
     "text": "The signal gain is reduced, because the resistor is in the signal path as well"
@@ -4751,7 +4751,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Source resistor feedback and bypassing",
    "objective": "Explain the benefit of partial bypass",
-   "prompt": "What does leaving part of the source resistance unbypassed (RS1) do for the amplifier's gain?",
+   "prompt": "In a partially bypassed common-source stage, what does the unbypassed part of the source resistance (RS1) do for the gain?",
    "answer": {
     "id": "c",
     "text": "It makes the gain depend more on resistor values and less on the transistor's gm"
@@ -4830,7 +4830,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Source resistor feedback and bypassing",
    "objective": "Say why RS1 should not be too large",
-   "prompt": "Why does the design avoid making the unbypassed part of the source resistor very large?",
+   "prompt": "In the partially bypassed common-source design, why is the unbypassed part RS1 not made very large?",
    "answer": {
     "id": "a",
     "text": "It would swamp out the gain, reducing it too much"
@@ -4899,7 +4899,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Source resistor feedback and bypassing",
    "objective": "Say why RS should not be too small",
-   "prompt": "Why must the source resistor not be made too small?",
+   "prompt": "In a common-source design, why must the total source resistor RS not be made too small?",
    "answer": {
     "id": "c",
     "text": "The operating point would vary too much with changes in Vt and Kn"
@@ -5206,7 +5206,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Source resistor feedback and bypassing",
    "objective": "Explain the supply split used in the CS designs",
-   "prompt": "In the course's bypassed CS designs, the supply is split equally among RD, the transistor and the source resistor. What is the main idea behind this?",
+   "prompt": "In the bypassed common-source designs the supply is split into equal thirds: VRD = VDS = VRS = VDD/3. What is the main idea behind this?",
    "answer": {
     "id": "c",
     "text": "The drain sits high enough for downswing and low enough for upswing, while enough voltage is across RS for useful feedback"
@@ -5281,7 +5281,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Source resistor feedback and bypassing",
    "objective": "Explain why the drain is biased at about two thirds of the supply",
-   "prompt": "Why does biasing the drain near two thirds of VDD and the source near one third help the output signal?",
+   "prompt": "In the bypassed common-source designs the DC drain voltage sits near two thirds of VDD and the DC voltage at the transistor's source terminal near one third. Why does that help the output signal?",
    "answer": {
     "id": "a",
     "text": "The drain voltage then has room to move both up toward the supply and down toward the triode limit"
@@ -5407,7 +5407,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Source resistor feedback and bypassing",
    "objective": "Explain the rule of thumb RS1 = 1/gm",
-   "prompt": "What does choosing RS1 equal to 1/gm achieve in the partial-bypass design?",
+   "prompt": "In the partially bypassed common-source design, what does choosing RS1 equal to 1/gm achieve?",
    "answer": {
     "id": "a",
     "text": "It makes the gain depend about equally on the gm term and on a resistor, roughly halving the gain's sensitivity to device variation at the cost of half the gain"
@@ -5853,7 +5853,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Partially and fully bypassed CS design",
    "objective": "Explain where the factor 6 comes from",
-   "prompt": "In the partial-bypass design formula for the drain current, the denominator contains 6 times the gain. Where does the 6 come from?",
+   "prompt": "In the partially bypassed common-source design, the drain-current formula has 6 times the gain in its denominator. Where does the 6 come from?",
    "answer": {
     "id": "b",
     "text": "A factor of 3 from the equal-thirds supply split and a factor of 2 because the gain is halved by RS1 = 1/gm"
@@ -6155,7 +6155,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Partially and fully bypassed CS design",
    "objective": "Design the gate divider conceptually",
-   "prompt": "In the gate divider design, what two conditions do the two gate resistors have to satisfy together?",
+   "prompt": "When designing the two gate bias resistors RG1 and RG2 of a common-source or common-drain stage, what two conditions must they satisfy together?",
    "answer": {
     "id": "b",
     "text": "Produce the required gate voltage and keep their parallel combination at least as large as the input resistance requirement"
@@ -6230,7 +6230,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Partially and fully bypassed CS design",
    "objective": "Explain the swing check",
-   "prompt": "In the swing check of a bypassed CS design, how are the maximum and minimum drain voltages found?",
+   "prompt": "In the swing check of a bypassed common-source design, how are the maximum and minimum drain voltages found?",
    "answer": {
     "id": "d",
     "text": "By adding and subtracting the peak signal at the drain (gain times the peak gate signal) from the DC drain voltage"
@@ -6305,7 +6305,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Partially and fully bypassed CS design",
    "objective": "Say which limits the swing check compares against",
-   "prompt": "At the lower end of the drain swing in a CS design, what must the minimum drain voltage stay above?",
+   "prompt": "In a common-source design the drain voltage swings above and below its DC value. At the low end of the swing, what must the minimum drain voltage stay above?",
    "answer": {
     "id": "b",
     "text": "The edge of saturation, which is the gate voltage minus the threshold voltage"
@@ -6455,7 +6455,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Partially and fully bypassed CS design",
    "objective": "Link the gain target to the drain current",
-   "prompt": "In the fully bypassed design, for a given supply and device, what happens to the required drain current as the target gain magnitude is raised?",
+   "prompt": "In the fully bypassed common-source design, with the supply and device fixed, what happens to the required DC drain current when the target gain magnitude is raised?",
    "answer": {
     "id": "b",
     "text": "It decreases, since the formula contains the gain in the denominator squared"
@@ -6753,7 +6753,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Common-drain amplifier behavior",
    "objective": "State the gain behavior of a source follower",
-   "prompt": "What is the voltage gain of a common-drain amplifier like, compared with a common-source amplifier?",
+   "prompt": "Compared with a common-source amplifier, what is the voltage gain of a common-drain (source-follower) amplifier like?",
    "answer": {
     "id": "d",
     "text": "Positive and slightly below 1; the output follows the input without inversion"
@@ -6828,7 +6828,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Common-drain amplifier behavior",
    "objective": "Explain why the follower gain is below one",
-   "prompt": "In the source-follower gain, what makes the gain slightly less than 1?",
+   "prompt": "Why is the voltage gain of a source follower slightly less than 1?",
    "answer": {
     "id": "b",
     "text": "The 1/gm of the transistor in series with RS forms a divider, so only part of the input appears across RS"
@@ -7192,7 +7192,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Common-drain amplifier behavior",
    "objective": "Explain why a follower works as a buffer",
-   "prompt": "Why is a common-drain stage called a buffer when placed after a high-gain stage?",
+   "prompt": "Why is a common-drain stage called a buffer when it follows a high-gain stage?",
    "answer": {
     "id": "d",
     "text": "It has a large input resistance that does not load the gain stage, and a small output resistance that delivers the signal to the load"
@@ -7346,7 +7346,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Common-drain design",
    "objective": "Explain why the input must exceed the desired output",
-   "prompt": "In the CD design, the required input amplitude is estimated as larger than the desired output. Why?",
+   "prompt": "In the common-drain (source-follower) design, the input amplitude is estimated to be larger than the desired output amplitude. Why?",
    "answer": {
     "id": "b",
     "text": "The follower's gain is a bit below 1, so a slightly larger input is needed for the required output"
@@ -7421,7 +7421,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Common-drain design",
    "objective": "Explain the VDD/2 source bias",
-   "prompt": "Why is the source voltage of the follower set near half the supply?",
+   "prompt": "In the common-drain (source-follower) design, the DC voltage at the transistor's source terminal is set to about half of VDD. Why?",
    "answer": {
     "id": "d",
     "text": "It gives the output room to swing symmetrically up and down"
@@ -7496,7 +7496,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Common-drain design",
    "objective": "Recognize where the worst case for RS appears",
-   "prompt": "In a source follower driving a load, at which part of the output cycle must the source resistor carry the most current?",
+   "prompt": "A source follower drives a load through a coupling capacitor. During which part of the output cycle must the source resistor RS carry the most current?",
    "answer": {
     "id": "b",
     "text": "At the negative output peak, where the load current returns to the source node on top of the drain current"
@@ -7571,7 +7571,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Common-drain design",
    "objective": "Explain the role of the minimum drain current",
-   "prompt": "Why does the CD design choose a minimum drain current that is large enough?",
+   "prompt": "In the common-drain design, why is a minimum drain current ID,min chosen, and why is it made large enough?",
    "answer": {
     "id": "d",
     "text": "So the transistor stays on at the worst moment of the swing and across different devices"
@@ -7796,7 +7796,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Common-drain design",
    "objective": "Say what must be true at the positive output peak",
-   "prompt": "At the positive peak of the output of a source follower, what must still be true for undistorted operation?",
+   "prompt": "At the positive peak of a source follower's output, which condition must still hold for the output to stay undistorted?",
    "answer": {
     "id": "b",
     "text": "The drain-source voltage must still exceed the overdrive voltage, so the transistor stays in saturation"
@@ -8172,7 +8172,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Multi-stage amplifier planning",
    "objective": "Choose stages to meet gain and drive requirements",
-   "prompt": "A specification needs high gain and also a low-resistance load. Which arrangement of two stages fits best?",
+   "prompt": "A specification needs both high voltage gain and the ability to drive a low-resistance load. Which two-stage arrangement fits best?",
    "answer": {
     "id": "a",
     "text": "A common-source stage for gain followed by a common-drain stage to drive the load"
@@ -8247,7 +8247,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Multi-stage amplifier planning",
    "objective": "Explain the CS-to-CD interface",
-   "prompt": "In a CS-then-CD cascade, what plays the role of the CS stage's load?",
+   "prompt": "In a common-source stage followed by a common-drain stage, what is the load seen by the common-source stage?",
    "answer": {
     "id": "c",
     "text": "The input resistance of the CD stage"
@@ -8397,7 +8397,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Multi-stage amplifier planning",
    "objective": "Plan the Lab 3 spec",
-   "prompt": "The Lab 3 requirements list input resistance, gain, output swing into a small load and distortion. In what order should you reason before designing any stage?",
+   "prompt": "The Lab 3 specifications list input resistance, gain, output swing into a small load and distortion. What is the right order of work before designing any single stage?",
    "answer": {
     "id": "c",
     "text": "Decide which stage types are needed from the specifications first, then design each stage and check the overall gain with loading"
@@ -8523,7 +8523,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Multi-stage amplifier planning",
    "objective": "Explain how to measure Ro without a variable resistor",
-   "prompt": "How can the output resistance of an amplifier be found using one known load resistor?",
+   "prompt": "Without a variable resistor, how can an amplifier's output resistance Ro be found using one known load resistor?",
    "answer": {
     "id": "c",
     "text": "Compare the open-circuit output voltage with the output when the known load is connected; the drop reveals Ro through the divider"
@@ -9008,7 +9008,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Comparing amplifier configurations",
    "objective": "Match a configuration to the highest input resistance",
-   "prompt": "Which configurations have a large input resistance set by the gate bias network?",
+   "prompt": "In the amplifier-parameter table (CS with no RS, CS with partial RS, CD, CG), which configurations have a large input resistance set by the gate bias network?",
    "answer": {
     "id": "a",
     "text": "Common source (with or without a partly unbypassed RS) and common drain"
@@ -9297,7 +9297,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Comparing amplifier configurations",
    "objective": "Say how loading changes the gain formulas in the table",
-   "prompt": "In the parameter table, how is the loaded gain Av obtained from the open-circuit gain for the CS and CG stages?",
+   "prompt": "In the amplifier-parameter table, how is the loaded gain Av obtained from the open-circuit gain Avo for the CS and CG stages?",
    "answer": {
     "id": "a",
     "text": "Replace RD by RD in parallel with RL in the Avo expression"
@@ -9883,7 +9883,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Simulation and measurement",
    "objective": "Say why sweeps of Vt and Kn are run",
-   "prompt": "Why do the design simulations sweep the threshold voltage and device constant?",
+   "prompt": "Why do the design simulations sweep the transistor parameters Vt and Kn?",
    "answer": {
     "id": "b",
     "text": "To see how the bias point and gain change from one transistor to another"
@@ -9962,7 +9962,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "Simulation and measurement",
    "objective": "Say what a transient with a large input shows",
-   "prompt": "Why might you raise the input amplitude in a simulation of a follower designed for a given output swing?",
+   "prompt": "In a simulation of a follower designed for a given output swing, why might you raise the input amplitude?",
    "answer": {
     "id": "d",
     "text": "To find the input that actually produces the required output swing and confirm that the waveform does not clip"
@@ -10459,7 +10459,7 @@ window.CourseStudy.registerBank({
    "type": "choice",
    "topic": "DC operating point and region checks",
    "objective": "Explain why a source resistor turns the square law into a quadratic",
-   "prompt": "With a source resistor, why does finding the drain current require solving a quadratic equation?",
+   "prompt": "In a MOSFET circuit that has a source resistor, why does finding the DC drain current lead to a quadratic equation?",
    "answer": {
     "id": "a",
     "text": "VGS itself depends on the drain current (VGS = VG − ID·RS), so the current appears inside the square"
@@ -13302,6 +13302,3364 @@ window.CourseStudy.registerBank({
     {
      "file": "lesson-guides/lesson-26.html",
      "section": "A5"
+    }
+   ]
+  },
+  {
+   "id": "gr2-wk-001",
+   "type": "problem",
+   "topic": "Partially and fully bypassed CS design",
+   "objective": "Carry out the partially bypassed common-source design in order",
+   "prompt": "Design a partially bypassed common-source amplifier",
+   "setup": "Choose RD, RS1, RS2, RG1 and RG2 for the stage in the figure. Given: the device (Kn, Vt), the supply VDD, a target open-circuit gain magnitude, a minimum input resistance and the peak signal at the gate.",
+   "image": {
+    "src": "assets/study/resources/gr2/cs_partial.svg",
+    "alt": "Common-source stage with gate divider RG1/RG2, drain resistor RD, source resistor split into RS1 and RS2 with a bypass capacitor across RS2, coupling capacitors and a load.",
+    "caption": "Partially bypassed common-source amplifier: the capacitor bypasses RS2 only."
+   },
+   "steps": [
+    {
+     "id": "gr2-wk-001-s1",
+     "prompt": "Where does the design start?",
+     "brief": "Supply split in thirds, RS1 = 1/gm",
+     "answer": {
+      "id": "c",
+      "text": "Split the supply into equal thirds across RD, the transistor and RS, and decide RS1 = 1/gm"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Choose RG1 and RG2 first so the gate voltage is fixed",
+       "correct": false,
+       "rationale": "The gate voltage depends on VGS and VS, which are not known yet."
+      },
+      {
+       "id": "b",
+       "text": "Pick the largest drain current the device allows",
+       "correct": false,
+       "rationale": "The current comes from the gain target and the supply allocation."
+      },
+      {
+       "id": "c",
+       "text": "Split the supply into equal thirds across RD, the transistor and RS, and decide RS1 = 1/gm",
+       "correct": true
+      },
+      {
+       "id": "d",
+       "text": "Use the peak input signal to size RD",
+       "correct": false,
+       "rationale": "The input amplitude is used only in the final swing and linearity checks."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "Choose RG1 and RG2 first so the gate voltage is fixed",
+       "misconception": "Starts at the end of the chain.",
+       "rationale": "The gate voltage depends on VGS and VS, which are not known yet."
+      },
+      {
+       "id": "b",
+       "text": "Pick the largest drain current the device allows",
+       "misconception": "Treats the bias current as a free choice.",
+       "rationale": "The current comes from the gain target and the supply allocation."
+      },
+      {
+       "id": "d",
+       "text": "Use the peak input signal to size RD",
+       "misconception": "Mixes signal size with bias design.",
+       "rationale": "The input amplitude is used only in the final swing and linearity checks."
+      }
+     ],
+     "explanation": "The thirds rule gives RD, the transistor and RS a known voltage each, and RS1 = 1/gm fixes how the gain depends on gm. Everything else follows from those two choices."
+    },
+    {
+     "id": "gr2-wk-001-s2",
+     "prompt": "What fixes the DC drain current?",
+     "brief": "ID set by the gain target",
+     "answer": {
+      "id": "d",
+      "text": "The gain requirement: the gain depends on gm, which depends on the current, so the target gain determines ID"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "The supply voltage divided by the total resistance",
+       "correct": false,
+       "rationale": "The transistor current follows its own law and the gain relation, not Ohm's law for the whole string."
+      },
+      {
+       "id": "b",
+       "text": "The input-resistance requirement",
+       "correct": false,
+       "rationale": "Input resistance only sets how the gate divider is chosen."
+      },
+      {
+       "id": "c",
+       "text": "The source resistance RS, chosen first",
+       "correct": false,
+       "rationale": "RS cannot be found until the current is known; it comes from the allocated voltage over the current."
+      },
+      {
+       "id": "d",
+       "text": "The gain requirement: the gain depends on gm, which depends on the current, so the target gain determines ID",
+       "correct": true
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "The supply voltage divided by the total resistance",
+       "misconception": "Treats the transistor like a resistor in a series path.",
+       "rationale": "The transistor current follows its own law and the gain relation, not Ohm's law for the whole string."
+      },
+      {
+       "id": "b",
+       "text": "The input-resistance requirement",
+       "misconception": "Confuses the bias current with the input network.",
+       "rationale": "Input resistance only sets how the gate divider is chosen."
+      },
+      {
+       "id": "c",
+       "text": "The source resistance RS, chosen first",
+       "misconception": "Works in a circular order.",
+       "rationale": "RS cannot be found until the current is known; it comes from the allocated voltage over the current."
+      }
+     ],
+     "explanation": "With RS1 = 1/gm the gain is about gm·RD/2, and with a fixed voltage across RD that ties the gain target directly to the drain current."
+    },
+    {
+     "id": "gr2-wk-001-s3",
+     "prompt": "How are RD and RS found?",
+     "brief": "RD and RS from one third of VDD",
+     "answer": {
+      "id": "a",
+      "text": "Each drops one third of VDD at that current, so each equals that voltage divided by the drain current"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Each drops one third of VDD at that current, so each equals that voltage divided by the drain current",
+       "correct": true
+      },
+      {
+       "id": "b",
+       "text": "RD from the gain and RS from the input resistance",
+       "correct": false,
+       "rationale": "Both resistors are set by the allocated voltage and the DC current."
+      },
+      {
+       "id": "c",
+       "text": "RD equal to RG1 in parallel with RG2",
+       "correct": false,
+       "rationale": "The gate divider sets the gate voltage and Rin, not RD."
+      },
+      {
+       "id": "d",
+       "text": "RS equal to 1/gm",
+       "correct": false,
+       "rationale": "Only the unbypassed part RS1 is set to 1/gm; RS comes from its voltage and the current."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "b",
+       "text": "RD from the gain and RS from the input resistance",
+       "misconception": "Assigns each resistor to the wrong requirement.",
+       "rationale": "Both resistors are set by the allocated voltage and the DC current."
+      },
+      {
+       "id": "c",
+       "text": "RD equal to RG1 in parallel with RG2",
+       "misconception": "Mixes the output and the gate network.",
+       "rationale": "The gate divider sets the gate voltage and Rin, not RD."
+      },
+      {
+       "id": "d",
+       "text": "RS equal to 1/gm",
+       "misconception": "Confuses RS with its unbypassed part.",
+       "rationale": "Only the unbypassed part RS1 is set to 1/gm; RS comes from its voltage and the current."
+      }
+     ],
+     "explanation": "Ohm's law on each resistor with its allocated voltage and the DC drain current gives RD and RS."
+    },
+    {
+     "id": "gr2-wk-001-s4",
+     "prompt": "How do you finish the source network?",
+     "brief": "RS1 = 1/gm, RS2 is the rest",
+     "answer": {
+      "id": "b",
+      "text": "Find gm from the overdrive voltage, set RS1 = 1/gm, and let RS2 be what remains of RS"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Set RS2 = 1/gm and make RS1 the remainder",
+       "correct": false,
+       "rationale": "The capacitor shorts RS2, so the part left in the signal path, RS1, is the one set to 1/gm."
+      },
+      {
+       "id": "b",
+       "text": "Find gm from the overdrive voltage, set RS1 = 1/gm, and let RS2 be what remains of RS",
+       "correct": true
+      },
+      {
+       "id": "c",
+       "text": "Make RS1 and RS2 equal",
+       "correct": false,
+       "rationale": "The split is not arbitrary: RS1 sets the gain relation."
+      },
+      {
+       "id": "d",
+       "text": "Set RS1 equal to RD",
+       "correct": false,
+       "rationale": "The two resistors have different jobs; RD sets the output voltage drop."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "Set RS2 = 1/gm and make RS1 the remainder",
+       "misconception": "Swaps the two parts.",
+       "rationale": "The capacitor shorts RS2, so the part left in the signal path, RS1, is the one set to 1/gm."
+      },
+      {
+       "id": "c",
+       "text": "Make RS1 and RS2 equal",
+       "misconception": "Picks a convenient split.",
+       "rationale": "The split is not arbitrary: RS1 sets the gain relation."
+      },
+      {
+       "id": "d",
+       "text": "Set RS1 equal to RD",
+       "misconception": "Mixes drain and source resistors.",
+       "rationale": "The two resistors have different jobs; RD sets the output voltage drop."
+      }
+     ],
+     "explanation": "RS1 stays in the signal path and sets how the gain depends on gm; RS2 only completes the DC resistance RS and is bypassed for the signal."
+    },
+    {
+     "id": "gr2-wk-001-s5",
+     "prompt": "How is the gate network designed?",
+     "brief": "VG = VGS + VS, divider for VG and Rin",
+     "answer": {
+      "id": "c",
+      "text": "Find VGS = VOV + Vt, then VG = VGS + VS; choose RG1 and RG2 to give that VG while keeping their parallel resistance above the input requirement"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "VG equals VGS because the source is at ground",
+       "correct": false,
+       "rationale": "With a source resistor the source sits above ground, so VG = VGS + VS."
+      },
+      {
+       "id": "b",
+       "text": "Choose RG1 = RG2 so the gate sits at half the supply",
+       "correct": false,
+       "rationale": "The ratio must produce the required VG, which is generally not half the supply."
+      },
+      {
+       "id": "c",
+       "text": "Find VGS = VOV + Vt, then VG = VGS + VS; choose RG1 and RG2 to give that VG while keeping their parallel resistance above the input requirement",
+       "correct": true
+      },
+      {
+       "id": "d",
+       "text": "Choose the divider to meet the input resistance only; VG follows",
+       "correct": false,
+       "rationale": "Both conditions apply: the right VG and a large enough parallel resistance."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "VG equals VGS because the source is at ground",
+       "misconception": "Forgets the DC voltage across RS.",
+       "rationale": "With a source resistor the source sits above ground, so VG = VGS + VS."
+      },
+      {
+       "id": "b",
+       "text": "Choose RG1 = RG2 so the gate sits at half the supply",
+       "misconception": "Picks a convenient ratio.",
+       "rationale": "The ratio must produce the required VG, which is generally not half the supply."
+      },
+      {
+       "id": "d",
+       "text": "Choose the divider to meet the input resistance only; VG follows",
+       "misconception": "Ignores the bias requirement.",
+       "rationale": "Both conditions apply: the right VG and a large enough parallel resistance."
+      }
+     ],
+     "explanation": "The divider has two jobs, setting VG and keeping Rin large. No gate current flows, so the divider is unloaded by the transistor."
+    },
+    {
+     "id": "gr2-wk-001-s6",
+     "prompt": "What must still be checked?",
+     "brief": "Swing and linearity checked",
+     "answer": {
+      "id": "d",
+      "text": "That the drain swing stays in saturation, and that the gate-source signal (reduced by RS1) is small compared with the overdrive voltage"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Only that the gain equals the target",
+       "correct": false,
+       "rationale": "A correct gain with a clipped swing or a nonlinear signal is still a failed design."
+      },
+      {
+       "id": "b",
+       "text": "That the bypass capacitor is large enough, and nothing else",
+       "correct": false,
+       "rationale": "The capacitor matters, but the design checks are the swing and the linearity."
+      },
+      {
+       "id": "c",
+       "text": "That the supply is much larger than the input peak",
+       "correct": false,
+       "rationale": "The checks compare the swing with the saturation limits and vgs with VOV."
+      },
+      {
+       "id": "d",
+       "text": "That the drain swing stays in saturation, and that the gate-source signal (reduced by RS1) is small compared with the overdrive voltage",
+       "correct": true
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "Only that the gain equals the target",
+       "misconception": "Treats gain as the only requirement.",
+       "rationale": "A correct gain with a clipped swing or a nonlinear signal is still a failed design."
+      },
+      {
+       "id": "b",
+       "text": "That the bypass capacitor is large enough, and nothing else",
+       "misconception": "Focuses on a component detail.",
+       "rationale": "The capacitor matters, but the design checks are the swing and the linearity."
+      },
+      {
+       "id": "c",
+       "text": "That the supply is much larger than the input peak",
+       "misconception": "Invents a supply rule.",
+       "rationale": "The checks compare the swing with the saturation limits and vgs with VOV."
+      }
+     ],
+     "explanation": "Headroom and legroom confirm the output stays in saturation; the linearity test confirms the small-signal model applies."
+    }
+   ],
+   "answer": {
+    "text": "Allocate the supply, set the current from the gain, size RD and RS from the thirds, split RS using 1/gm, bias the gate for VG and Rin, then check swing and linearity."
+   },
+   "distractors": [],
+   "explanation": "Allocate the supply, set the current from the gain, size RD and RS from the thirds, split RS using 1/gm, bias the gate for VG and Rin, then check swing and linearity.",
+   "resources": [
+    {
+     "type": "link",
+     "href": "lesson-guides/lesson-18.html",
+     "label": "Lesson 18 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
+    },
+    {
+     "type": "link",
+     "href": "lesson-guides/lesson-26.html",
+     "label": "Lesson 26 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
+    }
+   ],
+   "sources": [
+    {
+     "file": "lesson-guides/lesson-18.html",
+     "section": "A6"
+    },
+    {
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
+     "section": "p. 4"
+    },
+    {
+     "file": "lesson-guides/lesson-26.html",
+     "section": "A1"
+    }
+   ]
+  },
+  {
+   "id": "gr2-wk-002",
+   "type": "problem",
+   "topic": "Common-drain design",
+   "objective": "Carry out the source-follower design in order",
+   "prompt": "Design a source follower to drive a load",
+   "setup": "The follower in the figure must deliver a given peak-to-peak output into the load RL. Given: VDD, the device, RL, the output swing and an input-resistance requirement.",
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain stage: gate divider RG1/RG2, drain at VDD, source resistor RS, coupling capacitors and a load RL.",
+    "caption": "Source follower with a coupling capacitor to the load."
+   },
+   "steps": [
+    {
+     "id": "gr2-wk-002-s1",
+     "prompt": "What do you settle first?",
+     "brief": "Input swing and source bias near VDD/2",
+     "answer": {
+      "id": "d",
+      "text": "The input swing needed (the gain is a little below 1) and a DC source-terminal voltage near half the supply"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "The gate divider, because it sets everything",
+       "correct": false,
+       "rationale": "The divider can only be designed once VG is known, which comes last."
+      },
+      {
+       "id": "b",
+       "text": "A drain resistor RD for gain",
+       "correct": false,
+       "rationale": "A follower has no drain resistor in the signal path; it is not a gain stage."
+      },
+      {
+       "id": "c",
+       "text": "The gain, by making gm·RS very large",
+       "correct": false,
+       "rationale": "The gain is a result of the bias, not a first design choice."
+      },
+      {
+       "id": "d",
+       "text": "The input swing needed (the gain is a little below 1) and a DC source-terminal voltage near half the supply",
+       "correct": true
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "The gate divider, because it sets everything",
+       "misconception": "Starts at the end of the chain.",
+       "rationale": "The divider can only be designed once VG is known, which comes last."
+      },
+      {
+       "id": "b",
+       "text": "A drain resistor RD for gain",
+       "misconception": "Applies the common-source recipe.",
+       "rationale": "A follower has no drain resistor in the signal path; it is not a gain stage."
+      },
+      {
+       "id": "c",
+       "text": "The gain, by making gm·RS very large",
+       "misconception": "Aims for unity gain first.",
+       "rationale": "The gain is a result of the bias, not a first design choice."
+      }
+     ],
+     "explanation": "The follower's gain is below 1, so the input must be a bit larger than the output, and centering the source voltage gives symmetric swing room."
+    },
+    {
+     "id": "gr2-wk-002-s2",
+     "prompt": "Which quantity then drives the design?",
+     "brief": "Peak load current from the output peak",
+     "answer": {
+      "id": "a",
+      "text": "The peak load current: the peak output voltage divided by RL"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "The peak load current: the peak output voltage divided by RL",
+       "correct": true
+      },
+      {
+       "id": "b",
+       "text": "The peak-to-peak output voltage divided by RL",
+       "correct": false,
+       "rationale": "The peak load current uses the peak value, half of the peak-to-peak swing."
+      },
+      {
+       "id": "c",
+       "text": "The DC supply voltage divided by RL",
+       "correct": false,
+       "rationale": "The load is ac coupled and carries only the signal."
+      },
+      {
+       "id": "d",
+       "text": "The input signal divided by Ri",
+       "correct": false,
+       "rationale": "The load current comes from the output voltage and RL."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "b",
+       "text": "The peak-to-peak output voltage divided by RL",
+       "misconception": "Uses peak-to-peak instead of peak.",
+       "rationale": "The peak load current uses the peak value, half of the peak-to-peak swing."
+      },
+      {
+       "id": "c",
+       "text": "The DC supply voltage divided by RL",
+       "misconception": "Uses a DC quantity.",
+       "rationale": "The load is ac coupled and carries only the signal."
+      },
+      {
+       "id": "d",
+       "text": "The input signal divided by Ri",
+       "misconception": "Uses the input side.",
+       "rationale": "The load current comes from the output voltage and RL."
+      }
+     ],
+     "explanation": "The load takes a current that follows the output waveform; its peak value sets how much extra current RS must handle."
+    },
+    {
+     "id": "gr2-wk-002-s3",
+     "prompt": "Which moment in the output cycle sets RS?",
+     "brief": "Worst case at the negative peak",
+     "answer": {
+      "id": "b",
+      "text": "The negative output peak, where RS carries the drain current plus the load current"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "The positive output peak",
+       "correct": false,
+       "rationale": "At the positive peak the load draws current away from the source node, so RS carries less."
+      },
+      {
+       "id": "b",
+       "text": "The negative output peak, where RS carries the drain current plus the load current",
+       "correct": true
+      },
+      {
+       "id": "c",
+       "text": "The instant the signal crosses zero",
+       "correct": false,
+       "rationale": "The extreme case occurs at the peaks, not at rest."
+      },
+      {
+       "id": "d",
+       "text": "Whenever the load is disconnected",
+       "correct": false,
+       "rationale": "Without a load there is no extra current to account for."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "The positive output peak",
+       "misconception": "Picks the wrong half cycle.",
+       "rationale": "At the positive peak the load draws current away from the source node, so RS carries less."
+      },
+      {
+       "id": "c",
+       "text": "The instant the signal crosses zero",
+       "misconception": "Looks only at the quiescent point.",
+       "rationale": "The extreme case occurs at the peaks, not at rest."
+      },
+      {
+       "id": "d",
+       "text": "Whenever the load is disconnected",
+       "misconception": "Removes the load effect.",
+       "rationale": "Without a load there is no extra current to account for."
+      }
+     ],
+     "explanation": "At the negative peak the load pushes current back into the source node, so RS must carry ID,min plus the peak load current."
+    },
+    {
+     "id": "gr2-wk-002-s4",
+     "prompt": "How is RS found?",
+     "brief": "RS from the worst-case voltage and current",
+     "answer": {
+      "id": "c",
+      "text": "The smallest RS voltage over the largest RS current (ID,min plus the peak load current), then a standard value"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "The DC source voltage divided by the DC drain current only",
+       "correct": false,
+       "rationale": "That would size RS for the quiescent case and give far too little drive."
+      },
+      {
+       "id": "b",
+       "text": "RL in parallel with 1/gm",
+       "correct": false,
+       "rationale": "That expression describes Ro, not the bias resistor."
+      },
+      {
+       "id": "c",
+       "text": "The smallest RS voltage over the largest RS current (ID,min plus the peak load current), then a standard value",
+       "correct": true
+      },
+      {
+       "id": "d",
+       "text": "VDD divided by the peak load current",
+       "correct": false,
+       "rationale": "The relevant voltage is the lowest voltage across RS, near the negative peak."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "The DC source voltage divided by the DC drain current only",
+       "misconception": "Ignores the load current.",
+       "rationale": "That would size RS for the quiescent case and give far too little drive."
+      },
+      {
+       "id": "b",
+       "text": "RL in parallel with 1/gm",
+       "misconception": "Uses the output-resistance expression.",
+       "rationale": "That expression describes Ro, not the bias resistor."
+      },
+      {
+       "id": "d",
+       "text": "VDD divided by the peak load current",
+       "misconception": "Uses the wrong voltage.",
+       "rationale": "The relevant voltage is the lowest voltage across RS, near the negative peak."
+      }
+     ],
+     "explanation": "Ohm's law at the worst case: the lowest voltage across RS divided by the highest current through it."
+    },
+    {
+     "id": "gr2-wk-002-s5",
+     "prompt": "Then the DC bias?",
+     "brief": "ID, VOV, VGS and VG from RS",
+     "answer": {
+      "id": "d",
+      "text": "The DC drain current equals the DC source voltage over RS; the overdrive follows from that current; then VGS and VG"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "The drain current from the gain target, as in the CS design",
+       "correct": false,
+       "rationale": "The follower is designed from the load and swing, not from a gain target."
+      },
+      {
+       "id": "b",
+       "text": "VG equals VGS because the source is grounded",
+       "correct": false,
+       "rationale": "The source sits near half the supply, so VG = VGS plus that voltage."
+      },
+      {
+       "id": "c",
+       "text": "The drain current equals the peak load current",
+       "correct": false,
+       "rationale": "The quiescent current is set by the source voltage and RS."
+      },
+      {
+       "id": "d",
+       "text": "The DC drain current equals the DC source voltage over RS; the overdrive follows from that current; then VGS and VG",
+       "correct": true
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "The drain current from the gain target, as in the CS design",
+       "misconception": "Applies the common-source recipe.",
+       "rationale": "The follower is designed from the load and swing, not from a gain target."
+      },
+      {
+       "id": "b",
+       "text": "VG equals VGS because the source is grounded",
+       "misconception": "Forgets the source is above ground.",
+       "rationale": "The source sits near half the supply, so VG = VGS plus that voltage."
+      },
+      {
+       "id": "c",
+       "text": "The drain current equals the peak load current",
+       "misconception": "Equates a bias value with a signal peak.",
+       "rationale": "The quiescent current is set by the source voltage and RS."
+      }
+     ],
+     "explanation": "With RS fixed, the DC current is VS/RS. The device equation then gives the overdrive and VGS, and VG is VGS plus VS."
+    },
+    {
+     "id": "gr2-wk-002-s6",
+     "prompt": "What finishes the design?",
+     "brief": "Gate divider and simulation checks",
+     "answer": {
+      "id": "a",
+      "text": "The gate divider for VG and Rin, then a check: no cutoff at the negative peak, still saturated at the positive peak, and the gain close to the estimate"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "The gate divider for VG and Rin, then a check: no cutoff at the negative peak, still saturated at the positive peak, and the gain close to the estimate",
+       "correct": true
+      },
+      {
+       "id": "b",
+       "text": "Nothing: the design is complete once RS is chosen",
+       "correct": false,
+       "rationale": "The gate must be biased and the swing verified."
+      },
+      {
+       "id": "c",
+       "text": "Only a check that the gain equals 1",
+       "correct": false,
+       "rationale": "The follower's gain is a little below 1; the swing checks matter more."
+      },
+      {
+       "id": "d",
+       "text": "Adding a drain resistor to improve the gain",
+       "correct": false,
+       "rationale": "That would change the stage into something else."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "b",
+       "text": "Nothing: the design is complete once RS is chosen",
+       "misconception": "Stops before the gate network.",
+       "rationale": "The gate must be biased and the swing verified."
+      },
+      {
+       "id": "c",
+       "text": "Only a check that the gain equals 1",
+       "misconception": "Expects unity gain.",
+       "rationale": "The follower's gain is a little below 1; the swing checks matter more."
+      },
+      {
+       "id": "d",
+       "text": "Adding a drain resistor to improve the gain",
+       "misconception": "Applies the CS recipe again.",
+       "rationale": "That would change the stage into something else."
+      }
+     ],
+     "explanation": "The divider sets VG and Rin; the checks confirm both ends of the swing and the gain."
+    }
+   ],
+   "answer": {
+    "text": "Estimate the input swing and bias the source near mid-supply, use the peak load current, size RS at the negative-peak worst case, set the DC bias, then design the gate divider and verify."
+   },
+   "distractors": [],
+   "explanation": "Estimate the input swing and bias the source near mid-supply, use the peak load current, size RS at the negative-peak worst case, set the DC bias, then design the gate divider and verify.",
+   "resources": [
+    {
+     "type": "link",
+     "href": "lesson-guides/lesson-19.html",
+     "label": "Lesson 19 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
+    },
+    {
+     "type": "link",
+     "href": "lesson-guides/lesson-21.html",
+     "label": "Lesson 21 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
+    }
+   ],
+   "sources": [
+    {
+     "file": "lesson-guides/lesson-19.html",
+     "section": "A3"
+    },
+    {
+     "file": "lesson-guides/lesson-21.html",
+     "section": "A1"
+    },
+    {
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
+     "section": "p. 5"
+    }
+   ]
+  },
+  {
+   "id": "gr2-wk-003",
+   "type": "problem",
+   "topic": "DC operating point and region checks",
+   "objective": "Find a MOSFET operating point with a source resistor",
+   "prompt": "Find the DC operating point with a source resistor",
+   "setup": "For the circuit in the figure, find the DC drain current and decide the operating region. Given: VDD, RG1, RG2, RD, RS, Kn and Vt.",
+   "image": {
+    "src": "assets/study/resources/gr2/cs_dc_bias.svg",
+    "alt": "DC circuit: gate divider RG1/RG2, drain resistor RD from VDD, source resistor RS to ground.",
+    "caption": "DC bias circuit of an NMOS stage with a source resistor."
+   },
+   "steps": [
+    {
+     "id": "gr2-wk-003-s1",
+     "prompt": "What is the first move?",
+     "brief": "Assume saturation",
+     "answer": {
+      "id": "a",
+      "text": "Assume a region (saturation) and write the DC equations for it"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Assume a region (saturation) and write the DC equations for it",
+       "correct": true
+      },
+      {
+       "id": "b",
+       "text": "Use the triode equation first because it is more general",
+       "correct": false,
+       "rationale": "Saturation is the usual starting assumption and is checked afterwards."
+      },
+      {
+       "id": "c",
+       "text": "Find the small-signal gain first",
+       "correct": false,
+       "rationale": "The gain needs the bias point, which is what we are finding."
+      },
+      {
+       "id": "d",
+       "text": "Check VDS against VOV before doing anything",
+       "correct": false,
+       "rationale": "The check uses voltages that only exist after the analysis."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "b",
+       "text": "Use the triode equation first because it is more general",
+       "misconception": "Chooses the complicated model.",
+       "rationale": "Saturation is the usual starting assumption and is checked afterwards."
+      },
+      {
+       "id": "c",
+       "text": "Find the small-signal gain first",
+       "misconception": "Mixes DC and signal analysis.",
+       "rationale": "The gain needs the bias point, which is what we are finding."
+      },
+      {
+       "id": "d",
+       "text": "Check VDS against VOV before doing anything",
+       "misconception": "Tests before solving.",
+       "rationale": "The check uses voltages that only exist after the analysis."
+      }
+     ],
+     "explanation": "The equations depend on the region, so assume one, solve, and then confirm. That is the assume, analyze, confirm method."
+    },
+    {
+     "id": "gr2-wk-003-s2",
+     "prompt": "How is the gate voltage obtained?",
+     "brief": "VG from the divider",
+     "answer": {
+      "id": "b",
+      "text": "From the RG1–RG2 divider, since the gate draws no current"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "From VDD minus the drop across RD",
+       "correct": false,
+       "rationale": "The gate is connected to the divider, not to RD."
+      },
+      {
+       "id": "b",
+       "text": "From the RG1–RG2 divider, since the gate draws no current",
+       "correct": true
+      },
+      {
+       "id": "c",
+       "text": "It equals VGS",
+       "correct": false,
+       "rationale": "VG is measured to ground; VGS is measured to the source, which is above ground."
+      },
+      {
+       "id": "d",
+       "text": "It equals the threshold voltage",
+       "correct": false,
+       "rationale": "The gate voltage is set by the divider, whatever Vt is."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "From VDD minus the drop across RD",
+       "misconception": "Uses the drain side.",
+       "rationale": "The gate is connected to the divider, not to RD."
+      },
+      {
+       "id": "c",
+       "text": "It equals VGS",
+       "misconception": "Confuses VG with the gate-source voltage.",
+       "rationale": "VG is measured to ground; VGS is measured to the source, which is above ground."
+      },
+      {
+       "id": "d",
+       "text": "It equals the threshold voltage",
+       "misconception": "Assumes the gate sits at Vt.",
+       "rationale": "The gate voltage is set by the divider, whatever Vt is."
+      }
+     ],
+     "explanation": "No gate current means the divider is unloaded, so VG = VDD·RG2/(RG1+RG2)."
+    },
+    {
+     "id": "gr2-wk-003-s3",
+     "prompt": "How does the source resistor enter?",
+     "brief": "VGS = VG − ID·RS",
+     "answer": {
+      "id": "c",
+      "text": "VGS = VG − ID·RS, so the gate-source voltage depends on the drain current"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "VGS = VG because the source is grounded",
+       "correct": false,
+       "rationale": "With RS the source voltage is ID·RS, not zero."
+      },
+      {
+       "id": "b",
+       "text": "VGS = VDD − ID·RD",
+       "correct": false,
+       "rationale": "VGS is between gate and source; RD is on the drain side."
+      },
+      {
+       "id": "c",
+       "text": "VGS = VG − ID·RS, so the gate-source voltage depends on the drain current",
+       "correct": true
+      },
+      {
+       "id": "d",
+       "text": "RS simply adds to the gate divider",
+       "correct": false,
+       "rationale": "RS carries the drain current and sets the source voltage."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "VGS = VG because the source is grounded",
+       "misconception": "Ignores RS.",
+       "rationale": "With RS the source voltage is ID·RS, not zero."
+      },
+      {
+       "id": "b",
+       "text": "VGS = VDD − ID·RD",
+       "misconception": "Uses the drain network.",
+       "rationale": "VGS is between gate and source; RD is on the drain side."
+      },
+      {
+       "id": "d",
+       "text": "RS simply adds to the gate divider",
+       "misconception": "Treats RS as part of the divider.",
+       "rationale": "RS carries the drain current and sets the source voltage."
+      }
+     ],
+     "explanation": "The source sits at ID·RS above ground, so any change in the current changes VGS. This is the feedback."
+    },
+    {
+     "id": "gr2-wk-003-s4",
+     "prompt": "What equation results, and what do you do?",
+     "brief": "Quadratic in ID",
+     "answer": {
+      "id": "d",
+      "text": "Substituting into the square law gives a quadratic in ID; solve it"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "A linear equation in ID",
+       "correct": false,
+       "rationale": "The square law makes ID appear squared once VGS depends on ID."
+      },
+      {
+       "id": "b",
+       "text": "An equation to iterate with the Shockley diode equation",
+       "correct": false,
+       "rationale": "The transistor follows the MOSFET square law, not the diode equation."
+      },
+      {
+       "id": "c",
+       "text": "Neglect RS and use VGS = VG",
+       "correct": false,
+       "rationale": "That would remove the very effect the circuit has."
+      },
+      {
+       "id": "d",
+       "text": "Substituting into the square law gives a quadratic in ID; solve it",
+       "correct": true
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "A linear equation in ID",
+       "misconception": "Overlooks the square law.",
+       "rationale": "The square law makes ID appear squared once VGS depends on ID."
+      },
+      {
+       "id": "b",
+       "text": "An equation to iterate with the Shockley diode equation",
+       "misconception": "Imports a diode method.",
+       "rationale": "The transistor follows the MOSFET square law, not the diode equation."
+      },
+      {
+       "id": "c",
+       "text": "Neglect RS and use VGS = VG",
+       "misconception": "Drops the key element.",
+       "rationale": "That would remove the very effect the circuit has."
+      }
+     ],
+     "explanation": "Writing ID = ½Kn(VG − ID·RS − Vt)² and expanding gives a quadratic. Use consistent units."
+    },
+    {
+     "id": "gr2-wk-003-s5",
+     "prompt": "Which root do you keep?",
+     "brief": "The root with VGS above Vt",
+     "answer": {
+      "id": "a",
+      "text": "The one for which VGS is above the threshold voltage (the other implies the device is off)"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "The one for which VGS is above the threshold voltage (the other implies the device is off)",
+       "correct": true
+      },
+      {
+       "id": "b",
+       "text": "Always the larger root",
+       "correct": false,
+       "rationale": "The larger root can correspond to VGS below Vt."
+      },
+      {
+       "id": "c",
+       "text": "Always the smaller root",
+       "correct": false,
+       "rationale": "Sometimes the smaller root is the inconsistent one."
+      },
+      {
+       "id": "d",
+       "text": "The average of the two roots",
+       "correct": false,
+       "rationale": "Only one root matches the physical circuit."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "b",
+       "text": "Always the larger root",
+       "misconception": "Uses a fixed rule.",
+       "rationale": "The larger root can correspond to VGS below Vt."
+      },
+      {
+       "id": "c",
+       "text": "Always the smaller root",
+       "misconception": "Uses a fixed rule.",
+       "rationale": "Sometimes the smaller root is the inconsistent one."
+      },
+      {
+       "id": "d",
+       "text": "The average of the two roots",
+       "misconception": "Combines the roots.",
+       "rationale": "Only one root matches the physical circuit."
+      }
+     ],
+     "explanation": "Substitute each root back: the valid one gives VGS > Vt and a saturated device."
+    },
+    {
+     "id": "gr2-wk-003-s6",
+     "prompt": "What confirms the result?",
+     "brief": "VDS ≥ VOV, else triode",
+     "answer": {
+      "id": "b",
+      "text": "Find VD, VS and VDS from the current, then check VDS ≥ VOV; if it fails, redo the analysis in triode"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Check that VGS is smaller than VDS",
+       "correct": false,
+       "rationale": "Saturation compares VDS with the overdrive voltage VOV = VGS − Vt."
+      },
+      {
+       "id": "b",
+       "text": "Find VD, VS and VDS from the current, then check VDS ≥ VOV; if it fails, redo the analysis in triode",
+       "correct": true
+      },
+      {
+       "id": "c",
+       "text": "Check that ID equals IS",
+       "correct": false,
+       "rationale": "The drain and source currents are equal anyway."
+      },
+      {
+       "id": "d",
+       "text": "Check that VD equals VG",
+       "correct": false,
+       "rationale": "There is no such requirement."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "Check that VGS is smaller than VDS",
+       "misconception": "Compares the wrong pair.",
+       "rationale": "Saturation compares VDS with the overdrive voltage VOV = VGS − Vt."
+      },
+      {
+       "id": "c",
+       "text": "Check that ID equals IS",
+       "misconception": "Checks something always true.",
+       "rationale": "The drain and source currents are equal anyway."
+      },
+      {
+       "id": "d",
+       "text": "Check that VD equals VG",
+       "misconception": "Invents a condition.",
+       "rationale": "There is no such requirement."
+      }
+     ],
+     "explanation": "Saturation requires VDS ≥ VOV. If it is not met, the assumed region was wrong and the triode equation applies."
+    }
+   ],
+   "answer": {
+    "text": "Assume saturation, get VG from the divider, write VGS = VG − ID·RS, solve the resulting quadratic, keep the root with VGS > Vt, and confirm VDS ≥ VOV."
+   },
+   "distractors": [],
+   "explanation": "Assume saturation, get VG from the divider, write VGS = VG − ID·RS, solve the resulting quadratic, keep the root with VGS > Vt, and confirm VDS ≥ VOV.",
+   "resources": [
+    {
+     "type": "link",
+     "href": "lesson-guides/lesson-21.html",
+     "label": "Lesson 21 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
+    },
+    {
+     "type": "link",
+     "href": "lesson-guides/lesson-26.html",
+     "label": "Lesson 26 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
+    }
+   ],
+   "sources": [
+    {
+     "file": "lesson-guides/lesson-21.html",
+     "section": "A3"
+    },
+    {
+     "file": "lesson-guides/lesson-21.html",
+     "section": "A4"
+    },
+    {
+     "file": "lesson-guides/lesson-26.html",
+     "section": "A3"
+    }
+   ]
+  },
+  {
+   "id": "gr2-wk-004",
+   "type": "problem",
+   "topic": "Multi-stage amplifier planning",
+   "objective": "Find the gain of a cascade including loading",
+   "prompt": "Gain of a two-stage amplifier from the source to the load",
+   "setup": "Each stage in the figure is described by its input resistance, open-circuit gain and output resistance. Find the overall voltage gain from the source voltage VS to the load voltage vo.",
+   "image": {
+    "src": "assets/study/resources/gr2/cascade.svg",
+    "alt": "Two stages drawn as two-port models: Ri1, Avo1·vi1, Ro1 then Ri2, Avo2·vi2, Ro2, with a source resistance RS and load RL.",
+    "caption": "Source, two cascaded two-port stages and a load."
+   },
+   "steps": [
+    {
+     "id": "gr2-wk-004-s1",
+     "prompt": "How do you treat each stage?",
+     "brief": "Each stage as a two-port",
+     "answer": {
+      "id": "b",
+      "text": "As a two-port: an input resistance, a controlled source Avo·vi and a series output resistance"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "As a transistor with its own bias network",
+       "correct": false,
+       "rationale": "The two-port model summarizes the stage from the outside."
+      },
+      {
+       "id": "b",
+       "text": "As a two-port: an input resistance, a controlled source Avo·vi and a series output resistance",
+       "correct": true
+      },
+      {
+       "id": "c",
+       "text": "As an ideal voltage source of value Avo·vi",
+       "correct": false,
+       "rationale": "The resistances create the loading dividers."
+      },
+      {
+       "id": "d",
+       "text": "By its open-circuit gain only",
+       "correct": false,
+       "rationale": "Gain alone ignores how the stages load each other."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "As a transistor with its own bias network",
+       "misconception": "Looks inside the stage.",
+       "rationale": "The two-port model summarizes the stage from the outside."
+      },
+      {
+       "id": "c",
+       "text": "As an ideal voltage source of value Avo·vi",
+       "misconception": "Drops the resistances.",
+       "rationale": "The resistances create the loading dividers."
+      },
+      {
+       "id": "d",
+       "text": "By its open-circuit gain only",
+       "misconception": "Drops Ri and Ro.",
+       "rationale": "Gain alone ignores how the stages load each other."
+      }
+     ],
+     "explanation": "The two-port model captures what a neighbor stage sees (Ri) and what it drives with (Avo·vi behind Ro)."
+    },
+    {
+     "id": "gr2-wk-004-s2",
+     "prompt": "What loads stage 1?",
+     "brief": "Ro1 against Ri2",
+     "answer": {
+      "id": "c",
+      "text": "Stage 2's input resistance Ri2, in a divider with stage 1's output resistance Ro1"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "The load RL directly",
+       "correct": false,
+       "rationale": "Stage 1 drives stage 2, not the final load."
+      },
+      {
+       "id": "b",
+       "text": "Stage 1's own input resistance Ri1",
+       "correct": false,
+       "rationale": "Ri1 is at the input of stage 1."
+      },
+      {
+       "id": "c",
+       "text": "Stage 2's input resistance Ri2, in a divider with stage 1's output resistance Ro1",
+       "correct": true
+      },
+      {
+       "id": "d",
+       "text": "The source resistance RS",
+       "correct": false,
+       "rationale": "RS is at the front end and faces Ri1."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "The load RL directly",
+       "misconception": "Skips the interstage connection.",
+       "rationale": "Stage 1 drives stage 2, not the final load."
+      },
+      {
+       "id": "b",
+       "text": "Stage 1's own input resistance Ri1",
+       "misconception": "Uses the wrong side.",
+       "rationale": "Ri1 is at the input of stage 1."
+      },
+      {
+       "id": "d",
+       "text": "The source resistance RS",
+       "misconception": "Mixes up input and output.",
+       "rationale": "RS is at the front end and faces Ri1."
+      }
+     ],
+     "explanation": "Stage 1 looks like Avo1·vi1 behind Ro1, and stage 2 appears as Ri2, so the divider is Ri2/(Ri2+Ro1)."
+    },
+    {
+     "id": "gr2-wk-004-s3",
+     "prompt": "What loads stage 2?",
+     "brief": "Ro2 against RL",
+     "answer": {
+      "id": "d",
+      "text": "The load RL, in a divider with stage 2's output resistance Ro2"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Stage 1's output resistance",
+       "correct": false,
+       "rationale": "Signal flows forward; stage 2 is loaded by what follows it."
+      },
+      {
+       "id": "b",
+       "text": "Stage 2's input resistance",
+       "correct": false,
+       "rationale": "Ri2 loads stage 1, not stage 2."
+      },
+      {
+       "id": "c",
+       "text": "Nothing: the last stage is unloaded",
+       "correct": false,
+       "rationale": "The load always forms a divider with the output resistance."
+      },
+      {
+       "id": "d",
+       "text": "The load RL, in a divider with stage 2's output resistance Ro2",
+       "correct": true
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "Stage 1's output resistance",
+       "misconception": "Looks backward.",
+       "rationale": "Signal flows forward; stage 2 is loaded by what follows it."
+      },
+      {
+       "id": "b",
+       "text": "Stage 2's input resistance",
+       "misconception": "Confuses input and output.",
+       "rationale": "Ri2 loads stage 1, not stage 2."
+      },
+      {
+       "id": "c",
+       "text": "Nothing: the last stage is unloaded",
+       "misconception": "Ignores RL.",
+       "rationale": "The load always forms a divider with the output resistance."
+      }
+     ],
+     "explanation": "The divider RL/(RL+Ro2) reduces the voltage reaching the load."
+    },
+    {
+     "id": "gr2-wk-004-s4",
+     "prompt": "How do you combine the stages?",
+     "brief": "Product of loaded gains",
+     "answer": {
+      "id": "a",
+      "text": "Multiply the two stage gains, each already reduced by its loading divider, to get the gain from the input of stage 1 to the load"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Multiply the two stage gains, each already reduced by its loading divider, to get the gain from the input of stage 1 to the load",
+       "correct": true
+      },
+      {
+       "id": "b",
+       "text": "Multiply Avo1 and Avo2 only",
+       "correct": false,
+       "rationale": "The dividers reduce each stage below its open-circuit gain."
+      },
+      {
+       "id": "c",
+       "text": "Add the two gains",
+       "correct": false,
+       "rationale": "Cascaded gains multiply."
+      },
+      {
+       "id": "d",
+       "text": "Use only the last stage's gain",
+       "correct": false,
+       "rationale": "Both stages amplify the signal."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "b",
+       "text": "Multiply Avo1 and Avo2 only",
+       "misconception": "Uses the unloaded gains.",
+       "rationale": "The dividers reduce each stage below its open-circuit gain."
+      },
+      {
+       "id": "c",
+       "text": "Add the two gains",
+       "misconception": "Adds instead of multiplies.",
+       "rationale": "Cascaded gains multiply."
+      },
+      {
+       "id": "d",
+       "text": "Use only the last stage's gain",
+       "misconception": "Drops stage 1.",
+       "rationale": "Both stages amplify the signal."
+      }
+     ],
+     "explanation": "The overall gain is Av = [Avo1·Ri2/(Ri2+Ro1)]·[Avo2·RL/(RL+Ro2)]."
+    },
+    {
+     "id": "gr2-wk-004-s5",
+     "prompt": "How is the source included?",
+     "brief": "Input divider with RS",
+     "answer": {
+      "id": "b",
+      "text": "Multiply by the input divider Ri1/(Ri1 + RS) to get the gain from VS to the load"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Add RS to Ro1",
+       "correct": false,
+       "rationale": "RS is in series with the source and faces the input of stage 1."
+      },
+      {
+       "id": "b",
+       "text": "Multiply by the input divider Ri1/(Ri1 + RS) to get the gain from VS to the load",
+       "correct": true
+      },
+      {
+       "id": "c",
+       "text": "Divide the gain by RS",
+       "correct": false,
+       "rationale": "RS only forms a voltage divider."
+      },
+      {
+       "id": "d",
+       "text": "Nothing: Av already includes the source",
+       "correct": false,
+       "rationale": "Av starts at the amplifier input; the source loss is extra."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "Add RS to Ro1",
+       "misconception": "Places RS at the wrong node.",
+       "rationale": "RS is in series with the source and faces the input of stage 1."
+      },
+      {
+       "id": "c",
+       "text": "Divide the gain by RS",
+       "misconception": "Treats RS as a gain factor.",
+       "rationale": "RS only forms a voltage divider."
+      },
+      {
+       "id": "d",
+       "text": "Nothing: Av already includes the source",
+       "misconception": "Confuses Av with Gv.",
+       "rationale": "Av starts at the amplifier input; the source loss is extra."
+      }
+     ],
+     "explanation": "The source resistance forms a divider with Ri1 at the front of the cascade, so Gv = Ri1/(Ri1+RS) × Av includes that front-end loss on top of the stage-to-stage losses."
+    },
+    {
+     "id": "gr2-wk-004-s6",
+     "prompt": "Why is a common-drain stage a good second stage?",
+     "brief": "Large Ri2, small Ro2",
+     "answer": {
+      "id": "c",
+      "text": "Its large input resistance barely loads stage 1, and its small output resistance barely loses signal into RL"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "It provides more voltage gain than any other stage",
+       "correct": false,
+       "rationale": "A follower has a gain just below 1."
+      },
+      {
+       "id": "b",
+       "text": "It inverts the signal to correct the first stage",
+       "correct": false,
+       "rationale": "It does not invert."
+      },
+      {
+       "id": "c",
+       "text": "Its large input resistance barely loads stage 1, and its small output resistance barely loses signal into RL",
+       "correct": true
+      },
+      {
+       "id": "d",
+       "text": "It has the same Ri and Ro as the first stage",
+       "correct": false,
+       "rationale": "Its value is exactly that it differs from a gain stage."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "It provides more voltage gain than any other stage",
+       "misconception": "Credits it with gain.",
+       "rationale": "A follower has a gain just below 1."
+      },
+      {
+       "id": "b",
+       "text": "It inverts the signal to correct the first stage",
+       "misconception": "Invents a correction.",
+       "rationale": "It does not invert."
+      },
+      {
+       "id": "d",
+       "text": "It has the same Ri and Ro as the first stage",
+       "misconception": "Assumes matched stages.",
+       "rationale": "Its value is exactly that it differs from a gain stage."
+      }
+     ],
+     "explanation": "A CS stage gives gain but has a large Ro; a CD stage after it keeps both dividers close to 1."
+    }
+   ],
+   "answer": {
+    "text": "Model each stage as a two-port, include the divider between Ro of one stage and Ri of the next, apply the last divider with RL, multiply, then include the source divider for the gain from VS."
+   },
+   "distractors": [],
+   "explanation": "Model each stage as a two-port, include the divider between Ro of one stage and Ri of the next, apply the last divider with RL, multiply, then include the source divider for the gain from VS.",
+   "resources": [
+    {
+     "type": "link",
+     "href": "lesson-guides/lesson-15.html",
+     "label": "Lesson 15 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
+    },
+    {
+     "type": "link",
+     "href": "lesson-guides/lesson-21.html",
+     "label": "Lesson 21 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
+    }
+   ],
+   "sources": [
+    {
+     "file": "lesson-guides/lesson-15.html",
+     "section": "A2"
+    },
+    {
+     "file": "lesson-guides/lesson-21.html",
+     "section": "A8"
+    },
+    {
+     "file": "lesson-guides/lesson-19.html",
+     "section": "A1"
+    }
+   ]
+  },
+  {
+   "id": "gr2-wk-005",
+   "type": "problem",
+   "topic": "BJT currents, bias and small-signal model",
+   "objective": "Bias a divider-biased BJT and find its small-signal parameters",
+   "prompt": "Bias a divider-biased BJT and find its small-signal model",
+   "setup": "Analyze the biased npn transistor in the figure. Given: VCC, RB1, RB2, RC, RE, β and the base-emitter turn-on voltage.",
+   "image": {
+    "src": "assets/study/resources/gr2/bjt_bias.svg",
+    "alt": "npn transistor with base divider RB1/RB2 from VCC, collector resistor RC and emitter resistor RE.",
+    "caption": "Voltage-divider-biased npn BJT."
+   },
+   "steps": [
+    {
+     "id": "gr2-wk-005-s1",
+     "prompt": "How is the transistor modeled for the DC analysis?",
+     "brief": "Diode plus βIB source",
+     "answer": {
+      "id": "c",
+      "text": "A diode drop from base to emitter and a controlled source β·IB from collector to emitter"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "A resistor from base to emitter",
+       "correct": false,
+       "rationale": "The forward-biased junction has an almost constant drop."
+      },
+      {
+       "id": "b",
+       "text": "A voltage source equal to VCC",
+       "correct": false,
+       "rationale": "The drop across the junction is about 0.7 V, not the supply."
+      },
+      {
+       "id": "c",
+       "text": "A diode drop from base to emitter and a controlled source β·IB from collector to emitter",
+       "correct": true
+      },
+      {
+       "id": "d",
+       "text": "An open circuit at the base",
+       "correct": false,
+       "rationale": "The base draws a current that sets the collector current."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "A resistor from base to emitter",
+       "misconception": "Treats the junction as a resistor.",
+       "rationale": "The forward-biased junction has an almost constant drop."
+      },
+      {
+       "id": "b",
+       "text": "A voltage source equal to VCC",
+       "misconception": "Uses the supply.",
+       "rationale": "The drop across the junction is about 0.7 V, not the supply."
+      },
+      {
+       "id": "d",
+       "text": "An open circuit at the base",
+       "misconception": "Treats the base like a FET gate.",
+       "rationale": "The base draws a current that sets the collector current."
+      }
+     ],
+     "explanation": "In active mode the base-emitter junction is a diode with roughly constant drop, and the collector current is β times the base current."
+    },
+    {
+     "id": "gr2-wk-005-s2",
+     "prompt": "How do you handle the base divider?",
+     "brief": "Thevenin equivalent",
+     "answer": {
+      "id": "d",
+      "text": "Replace it by its Thevenin equivalent (Vth and Rth), because the base draws current"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Treat it as an unloaded divider",
+       "correct": false,
+       "rationale": "Unlike a FET gate, the base draws current and loads the divider."
+      },
+      {
+       "id": "b",
+       "text": "Ignore RB2",
+       "correct": false,
+       "rationale": "Both resistors set the Thevenin values."
+      },
+      {
+       "id": "c",
+       "text": "Put RB1 and RB2 in series with RE",
+       "correct": false,
+       "rationale": "The divider connects from VCC to ground, not in series with RE."
+      },
+      {
+       "id": "d",
+       "text": "Replace it by its Thevenin equivalent (Vth and Rth), because the base draws current",
+       "correct": true
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "Treat it as an unloaded divider",
+       "misconception": "Assumes no base current.",
+       "rationale": "Unlike a FET gate, the base draws current and loads the divider."
+      },
+      {
+       "id": "b",
+       "text": "Ignore RB2",
+       "misconception": "Drops a component.",
+       "rationale": "Both resistors set the Thevenin values."
+      },
+      {
+       "id": "c",
+       "text": "Put RB1 and RB2 in series with RE",
+       "misconception": "Rearranges the circuit.",
+       "rationale": "The divider connects from VCC to ground, not in series with RE."
+      }
+     ],
+     "explanation": "Vth = VCC·RB2/(RB1+RB2) and Rth = RB1∥RB2 give a single-loop base circuit."
+    },
+    {
+     "id": "gr2-wk-005-s3",
+     "prompt": "What equation gives the base current?",
+     "brief": "KVL around the base loop",
+     "answer": {
+      "id": "a",
+      "text": "KVL around the base loop, with the emitter current (β+1)IB flowing in RE"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "KVL around the base loop, with the emitter current (β+1)IB flowing in RE",
+       "correct": true
+      },
+      {
+       "id": "b",
+       "text": "KVL with only IB flowing in RE",
+       "correct": false,
+       "rationale": "All of the emitter current, (β+1)IB, flows through RE."
+      },
+      {
+       "id": "c",
+       "text": "KCL at the collector node",
+       "correct": false,
+       "rationale": "The base current comes from the base loop."
+      },
+      {
+       "id": "d",
+       "text": "Ohm's law across RB2 only",
+       "correct": false,
+       "rationale": "The loop includes Rth, the junction drop and RE."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "b",
+       "text": "KVL with only IB flowing in RE",
+       "misconception": "Forgets the collector current in the emitter.",
+       "rationale": "All of the emitter current, (β+1)IB, flows through RE."
+      },
+      {
+       "id": "c",
+       "text": "KCL at the collector node",
+       "misconception": "Uses a different node equation.",
+       "rationale": "The base current comes from the base loop."
+      },
+      {
+       "id": "d",
+       "text": "Ohm's law across RB2 only",
+       "misconception": "Uses part of the circuit.",
+       "rationale": "The loop includes Rth, the junction drop and RE."
+      }
+     ],
+     "explanation": "Going around the base loop: Vth − Rth·IB − VBE − (β+1)IB·RE = 0. Solving it for IB gives the base current from which every other DC quantity follows."
+    },
+    {
+     "id": "gr2-wk-005-s4",
+     "prompt": "Then what?",
+     "brief": "Collector and emitter currents, voltages",
+     "answer": {
+      "id": "b",
+      "text": "IC = β·IB and IE = (β+1)·IB, then the terminal voltages"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "IC = IB and IE = 2·IB",
+       "correct": false,
+       "rationale": "IC is β times IB, and IE is the sum of IB and IC."
+      },
+      {
+       "id": "b",
+       "text": "IC = β·IB and IE = (β+1)·IB, then the terminal voltages",
+       "correct": true
+      },
+      {
+       "id": "c",
+       "text": "IC from VCC divided by RC",
+       "correct": false,
+       "rationale": "The collector current follows the transistor, not VCC over RC."
+      },
+      {
+       "id": "d",
+       "text": "IE = IB",
+       "correct": false,
+       "rationale": "The emitter carries both the base and the collector current."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "IC = IB and IE = 2·IB",
+       "misconception": "Guesses simple ratios.",
+       "rationale": "IC is β times IB, and IE is the sum of IB and IC."
+      },
+      {
+       "id": "c",
+       "text": "IC from VCC divided by RC",
+       "misconception": "Ignores the transistor.",
+       "rationale": "The collector current follows the transistor, not VCC over RC."
+      },
+      {
+       "id": "d",
+       "text": "IE = IB",
+       "misconception": "Drops the collector current.",
+       "rationale": "The emitter carries both the base and the collector current."
+      }
+     ],
+     "explanation": "Currents then give VE = IE·RE, VB = VE + VBE and VC = VCC − IC·RC."
+    },
+    {
+     "id": "gr2-wk-005-s5",
+     "prompt": "What confirms active mode?",
+     "brief": "VC ≥ VB",
+     "answer": {
+      "id": "c",
+      "text": "The collector voltage is at least the base voltage (the collector junction is reverse biased)"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "VBE is larger than VCC",
+       "correct": false,
+       "rationale": "The test is on the collector junction."
+      },
+      {
+       "id": "b",
+       "text": "IC is smaller than IB",
+       "correct": false,
+       "rationale": "In active mode IC = βIB is larger than IB."
+      },
+      {
+       "id": "c",
+       "text": "The collector voltage is at least the base voltage (the collector junction is reverse biased)",
+       "correct": true
+      },
+      {
+       "id": "d",
+       "text": "The emitter voltage is above the base voltage",
+       "correct": false,
+       "rationale": "The emitter sits about one diode drop below the base."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "VBE is larger than VCC",
+       "misconception": "Compares the wrong voltages.",
+       "rationale": "The test is on the collector junction."
+      },
+      {
+       "id": "b",
+       "text": "IC is smaller than IB",
+       "misconception": "Inverts the gain relation.",
+       "rationale": "In active mode IC = βIB is larger than IB."
+      },
+      {
+       "id": "d",
+       "text": "The emitter voltage is above the base voltage",
+       "misconception": "Reverses the junction.",
+       "rationale": "The emitter sits about one diode drop below the base."
+      }
+     ],
+     "explanation": "If VC falls below VB, the collector junction is forward biased and the transistor is in saturation."
+    },
+    {
+     "id": "gr2-wk-005-s6",
+     "prompt": "Which small-signal parameters follow?",
+     "brief": "gm = IC/VT, rπ = β/gm",
+     "answer": {
+      "id": "d",
+      "text": "gm = IC/VT, then rπ = β/gm"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "gm = √(2·Kn·IC), as for a MOSFET",
+       "correct": false,
+       "rationale": "The BJT's gm depends on IC and the thermal voltage."
+      },
+      {
+       "id": "b",
+       "text": "rπ = VT/IC",
+       "correct": false,
+       "rationale": "The input resistance relates to the base current: β/gm."
+      },
+      {
+       "id": "c",
+       "text": "gm = β/rπ with rπ set by RE",
+       "correct": false,
+       "rationale": "RE does not define rπ; the Q-point does."
+      },
+      {
+       "id": "d",
+       "text": "gm = IC/VT, then rπ = β/gm",
+       "correct": true
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "gm = √(2·Kn·IC), as for a MOSFET",
+       "misconception": "Uses the FET formula.",
+       "rationale": "The BJT's gm depends on IC and the thermal voltage."
+      },
+      {
+       "id": "b",
+       "text": "rπ = VT/IC",
+       "misconception": "Uses the wrong current.",
+       "rationale": "The input resistance relates to the base current: β/gm."
+      },
+      {
+       "id": "c",
+       "text": "gm = β/rπ with rπ set by RE",
+       "misconception": "Mixes bias and signal elements.",
+       "rationale": "RE does not define rπ; the Q-point does."
+      }
+     ],
+     "explanation": "Once the Q-point is known, gm is IC over the thermal voltage and the input resistance rπ is β/gm."
+    }
+   ],
+   "answer": {
+    "text": "Use the diode-plus-controlled-source model, Thevenize the divider, write the base-loop KVL, get IC and IE, confirm VC ≥ VB, then gm = IC/VT and rπ = β/gm."
+   },
+   "distractors": [],
+   "explanation": "Use the diode-plus-controlled-source model, Thevenize the divider, write the base-loop KVL, get IC and IE, confirm VC ≥ VB, then gm = IC/VT and rπ = β/gm.",
+   "resources": [
+    {
+     "type": "link",
+     "href": "lesson-guides/lesson-25.html",
+     "label": "Lesson 25 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
+    }
+   ],
+   "sources": [
+    {
+     "file": "lesson-guides/lesson-25.html",
+     "section": "A4"
+    },
+    {
+     "file": "lesson-guides/lesson-25.html",
+     "section": "A5"
+    }
+   ]
+  },
+  {
+   "id": "gr2-wk-006",
+   "type": "problem",
+   "topic": "Small-signal model and gm",
+   "objective": "Find the small-signal gain of a loaded common-source stage",
+   "prompt": "Small-signal gain of a common-source stage with a load",
+   "setup": "The stage in the figure is already biased. Find its small-signal voltage gain with the load RL connected.",
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source stage with gate divider, drain resistor RD, grounded source, coupling capacitors and load RL.",
+    "caption": "Biased common-source stage with coupling capacitors and a load."
+   },
+   "steps": [
+    {
+     "id": "gr2-wk-006-s1",
+     "prompt": "What happens to the DC supply?",
+     "brief": "Supply becomes ac ground",
+     "answer": {
+      "id": "d",
+      "text": "It is set to zero: VDD becomes an ac ground"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "It is replaced by an open circuit",
+       "correct": false,
+       "rationale": "An ideal DC voltage supply has no signal across it, so it acts as a short."
+      },
+      {
+       "id": "b",
+       "text": "It is kept at its DC value",
+       "correct": false,
+       "rationale": "The signal analysis uses only the changes."
+      },
+      {
+       "id": "c",
+       "text": "It becomes a resistor equal to RD",
+       "correct": false,
+       "rationale": "No such replacement exists."
+      },
+      {
+       "id": "d",
+       "text": "It is set to zero: VDD becomes an ac ground",
+       "correct": true
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "It is replaced by an open circuit",
+       "misconception": "Mixes up voltage and current sources.",
+       "rationale": "An ideal DC voltage supply has no signal across it, so it acts as a short."
+      },
+      {
+       "id": "b",
+       "text": "It is kept at its DC value",
+       "misconception": "Keeps the bias in the signal circuit.",
+       "rationale": "The signal analysis uses only the changes."
+      },
+      {
+       "id": "c",
+       "text": "It becomes a resistor equal to RD",
+       "misconception": "Invents a replacement.",
+       "rationale": "No such replacement exists."
+      }
+     ],
+     "explanation": "A DC voltage source holds its voltage constant, so its signal voltage is zero: a short to ground."
+    },
+    {
+     "id": "gr2-wk-006-s2",
+     "prompt": "What about the coupling capacitors?",
+     "brief": "Capacitors become shorts",
+     "answer": {
+      "id": "a",
+      "text": "Large coupling capacitors become short circuits at signal frequencies"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Large coupling capacitors become short circuits at signal frequencies",
+       "correct": true
+      },
+      {
+       "id": "b",
+       "text": "They become open circuits",
+       "correct": false,
+       "rationale": "They block DC but pass the signal."
+      },
+      {
+       "id": "c",
+       "text": "They are kept as capacitors and their charge computed",
+       "correct": false,
+       "rationale": "For mid-band they are simply shorts."
+      },
+      {
+       "id": "d",
+       "text": "They are replaced by resistors equal to RL",
+       "correct": false,
+       "rationale": "No such substitution exists."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "b",
+       "text": "They become open circuits",
+       "misconception": "Uses the DC behavior.",
+       "rationale": "They block DC but pass the signal."
+      },
+      {
+       "id": "c",
+       "text": "They are kept as capacitors and their charge computed",
+       "misconception": "Over-complicates.",
+       "rationale": "For mid-band they are simply shorts."
+      },
+      {
+       "id": "d",
+       "text": "They are replaced by resistors equal to RL",
+       "misconception": "Invents a substitution.",
+       "rationale": "No such substitution exists."
+      }
+     ],
+     "explanation": "At the signal frequency a large capacitor is a short, so RL appears at the drain."
+    },
+    {
+     "id": "gr2-wk-006-s3",
+     "prompt": "What replaces the transistor?",
+     "brief": "Small-signal model",
+     "answer": {
+      "id": "b",
+      "text": "A small-signal model: an open gate and a controlled current source gm·vgs from drain to source (with ro in parallel)"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "The square-law equation, kept as is",
+       "correct": false,
+       "rationale": "The small-signal model is linear."
+      },
+      {
+       "id": "b",
+       "text": "A small-signal model: an open gate and a controlled current source gm·vgs from drain to source (with ro in parallel)",
+       "correct": true
+      },
+      {
+       "id": "c",
+       "text": "A short between gate and source",
+       "correct": false,
+       "rationale": "The gate draws no current."
+      },
+      {
+       "id": "d",
+       "text": "A resistor between drain and source of value RD",
+       "correct": false,
+       "rationale": "The transistor is replaced by a controlled source."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "The square-law equation, kept as is",
+       "misconception": "Keeps the nonlinear model.",
+       "rationale": "The small-signal model is linear."
+      },
+      {
+       "id": "c",
+       "text": "A short between gate and source",
+       "misconception": "Treats the gate as a short.",
+       "rationale": "The gate draws no current."
+      },
+      {
+       "id": "d",
+       "text": "A resistor between drain and source of value RD",
+       "misconception": "Uses the load resistor.",
+       "rationale": "The transistor is replaced by a controlled source."
+      }
+     ],
+     "explanation": "The model is linear: the gate is open and the drain current is gm times the gate-source signal."
+    },
+    {
+     "id": "gr2-wk-006-s4",
+     "prompt": "How is vgs related to the input?",
+     "brief": "vgs equals the input signal",
+     "answer": {
+      "id": "c",
+      "text": "The source is grounded, so the gate-source signal equals the input signal"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "vgs equals the output voltage",
+       "correct": false,
+       "rationale": "The output is at the drain."
+      },
+      {
+       "id": "b",
+       "text": "vgs is reduced by gm·RS",
+       "correct": false,
+       "rationale": "There is no source resistor here."
+      },
+      {
+       "id": "c",
+       "text": "The source is grounded, so the gate-source signal equals the input signal",
+       "correct": true
+      },
+      {
+       "id": "d",
+       "text": "vgs is zero",
+       "correct": false,
+       "rationale": "The signal is applied between gate and ground."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "vgs equals the output voltage",
+       "misconception": "Mixes input and output.",
+       "rationale": "The output is at the drain."
+      },
+      {
+       "id": "b",
+       "text": "vgs is reduced by gm·RS",
+       "misconception": "Applies the degeneration result.",
+       "rationale": "There is no source resistor here."
+      },
+      {
+       "id": "d",
+       "text": "vgs is zero",
+       "misconception": "Assumes a grounded source removes the signal.",
+       "rationale": "The signal is applied between gate and ground."
+      }
+     ],
+     "explanation": "With no source resistor, the whole input signal appears across gate and source."
+    },
+    {
+     "id": "gr2-wk-006-s5",
+     "prompt": "What does the controlled current flow through?",
+     "brief": "Current through RD ∥ RL",
+     "answer": {
+      "id": "d",
+      "text": "RD in parallel with RL (RD, RL and ro are all connected from drain to ground for the signal)"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "RD only, because the capacitor blocks the load",
+       "correct": false,
+       "rationale": "The capacitor is a short, so RL is in parallel with RD."
+      },
+      {
+       "id": "b",
+       "text": "RD in series with RL",
+       "correct": false,
+       "rationale": "Both connect from the drain node to ground."
+      },
+      {
+       "id": "c",
+       "text": "The gate resistors RG1 and RG2",
+       "correct": false,
+       "rationale": "The controlled source drives the output node."
+      },
+      {
+       "id": "d",
+       "text": "RD in parallel with RL (RD, RL and ro are all connected from drain to ground for the signal)",
+       "correct": true
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "RD only, because the capacitor blocks the load",
+       "misconception": "Treats the capacitor as an open circuit.",
+       "rationale": "The capacitor is a short, so RL is in parallel with RD."
+      },
+      {
+       "id": "b",
+       "text": "RD in series with RL",
+       "misconception": "Combines the resistors incorrectly.",
+       "rationale": "Both connect from the drain node to ground."
+      },
+      {
+       "id": "c",
+       "text": "The gate resistors RG1 and RG2",
+       "misconception": "Uses the input network.",
+       "rationale": "The controlled source drives the output node."
+      }
+     ],
+     "explanation": "The controlled current gm·vgs flows through the parallel combination of RD, RL and ro at the drain node, so the drain signal is vo = −gm·vgs·(RD ∥ RL ∥ ro); the minus sign is the inversion."
+    },
+    {
+     "id": "gr2-wk-006-s6",
+     "prompt": "What are the gain and the open-circuit gain?",
+     "brief": "Av and Avo",
+     "answer": {
+      "id": "a",
+      "text": "The gain is vo/vi = −gm(RD ∥ RL); removing RL gives the open-circuit gain −gm·RD"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "The gain is vo/vi = −gm(RD ∥ RL); removing RL gives the open-circuit gain −gm·RD",
+       "correct": true
+      },
+      {
+       "id": "b",
+       "text": "Av = +gm·RD, with the load not mattering",
+       "correct": false,
+       "rationale": "The stage inverts and RL reduces the gain."
+      },
+      {
+       "id": "c",
+       "text": "Av = −gm·RL",
+       "correct": false,
+       "rationale": "The drain resistor also appears."
+      },
+      {
+       "id": "d",
+       "text": "Av = −gm·RD without a load, and unchanged with a load",
+       "correct": false,
+       "rationale": "The load changes the effective resistance at the drain."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "b",
+       "text": "Av = +gm·RD, with the load not mattering",
+       "misconception": "Drops the sign and the load.",
+       "rationale": "The stage inverts and RL reduces the gain."
+      },
+      {
+       "id": "c",
+       "text": "Av = −gm·RL",
+       "misconception": "Uses the load alone.",
+       "rationale": "The drain resistor also appears."
+      },
+      {
+       "id": "d",
+       "text": "Av = −gm·RD without a load, and unchanged with a load",
+       "misconception": "Ignores loading.",
+       "rationale": "The load changes the effective resistance at the drain."
+      }
+     ],
+     "explanation": "The minus sign is the inversion; RL in parallel with RD lowers the gain magnitude below the no-load value."
+    }
+   ],
+   "answer": {
+    "text": "Zero the supply, short the capacitors, insert the small-signal model, note vgs = vi, find the drain voltage across RD∥RL, and read off Av = −gm(RD∥RL); removing RL gives Avo."
+   },
+   "distractors": [],
+   "explanation": "Zero the supply, short the capacitors, insert the small-signal model, note vgs = vi, find the drain voltage across RD∥RL, and read off Av = −gm(RD∥RL); removing RL gives Avo.",
+   "resources": [
+    {
+     "type": "link",
+     "href": "lesson-guides/lesson-21.html",
+     "label": "Lesson 21 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
+    },
+    {
+     "type": "text",
+     "text": "Lesson 16 has no guide yet; this problem follows the Lesson 16 notetaker."
+    }
+   ],
+   "sources": [
+    {
+     "file": "Instructor notetaker, Lesson 16",
+     "section": "p. 16-9"
+    },
+    {
+     "file": "lesson-guides/lesson-21.html",
+     "section": "A5"
+    }
+   ]
+  },
+  {
+   "id": "gr2-wk-007",
+   "type": "problem",
+   "topic": "Drain-feedback bias and PMOS",
+   "objective": "Bias and gain of a drain-feedback common-source stage",
+   "prompt": "Bias and gain of a drain-feedback common-source stage",
+   "setup": "The stage in the figure is biased by a divider fed from its own drain. Find its bias point and small-signal gain. Assume the current in RG1 is negligible next to the drain current.",
+   "image": {
+    "src": "assets/study/resources/gr2/self_bias.svg",
+    "alt": "Common-source stage with RG1 from the drain to the gate, RG2 from the gate to ground, drain resistor RD and a coupling capacitor at the input.",
+    "caption": "Self-biased common-source stage."
+   },
+   "steps": [
+    {
+     "id": "gr2-wk-007-s1",
+     "prompt": "What is unusual about the bias?",
+     "brief": "Gate divider fed from the drain",
+     "answer": {
+      "id": "a",
+      "text": "The divider is fed from the drain, so the gate voltage depends on the drain voltage"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "The divider is fed from the drain, so the gate voltage depends on the drain voltage",
+       "correct": true
+      },
+      {
+       "id": "b",
+       "text": "The gate is fed from the supply, as usual",
+       "correct": false,
+       "rationale": "RG1 returns to the drain here, not to VDD."
+      },
+      {
+       "id": "c",
+       "text": "The gate is connected directly to the drain",
+       "correct": false,
+       "rationale": "RG1 and RG2 divide the drain voltage."
+      },
+      {
+       "id": "d",
+       "text": "The source has a resistor that sets the bias",
+       "correct": false,
+       "rationale": "The source is grounded in this circuit."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "b",
+       "text": "The gate is fed from the supply, as usual",
+       "misconception": "Assumes the standard divider.",
+       "rationale": "RG1 returns to the drain here, not to VDD."
+      },
+      {
+       "id": "c",
+       "text": "The gate is connected directly to the drain",
+       "misconception": "Assumes a diode connection.",
+       "rationale": "RG1 and RG2 divide the drain voltage."
+      },
+      {
+       "id": "d",
+       "text": "The source has a resistor that sets the bias",
+       "misconception": "Looks for RS.",
+       "rationale": "The source is grounded in this circuit."
+      }
+     ],
+     "explanation": "Because the drain voltage depends on the drain current, this is a built-in negative feedback."
+    },
+    {
+     "id": "gr2-wk-007-s2",
+     "prompt": "What do you write for the gate voltage?",
+     "brief": "VG from the drain voltage",
+     "answer": {
+      "id": "b",
+      "text": "VG = VD·RG2/(RG1 + RG2), with VD = VDD − RD·ID"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "VG = VDD·RG2/(RG1 + RG2)",
+       "correct": false,
+       "rationale": "The divider is fed by the drain voltage, not VDD."
+      },
+      {
+       "id": "b",
+       "text": "VG = VD·RG2/(RG1 + RG2), with VD = VDD − RD·ID",
+       "correct": true
+      },
+      {
+       "id": "c",
+       "text": "VG = VD",
+       "correct": false,
+       "rationale": "The divider reduces the drain voltage."
+      },
+      {
+       "id": "d",
+       "text": "VG = ID·RG2",
+       "correct": false,
+       "rationale": "The gate voltage comes from the divider ratio."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "VG = VDD·RG2/(RG1 + RG2)",
+       "misconception": "Uses the usual supply divider.",
+       "rationale": "The divider is fed by the drain voltage, not VDD."
+      },
+      {
+       "id": "c",
+       "text": "VG = VD",
+       "misconception": "Treats the gate as connected to the drain.",
+       "rationale": "The divider reduces the drain voltage."
+      },
+      {
+       "id": "d",
+       "text": "VG = ID·RG2",
+       "misconception": "Uses a single resistor.",
+       "rationale": "The gate voltage comes from the divider ratio."
+      }
+     ],
+     "explanation": "With negligible current in RG1, the divider output is the fraction RG2/(RG1+RG2) of the drain voltage."
+    },
+    {
+     "id": "gr2-wk-007-s3",
+     "prompt": "How do you get ID?",
+     "brief": "Quadratic in ID",
+     "answer": {
+      "id": "c",
+      "text": "Substitute into the square law with VGS = VG (source at ground) to get a quadratic in ID"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Solve a linear equation",
+       "correct": false,
+       "rationale": "ID appears squared once VGS depends on ID."
+      },
+      {
+       "id": "b",
+       "text": "Use VGS = VDD",
+       "correct": false,
+       "rationale": "The gate sits at a fraction of the drain voltage."
+      },
+      {
+       "id": "c",
+       "text": "Substitute into the square law with VGS = VG (source at ground) to get a quadratic in ID",
+       "correct": true
+      },
+      {
+       "id": "d",
+       "text": "Take ID = VDD/RD",
+       "correct": false,
+       "rationale": "That would be the current with a short circuit."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "Solve a linear equation",
+       "misconception": "Overlooks the square law.",
+       "rationale": "ID appears squared once VGS depends on ID."
+      },
+      {
+       "id": "b",
+       "text": "Use VGS = VDD",
+       "misconception": "Ignores the divider.",
+       "rationale": "The gate sits at a fraction of the drain voltage."
+      },
+      {
+       "id": "d",
+       "text": "Take ID = VDD/RD",
+       "misconception": "Ignores the transistor.",
+       "rationale": "That would be the current with a short circuit."
+      }
+     ],
+     "explanation": "ID = ½Kn(VG − Vt)² with VG a function of ID gives a quadratic."
+    },
+    {
+     "id": "gr2-wk-007-s4",
+     "prompt": "Which root is rejected?",
+     "brief": "Reject the inconsistent root",
+     "answer": {
+      "id": "d",
+      "text": "The one that puts the drain voltage below ground or VGS below the threshold"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Always the smaller current",
+       "correct": false,
+       "rationale": "Physical consistency decides."
+      },
+      {
+       "id": "b",
+       "text": "Always the larger current",
+       "correct": false,
+       "rationale": "Physical consistency decides."
+      },
+      {
+       "id": "c",
+       "text": "Neither: both are valid",
+       "correct": false,
+       "rationale": "Only one root matches the circuit."
+      },
+      {
+       "id": "d",
+       "text": "The one that puts the drain voltage below ground or VGS below the threshold",
+       "correct": true
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "Always the smaller current",
+       "misconception": "Uses a fixed rule.",
+       "rationale": "Physical consistency decides."
+      },
+      {
+       "id": "b",
+       "text": "Always the larger current",
+       "misconception": "Uses a fixed rule.",
+       "rationale": "Physical consistency decides."
+      },
+      {
+       "id": "c",
+       "text": "Neither: both are valid",
+       "misconception": "Keeps both.",
+       "rationale": "Only one root matches the circuit."
+      }
+     ],
+     "explanation": "A negative drain voltage or VGS below Vt cannot occur in the actual circuit."
+    },
+    {
+     "id": "gr2-wk-007-s5",
+     "prompt": "Which checks follow?",
+     "brief": "Saturation and negligible RG1 current",
+     "answer": {
+      "id": "a",
+      "text": "VDS ≥ VOV (here VD above VOV) and that the current in RG1 is negligible next to the drain current"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "VDS ≥ VOV (here VD above VOV) and that the current in RG1 is negligible next to the drain current",
+       "correct": true
+      },
+      {
+       "id": "b",
+       "text": "Check that VG equals VDD",
+       "correct": false,
+       "rationale": "The gate sits well below the supply."
+      },
+      {
+       "id": "c",
+       "text": "Check that the gate draws current",
+       "correct": false,
+       "rationale": "The gate draws no DC current."
+      },
+      {
+       "id": "d",
+       "text": "Check that RG1 equals RG2",
+       "correct": false,
+       "rationale": "No such equality is required."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "b",
+       "text": "Check that VG equals VDD",
+       "misconception": "Invents a condition.",
+       "rationale": "The gate sits well below the supply."
+      },
+      {
+       "id": "c",
+       "text": "Check that the gate draws current",
+       "misconception": "Contradicts the model.",
+       "rationale": "The gate draws no DC current."
+      },
+      {
+       "id": "d",
+       "text": "Check that RG1 equals RG2",
+       "misconception": "Invents a condition.",
+       "rationale": "No such equality is required."
+      }
+     ],
+     "explanation": "The mode check and the negligible-current assumption both validate the solution."
+    },
+    {
+     "id": "gr2-wk-007-s6",
+     "prompt": "How is the small-signal gain found?",
+     "brief": "Nodal equation at the drain",
+     "answer": {
+      "id": "b",
+      "text": "Write a nodal equation at the drain with vgs = vin; for large RG1 the gain is about −gm·RD"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Ignore RG1 and say the gain is zero",
+       "correct": false,
+       "rationale": "The controlled source still produces a gain."
+      },
+      {
+       "id": "b",
+       "text": "Write a nodal equation at the drain with vgs = vin; for large RG1 the gain is about −gm·RD",
+       "correct": true
+      },
+      {
+       "id": "c",
+       "text": "The gain equals RG2/(RG1+RG2)",
+       "correct": false,
+       "rationale": "That ratio is a DC quantity, not the small-signal gain."
+      },
+      {
+       "id": "d",
+       "text": "The gain equals −gm·RG1",
+       "correct": false,
+       "rationale": "The drain resistor sets the gain when RG1 is large."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "Ignore RG1 and say the gain is zero",
+       "misconception": "Drops the stage's gain.",
+       "rationale": "The controlled source still produces a gain."
+      },
+      {
+       "id": "c",
+       "text": "The gain equals RG2/(RG1+RG2)",
+       "misconception": "Uses the bias divider ratio.",
+       "rationale": "That ratio is a DC quantity, not the small-signal gain."
+      },
+      {
+       "id": "d",
+       "text": "The gain equals −gm·RG1",
+       "misconception": "Uses the feedback resistor.",
+       "rationale": "The drain resistor sets the gain when RG1 is large."
+      }
+     ],
+     "explanation": "The feedback current through RG1 is small, so the gain approaches −gm·RD."
+    }
+   ],
+   "answer": {
+    "text": "Recognize the drain-fed divider, express VG from VD = VDD − RD·ID, solve the quadratic, reject the inconsistent root, confirm saturation and the negligible RG1 current, then write a nodal equation for the gain."
+   },
+   "distractors": [],
+   "explanation": "Recognize the drain-fed divider, express VG from VD = VDD − RD·ID, solve the quadratic, reject the inconsistent root, confirm saturation and the negligible RG1 current, then write a nodal equation for the gain.",
+   "resources": [
+    {
+     "type": "link",
+     "href": "lesson-guides/lesson-26.html",
+     "label": "Lesson 26 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
+    }
+   ],
+   "sources": [
+    {
+     "file": "lesson-guides/lesson-26.html",
+     "section": "A8"
+    }
+   ]
+  },
+  {
+   "id": "gr2-wk-008",
+   "type": "problem",
+   "topic": "Common-drain design",
+   "objective": "Diagnose and fix a source follower that clips",
+   "prompt": "Diagnose a source follower that clips",
+   "setup": "A built source follower (figure) flattens the negative peaks of its output while the positive peaks look fine. Work out what is wrong and how to fix it.",
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain stage with gate divider, source resistor RS and a coupling capacitor to a load.",
+    "caption": "Source follower driving a load."
+   },
+   "steps": [
+    {
+     "id": "gr2-wk-008-s1",
+     "prompt": "What does the flat negative peak suggest?",
+     "brief": "Cutoff at the negative peak",
+     "answer": {
+      "id": "b",
+      "text": "The transistor is cutting off at the lowest part of the swing"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "The transistor has entered triode",
+       "correct": false,
+       "rationale": "In a follower triode appears at the positive peak."
+      },
+      {
+       "id": "b",
+       "text": "The transistor is cutting off at the lowest part of the swing",
+       "correct": true
+      },
+      {
+       "id": "c",
+       "text": "The supply voltage is too low",
+       "correct": false,
+       "rationale": "A low supply would clip the positive side first."
+      },
+      {
+       "id": "d",
+       "text": "The coupling capacitor is open",
+       "correct": false,
+       "rationale": "An open capacitor would remove the signal, not clip one side."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "The transistor has entered triode",
+       "misconception": "Mixes up which end clips.",
+       "rationale": "In a follower triode appears at the positive peak."
+      },
+      {
+       "id": "c",
+       "text": "The supply voltage is too low",
+       "misconception": "Blames the supply.",
+       "rationale": "A low supply would clip the positive side first."
+      },
+      {
+       "id": "d",
+       "text": "The coupling capacitor is open",
+       "misconception": "Blames a component.",
+       "rationale": "An open capacitor would remove the signal, not clip one side."
+      }
+     ],
+     "explanation": "At the negative peak the drain current is lowest; if it reaches zero the transistor turns off and the output flattens."
+    },
+    {
+     "id": "gr2-wk-008-s2",
+     "prompt": "Which design quantity was set too small?",
+     "brief": "ID,min too small",
+     "answer": {
+      "id": "c",
+      "text": "The minimum drain current, so RS is too large for the load current"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "The gate resistance",
+       "correct": false,
+       "rationale": "The gate network does not affect clipping at the output peak."
+      },
+      {
+       "id": "b",
+       "text": "The load resistance",
+       "correct": false,
+       "rationale": "The load is fixed; the design must handle it."
+      },
+      {
+       "id": "c",
+       "text": "The minimum drain current, so RS is too large for the load current",
+       "correct": true
+      },
+      {
+       "id": "d",
+       "text": "The threshold voltage",
+       "correct": false,
+       "rationale": "Vt is a device property, not a design quantity."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "The gate resistance",
+       "misconception": "Blames the input network.",
+       "rationale": "The gate network does not affect clipping at the output peak."
+      },
+      {
+       "id": "b",
+       "text": "The load resistance",
+       "misconception": "Blames the load.",
+       "rationale": "The load is fixed; the design must handle it."
+      },
+      {
+       "id": "d",
+       "text": "The threshold voltage",
+       "misconception": "Blames the device.",
+       "rationale": "Vt is a device property, not a design quantity."
+      }
+     ],
+     "explanation": "RS must carry the drain current plus the load current at the negative peak; if RS is too large, ID,min is too small."
+    },
+    {
+     "id": "gr2-wk-008-s3",
+     "prompt": "What is the fix?",
+     "brief": "Smaller RS, larger ID,min",
+     "answer": {
+      "id": "d",
+      "text": "Choose a smaller RS, which raises the bias current so the drain current stays positive at the negative peak"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Choose a larger RS",
+       "correct": false,
+       "rationale": "A larger RS lowers the current further."
+      },
+      {
+       "id": "b",
+       "text": "Reduce the input amplitude only",
+       "correct": false,
+       "rationale": "The limit is the bias; reducing the signal hides rather than fixes it."
+      },
+      {
+       "id": "c",
+       "text": "Add a drain resistor",
+       "correct": false,
+       "rationale": "A follower has no drain resistor."
+      },
+      {
+       "id": "d",
+       "text": "Choose a smaller RS, which raises the bias current so the drain current stays positive at the negative peak",
+       "correct": true
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "Choose a larger RS",
+       "misconception": "Reverses the change.",
+       "rationale": "A larger RS lowers the current further."
+      },
+      {
+       "id": "b",
+       "text": "Reduce the input amplitude only",
+       "misconception": "Treats it as a signal problem.",
+       "rationale": "The limit is the bias; reducing the signal hides rather than fixes it."
+      },
+      {
+       "id": "c",
+       "text": "Add a drain resistor",
+       "misconception": "Changes the topology.",
+       "rationale": "A follower has no drain resistor."
+      }
+     ],
+     "explanation": "More bias current gives the transistor room to absorb the negative-peak load current."
+    },
+    {
+     "id": "gr2-wk-008-s4",
+     "prompt": "What must you recheck after the change?",
+     "brief": "Saturation at the positive peak and power",
+     "answer": {
+      "id": "a",
+      "text": "That the transistor still stays in saturation at the positive peak, and that power dissipation is acceptable"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "That the transistor still stays in saturation at the positive peak, and that power dissipation is acceptable",
+       "correct": true
+      },
+      {
+       "id": "b",
+       "text": "Nothing: a larger current only helps",
+       "correct": false,
+       "rationale": "A larger current uses more VDS headroom and power."
+      },
+      {
+       "id": "c",
+       "text": "Only that the gain is exactly 1",
+       "correct": false,
+       "rationale": "The gain is slightly below 1."
+      },
+      {
+       "id": "d",
+       "text": "Only the coupling capacitor value",
+       "correct": false,
+       "rationale": "The swing and power checks matter here."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "b",
+       "text": "Nothing: a larger current only helps",
+       "misconception": "Assumes no side effects.",
+       "rationale": "A larger current uses more VDS headroom and power."
+      },
+      {
+       "id": "c",
+       "text": "Only that the gain is exactly 1",
+       "misconception": "Expects unity gain.",
+       "rationale": "The gain is slightly below 1."
+      },
+      {
+       "id": "d",
+       "text": "Only the coupling capacitor value",
+       "misconception": "Focuses on a component.",
+       "rationale": "The swing and power checks matter here."
+      }
+     ],
+     "explanation": "More current changes the DC bias, so the positive-peak saturation margin and the dissipation must be checked again."
+    },
+    {
+     "id": "gr2-wk-008-s5",
+     "prompt": "What else changes in the bias?",
+     "brief": "VOV, VGS and VG",
+     "answer": {
+      "id": "b",
+      "text": "The DC current rises, so the overdrive, VGS and the gate voltage VG change; the gate divider must be redone"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Nothing else changes",
+       "correct": false,
+       "rationale": "The device equation ties VGS to the current."
+      },
+      {
+       "id": "b",
+       "text": "The DC current rises, so the overdrive, VGS and the gate voltage VG change; the gate divider must be redone",
+       "correct": true
+      },
+      {
+       "id": "c",
+       "text": "Only the load resistor changes",
+       "correct": false,
+       "rationale": "The load is fixed."
+      },
+      {
+       "id": "d",
+       "text": "Only the supply voltage changes",
+       "correct": false,
+       "rationale": "The supply is fixed."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "Nothing else changes",
+       "misconception": "Assumes RS is independent.",
+       "rationale": "The device equation ties VGS to the current."
+      },
+      {
+       "id": "c",
+       "text": "Only the load resistor changes",
+       "misconception": "Changes a given.",
+       "rationale": "The load is fixed."
+      },
+      {
+       "id": "d",
+       "text": "Only the supply voltage changes",
+       "misconception": "Changes a given.",
+       "rationale": "The supply is fixed."
+      }
+     ],
+     "explanation": "VG = VGS + VS, so the divider must be recomputed for the new VGS."
+    },
+    {
+     "id": "gr2-wk-008-s6",
+     "prompt": "How do you confirm the fix?",
+     "brief": "Simulate swing and THD",
+     "answer": {
+      "id": "c",
+      "text": "Simulate: the output meets the required swing without clipping, and the THD is acceptable"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Simulate only the DC operating point",
+       "correct": false,
+       "rationale": "Clipping only shows up in a transient run."
+      },
+      {
+       "id": "b",
+       "text": "Check only the supply current",
+       "correct": false,
+       "rationale": "The requirement is the undistorted output swing."
+      },
+      {
+       "id": "c",
+       "text": "Simulate: the output meets the required swing without clipping, and the THD is acceptable",
+       "correct": true
+      },
+      {
+       "id": "d",
+       "text": "Assume the fix works because the maths is right",
+       "correct": false,
+       "rationale": "The guides always confirm the hand design in simulation."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "Simulate only the DC operating point",
+       "misconception": "Skips the signal check.",
+       "rationale": "Clipping only shows up in a transient run."
+      },
+      {
+       "id": "b",
+       "text": "Check only the supply current",
+       "misconception": "Checks a side effect only.",
+       "rationale": "The requirement is the undistorted output swing."
+      },
+      {
+       "id": "d",
+       "text": "Assume the fix works because the maths is right",
+       "misconception": "Skips verification.",
+       "rationale": "The guides always confirm the hand design in simulation."
+      }
+     ],
+     "explanation": "A transient run with the required input shows the undistorted swing; the distortion analyzer gives the THD."
+    }
+   ],
+   "answer": {
+    "text": "Flat negative peaks mean cutoff, so ID,min was too small; lower RS to raise the bias current, recheck positive-peak saturation and power, redo the gate divider, and confirm by simulation."
+   },
+   "distractors": [],
+   "explanation": "Flat negative peaks mean cutoff, so ID,min was too small; lower RS to raise the bias current, recheck positive-peak saturation and power, redo the gate divider, and confirm by simulation.",
+   "resources": [
+    {
+     "type": "link",
+     "href": "lesson-guides/lesson-19.html",
+     "label": "Lesson 19 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
+    },
+    {
+     "type": "link",
+     "href": "lesson-guides/lesson-21.html",
+     "label": "Lesson 21 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
+    }
+   ],
+   "sources": [
+    {
+     "file": "lesson-guides/lesson-21.html",
+     "section": "A1"
+    },
+    {
+     "file": "lesson-guides/lesson-19.html",
+     "section": "A3"
+    }
+   ]
+  },
+  {
+   "id": "gr2-wk-009",
+   "type": "problem",
+   "topic": "Measuring Ri, Ro and Avo",
+   "objective": "Measure the two-port parameters of an unknown amplifier",
+   "prompt": "Measure the parameters of an unknown amplifier",
+   "setup": "An amplifier on the bench is a black box. You have a function generator, an oscilloscope and a variable resistor. Find Avo, Ri and Ro, then predict how it behaves with a source and a load.",
+   "image": {
+    "src": "assets/study/resources/gr2/two_port.svg",
+    "alt": "Amplifier drawn as a two-port with source resistance RS, input resistance Ri, controlled source Avo·vi, output resistance Ro and load RL.",
+    "caption": "Amplifier as a two-port model."
+   },
+   "steps": [
+    {
+     "id": "gr2-wk-009-s1",
+     "prompt": "Which parameter do you measure first, and how?",
+     "brief": "Avo with the load removed",
+     "answer": {
+      "id": "c",
+      "text": "Avo: remove the load so the output is open, then compare output with input"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Ri, with the output shorted",
+       "correct": false,
+       "rationale": "Shorting the output forces the output voltage to zero."
+      },
+      {
+       "id": "b",
+       "text": "Ro, with the signal on",
+       "correct": false,
+       "rationale": "Ro needs the input zeroed."
+      },
+      {
+       "id": "c",
+       "text": "Avo: remove the load so the output is open, then compare output with input",
+       "correct": true
+      },
+      {
+       "id": "d",
+       "text": "Avo, with the load connected",
+       "correct": false,
+       "rationale": "The load forms a divider with Ro and reduces the output."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "Ri, with the output shorted",
+       "misconception": "Shorts the output.",
+       "rationale": "Shorting the output forces the output voltage to zero."
+      },
+      {
+       "id": "b",
+       "text": "Ro, with the signal on",
+       "misconception": "Leaves the controlled source active.",
+       "rationale": "Ro needs the input zeroed."
+      },
+      {
+       "id": "d",
+       "text": "Avo, with the load connected",
+       "misconception": "Measures a loaded gain.",
+       "rationale": "The load forms a divider with Ro and reduces the output."
+      }
+     ],
+     "explanation": "Avo is the open-circuit gain, so the output must be unloaded."
+    },
+    {
+     "id": "gr2-wk-009-s2",
+     "prompt": "How is Ri measured?",
+     "brief": "Variable resistor in series with the source",
+     "answer": {
+      "id": "d",
+      "text": "Put the variable resistor in series with the source and adjust it until the amplifier input is half the source; that resistance equals Ri"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Put the resistor across the input and adjust for maximum output",
+       "correct": false,
+       "rationale": "A gain peak says nothing about input resistance."
+      },
+      {
+       "id": "b",
+       "text": "Short the input and measure the current",
+       "correct": false,
+       "rationale": "A shorted input removes the signal."
+      },
+      {
+       "id": "c",
+       "text": "Remove the load and divide output by input",
+       "correct": false,
+       "rationale": "That gives the open-circuit gain."
+      },
+      {
+       "id": "d",
+       "text": "Put the variable resistor in series with the source and adjust it until the amplifier input is half the source; that resistance equals Ri",
+       "correct": true
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "Put the resistor across the input and adjust for maximum output",
+       "misconception": "Looks for a gain peak.",
+       "rationale": "A gain peak says nothing about input resistance."
+      },
+      {
+       "id": "b",
+       "text": "Short the input and measure the current",
+       "misconception": "Shorts the input.",
+       "rationale": "A shorted input removes the signal."
+      },
+      {
+       "id": "c",
+       "text": "Remove the load and divide output by input",
+       "misconception": "Describes the Avo measurement.",
+       "rationale": "That gives the open-circuit gain."
+      }
+     ],
+     "explanation": "When R = Ri the input divider gives one half of the source voltage at the amplifier input."
+    },
+    {
+     "id": "gr2-wk-009-s3",
+     "prompt": "What condition is needed to measure Ro?",
+     "brief": "Input zeroed",
+     "answer": {
+      "id": "a",
+      "text": "The input signal is set to zero so the controlled source is off"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "The input signal is set to zero so the controlled source is off",
+       "correct": true
+      },
+      {
+       "id": "b",
+       "text": "The input is left at its normal amplitude",
+       "correct": false,
+       "rationale": "The amplifier's own output would hide the divider effect."
+      },
+      {
+       "id": "c",
+       "text": "The output is shorted",
+       "correct": false,
+       "rationale": "The test must see the output resistance, not a short."
+      },
+      {
+       "id": "d",
+       "text": "The supply is turned off",
+       "correct": false,
+       "rationale": "The supplies stay on; only the signal input is zeroed."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "b",
+       "text": "The input is left at its normal amplitude",
+       "misconception": "Keeps the controlled source active.",
+       "rationale": "The amplifier's own output would hide the divider effect."
+      },
+      {
+       "id": "c",
+       "text": "The output is shorted",
+       "misconception": "Shorts the node being measured.",
+       "rationale": "The test must see the output resistance, not a short."
+      },
+      {
+       "id": "d",
+       "text": "The supply is turned off",
+       "misconception": "Removes the bias.",
+       "rationale": "The supplies stay on; only the signal input is zeroed."
+      }
+     ],
+     "explanation": "With vi = 0 the controlled source Avo·vi is zero, so a test source connected at the output sees only the output resistance Ro looking back into the amplifier."
+    },
+    {
+     "id": "gr2-wk-009-s4",
+     "prompt": "How is Ro read out?",
+     "brief": "Half-voltage with a variable resistor",
+     "answer": {
+      "id": "b",
+      "text": "Drive the output through the variable resistor and adjust until the output voltage is half of the test source; that resistance equals Ro"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Adjust until the output voltage is maximum",
+       "correct": false,
+       "rationale": "There is no peak; the divider condition identifies Ro."
+      },
+      {
+       "id": "b",
+       "text": "Drive the output through the variable resistor and adjust until the output voltage is half of the test source; that resistance equals Ro",
+       "correct": true
+      },
+      {
+       "id": "c",
+       "text": "Adjust until the output equals the input",
+       "correct": false,
+       "rationale": "The test voltage, not the input, is the reference."
+      },
+      {
+       "id": "d",
+       "text": "Read the output with no resistor and no test source",
+       "correct": false,
+       "rationale": "Without a test source nothing can be measured."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "Adjust until the output voltage is maximum",
+       "misconception": "Looks for a peak.",
+       "rationale": "There is no peak; the divider condition identifies Ro."
+      },
+      {
+       "id": "c",
+       "text": "Adjust until the output equals the input",
+       "misconception": "Compares unrelated voltages.",
+       "rationale": "The test voltage, not the input, is the reference."
+      },
+      {
+       "id": "d",
+       "text": "Read the output with no resistor and no test source",
+       "misconception": "Skips the test.",
+       "rationale": "Without a test source nothing can be measured."
+      }
+     ],
+     "explanation": "The same half-voltage divider trick as for Ri, now at the output."
+    },
+    {
+     "id": "gr2-wk-009-s5",
+     "prompt": "What do the three numbers tell you about its use?",
+     "brief": "Match against source and load",
+     "answer": {
+      "id": "c",
+      "text": "Whether Ri is large compared with the source resistance and Ro small compared with the load, because those set the losses"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Whether Avo is larger than 1 only",
+       "correct": false,
+       "rationale": "Ri and Ro set the divider losses."
+      },
+      {
+       "id": "b",
+       "text": "Whether Ri equals Ro",
+       "correct": false,
+       "rationale": "They are independent quantities."
+      },
+      {
+       "id": "c",
+       "text": "Whether Ri is large compared with the source resistance and Ro small compared with the load, because those set the losses",
+       "correct": true
+      },
+      {
+       "id": "d",
+       "text": "Nothing: the three parameters are unrelated",
+       "correct": false,
+       "rationale": "Together they predict the loaded gain."
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "Whether Avo is larger than 1 only",
+       "misconception": "Looks at gain only.",
+       "rationale": "Ri and Ro set the divider losses."
+      },
+      {
+       "id": "b",
+       "text": "Whether Ri equals Ro",
+       "misconception": "Invents a matching rule.",
+       "rationale": "They are independent quantities."
+      },
+      {
+       "id": "d",
+       "text": "Nothing: the three parameters are unrelated",
+       "misconception": "Ignores the model.",
+       "rationale": "Together they predict the loaded gain."
+      }
+     ],
+     "explanation": "Ri ≫ RS and Ro ≪ RL keep both dividers near 1, so the loaded gain is close to Avo."
+    },
+    {
+     "id": "gr2-wk-009-s6",
+     "prompt": "How do you predict the loaded gain?",
+     "brief": "Divider × Avo × divider",
+     "answer": {
+      "id": "d",
+      "text": "Input divider Ri/(Ri+RS), times Avo, times output divider RL/(RL+Ro)"
+     },
+     "options": [
+      {
+       "id": "a",
+       "text": "Avo alone",
+       "correct": false,
+       "rationale": "The dividers reduce the gain."
+      },
+      {
+       "id": "b",
+       "text": "Avo multiplied by RL",
+       "correct": false,
+       "rationale": "The load only forms a divider."
+      },
+      {
+       "id": "c",
+       "text": "Avo divided by Ri",
+       "correct": false,
+       "rationale": "Gain is dimensionless; the dividers are ratios."
+      },
+      {
+       "id": "d",
+       "text": "Input divider Ri/(Ri+RS), times Avo, times output divider RL/(RL+Ro)",
+       "correct": true
+      }
+     ],
+     "distractors": [
+      {
+       "id": "a",
+       "text": "Avo alone",
+       "misconception": "Ignores both dividers.",
+       "rationale": "The dividers reduce the gain."
+      },
+      {
+       "id": "b",
+       "text": "Avo multiplied by RL",
+       "misconception": "Treats the load as a gain factor.",
+       "rationale": "The load only forms a divider."
+      },
+      {
+       "id": "c",
+       "text": "Avo divided by Ri",
+       "misconception": "Divides by a resistance.",
+       "rationale": "Gain is dimensionless; the dividers are ratios."
+      }
+     ],
+     "explanation": "The signal passes the input divider Ri/(Ri+RS), is multiplied by Avo, then passes the output divider RL/(RL+Ro): G = Ri/(Ri+RS) · Avo · RL/(RL+Ro)."
+    }
+   ],
+   "answer": {
+    "text": "Measure Avo with the load removed, Ri with a series variable resistor (half-voltage), Ro with the input zeroed and a half-voltage test at the output, then predict the loaded gain from the two dividers and Avo."
+   },
+   "distractors": [],
+   "explanation": "Measure Avo with the load removed, Ri with a series variable resistor (half-voltage), Ro with the input zeroed and a half-voltage test at the output, then predict the loaded gain from the two dividers and Avo.",
+   "resources": [
+    {
+     "type": "link",
+     "href": "lesson-guides/lesson-15.html",
+     "label": "Lesson 15 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
+    }
+   ],
+   "sources": [
+    {
+     "file": "lesson-guides/lesson-15.html",
+     "section": "A3"
+    },
+    {
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
+     "section": "p. 7"
     }
    ]
   }

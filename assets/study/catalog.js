@@ -6,7 +6,7 @@ window.CourseStudyCatalog = [
     "kind": "gr",
     "title": "GR2 · Concept practice",
     "description": "Lessons 15-26: amplifier models, CS/CD/CG design, operating points, small-signal analysis, measurement and BJTs. Concept checks only; no calculations.",
-    "questionCount": 182,
+    "questionCount": 191,
     "bank": "assets/study/banks/gr2.js"
   }
 ];

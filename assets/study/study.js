@@ -15,7 +15,8 @@
   const read = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) || d; } catch (e) { return d; } };
   const write = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* private mode */ } };
   const store = read(KEY, {});
-  const settings = Object.assign({auto: true}, read(SETTINGS_KEY, {}));
+  const settings = Object.assign({auto: true, mode: 'mixed'}, read(SETTINGS_KEY, {}));
+  const MODES = [['concept', 'Conceptual'], ['workout', 'Workout'], ['mixed', 'Mixed']];
   const save = () => write(KEY, store);
 
   function bankState(id) {
@@ -59,7 +60,7 @@
     const ids = new Set();
     b.questions.forEach(q => {
       if (!q.id || ids.has(q.id)) throw new Error('Question IDs must be unique.'); ids.add(q.id);
-      if (!['choice', 'multi-select', 'text', 'sequence', 'true-false'].includes(q.type) || !q.prompt || !q.answer || !q.explanation) throw new Error(`Question ${q.id} is incomplete.`);
+      if (!['choice', 'multi-select', 'text', 'sequence', 'true-false', 'problem'].includes(q.type) || !q.prompt || !q.answer || !q.explanation || (q.type === 'problem' && !(Array.isArray(q.steps) && q.steps.length))) throw new Error(`Question ${q.id} is incomplete.`);
     });
   }
   async function start(e) {
@@ -86,6 +87,8 @@
   function pickNext() {
     const info = {}; topics.forEach(t => info[t] = topicInfo(t));
     let pool = bank.questions.filter(q => !last || q.id !== last.id);
+    const mode = settings.mode, byMode = pool.filter(q => mode === 'concept' ? q.type !== 'problem' : mode === 'workout' ? q.type === 'problem' : true);
+    if (byMode.length) pool = byMode;                                          // Conceptual = single questions, Workout = multi-step problems, Mixed = both
     if (focusMode) {
       const weak = topics.slice().sort((a, b) => info[a].mast - info[b].mast).slice(0, 4);
       pool = pool.filter(q => weak.includes(q.topic || 'General'));
@@ -95,7 +98,7 @@
     if (retry.length && !st.lastRetry) { st.lastRetry = true; return retry[0]; }   // never two retries in a row, so new material keeps flowing
     st.lastRetry = false;
     // 2. breadth sweep: reach every untouched topic as fast as possible, quick formats first
-    const untouched = topics.filter(t => info[t].att === 0 && (!focusMode || pool.some(q => (q.topic || 'General') === t)));
+    const untouched = topics.filter(t => info[t].att === 0 && pool.some(q => (q.topic || 'General') === t && !rec(q)));
     if (untouched.length) {
       const lastTopic = last && (last.topic || 'General');
       const choices = untouched.filter(t => t !== lastTopic); const t = shuffle((choices.length ? choices : untouched).slice())[0];
@@ -103,11 +106,13 @@
       const quick = qs.filter(q => q.type === 'choice' || q.type === 'true-false');
       return shuffle((quick.length ? quick : qs).slice())[0];
     }
-    // 3. weighted mix of weakness, spacing, novelty and variety
+    // 3. weighted mix of weakness, spacing, novelty and variety (Mixed: a multi-step problem about every 9 questions)
+    const probs = pool.filter(q => q.type === 'problem');
+    const forceProblem = mode === 'mixed' && probs.length && (st.turn - (st.lastProblemTurn == null ? -99 : st.lastProblemTurn)) >= 9;
     const recentT = st.recent.slice(-3).map(id => (bank.questions.find(q => q.id === id) || {}).topic);
     const lastType = last && last.type;
     let best = null;
-    pool.forEach(q => {
+    (forceProblem ? probs : pool).forEach(q => {
       const r = rec(q), ti = info[q.topic || 'General'];
       let s = (1 - ti.mast) * 0.7 + Math.random() * 0.12;
       if (!r) s += 0.55 + 0.3 * (1 - ti.cov);                                   // unseen: coverage bonus, more for thin topics
@@ -130,6 +135,7 @@
     r.m = clamp(0.55 * r.m + 0.45 * result, 0, 1);
     if (result >= 1) { r.c++; r.streak++; r.retryAt = null; }
     else { r.streak = 0; r.miss = (r.miss || 0) + 1; r.retryAt = st.turn + (result === 0 ? 3 + Math.floor(Math.random() * 3) : result === 0.25 ? 14 : 6); }
+    if (q.type === 'problem') st.lastProblemTurn = st.turn;
     st.turn++; st.total++; if (result >= 1) st.right++;
     st.recent.push(q.id); if (st.recent.length > 40) st.recent.shift();
     sess.answered++; if (result >= 1) { sess.right++; sess.streak++; } else sess.streak = 0;
@@ -155,8 +161,8 @@
   function topBar() {
     const t = el('div', 'sx-top');
     const left = el('div', 'sx-left');
-    if (cur && (screen === 'question' || screen === 'feedback')) {
-      left.append(el('span', 'sx-topic', cur.q.topic || 'General'), el('span', 'sx-type', typeLabel(cur.q.type)));
+    if (cur && (screen === 'question' || screen === 'feedback' || screen === 'psum')) {
+      left.append(el('span', 'sx-topic', cur.q.topic || 'General'), el('span', 'sx-type', cur.problem ? (screen === 'psum' ? 'problem complete' : `step ${cur.i + 1} of ${cur.problem.steps.length}`) : typeLabel(cur.q.type)));
     } else left.append(el('span', 'sx-topic', bank ? bank.title : 'Study sessions'));
     const dots = el('div', 'sx-dots'); dots.setAttribute('aria-hidden', 'true');
     topics.forEach(tp => { const i = topicInfo(tp); const d = el('span', 'sx-dot ' + (i.att === 0 ? 'u' : i.mast < 0.4 ? 'w' : i.mast < 0.65 ? 'm' : 's')); d.title = `${tp}: ${Math.round(i.mast * 100)}%`; dots.append(d); });
@@ -164,8 +170,19 @@
     const stats = el('div', 'sx-stats');
     const acc = sess.answered ? Math.round(100 * sess.right / sess.answered) : null;
     stats.append(el('span', '', `${seenTopics}/${topics.length} topics`), el('span', '', sess.answered ? `${sess.answered} answered · ${acc}%` : 'new session'), ...(sess.streak > 1 ? [el('span', 'sx-streak', `streak ${sess.streak}`)] : []));
-    t.append(left, dots, stats); return t;
+    const right = el('div', 'sx-right'); right.append(stats, modeSwitch()); t.append(left, dots, right); return t;
   }
+  function modeSwitch() {                      // top right: Conceptual / Workout / Mixed
+    const g = el('div', 'sx-modes'); g.setAttribute('role', 'radiogroup'); g.setAttribute('aria-label', 'Question mode (Tab switches)'); g.title = 'Tab switches mode';
+    MODES.forEach(([id, label]) => { const b = el('button', '', label); b.type = 'button'; b.setAttribute('role', 'radio'); b.setAttribute('aria-checked', String(settings.mode === id)); b.addEventListener('click', () => setMode(id)); g.append(b); });
+    return g;
+  }
+  function setMode(id) {
+    if (settings.mode === id) return; settings.mode = id; write(SETTINGS_KEY, settings);
+    const untouched = cur && screen === 'question' && !cur.picks.length && !(cur.problem && cur.i > 0);
+    if (untouched && ((id === 'concept' && (cur.problem || cur.q.type === 'problem')) || (id === 'workout' && !cur.problem))) next(); else render();
+  }
+  function cycleMode(dir) { const i = MODES.findIndex(m => m[0] === settings.mode); setMode(MODES[(i + dir + MODES.length) % MODES.length][0]); }
   const typeLabel = t => ({choice: 'one answer', 'multi-select': 'select all', 'true-false': 'true / false', sequence: 'put in order', text: 'short answer'}[t] || t);
 
   function menu() {
@@ -200,6 +217,7 @@
   function next() {
     clearTimer(); askOpen = false; askLog = [];
     const q = pickNext();
+    if (q.type === 'problem') { cur = {q, problem: q, i: 0, results: [], picks: [], order: null, chosen: null}; startStep(0); return; }
     cur = {q, picks: [], order: null, chosen: null, t0: Date.now()};
     if (q.type === 'choice' || q.type === 'multi-select') cur.order = shuffle(q.options.slice());
     else if (q.type === 'true-false') cur.order = q.options.slice().sort((a, b) => (a.id === 'true' ? -1 : 1));
@@ -207,9 +225,38 @@
     screen = 'question'; render();
   }
 
+  function startStep(i) {
+    const p = cur.problem, stp = p.steps[i]; cur.i = i;
+    cur.q = {id: stp.id, type: 'choice', topic: p.topic, prompt: stp.prompt, options: stp.options, answer: stp.answer, distractors: stp.distractors, explanation: stp.explanation, resources: [], _step: true};
+    cur.order = shuffle(stp.options.slice()); cur.picks = []; cur.chosen = null; cur.result = null; cur.how = null; cur.hi = null;
+    screen = 'question'; render();
+  }
+  function advance() {                          // after feedback: next step, the summary, or the next question
+    if (!cur || screen === 'psum' || !cur.problem) return next();
+    if (cur.i + 1 < cur.problem.steps.length) return startStep(cur.i + 1);
+    const total = cur.problem.steps.length, right = cur.results.filter(x => x === 1).length, frac = right / total;
+    cur.sumResult = frac === 1 ? 1 : frac >= 0.5 ? 0.5 : 0; record(cur.problem, cur.sumResult); screen = 'psum'; render();
+  }
+  function problemPanel() {
+    const p = cur.problem, box = el('div', 'sx-pleft');
+    const fig = el('figure', 'sx-fig'), img = el('img'); img.src = new URL(p.image.src, document.baseURI).href; img.alt = p.image.alt || ''; fig.append(img);
+    const dots = el('div', 'sx-sdots'); p.steps.forEach((x, i) => dots.append(el('span', 'sx-sd ' + (cur.results[i] === 1 ? 'ok' : cur.results[i] === 0 ? 'no' : (i === cur.i && screen !== 'psum' ? 'now' : '')))));
+    const crumbs = el('ol', 'sx-crumbs'); cur.results.forEach((r, i) => { if (r !== undefined && !(i === cur.i && screen === 'question')) crumbs.append(el('li', r === 1 ? 'ok' : 'no', p.steps[i].brief || p.steps[i].prompt)); });
+    box.append(el('p', 'sx-ptitle', p.prompt), fig, el('p', 'sx-setup', p.setup), dots, crumbs); return box;
+  }
+  function problemWrap(m) { const w = el('div', 'sx-main sx-prob'); m.className = m.className.replace('sx-main', 'sx-pr'); w.append(problemPanel(), m); return w; }
+  function drawProblemSummary() {
+    const p = cur.problem, total = p.steps.length, right = cur.results.filter(x => x === 1).length, m = el('div', 'sx-pr sx-fb ctr');
+    m.append(el('div', 'sx-verdict ' + (right === total ? 'ok' : 'no'), right === total ? '✓ Problem complete' : `${right} of ${total} steps right`), el('p', 'sx-exp', p.explanation));
+    paint(topBar(), problemWrap(m), actions([['Enter', 'Next question', next], ['Esc', 'Overview', goOverview]]));
+  }
+  function goOverview() { if (cur) cur.prev = screen; screen = 'overview'; overview(); }
+  function resume() { if (!cur) return next(); screen = cur.prev || (cur.result == null && !cur.selfCheck ? 'question' : 'feedback'); render(); }
+
   function render() {
     if (screen === 'question') drawQuestion();
     else if (screen === 'feedback') drawFeedback();
+    else if (screen === 'psum') drawProblemSummary();
     else if (screen === 'overview') overview();
     else menu();
   }
@@ -241,11 +288,11 @@
       m.append(list);
       if (q.type === 'multi-select') m.append(el('p', 'sx-hint', 'Select every correct answer, then press Enter.'));
     }
-    const acts = [['Space', 'Skip', skip], ['R', 'Show answer', reveal], ['Esc', 'Overview', () => { screen = 'overview'; render(); }]];
+    const acts = [['Space', 'Skip', skip], ['R', 'Show answer', reveal], ['Esc', 'Overview', () => { goOverview(); }]];
     if (q.type === 'multi-select') acts.unshift(['Enter', 'Check', submitMulti]);
     const keysBar = actions(acts);
     if (isPair(q)) keysBar.prepend(el('span', 'sx-keyhint', 'Arrows or WASD: first press highlights two answers, second picks (or press a number)'));
-    paint(topBar(), m, keysBar);
+    paint(topBar(), cur.problem ? problemWrap(m) : m, keysBar);
   }
 
   /* ---------- two-press arrow answering ----------
@@ -333,6 +380,7 @@
   function reveal() { if (screen === 'question') finish(0.25, null, 'revealed'); }
   function finish(result, chosen, how) {
     cur.result = result; cur.how = how || null; cur.chosen = chosen || cur.chosen;
+    if (cur.problem) { cur.results[cur.i] = result >= 1 ? 1 : 0; screen = 'feedback'; render(); if (result >= 1 && settings.auto) startAuto(); return; }
     if (!cur.selfCheck) record(cur.q, result);
     screen = 'feedback'; render();
     if (result >= 1 && settings.auto && !cur.selfCheck) { startAuto(); }
@@ -377,18 +425,18 @@
     const w = !ok && !cur.how ? whyWrong(q) : null;
     if (w) { if (w.pick) m.append(el('p', 'sx-yours', 'You chose: ' + w.pick)); if (w.why) m.append(el('p', 'sx-why', w.why)); }
     m.append(el('p', 'sx-exp', q.explanation));
-    const links = (q.resources || []).filter(r => r.type === 'link');
-    const acts = [['Enter', 'Next', next]];
+    const links = ((cur.problem || q).resources || []).filter(r => r.type === 'link');
+    const acts = [['Enter', cur.problem && screen === 'feedback' ? (cur.i + 1 < cur.problem.steps.length ? 'Next step' : 'Finish') : 'Next', advance]];
     if (links.length) { acts.push(['G', links[0].label || 'Open guide', () => openGuide(links[0])]); }
     if (ok && settings.auto && !cur.rated) { const bar = el('div', 'sx-bar'); bar.append(el('i')); m.append(bar); }
     if (askOpen) m.append(askBox());
-    acts.push(['?', 'Ask', toggleAsk], ['Esc', 'Overview', () => { screen = 'overview'; render(); }]);
-    paint(topBar(), m, actions(acts));
+    acts.push(['?', 'Ask', toggleAsk], ['Esc', 'Overview', () => { goOverview(); }]);
+    paint(topBar(), cur.problem ? problemWrap(m) : m, actions(acts));
     if (askOpen) { const i = $('.sx-ask input'); i && i.focus(); }
   }
   function startAuto() {
     const bar = $('.sx-bar i'); if (bar) { bar.style.transition = 'width 1.7s linear'; requestAnimationFrame(() => { bar.style.width = '100%'; }); }
-    timer = setTimeout(() => { if (screen === 'feedback') next(); }, 1700);
+    timer = setTimeout(() => { if (screen === 'feedback') advance(); }, 1700);
   }
   function openGuide(l) { try { window.open(new URL(l.href, document.baseURI).href, '_blank', 'noopener'); } catch (e) { /* ignore */ } }
 
@@ -432,7 +480,7 @@
     });
     const weak = infos.filter(i => i.att > 0).sort((a, b) => a.mast - b.mast).slice(0, 3).map(i => i.t);
     m.append(grid, el('p', 'sx-sub', (weak.length ? 'Weakest so far: ' + weak.join('; ') + '. ' : '') + (focusMode ? 'Focus mode is ON: only your weakest topics.' : 'Questions already lean toward weak topics; focus mode makes it strict.')));
-    paint(topBar(), m, actions([['Enter', 'Resume', () => { cur ? (screen = cur.result == null && !cur.selfCheck ? 'question' : 'feedback', render()) : next(); }], ['F', focusMode ? 'Focus: on' : 'Focus weak topics', toggleFocus], ['A', settings.auto ? 'Auto-continue: on' : 'Auto-continue: off', toggleAuto], ['M', 'Menu', menu], ['I', 'AI setup', openAI], ['X', resetArmed ? 'Press X again to erase progress' : 'Reset', resetProgress], ['H', 'Keys', help]]));
+    paint(topBar(), m, actions([['Enter', 'Resume', resume], ['F', focusMode ? 'Focus: on' : 'Focus weak topics', toggleFocus], ['A', settings.auto ? 'Auto-continue: on' : 'Auto-continue: off', toggleAuto], ['M', 'Menu', menu], ['I', 'AI setup', openAI], ['X', resetArmed ? 'Press X again to erase progress' : 'Reset', resetProgress], ['H', 'Keys', help]]));
   }
   function toggleFocus() { focusMode = !focusMode; overview(); }
   function toggleAuto() { settings.auto = !settings.auto; write(SETTINGS_KEY, settings); overview(); }
@@ -442,7 +490,7 @@
   }
   function help() {
     clearTimer(); const prev = screen; const m = el('div', 'sx-main sx-help');
-    const rows = [['↑ ← ↓ →  or  W A S D', 'Single choice: first press highlights two answers, second picks one'], ['1 – 9  /  T F', 'Answer by number (true/false: T or F)'], ['Enter', 'Next question, or check a multi-select'], ['Space', 'Pause the auto-continue to read the explanation'], ['Space / N', 'Skip'], ['R', 'Show the answer'], ['G', 'Open the lesson guide for this question'], ['I', 'AI setup (from the overview or menu)'], ['?', 'Ask about the question (needs an AI key)'], ['Esc', 'Overview: topic mastery, focus mode, reset'], ['Backspace', 'Undo a pick in ordering questions']];
+    const rows = [['↑ ← ↓ →  or  W A S D', 'Single choice: first press highlights two answers, second picks one'], ['1 – 9  /  T F', 'Answer by number (true/false: T or F)'], ['Enter', 'Next question, or check a multi-select'], ['Space', 'Pause the auto-continue to read the explanation'], ['Space / N', 'Skip'], ['R', 'Show the answer'], ['G', 'Open the lesson guide for this question'], ['I', 'AI setup (from the overview or menu)'], ['?', 'Ask about the question (needs an AI key)'], ['Tab', 'Switch mode: Conceptual / Workout (multi-step problems) / Mixed'], ['Esc', 'Overview: topic mastery, focus mode, reset'], ['Backspace', 'Undo a pick in ordering questions']];
     const l = el('div', 'sx-keylist'); rows.forEach(([k, t]) => { l.append(el('kbd', '', k), el('span', '', t)); });
     m.append(el('h2', '', 'Keys'), l);
     helpReturn = prev; screen = 'help'; paint(topBar(), m, actions([['Esc', 'Back', () => { screen = helpReturn === 'help' ? 'menu' : helpReturn; render(); }]]));
@@ -464,9 +512,10 @@
   document.addEventListener('keydown', e => {
     if (!active() || dialogOpen() || e.ctrlKey || e.metaKey || e.altKey) return;
     const tag = (e.target.tagName || '').toLowerCase(); const typing = tag === 'input' || tag === 'textarea' || tag === 'select';
-    if (typing) { if (e.key === 'Escape' && tag === 'textarea') { e.preventDefault(); screen = 'overview'; render(); } return; }
+    if (typing) { if (e.key === 'Escape' && tag === 'textarea') { e.preventDefault(); goOverview(); } return; }
     const k = e.key, K = k.length === 1 ? k.toLowerCase() : k;
     const take = () => e.preventDefault();
+    if (k === 'Tab' && (screen === 'question' || screen === 'feedback' || screen === 'psum' || screen === 'overview')) { take(); cycleMode(e.shiftKey ? -1 : 1); return; }
     if (screen === 'menu') {
       if (k === 'Enter') { take(); catalog[0] && start(catalog[0]); }
       else if (/^[1-9]$/.test(k) && catalog[+k - 1]) { take(); start(catalog[+k - 1]); }
@@ -476,8 +525,13 @@
     }
     if (screen === 'intro') { if (K === 'y') { take(); introDone(true); } else if (K === 'n' || k === 'Enter' || k === 'Escape') { take(); introDone(false); } return; }
     if (screen === 'help') { if (k === 'Escape' || k === 'Enter' || K === 'h') { take(); screen = helpReturn === 'help' ? 'menu' : helpReturn; render(); } return; }
+    if (screen === 'psum') {
+      if (k === 'Enter' || k === 'ArrowRight' || K === 'n' || k === ' ') { take(); next(); }
+      else if (k === 'Escape') { take(); goOverview(); } else if (K === 'h') { take(); help(); }
+      return;
+    }
     if (screen === 'overview') {
-      if (k === 'Enter' || k === 'Escape' || k === ' ') { take(); cur ? (screen = cur.result == null && !cur.selfCheck ? 'question' : 'feedback', render()) : next(); }
+      if (k === 'Enter' || k === 'Escape' || k === ' ') { take(); resume(); }
       else if (K === 'f') { take(); toggleFocus(); } else if (K === 'a') { take(); toggleAuto(); } else if (K === 'm') { take(); menu(); }
       else if (K === 'x') { take(); resetProgress(); } else if (K === 'i') { take(); openAI(); } else if (K === 'h' || k === '?') { take(); help(); }
       return;
@@ -485,7 +539,7 @@
     if (screen === 'question') {
       const q = cur.q;
       if ((k === 'Escape' || k === 'Backspace') && cur.hi) { take(); hiClear(); }
-      else if (k === 'Escape') { take(); screen = 'overview'; render(); }
+      else if (k === 'Escape') { take(); goOverview(); }
       else if (isPair(q) && k.indexOf('Arrow') === 0) { take(); arrow(k.slice(5).toLowerCase()); }
       else if (isPair(q) && !e.shiftKey && 'wasd'.indexOf(K) >= 0 && K.length === 1) { take(); arrow({w: 'up', a: 'left', s: 'down', d: 'right'}[K]); }   // WASD = arrow keys
       else if ((k === ' ' || K === 'n') && q.type !== 'text') { take(); skip(); }
@@ -500,11 +554,11 @@
     }
     if (screen === 'feedback') {
       if (cur.selfCheck && cur.result == null) { if (k === '1') rate(1); else if (k === '2') rate(0.5); else if (k === '3') rate(0); return; }
-      if (k === 'Enter' || k === 'ArrowRight' || K === 'n') { take(); next(); }
+      if (k === 'Enter' || k === 'ArrowRight' || K === 'n') { take(); advance(); }
       else if (k === ' ' || K === 'e' || k === 'ArrowDown') { take(); clearTimer(); const b = $('.sx-bar'); b && b.remove(); }
-      else if (K === 'g') { take(); const l = (cur.q.resources || []).find(r => r.type === 'link'); l && openGuide(l); }
+      else if (K === 'g') { take(); const l = ((cur.problem || cur.q).resources || []).find(r => r.type === 'link'); l && openGuide(l); }
       else if (k === '?') { take(); toggleAsk(); }
-      else if (k === 'Escape') { take(); screen = 'overview'; render(); }
+      else if (k === 'Escape') { take(); goOverview(); }
       else if (K === 'h') { take(); help(); }
     }
   });

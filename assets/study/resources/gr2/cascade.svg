@@ -1,0 +1,48 @@
+<svg class="sch" viewBox="0 0 760 270" width="760" height="270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two-stage cascade drawn as two-port models with a source resistance and a load"><style>text{font-family:"Segoe UI",Inter,Arial,sans-serif}.v{fill:#c9d2de}</style><circle cx="36" cy="155" r="15" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="36" y="153" font-size="12" text-anchor="middle" fill="#e8edf4">+</text>
+<text x="36" y="166" font-size="12" text-anchor="middle" fill="#e8edf4">−</text>
+<text x="15" y="159" font-size="13" text-anchor="end" fill="#e8edf4" font-style="italic">V<tspan dy="4" font-size="0.72em">S</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="36,140 36,80" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="36,170 36,230" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="36,80 53.0,80 56.0,74 62.0,86 68.0,74 74.0,86 80.0,74 86.0,86 89.0,80 106,80" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="71.0" y="68" font-size="13" text-anchor="middle" fill="#e8edf4" font-style="italic">R<tspan dy="4" font-size="0.72em">S</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="106,80 126,80" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="126" cy="80" r="2.8" fill="#e8edf4"/>
+<polyline points="126,80 126,137.0 132,140.0 120,146.0 132,152.0 120,158.0 132,164.0 120,170.0 126,173.0 126,230" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="114" y="159.0" font-size="13" text-anchor="end" fill="#e8edf4" font-style="italic">R<tspan dy="4" font-size="0.72em">i1</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="126,80 206,80" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="206,80 206,118" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polygon points="206,128 222,144 206,160 190,144" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="206" y="142" font-size="12" text-anchor="middle" fill="#e8edf4">+</text>
+<text x="206" y="155" font-size="12" text-anchor="middle" fill="#e8edf4">−</text>
+<text x="229" y="149" font-size="13" text-anchor="start" fill="#e8edf4" font-style="italic">A<tspan dy="4" font-size="0.72em">vo1</tspan><tspan dy="-4"> </tspan>v<tspan dy="4" font-size="0.72em">i1</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="206,160 206,230" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="206" cy="230" r="2.8" fill="#e8edf4"/>
+<polyline points="206,80 228.0,80 231.0,74 237.0,86 243.0,74 249.0,86 255.0,74 261.0,86 264.0,80 286,80" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="246.0" y="68" font-size="13" text-anchor="middle" fill="#e8edf4" font-style="italic">R<tspan dy="4" font-size="0.72em">o1</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="286,80 306,80" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="306" cy="80" r="2.8" fill="#e8edf4"/>
+<polyline points="306,80 306,137.0 312,140.0 300,146.0 312,152.0 300,158.0 312,164.0 300,170.0 306,173.0 306,230" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="294" y="159.0" font-size="13" text-anchor="end" fill="#e8edf4" font-style="italic">R<tspan dy="4" font-size="0.72em">i2</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="306,80 386,80" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="386,80 386,118" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polygon points="386,128 402,144 386,160 370,144" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="386" y="142" font-size="12" text-anchor="middle" fill="#e8edf4">+</text>
+<text x="386" y="155" font-size="12" text-anchor="middle" fill="#e8edf4">−</text>
+<text x="409" y="149" font-size="13" text-anchor="start" fill="#e8edf4" font-style="italic">A<tspan dy="4" font-size="0.72em">vo2</tspan><tspan dy="-4"> </tspan>v<tspan dy="4" font-size="0.72em">i2</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="386,160 386,230" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="386" cy="230" r="2.8" fill="#e8edf4"/>
+<polyline points="386,80 408.0,80 411.0,74 417.0,86 423.0,74 429.0,86 435.0,74 441.0,86 444.0,80 466,80" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="426.0" y="68" font-size="13" text-anchor="middle" fill="#e8edf4" font-style="italic">R<tspan dy="4" font-size="0.72em">o2</tspan><tspan dy="-4"> </tspan></text>
+<circle cx="466" cy="80" r="2.8" fill="#e8edf4"/>
+<polyline points="466,80 486,80 486,100" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="486,100 486,147.0 492,150.0 480,156.0 492,162.0 480,168.0 492,174.0 480,180.0 486,183.0 486,230" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="498" y="169.0" font-size="13" text-anchor="start" fill="#e8edf4" font-style="italic">R<tspan dy="4" font-size="0.72em">L</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="36,230 486,230" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="300,230 300,240" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="288,240 312,240" fill="none" stroke="#e8edf4" stroke-width="1.8"/>
+<polyline points="292.5,244.5 307.5,244.5" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="297,249 303,249" fill="none" stroke="#e8edf4" stroke-width="1.4"/>
+<text x="126" y="54" font-size="13" text-anchor="middle" fill="#e8edf4" font-style="italic">v<tspan dy="4" font-size="0.72em">i1</tspan><tspan dy="-4"> </tspan></text>
+<text x="306" y="54" font-size="13" text-anchor="middle" fill="#e8edf4" font-style="italic">v<tspan dy="4" font-size="0.72em">i2</tspan><tspan dy="-4"> </tspan></text>
+<text x="462" y="54" font-size="13" text-anchor="middle" fill="#e8edf4" font-style="italic">v<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan></text></svg>

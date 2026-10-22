@@ -1,0 +1,50 @@
+<svg class="sch" viewBox="0 0 500 330" width="500" height="330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Common-drain (source-follower) stage driving a load"><style>text{font-family:"Segoe UI",Inter,Arial,sans-serif}.v{fill:#c9d2de}</style><polyline points="241,124 241,156" fill="none" stroke="#e8edf4" stroke-width="2"/>
+<polyline points="216,140 241,140" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="250,120 250,131" fill="none" stroke="#e8edf4" stroke-width="2.2"/>
+<polyline points="250,135 250,145" fill="none" stroke="#e8edf4" stroke-width="2.2"/>
+<polyline points="250,149 250,160" fill="none" stroke="#e8edf4" stroke-width="2.2"/>
+<polyline points="250,124 270,124 270,100" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="250,156 270,156 270,180" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="250,140 270,140 270,156" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polygon points="252,140 260,136 260,144" fill="#e8edf4"/>
+<polyline points="270,45 270,33" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polygon points="270,25 265,35 275,35" fill="#e8edf4"/>
+<text x="270" y="20" font-size="12" text-anchor="middle" fill="#e8edf4" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="190,45 270,45" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="270" cy="45" r="2.8" fill="#e8edf4"/>
+<polyline points="270,45 270,100" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="190,45 190,74.5 196,77.5 184,83.5 196,89.5 184,95.5 196,101.5 184,107.5 190,110.5 190,140" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="178" y="96.5" font-size="13" text-anchor="end" fill="#e8edf4" font-style="italic">R<tspan dy="4" font-size="0.72em">G1</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="190,140 190,192.0 196,195.0 184,201.0 196,207.0 184,213.0 196,219.0 184,225.0 190,228.0 190,280" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="178" y="214.0" font-size="13" text-anchor="end" fill="#e8edf4" font-style="italic">R<tspan dy="4" font-size="0.72em">G2</tspan><tspan dy="-4"> </tspan></text>
+<circle cx="190" cy="140" r="2.8" fill="#e8edf4"/>
+<polyline points="190,140 216,140" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="270,180 270,200" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="270" cy="200" r="2.8" fill="#e8edf4"/>
+<polyline points="270,200 270,222.0 276,225.0 264,231.0 276,237.0 264,243.0 276,249.0 264,255.0 270,258.0 270,280" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="258" y="244.0" font-size="13" text-anchor="end" fill="#e8edf4" font-style="italic">R<tspan dy="4" font-size="0.72em">S</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="270,200 330,200" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="330,200 362.0,200" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="368.0,200 400,200" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="362.0,190.0 362.0,210.0" fill="none" stroke="#e8edf4" stroke-width="2.2"/>
+<polyline points="368.0,190.0 368.0,210.0" fill="none" stroke="#e8edf4" stroke-width="2.2"/>
+<text x="365.0" y="184.0" font-size="13" text-anchor="middle" fill="#e8edf4" font-style="italic">C<tspan dy="4" font-size="0.72em">2</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="400,200 440,200 440,215" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="440,215 440,229.5 446,232.5 434,238.5 446,244.5 434,250.5 446,256.5 434,262.5 440,265.5 440,280" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="452" y="251.5" font-size="13" text-anchor="start" fill="#e8edf4" font-style="italic">R<tspan dy="4" font-size="0.72em">L</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="190,280 440,280" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="190" cy="280" r="2.8" fill="#e8edf4"/>
+<circle cx="270" cy="280" r="2.8" fill="#e8edf4"/>
+<polyline points="270,280 270,290" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="258,290 282,290" fill="none" stroke="#e8edf4" stroke-width="1.8"/>
+<polyline points="262.5,294.5 277.5,294.5" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="267,299 273,299" fill="none" stroke="#e8edf4" stroke-width="1.4"/>
+<polyline points="60,140 190,140" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="90,140 122.0,140" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="128.0,140 160,140" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="122.0,130.0 122.0,150.0" fill="none" stroke="#e8edf4" stroke-width="2.2"/>
+<polyline points="128.0,130.0 128.0,150.0" fill="none" stroke="#e8edf4" stroke-width="2.2"/>
+<text x="125.0" y="124.0" font-size="13" text-anchor="middle" fill="#e8edf4" font-style="italic">C<tspan dy="4" font-size="0.72em">1</tspan><tspan dy="-4"> </tspan></text>
+<circle cx="60" cy="140" r="3.2" fill="#0d1118" stroke="#e8edf4" stroke-width="1.4"/>
+<text x="52" y="145" font-size="13" text-anchor="end" fill="#e8edf4" font-style="italic">v<tspan dy="4" font-size="0.72em">in</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="60,140 73,140" fill="none" stroke="#e8edf4" stroke-width="1.6"/></svg>
