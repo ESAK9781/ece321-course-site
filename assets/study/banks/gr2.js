@@ -87,7 +87,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/two_port.svg",
+    "alt": "Amplifier drawn as a two-port model: source resistance, input resistance, controlled source, output resistance and load"
+   }
   },
   {
    "id": "gr2-model-002",
@@ -162,7 +166,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/two_port.svg",
+    "alt": "Amplifier drawn as a two-port model: source resistance, input resistance, controlled source, output resistance and load"
+   }
   },
   {
    "id": "gr2-model-003",
@@ -237,7 +245,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/two_port.svg",
+    "alt": "Amplifier drawn as a two-port model: source resistance, input resistance, controlled source, output resistance and load"
+   }
   },
   {
    "id": "gr2-model-004",
@@ -312,7 +324,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/two_port.svg",
+    "alt": "Amplifier drawn as a two-port model: source resistance, input resistance, controlled source, output resistance and load"
+   }
   },
   {
    "id": "gr2-model-005",
@@ -363,7 +379,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/two_port.svg",
+    "alt": "Amplifier drawn as a two-port model: source resistance, input resistance, controlled source, output resistance and load"
+   }
   },
   {
    "id": "gr2-model-006",
@@ -438,7 +458,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cascade.svg",
+    "alt": "Two amplifier stages in cascade, each drawn as a two-port model, with a source resistance and a load"
+   }
   },
   {
    "id": "gr2-model-007",
@@ -513,7 +537,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cascade.svg",
+    "alt": "Two amplifier stages in cascade, each drawn as a two-port model, with a source resistance and a load"
+   }
   },
   {
    "id": "gr2-model-008",
@@ -588,7 +616,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cascade.svg",
+    "alt": "Two amplifier stages in cascade, each drawn as a two-port model, with a source resistance and a load"
+   }
   },
   {
    "id": "gr2-model-009",
@@ -669,7 +701,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-19.html",
      "section": "A1"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cascade.svg",
+    "alt": "Two amplifier stages in cascade, each drawn as a two-port model, with a source resistance and a load"
+   }
   },
   {
    "id": "gr2-model-010",
@@ -757,7 +793,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/two_port.svg",
+    "alt": "Amplifier drawn as a two-port model: source resistance, input resistance, controlled source, output resistance and load"
+   }
   },
   {
    "id": "gr2-model-011",
@@ -818,7 +858,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/two_port.svg",
+    "alt": "Amplifier drawn as a two-port model: source resistance, input resistance, controlled source, output resistance and load"
+   }
   },
   {
    "id": "gr2-model-012",
@@ -869,7 +913,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/two_port.svg",
+    "alt": "Amplifier drawn as a two-port model: source resistance, input resistance, controlled source, output resistance and load"
+   }
   },
   {
    "id": "gr2-model-013",
@@ -1019,7 +1067,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 7 Measuring Ri"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/meas_ri.svg",
+    "alt": "Measuring input resistance: a variable resistor in series with the source and a voltmeter at the amplifier input"
+   }
   },
   {
    "id": "gr2-measure-002",
@@ -1094,7 +1146,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 7"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/two_port.svg",
+    "alt": "Amplifier drawn as a two-port model: source resistance, input resistance, controlled source, output resistance and load"
+   }
   },
   {
    "id": "gr2-measure-003",
@@ -1169,7 +1225,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 7 Measuring Ro"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/meas_ro.svg",
+    "alt": "Measuring output resistance: input set to zero, a test source driving the output through a variable resistor"
+   }
   },
   {
    "id": "gr2-measure-004",
@@ -1220,7 +1280,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 7"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/two_port.svg",
+    "alt": "Amplifier drawn as a two-port model: source resistance, input resistance, controlled source, output resistance and load"
+   }
   },
   {
    "id": "gr2-measure-005",
@@ -1291,7 +1355,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-15.html",
      "section": "A3 Common mistakes"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/meas_ro.svg",
+    "alt": "Measuring output resistance: input set to zero, a test source driving the output through a variable resistor"
+   }
   },
   {
    "id": "gr2-vtc-001",
@@ -1366,7 +1434,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/vtc.svg",
+    "alt": "Voltage transfer curve of a common-source stage with points A, B and Q"
+   }
   },
   {
    "id": "gr2-vtc-002",
@@ -1441,7 +1513,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 1"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/vtc.svg",
+    "alt": "Voltage transfer curve of a common-source stage with points A, B and Q"
+   }
   },
   {
    "id": "gr2-vtc-003",
@@ -1516,7 +1592,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 1"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/vtc.svg",
+    "alt": "Voltage transfer curve of a common-source stage with points A, B and Q"
+   }
   },
   {
    "id": "gr2-vtc-004",
@@ -1588,14 +1668,18 @@ window.CourseStudy.registerBank({
      "section": "A5 Checks"
     },
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "p. 16-2 \"Where in SAT is the slope the greatest?\""
     },
     {
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 1"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/vtc.svg",
+    "alt": "Voltage transfer curve of a common-source stage with points A, B and Q"
+   }
   },
   {
    "id": "gr2-vtc-005",
@@ -1639,14 +1723,18 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "p. 16-2 (A_v,max)"
     },
     {
      "file": "Lesson objectives",
      "section": "Lesson 16 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/vtc.svg",
+    "alt": "Voltage transfer curve of a common-source stage with points A, B and Q"
+   }
   },
   {
    "id": "gr2-vtc-006",
@@ -1721,7 +1809,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/vtc.svg",
+    "alt": "Voltage transfer curve of a common-source stage with points A, B and Q"
+   }
   },
   {
    "id": "gr2-vtc-007",
@@ -1796,7 +1888,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/vtc.svg",
+    "alt": "Voltage transfer curve of a common-source stage with points A, B and Q"
+   }
   },
   {
    "id": "gr2-vtc-008",
@@ -1864,14 +1960,18 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "p. 16-1 \"phase shift\""
     },
     {
      "file": "Lesson objectives",
      "section": "Lesson 16 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/vtc.svg",
+    "alt": "Voltage transfer curve of a common-source stage with points A, B and Q"
+   }
   },
   {
    "id": "gr2-vtc-009",
@@ -1959,7 +2059,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/vtc.svg",
+    "alt": "Voltage transfer curve of a common-source stage with points A, B and Q"
+   }
   },
   {
    "id": "gr2-vtc-010",
@@ -2030,7 +2134,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 1"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/vtc.svg",
+    "alt": "Voltage transfer curve of a common-source stage with points A, B and Q"
+   }
   },
   {
    "id": "gr2-vtc-011",
@@ -2251,7 +2359,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-18.html",
      "section": "A4 Checking the output swing"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/vtc.svg",
+    "alt": "Voltage transfer curve of a common-source stage with points A, B and Q"
+   }
   },
   {
    "id": "gr2-ss-001",
@@ -2311,13 +2423,15 @@ window.CourseStudy.registerBank({
    "explanation": "Uppercase letter with uppercase subscript is DC (VGS); lowercase with uppercase subscript is the total (vGS); lowercase with lowercase subscript is the signal (vgs).",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 16 has no guide yet: this item follows the instructor notetaker for Lesson 16 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-16.html",
+     "label": "Lesson 16 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "p. 16-4 notation iD, ID, id; vGS, VGS, vgs"
     },
     {
@@ -2384,13 +2498,15 @@ window.CourseStudy.registerBank({
    "explanation": "iD = ID + id: the total current is the DC bias current plus the signal current. Keeping the three forms straight matters because the small-signal current id is what the model multiplies by gm, while ID is the DC bias that sets gm.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 16 has no guide yet: this item follows the instructor notetaker for Lesson 16 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-16.html",
+     "label": "Lesson 16 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "p. 16-4"
     }
    ]
@@ -2453,13 +2569,15 @@ window.CourseStudy.registerBank({
    "explanation": "Around a Q-point the nonlinear iD–vGS curve looks like a straight line of slope gm for small signals. This turns the amplifier into a linear circuit.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 16 has no guide yet: this item follows the instructor notetaker for Lesson 16 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-16.html",
+     "label": "Lesson 16 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "pp. 16-4 to 16-6"
     },
     {
@@ -2534,7 +2652,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "p. 16-5 DEF small-signal transconductance"
     },
     {
@@ -2601,13 +2719,15 @@ window.CourseStudy.registerBank({
    "explanation": "The signal current has a linear part (gm vgs) and a small quadratic part. The model keeps only the linear part, so it is valid while vgs ≪ 2VOV.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 16 has no guide yet: this item follows the instructor notetaker for Lesson 16 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-16.html",
+     "label": "Lesson 16 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "pp. 16-4 to 16-5 \"Want to know when KnVOV >> ½Kn...\""
     },
     {
@@ -2662,7 +2782,7 @@ window.CourseStudy.registerBank({
      "section": "B2 gm = Kn VOV = √(2 Kn ID)"
     },
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "p. 16-5"
     }
    ]
@@ -2750,7 +2870,7 @@ window.CourseStudy.registerBank({
      "section": "B2"
     },
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "p. 16-5"
     }
    ]
@@ -2821,14 +2941,18 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "p. 16-6 To use: DC voltage supplies →"
     },
     {
      "file": "lesson-guides/lesson-26.html",
      "section": "A4 Method"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-ss-009",
@@ -2901,20 +3025,26 @@ window.CourseStudy.registerBank({
    "explanation": "For signals: DC voltage sources are shorts, DC current sources are opens, and large capacitors are shorts. The transistor is replaced by its linear model.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 16 has no guide yet: this item follows the instructor notetaker for Lesson 16 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-16.html",
+     "label": "Lesson 16 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "p. 16-6, p. 16-9"
     },
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "p. 17-3"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-ss-010",
@@ -2974,20 +3104,26 @@ window.CourseStudy.registerBank({
    "explanation": "The gate is insulated, so ig = 0. Any input resistance of the amplifier therefore comes from the bias resistors, not from the transistor.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 16 has no guide yet: this item follows the instructor notetaker for Lesson 16 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-16.html",
+     "label": "Lesson 16 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "pp. 16-7, 16-8 (ig = 0)"
     },
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "p. 17-3"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/ss_model.svg",
+    "alt": "Small-signal model of a MOSFET: open gate, controlled current source gm vgs and output resistance ro"
+   }
   },
   {
    "id": "gr2-ss-011",
@@ -3055,14 +3191,18 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "p. 16-8"
     },
     {
      "file": "lesson-guides/lesson-21.html",
      "section": "A5 r_o = 1/(λ ID)"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/ss_model.svg",
+    "alt": "Small-signal model of a MOSFET: open gate, controlled current source gm vgs and output resistance ro"
+   }
   },
   {
    "id": "gr2-ss-012",
@@ -3122,17 +3262,19 @@ window.CourseStudy.registerBank({
    "explanation": "Both models predict identical behavior. The T-model shows the source current path with 1/gm, which makes analysis easier when a resistor hangs on the source.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 16 has no guide yet: this item follows the instructor notetaker for Lesson 16 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-16.html",
+     "label": "Lesson 16 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "p. 16-8"
     },
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "p. 17-8"
     },
     {
@@ -3199,20 +3341,26 @@ window.CourseStudy.registerBank({
    "explanation": "The signal drain current gm vgs flows through RD, giving a drain signal of −gm vgs RD. So gain magnitude is gm times RD (with a load, RD in parallel with RL).",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 16 has no guide yet: this item follows the instructor notetaker for Lesson 16 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-16.html",
+     "label": "Lesson 16 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "p. 16-6, p. 16-9"
     },
     {
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 1"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-ss-014",
@@ -3272,20 +3420,26 @@ window.CourseStudy.registerBank({
    "explanation": "For the signal the coupling capacitor is a short, so RL appears from the drain to ground in parallel with RD. Avo is the no-load value and is unchanged.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 16 has no guide yet: this item follows the instructor notetaker for Lesson 16 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-16.html",
+     "label": "Lesson 16 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "p. 16-9 \"If we consider no-load or ...\""
     },
     {
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6 Table, Av row"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-ss-015",
@@ -3345,20 +3499,26 @@ window.CourseStudy.registerBank({
    "explanation": "The gain magnitude can be written as the drop across RD divided by half of VOV. For a fixed drop, a smaller VOV gives a larger gain.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 16 has no guide yet: this item follows the instructor notetaker for Lesson 16 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-16.html",
+     "label": "Lesson 16 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "p. 16-2"
     },
     {
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 1 gain expression"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-ss-016",
@@ -3418,8 +3578,10 @@ window.CourseStudy.registerBank({
    "explanation": "The linearity test compares vgs,pk with VOV (the course uses a fraction of VOV). The smaller VOV is, the smaller the signal you may apply, which is why design steps say VOV must not be too small.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 16 has no guide yet: this item follows the instructor notetaker for Lesson 16 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-16.html",
+     "label": "Lesson 16 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
@@ -3428,10 +3590,14 @@ window.CourseStudy.registerBank({
      "section": "p. 2 Step 4 note"
     },
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "p. 16-5"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-ss-017",
@@ -3491,20 +3657,26 @@ window.CourseStudy.registerBank({
    "explanation": "During the downswing the drain-source voltage falls by the gain times vgs. It must remain at least VOV. That inequality bounds the allowed amplitude.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 16 has no guide yet: this item follows the instructor notetaker for Lesson 16 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-16.html",
+     "label": "Lesson 16 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "pp. 16-3, 16-4 Steps 3-4"
     },
     {
      "file": "lesson-guides/lesson-15.html",
      "section": "A6"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-ss-018",
@@ -3560,16 +3732,22 @@ window.CourseStudy.registerBank({
    "explanation": "The analysis starts with DC (bias and mode), then the small-signal gain, then a boundary condition on the output swing that gives the allowed vgs,pk.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 16 has no guide yet: this item follows the instructor notetaker for Lesson 16 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-16.html",
+     "label": "Lesson 16 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "pp. 16-3, 16-4 Ex. 2"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-ss-019",
@@ -3625,16 +3803,22 @@ window.CourseStudy.registerBank({
    "explanation": "The standard recipe is: simplify the circuit for signals (zero DC sources, capacitors shorted), insert the model, write the node relations, and form the gain ratio.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 16 has no guide yet: this item follows the instructor notetaker for Lesson 16 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-16.html",
+     "label": "Lesson 16 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "p. 16-9 Steps 1-3"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-csdes-001",
@@ -3694,20 +3878,26 @@ window.CourseStudy.registerBank({
    "explanation": "The signal source and load would otherwise change the DC bias. Large capacitors block DC but look like shorts to the signal.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 17 has no guide yet: this item follows the instructor notetaker for Lesson 17 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-17.html",
+     "label": "Lesson 17 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "p. 17-1 (C1 and C2 couple the source and load without affecting the biasing)"
     },
     {
      "file": "Lesson objectives",
      "section": "Lesson 17 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-csdes-002",
@@ -3767,20 +3957,26 @@ window.CourseStudy.registerBank({
    "explanation": "Each coupling capacitor holds the DC difference between its two sides. The plate on the higher DC voltage side must be the positive plate.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 17 has no guide yet: this item follows the instructor notetaker for Lesson 17 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-17.html",
+     "label": "Lesson 17 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "p. 17-1 \"polarity requirement sets the side where voltage is higher\""
     },
     {
      "file": "Lesson objectives",
      "section": "Lesson 17 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-csdes-003",
@@ -3840,20 +4036,26 @@ window.CourseStudy.registerBank({
    "explanation": "With the source at ground, VGS equals the gate voltage. The two gate resistors program that voltage from VDD, and since no gate current flows the divider is unloaded.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 17 has no guide yet: this item follows the instructor notetaker for Lesson 17 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-17.html",
+     "label": "Lesson 17 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "p. 17-1 \"gate resistors program the voltage VG = VGS\""
     },
     {
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 2 Steps 4-5"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-csdes-004",
@@ -3913,20 +4115,26 @@ window.CourseStudy.registerBank({
    "explanation": "Looking into the coupling capacitor (a short for signals), the signal sees RG1 and RG2 to ground in parallel. The gate adds nothing.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 17 has no guide yet: this item follows the instructor notetaker for Lesson 17 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-17.html",
+     "label": "Lesson 17 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "p. 17-3 For Ri"
     },
     {
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6 Table, Ri row"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-csdes-005",
@@ -3999,20 +4207,26 @@ window.CourseStudy.registerBank({
    "explanation": "Output resistance is the resistance looking back into the output with the input signal zeroed and the load removed, using the signal-circuit simplifications.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 17 has no guide yet: this item follows the instructor notetaker for Lesson 17 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-17.html",
+     "label": "Lesson 17 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "p. 17-3 For Ro"
     },
     {
      "file": "lesson-guides/lesson-15.html",
      "section": "A3 R_o"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-csdes-006",
@@ -4072,27 +4286,33 @@ window.CourseStudy.registerBank({
    "explanation": "The drain current follows the square law of (VGS − Vt) with VGS fixed. If Vt or Kn differs, the current shifts directly. A source resistor would add feedback to resist this.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 17 has no guide yet: this item follows the instructor notetaker for Lesson 17 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-17.html",
+     "label": "Lesson 17 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "pp. 17-6, 17-7 (V(2) and ID change when Vt changes)"
     },
     {
      "file": "Lesson objectives",
      "section": "Lesson 17 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-csdes-007",
    "type": "choice",
    "topic": "CS design with no source resistor",
    "objective": "Say what the simulation shows when Vt changes",
-   "prompt": "In the Lesson 17 simulations of the no-RS design, what happens to the operating point when the transistor is replaced by one with a different threshold voltage?",
+   "prompt": "In a simulation of the no-source-resistor design, what happens to the operating point when the transistor is replaced by one with a different threshold voltage?",
    "answer": {
     "id": "d",
     "text": "The drain current and drain voltage shift substantially, moving the output swing and the gain"
@@ -4145,16 +4365,22 @@ window.CourseStudy.registerBank({
    "explanation": "The two printed simulations use the same resistors but different device parameters. The drain current and drain voltage differ greatly, showing how sensitive this bias is.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 17 has no guide yet: this item follows the instructor notetaker for Lesson 17 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-17.html",
+     "label": "Lesson 17 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "pp. 17-6, 17-7 simulation results"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-csdes-008",
@@ -4214,20 +4440,26 @@ window.CourseStudy.registerBank({
    "explanation": "Choosing the middle gives a safe starting point with symmetric room. If the gain target cannot be met, move toward point B, accepting less downward swing.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 17 has no guide yet: this item follows the instructor notetaker for Lesson 17 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-17.html",
+     "label": "Lesson 17 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "p. 17-4 Step 1"
     },
     {
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 2 Step 1"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-csdes-009",
@@ -4287,20 +4519,26 @@ window.CourseStudy.registerBank({
    "explanation": "With VDS chosen, the voltage dropped across RD is known, and the gain magnitude is that drop divided by half of VOV. So the gain target fixes VOV.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 17 has no guide yet: this item follows the instructor notetaker for Lesson 17 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-17.html",
+     "label": "Lesson 17 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "p. 17-4 Step 2"
     },
     {
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 2 Steps 2-3"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-csdes-010",
@@ -4356,20 +4594,26 @@ window.CourseStudy.registerBank({
    "explanation": "The sequence runs bias choice, gain-driven overdrive, RD, gate bias and finally the swing and linearity checks, ending with a simulation.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 17 has no guide yet: this item follows the instructor notetaker for Lesson 17 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-17.html",
+     "label": "Lesson 17 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "p. 17-4, p. 17-5 Steps 1-7"
     },
     {
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 2"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-csdes-011",
@@ -4437,7 +4681,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "p. 17-5 Step 7"
     },
     {
@@ -4512,14 +4756,18 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "p. 17-8 \"Add resistor to contribute feedback\""
     },
     {
      "file": "lesson-guides/lesson-18.html",
      "section": "B1 R_S as negative feedback"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_rs.svg",
+    "alt": "Common-source amplifier with a source resistor RS and no capacitor across it"
+   }
   },
   {
    "id": "gr2-fb-002",
@@ -4587,14 +4835,18 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "p. 17-9"
     },
     {
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 4 Gain with source degeneration"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_rs.svg",
+    "alt": "Common-source amplifier with a source resistor RS and no capacitor across it"
+   }
   },
   {
    "id": "gr2-fb-003",
@@ -4669,7 +4921,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 18 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_bypassed.svg",
+    "alt": "Common-source amplifier with a bypass capacitor across the source resistor RS"
+   }
   },
   {
    "id": "gr2-fb-004",
@@ -4744,7 +5000,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 18 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_bypassed.svg",
+    "alt": "Common-source amplifier with a bypass capacitor across the source resistor RS"
+   }
   },
   {
    "id": "gr2-fb-005",
@@ -4816,14 +5076,18 @@ window.CourseStudy.registerBank({
      "section": "A6, A8"
     },
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "p. 17-10"
     },
     {
      "file": "Lesson objectives",
      "section": "Lesson 18 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_partial.svg",
+    "alt": "Common-source amplifier with RS split into RS1 and RS2, with a bypass capacitor across RS2"
+   }
   },
   {
    "id": "gr2-fb-006",
@@ -4883,16 +5147,22 @@ window.CourseStudy.registerBank({
    "explanation": "A large RS1 divides the signal away from the gate-source junction and cuts gain. The lesson balances stability against gain.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 17 has no guide yet: this item follows the instructor notetaker for Lesson 17."
+     "type": "link",
+     "href": "lesson-guides/lesson-17.html",
+     "label": "Lesson 17 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "p. 17-10 \"do not want RS too ... or else it swamps out the gain\""
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_partial.svg",
+    "alt": "Common-source amplifier with RS split into RS1 and RS2, with a bypass capacitor across RS2"
+   }
   },
   {
    "id": "gr2-fb-007",
@@ -4909,7 +5179,7 @@ window.CourseStudy.registerBank({
      "id": "a",
      "text": "The gain would become too large to measure",
      "correct": false,
-     "rationale": "The issue the notes name is bias sensitivity."
+     "rationale": "The issue the lesson names is bias sensitivity."
     },
     {
      "id": "b",
@@ -4934,7 +5204,7 @@ window.CourseStudy.registerBank({
      "id": "a",
      "text": "The gain would become too large to measure",
      "misconception": "Treats large gain as a problem here.",
-     "rationale": "The issue the notes name is bias sensitivity."
+     "rationale": "The issue the lesson names is bias sensitivity."
     },
     {
      "id": "b",
@@ -4952,16 +5222,22 @@ window.CourseStudy.registerBank({
    "explanation": "The resistor provides the feedback that stabilizes ID. Too little feedback leaves the bias as sensitive as the no-RS design.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 17 has no guide yet: this item follows the instructor notetaker for Lesson 17."
+     "type": "link",
+     "href": "lesson-guides/lesson-17.html",
+     "label": "Lesson 17 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "p. 17-10 \"do not want RS too small\""
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_rs.svg",
+    "alt": "Common-source amplifier with a source resistor RS and no capacitor across it"
+   }
   },
   {
    "id": "gr2-fb-008",
@@ -5049,7 +5325,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-18.html",
      "section": "A5"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_partial.svg",
+    "alt": "Common-source amplifier with RS split into RS1 and RS2, with a bypass capacitor across RS2"
+   }
   },
   {
    "id": "gr2-fb-009",
@@ -5124,7 +5404,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 4 Step 9"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_partial.svg",
+    "alt": "Common-source amplifier with RS split into RS1 and RS2, with a bypass capacitor across RS2"
+   }
   },
   {
    "id": "gr2-fb-010",
@@ -5199,7 +5483,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 4 Step 9"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_partial.svg",
+    "alt": "Common-source amplifier with RS split into RS1 and RS2, with a bypass capacitor across RS2"
+   }
   },
   {
    "id": "gr2-fb-011",
@@ -5274,7 +5562,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 3 Step 1"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_partial.svg",
+    "alt": "Common-source amplifier with RS split into RS1 and RS2, with a bypass capacitor across RS2"
+   }
   },
   {
    "id": "gr2-fb-012",
@@ -5349,7 +5641,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-18.html",
      "section": "B1"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_partial.svg",
+    "alt": "Common-source amplifier with RS split into RS1 and RS2, with a bypass capacitor across RS2"
+   }
   },
   {
    "id": "gr2-fb-013",
@@ -5400,7 +5696,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 4 Step 2 note"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_partial.svg",
+    "alt": "Common-source amplifier with RS split into RS1 and RS2, with a bypass capacitor across RS2"
+   }
   },
   {
    "id": "gr2-fb-014",
@@ -5472,10 +5772,14 @@ window.CourseStudy.registerBank({
      "section": "A8 Variants"
     },
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "p. 17-10 \"We will choose RS1 =\""
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_partial.svg",
+    "alt": "Common-source amplifier with RS split into RS1 and RS2, with a bypass capacitor across RS2"
+   }
   },
   {
    "id": "gr2-fb-015",
@@ -5550,7 +5854,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-18.html",
      "section": "B6 Rules of thumb"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_partial.svg",
+    "alt": "Common-source amplifier with RS split into RS1 and RS2, with a bypass capacitor across RS2"
+   }
   },
   {
    "id": "gr2-fb-016",
@@ -5625,7 +5933,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 4 diagram"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_partial.svg",
+    "alt": "Common-source amplifier with RS split into RS1 and RS2, with a bypass capacitor across RS2"
+   }
   },
   {
    "id": "gr2-fb-017",
@@ -5760,13 +6072,15 @@ window.CourseStudy.registerBank({
    "explanation": "Smaller vgs means the square-law curve is used over a smaller, straighter range. In the Lesson 20 simulations with the same supply split, THD fell from 0.604% to 0.486% when more resistance was left unbypassed.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 20 has no guide yet: this item follows the instructor notetaker for Lesson 20 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-20.html",
+     "label": "Lesson 20 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 20",
+     "file": "lesson-guides/lesson-20.html",
      "section": "pp. 20-7 and 20-10 THD readouts"
     },
     {
@@ -5833,8 +6147,10 @@ window.CourseStudy.registerBank({
    "explanation": "The \"thirds\" formula assumed VRD = VDD/3. With another allocation, the voltage across RD differs, so the current formula and swing room change.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 20 has no guide yet: this item follows the instructor notetaker for Lesson 20 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-20.html",
+     "label": "Lesson 20 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
@@ -5843,10 +6159,14 @@ window.CourseStudy.registerBank({
      "section": "Lesson 20 objectives"
     },
     {
-     "file": "Instructor notetaker, Lesson 20",
+     "file": "lesson-guides/lesson-20.html",
      "section": "p. 20-8 \"we must modify the ID design formula\""
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_partial.svg",
+    "alt": "Common-source amplifier with RS split into RS1 and RS2, with a bypass capacitor across RS2"
+   }
   },
   {
    "id": "gr2-des-001",
@@ -5921,7 +6241,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-18.html",
      "section": "A6 Common mistakes"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_partial.svg",
+    "alt": "Common-source amplifier with RS split into RS1 and RS2, with a bypass capacitor across RS2"
+   }
   },
   {
    "id": "gr2-des-002",
@@ -5996,7 +6320,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-18.html",
      "section": "A1 vs A6"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_bypassed.svg",
+    "alt": "Common-source amplifier with a bypass capacitor across the source resistor RS"
+   }
   },
   {
    "id": "gr2-des-003",
@@ -6072,7 +6400,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-26.html",
      "section": "A1"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_partial.svg",
+    "alt": "Common-source amplifier with RS split into RS1 and RS2, with a bypass capacitor across RS2"
+   }
   },
   {
    "id": "gr2-des-004",
@@ -6148,7 +6480,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-18.html",
      "section": "A1"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_bypassed.svg",
+    "alt": "Common-source amplifier with a bypass capacitor across the source resistor RS"
+   }
   },
   {
    "id": "gr2-des-005",
@@ -6223,7 +6559,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 3 Step 6"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_partial.svg",
+    "alt": "Common-source amplifier with RS split into RS1 and RS2, with a bypass capacitor across RS2"
+   }
   },
   {
    "id": "gr2-des-006",
@@ -6298,7 +6638,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 3 Step 7"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_partial.svg",
+    "alt": "Common-source amplifier with RS split into RS1 and RS2, with a bypass capacitor across RS2"
+   }
   },
   {
    "id": "gr2-des-007",
@@ -6373,7 +6717,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-26.html",
      "section": "A1 Checks"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_partial.svg",
+    "alt": "Common-source amplifier with RS split into RS1 and RS2, with a bypass capacitor across RS2"
+   }
   },
   {
    "id": "gr2-des-008",
@@ -6523,7 +6871,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 3 Step 2"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_bypassed.svg",
+    "alt": "Common-source amplifier with a bypass capacitor across the source resistor RS"
+   }
   },
   {
    "id": "gr2-des-010",
@@ -6583,20 +6935,26 @@ window.CourseStudy.registerBank({
    "explanation": "The factor 6 arose from RS1 = 1/gm. A different RS1 changes the gain relation and therefore the current formula, as the Lesson 20 Example 2 notes.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 20 has no guide yet: this item follows the instructor notetaker for Lesson 20 and Equation Sheet 4."
+     "type": "link",
+     "href": "lesson-guides/lesson-20.html",
+     "label": "Lesson 20 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 20",
+     "file": "lesson-guides/lesson-20.html",
      "section": "p. 20-8 Step 2"
     },
     {
      "file": "Lesson objectives",
      "section": "Lesson 20 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_partial.svg",
+    "alt": "Common-source amplifier with RS split into RS1 and RS2, with a bypass capacitor across RS2"
+   }
   },
   {
    "id": "gr2-cd-001",
@@ -6671,7 +7029,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 19 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-cd-002",
@@ -6746,7 +7108,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 19 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-cd-003",
@@ -6821,7 +7187,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 5 header"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-cd-004",
@@ -6896,7 +7266,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-21.html",
      "section": "A6"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-cd-005",
@@ -6971,7 +7345,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-19.html",
      "section": "A2"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-cd-006",
@@ -7046,7 +7424,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 5 header"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-cd-007",
@@ -7134,7 +7516,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 20 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-cd-008",
@@ -7185,7 +7571,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-21.html",
      "section": "A6"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-cd-009",
@@ -7264,7 +7654,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 20 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-cd-010",
@@ -7336,10 +7730,14 @@ window.CourseStudy.registerBank({
      "section": "A2 Method"
     },
     {
-     "file": "Instructor notetaker, Lesson 20",
+     "file": "lesson-guides/lesson-20.html",
      "section": "p. 20-1"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-cddes-001",
@@ -7414,7 +7812,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-19.html",
      "section": "A3 Method"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-cddes-002",
@@ -7489,7 +7891,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-21.html",
      "section": "A1 Method"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-cddes-003",
@@ -7564,7 +7970,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 5 Steps 5-6"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-cddes-004",
@@ -7639,7 +8049,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-21.html",
      "section": "A1 Method"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-cddes-005",
@@ -7714,7 +8128,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-26.html",
      "section": "A2 Common mistakes"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-cddes-006",
@@ -7789,7 +8207,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 5 Step 3"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-cddes-007",
@@ -7864,7 +8286,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-21.html",
      "section": "A1 Checks"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-cddes-008",
@@ -7939,7 +8365,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 21 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-cddes-009",
@@ -8014,7 +8444,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-19.html",
      "section": "A3 Variants"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-cddes-010",
@@ -8090,7 +8524,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-19.html",
      "section": "A3 Method"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-cddes-011",
@@ -8165,7 +8603,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-19.html",
      "section": "A2"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-multi-001",
@@ -8315,7 +8757,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-15.html",
      "section": "A2"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cascade.svg",
+    "alt": "Two amplifier stages in cascade, each drawn as a two-port model, with a source resistance and a load"
+   }
   },
   {
    "id": "gr2-multi-003",
@@ -8390,7 +8836,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-19.html",
      "section": "A1"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cascade.svg",
+    "alt": "Two amplifier stages in cascade, each drawn as a two-port model, with a source resistance and a load"
+   }
   },
   {
    "id": "gr2-multi-004",
@@ -8516,7 +8966,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-15.html",
      "section": "A2"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cascade.svg",
+    "alt": "Two amplifier stages in cascade, each drawn as a two-port model, with a source resistance and a load"
+   }
   },
   {
    "id": "gr2-multi-006",
@@ -8591,7 +9045,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-15.html",
      "section": "A3"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/two_port.svg",
+    "alt": "Amplifier drawn as a two-port model: source resistance, input resistance, controlled source, output resistance and load"
+   }
   },
   {
    "id": "gr2-cg-001",
@@ -8651,20 +9109,26 @@ window.CourseStudy.registerBank({
    "explanation": "Common gate: bypass the gate to ac ground, couple the input source into the source terminal and take the output from the drain through a coupling capacitor.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 20 has no guide yet: this item follows the instructor notetaker for Lesson 20 and Equation Sheet 4 (page 6 parameter table)."
+     "type": "link",
+     "href": "lesson-guides/lesson-20.html",
+     "label": "Lesson 20 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 20",
+     "file": "lesson-guides/lesson-20.html",
      "section": "p. 20-2 What is the Common Gate topology?"
     },
     {
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cg_stage.svg",
+    "alt": "Common-gate stage: gate held at ac ground by a capacitor, input at the source, output at the drain"
+   }
   },
   {
    "id": "gr2-cg-002",
@@ -8724,8 +9188,10 @@ window.CourseStudy.registerBank({
    "explanation": "Looking into the source, the signal current flows through the transistor with an effective resistance of 1/gm, in parallel with RS.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 20 has no guide yet: this item follows the instructor notetaker for Lesson 20 and Equation Sheet 4 (page 6 parameter table)."
+     "type": "link",
+     "href": "lesson-guides/lesson-20.html",
+     "label": "Lesson 20 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
@@ -8734,10 +9200,14 @@ window.CourseStudy.registerBank({
      "section": "p. 6 Table, Ri row"
     },
     {
-     "file": "Instructor notetaker, Lesson 20",
+     "file": "lesson-guides/lesson-20.html",
      "section": "p. 20-3 By inspection Ri"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cg_stage.svg",
+    "alt": "Common-gate stage: gate held at ac ground by a capacitor, input at the source, output at the drain"
+   }
   },
   {
    "id": "gr2-cg-003",
@@ -8797,8 +9267,10 @@ window.CourseStudy.registerBank({
    "explanation": "A positive signal at the source reduces vgs, but the output node is at the drain; the net result is a non-inverting gain of about gm·RD.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 20 has no guide yet: this item follows the instructor notetaker for Lesson 20 and Equation Sheet 4 (page 6 parameter table)."
+     "type": "link",
+     "href": "lesson-guides/lesson-20.html",
+     "label": "Lesson 20 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
@@ -8807,10 +9279,14 @@ window.CourseStudy.registerBank({
      "section": "p. 6 Table, Avo row"
     },
     {
-     "file": "Instructor notetaker, Lesson 20",
+     "file": "lesson-guides/lesson-20.html",
      "section": "p. 20-3"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cg_stage.svg",
+    "alt": "Common-gate stage: gate held at ac ground by a capacitor, input at the source, output at the drain"
+   }
   },
   {
    "id": "gr2-cg-004",
@@ -8870,8 +9346,10 @@ window.CourseStudy.registerBank({
    "explanation": "Looking into the drain with the source signal off, the circuit appears as RD in parallel with ro (to first approximation).",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 20 has no guide yet: this item follows the instructor notetaker for Lesson 20 and Equation Sheet 4 (page 6 parameter table)."
+     "type": "link",
+     "href": "lesson-guides/lesson-20.html",
+     "label": "Lesson 20 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
@@ -8879,7 +9357,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6 Table, Ro row"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cg_stage.svg",
+    "alt": "Common-gate stage: gate held at ac ground by a capacitor, input at the source, output at the drain"
+   }
   },
   {
    "id": "gr2-cg-005",
@@ -8939,8 +9421,10 @@ window.CourseStudy.registerBank({
    "explanation": "A voltage amplifier wants Ri ≫ RS. The CG stage has Ri ≈ 1/gm, a few ohms to tens of ohms, which throws away much of the source voltage.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 20 has no guide yet: this item follows the instructor notetaker for Lesson 20 and Equation Sheet 4 (page 6 parameter table)."
+     "type": "link",
+     "href": "lesson-guides/lesson-20.html",
+     "label": "Lesson 20 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
@@ -8949,10 +9433,14 @@ window.CourseStudy.registerBank({
      "section": "Lesson 20 objectives"
     },
     {
-     "file": "Instructor notetaker, Lesson 20",
+     "file": "lesson-guides/lesson-20.html",
      "section": "p. 20-4"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cg_stage.svg",
+    "alt": "Common-gate stage: gate held at ac ground by a capacitor, input at the source, output at the drain"
+   }
   },
   {
    "id": "gr2-cg-006",
@@ -8988,8 +9476,10 @@ window.CourseStudy.registerBank({
    "explanation": "DC sees the divider only; signals see the gate shorted to ground by the large capacitor. The grounded gate sets the DC voltage through the divider, while the large capacitor only affects how the signal sees the gate, so both statements hold together.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 20 has no guide yet: this item follows the instructor notetaker for Lesson 20 and Equation Sheet 4 (page 6 parameter table)."
+     "type": "link",
+     "href": "lesson-guides/lesson-20.html",
+     "label": "Lesson 20 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
@@ -8998,10 +9488,14 @@ window.CourseStudy.registerBank({
      "section": "p. 6 diagram"
     },
     {
-     "file": "Instructor notetaker, Lesson 20",
+     "file": "lesson-guides/lesson-20.html",
      "section": "p. 20-2"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cg_stage.svg",
+    "alt": "Common-gate stage: gate held at ac ground by a capacitor, input at the source, output at the drain"
+   }
   },
   {
    "id": "gr2-cmp-001",
@@ -9061,8 +9555,10 @@ window.CourseStudy.registerBank({
    "explanation": "The parameter table lists Ri = RG1 ∥ RG2 for CS and CD, and Ri = RS ∥ 1/gm for CG. In the CG column the input is at the source, so the resistance seen is the transistor's 1/gm in parallel with RS rather than the insulated gate.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 20 has no guide yet: this item follows the instructor notetaker for Lesson 20 and Equation Sheet 4 (page 6 parameter table)."
+     "type": "link",
+     "href": "lesson-guides/lesson-20.html",
+     "label": "Lesson 20 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
@@ -9070,7 +9566,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6 Table of amplifier parameters"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/param_table.svg",
+    "alt": "Table of Ri, Avo and Ro for the CS, partially bypassed CS, CD and CG stages"
+   }
   },
   {
    "id": "gr2-cmp-002",
@@ -9130,8 +9630,10 @@ window.CourseStudy.registerBank({
    "explanation": "The follower's output looks into the source: RS ∥ 1/gm ∥ ro, dominated by 1/gm. Because 1/gm is only tens of ohms at typical bias while RD is kilohms, the follower is the clear winner for low output resistance.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 20 has no guide yet: this item follows the instructor notetaker for Lesson 20 and Equation Sheet 4 (page 6 parameter table)."
+     "type": "link",
+     "href": "lesson-guides/lesson-20.html",
+     "label": "Lesson 20 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
@@ -9139,7 +9641,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6 Table, Ro row"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/param_table.svg",
+    "alt": "Table of Ri, Avo and Ro for the CS, partially bypassed CS, CD and CG stages"
+   }
   },
   {
    "id": "gr2-cmp-003",
@@ -9206,8 +9712,10 @@ window.CourseStudy.registerBank({
    "explanation": "Gain signs: CS −, CD +, CG +. Only the follower and the common-gate stage are in phase with their inputs.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 20 has no guide yet: this item follows the instructor notetaker for Lesson 20 and Equation Sheet 4 (page 6 parameter table)."
+     "type": "link",
+     "href": "lesson-guides/lesson-20.html",
+     "label": "Lesson 20 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
@@ -9215,7 +9723,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6 Table, Avo row"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/param_table.svg",
+    "alt": "Table of Ri, Avo and Ro for the CS, partially bypassed CS, CD and CG stages"
+   }
   },
   {
    "id": "gr2-cmp-004",
@@ -9290,7 +9802,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 20 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/param_table.svg",
+    "alt": "Table of Ri, Avo and Ro for the CS, partially bypassed CS, CD and CG stages"
+   }
   },
   {
    "id": "gr2-cmp-005",
@@ -9350,8 +9866,10 @@ window.CourseStudy.registerBank({
    "explanation": "Av is the same expression with the output resistor replaced by its parallel combination with the load: RD → RD ∥ RL (and RS → RS ∥ RL for the follower).",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 20 has no guide yet: this item follows the instructor notetaker for Lesson 20 and Equation Sheet 4 (page 6 parameter table)."
+     "type": "link",
+     "href": "lesson-guides/lesson-20.html",
+     "label": "Lesson 20 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
@@ -9359,7 +9877,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6 Table, Av row"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/param_table.svg",
+    "alt": "Table of Ri, Avo and Ro for the CS, partially bypassed CS, CD and CG stages"
+   }
   },
   {
    "id": "gr2-cmp-006",
@@ -9419,8 +9941,10 @@ window.CourseStudy.registerBank({
    "explanation": "The table shows RG1 ∥ RG2 for Ri in both CS columns and Ro ≈ RD for both; only Avo differs.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 20 has no guide yet: this item follows the instructor notetaker for Lesson 20 and Equation Sheet 4 (page 6 parameter table)."
+     "type": "link",
+     "href": "lesson-guides/lesson-20.html",
+     "label": "Lesson 20 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
@@ -9428,7 +9952,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6 Table"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/param_table.svg",
+    "alt": "Table of Ri, Avo and Ro for the CS, partially bypassed CS, CD and CG stages"
+   }
   },
   {
    "id": "gr2-cmp-007",
@@ -9488,20 +10016,26 @@ window.CourseStudy.registerBank({
    "explanation": "Looking into the source with the gate fixed, the transistor behaves like a 1/gm resistor. That is why 1/gm appears wherever the source terminal is the input or output.",
    "resources": [
     {
-     "type": "text",
-     "text": "Lesson 20 has no guide yet: this item follows the instructor notetaker for Lesson 20 and Equation Sheet 4 (page 6 parameter table)."
+     "type": "link",
+     "href": "lesson-guides/lesson-20.html",
+     "label": "Lesson 20 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "p. 16-7 T-model"
     },
     {
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/param_table.svg",
+    "alt": "Table of Ri, Avo and Ro for the CS, partially bypassed CS, CD and CG stages"
+   }
   },
   {
    "id": "gr2-sim-001",
@@ -9942,8 +10476,10 @@ window.CourseStudy.registerBank({
      "description": "Filled notetaker with expansion notes and worked problem types."
     },
     {
-     "type": "text",
-     "text": "Lesson 17 has no guide yet; see the Lesson 17 notetaker."
+     "type": "link",
+     "href": "lesson-guides/lesson-17.html",
+     "label": "Lesson 17 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
@@ -9952,7 +10488,7 @@ window.CourseStudy.registerBank({
      "section": "A7 Method, A8"
     },
     {
-     "file": "Instructor notetaker, Lesson 17",
+     "file": "lesson-guides/lesson-17.html",
      "section": "pp. 17-6, 17-7"
     }
    ]
@@ -10030,7 +10566,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-19.html",
      "section": "B4"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cd_stage.svg",
+    "alt": "Common-drain (source-follower) stage driving a load"
+   }
   },
   {
    "id": "gr2-sim-008",
@@ -10153,7 +10693,7 @@ window.CourseStudy.registerBank({
      "section": "A6"
     },
     {
-     "file": "Instructor notetaker, Lesson 20",
+     "file": "lesson-guides/lesson-20.html",
      "section": "pp. 20-7, 20-10, 20-11 THD readouts"
     }
    ]
@@ -10231,7 +10771,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-26.html",
      "section": "A3"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_basic.svg",
+    "alt": "Common-source amplifier with gate divider, coupling capacitors and load"
+   }
   },
   {
    "id": "gr2-dc-002",
@@ -10306,7 +10850,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-26.html",
      "section": "A3 Method"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_dc_bias.svg",
+    "alt": "DC bias circuit of a common-source stage with gate divider, RD and RS"
+   }
   },
   {
    "id": "gr2-dc-003",
@@ -10377,7 +10925,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-21.html",
      "section": "A4 Confirming the operating region"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_dc_bias.svg",
+    "alt": "DC bias circuit of a common-source stage with gate divider, RD and RS"
+   }
   },
   {
    "id": "gr2-dc-004",
@@ -10452,7 +11004,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-15.html",
      "section": "A4 Common mistakes"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_dc_bias.svg",
+    "alt": "DC bias circuit of a common-source stage with gate divider, RD and RS"
+   }
   },
   {
    "id": "gr2-dc-005",
@@ -10527,7 +11083,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-26.html",
      "section": "A3"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_dc_bias.svg",
+    "alt": "DC bias circuit of a common-source stage with gate divider, RD and RS"
+   }
   },
   {
    "id": "gr2-dc-006",
@@ -10602,7 +11162,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-26.html",
      "section": "A3 Method"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_dc_bias.svg",
+    "alt": "DC bias circuit of a common-source stage with gate divider, RD and RS"
+   }
   },
   {
    "id": "gr2-dc-007",
@@ -10690,7 +11254,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-21.html",
      "section": "A4"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_dc_bias.svg",
+    "alt": "DC bias circuit of a common-source stage with gate divider, RD and RS"
+   }
   },
   {
    "id": "gr2-dc-008",
@@ -10812,7 +11380,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-21.html",
      "section": "A4 Method"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_dc_bias.svg",
+    "alt": "DC bias circuit of a common-source stage with gate divider, RD and RS"
+   }
   },
   {
    "id": "gr2-dc-010",
@@ -10887,7 +11459,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-15.html",
      "section": "A4 Method"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/cs_dc_bias.svg",
+    "alt": "DC bias circuit of a common-source stage with gate divider, RD and RS"
+   }
   },
   {
    "id": "gr2-fbk-001",
@@ -10962,7 +11538,11 @@ window.CourseStudy.registerBank({
      "file": "reading-guides/hw9.html",
      "section": "Problem 7.103"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/self_bias.svg",
+    "alt": "Common-source stage biased by a divider fed from the drain"
+   }
   },
   {
    "id": "gr2-fbk-002",
@@ -11037,7 +11617,11 @@ window.CourseStudy.registerBank({
      "file": "reading-guides/hw9.html",
      "section": "Problem 7.103"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/self_bias.svg",
+    "alt": "Common-source stage biased by a divider fed from the drain"
+   }
   },
   {
    "id": "gr2-fbk-003",
@@ -11112,7 +11696,11 @@ window.CourseStudy.registerBank({
      "file": "reading-guides/hw9.html",
      "section": "Problem 7.103"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/self_bias.svg",
+    "alt": "Common-source stage biased by a divider fed from the drain"
+   }
   },
   {
    "id": "gr2-fbk-004",
@@ -11183,7 +11771,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-26.html",
      "section": "A8 Method"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/self_bias.svg",
+    "alt": "Common-source stage biased by a divider fed from the drain"
+   }
   },
   {
    "id": "gr2-fbk-005",
@@ -11254,7 +11846,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-26.html",
      "section": "A8 Method, Common mistakes"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/self_bias.svg",
+    "alt": "Common-source stage biased by a divider fed from the drain"
+   }
   },
   {
    "id": "gr2-pmos-001",
@@ -11327,7 +11923,11 @@ window.CourseStudy.registerBank({
      "file": "Course syllabus, Version 4",
      "section": "Lesson 26 topics: PMOS Design"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/pmos_cs.svg",
+    "alt": "Common-source stage built with a PMOS transistor, source at the positive supply"
+   }
   },
   {
    "id": "gr2-pmos-002",
@@ -11388,7 +11988,7 @@ window.CourseStudy.registerBank({
    "resources": [
     {
      "type": "text",
-     "text": "PMOS is on the Lesson 26 topic list; no GR2 notetaker page works a PMOS design, so this item is kept general."
+     "text": "PMOS is on the Lesson 26 topic list; this item is kept general."
     }
    ],
    "sources": [
@@ -11400,7 +12000,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 2: MOSFET Fundamentals & DC Analysis",
      "section": "symbols"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/pmos_cs.svg",
+    "alt": "Common-source stage built with a PMOS transistor, source at the positive supply"
+   }
   },
   {
    "id": "gr2-bjt-001",
@@ -11475,7 +12079,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/bjt_struct.svg",
+    "alt": "npn transistor structure: emitter, thin base and collector with the two junctions"
+   }
   },
   {
    "id": "gr2-bjt-002",
@@ -11550,7 +12158,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/bjt_struct.svg",
+    "alt": "npn transistor structure: emitter, thin base and collector with the two junctions"
+   }
   },
   {
    "id": "gr2-bjt-003",
@@ -11625,7 +12237,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/bjt_struct.svg",
+    "alt": "npn transistor structure: emitter, thin base and collector with the two junctions"
+   }
   },
   {
    "id": "gr2-bjt-004",
@@ -11700,7 +12316,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-25.html",
      "section": "A4 Checks"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/bjt_bias.svg",
+    "alt": "Voltage-divider-biased npn transistor with collector and emitter resistors"
+   }
   },
   {
    "id": "gr2-bjt-005",
@@ -11775,7 +12395,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/bjt_struct.svg",
+    "alt": "npn transistor structure: emitter, thin base and collector with the two junctions"
+   }
   },
   {
    "id": "gr2-bjt-006",
@@ -11850,7 +12474,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/bjt_struct.svg",
+    "alt": "npn transistor structure: emitter, thin base and collector with the two junctions"
+   }
   },
   {
    "id": "gr2-bjt-007",
@@ -11925,7 +12553,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/bjt_struct.svg",
+    "alt": "npn transistor structure: emitter, thin base and collector with the two junctions"
+   }
   },
   {
    "id": "gr2-bjt2-001",
@@ -12000,7 +12632,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/bjt_currents.svg",
+    "alt": "npn transistor symbol with the base, collector and emitter currents"
+   }
   },
   {
    "id": "gr2-bjt2-002",
@@ -12122,7 +12758,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-25.html",
      "section": "A3 Checks"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/bjt_currents.svg",
+    "alt": "npn transistor symbol with the base, collector and emitter currents"
+   }
   },
   {
    "id": "gr2-bjt2-004",
@@ -12272,7 +12912,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 8 BJT"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/bjt_bias.svg",
+    "alt": "Voltage-divider-biased npn transistor with collector and emitter resistors"
+   }
   },
   {
    "id": "gr2-bjt2-006",
@@ -12347,7 +12991,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 8"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/bjt_bias.svg",
+    "alt": "Voltage-divider-biased npn transistor with collector and emitter resistors"
+   }
   },
   {
    "id": "gr2-bjt2-007",
@@ -12422,7 +13070,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/bjt_bias.svg",
+    "alt": "Voltage-divider-biased npn transistor with collector and emitter resistors"
+   }
   },
   {
    "id": "gr2-bjt2-008",
@@ -12497,7 +13149,11 @@ window.CourseStudy.registerBank({
      "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/bjt_bias.svg",
+    "alt": "Voltage-divider-biased npn transistor with collector and emitter resistors"
+   }
   },
   {
    "id": "gr2-bjt2-009",
@@ -12568,7 +13224,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 8"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/bjt_bias.svg",
+    "alt": "Voltage-divider-biased npn transistor with collector and emitter resistors"
+   }
   },
   {
    "id": "gr2-bjt2-010",
@@ -12643,7 +13303,11 @@ window.CourseStudy.registerBank({
      "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 8 Small-signal model"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/bjt_ss.svg",
+    "alt": "Hybrid-pi small-signal model of a BJT"
+   }
   },
   {
    "id": "gr2-bjt2-011",
@@ -12714,7 +13378,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-25.html",
      "section": "A5 Method"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/bjt_ss.svg",
+    "alt": "Hybrid-pi small-signal model of a BJT"
+   }
   },
   {
    "id": "gr2-bjt2-012",
@@ -12789,7 +13457,11 @@ window.CourseStudy.registerBank({
      "file": "lesson-guides/lesson-25.html",
      "section": "A6"
     }
-   ]
+   ],
+   "image": {
+    "src": "assets/study/resources/gr2/bjt_ss.svg",
+    "alt": "Hybrid-pi small-signal model of a BJT"
+   }
   },
   {
    "id": "gr2-cmp2-001",
@@ -15542,13 +16214,15 @@ window.CourseStudy.registerBank({
      "description": "Filled notetaker with expansion notes and worked problem types."
     },
     {
-     "type": "text",
-     "text": "Lesson 16 has no guide yet; this problem follows the Lesson 16 notetaker."
+     "type": "link",
+     "href": "lesson-guides/lesson-16.html",
+     "label": "Lesson 16 guide",
+     "description": "Filled notetaker with expansion notes and worked problem types."
     }
    ],
    "sources": [
     {
-     "file": "Instructor notetaker, Lesson 16",
+     "file": "lesson-guides/lesson-16.html",
      "section": "p. 16-9"
     },
     {

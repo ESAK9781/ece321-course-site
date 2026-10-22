@@ -249,6 +249,11 @@
     box.append(el('p', 'sx-ptitle', p.prompt), fig, el('p', 'sx-setup', p.setup), dots, crumbs); return box;
   }
   function problemWrap(m) { const w = el('div', 'sx-main sx-prob'); m.className = m.className.replace('sx-main', 'sx-pr'); w.append(problemPanel(), m); return w; }
+  function figWrap(m, q) {
+    const w = el('div', 'sx-main sx-prob sx-qfig'), box = el('div', 'sx-pleft'), fig = el('figure', 'sx-fig'), img = el('img');
+    img.src = new URL(q.image.src, document.baseURI).href; img.alt = q.image.alt || ''; fig.append(img); box.append(fig);
+    m.className = m.className.replace('sx-main', 'sx-pr'); w.append(box, m); return w;
+  }
   function drawProblemSummary() {
     const p = cur.problem, total = p.steps.length, right = cur.results.filter(x => x === 1).length, m = el('div', 'sx-pr sx-fb ctr');
     m.append(el('div', 'sx-verdict ' + (right === total ? 'ok' : 'no'), right === total ? '✓ Problem complete' : `${right} of ${total} steps right`), el('p', 'sx-exp', p.explanation));
@@ -296,7 +301,7 @@
     if (q.type === 'multi-select') acts.unshift(['Enter', 'Check', submitMulti]);
     const keysBar = actions(acts);
     if (isPair(q)) keysBar.prepend(el('span', 'sx-keyhint', 'Arrows or WASD: first press highlights two answers, second picks (or press a number)'));
-    paint(topBar(), cur.problem ? problemWrap(m) : m, keysBar);
+    paint(topBar(), cur.problem ? problemWrap(m) : q.image ? figWrap(m, q) : m, keysBar);
   }
 
   /* ---------- two-press arrow answering ----------
@@ -435,7 +440,7 @@
     if (ok && settings.auto && !cur.rated) { const bar = el('div', 'sx-bar'); bar.append(el('i')); m.append(bar); }
     if (askOpen) m.append(askBox());
     acts.push(['?', 'Ask', toggleAsk], ['Esc', 'Overview', () => { goOverview(); }]);
-    paint(topBar(), cur.problem ? problemWrap(m) : m, actions(acts));
+    paint(topBar(), cur.problem ? problemWrap(m) : q.image ? figWrap(m, q) : m, actions(acts));
     if (askOpen) { const i = $('.sx-ask input'); i && i.focus(); }
   }
   function startAuto() {

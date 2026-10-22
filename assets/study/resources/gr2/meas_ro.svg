@@ -1,0 +1,24 @@
+<svg class="sch" viewBox="0 0 560 250" width="560" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Measuring output resistance: input shorted, a test source driving the output through a variable resistor"><style>text{font-family:"Segoe UI",Inter,Arial,sans-serif}.v{fill:#c9d2de}</style><rect x="110" y="50" width="150" height="120" rx="6" fill="none" stroke="#e8edf4" stroke-width="1.8"/>
+<text x="185.0" y="108.0" font-size="14" text-anchor="middle" fill="#e8edf4" font-weight="600">Amplifier</text>
+<text x="185.0" y="126.0" font-size="11" text-anchor="middle" fill="#e8edf4" class="v">(Ri, Avo, Ro inside)</text>
+<polyline points="110,110 60,110 60,200" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="60,200 520,200" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="54" y="104" font-size="11" text-anchor="end" fill="#e8edf4">input = 0</text>
+<polyline points="260,80 320,80" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="290" cy="80" r="2.8" fill="#e8edf4"/>
+<polyline points="320,80 357.0,80 360.0,74 366.0,86 372.0,74 378.0,86 384.0,74 390.0,86 393.0,80 430,80" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="375.0" y="68" font-size="13" text-anchor="middle" fill="#e8edf4" font-style="italic">R (variable)</text>
+<polyline points="430,80 490,80 490,120" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="490" cy="135" r="15" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<path d="M482,135 c3,-9 5,-9 8,0 s5,9 8,0" fill="none" stroke="#e8edf4" stroke-width="1.4"/>
+<text x="469" y="139" font-size="13" text-anchor="end" fill="#e8edf4" font-style="italic">V<tspan dy="4" font-size="0.72em">test</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="490,150 490,200" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="290" cy="130" r="13" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="290" y="135" font-size="13" text-anchor="middle" fill="#e8edf4">V</text>
+<text x="310" y="135" font-size="13" text-anchor="start" fill="#e8edf4" font-style="italic">v<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="290,80 290,117" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="290,143 290,200" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="290" cy="200" r="2.8" fill="#e8edf4"/>
+<polyline points="185,170 185,200" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="185" cy="200" r="2.8" fill="#e8edf4"/>
+<text x="110" y="232" font-size="12" text-anchor="start" fill="#e8edf4">Adjust R until v<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan> = V<tspan dy="4" font-size="0.72em">t</tspan><tspan dy="-4"> </tspan>est / 2. Then R = R<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan>.</text></svg>

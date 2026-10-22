@@ -29,24 +29,34 @@
     return f;
   }
   const withFmt = (tag, cls, text) => { const e = el(tag, cls); e.append(fmt(text)); return e; };
+  /* a trailing "@S3 §4" tags a formula as printed on the official equation sheet (sheet 3, section 4) */
+  const MARK = /\s*@S(\d)(?:\s*§\s*([\w.,\- ]+?))?\s*$/;
+  const sheetChip = (n, sec) => { const c = el('span', 'cr-sheet', `Sheet ${n}${sec ? ' §' + sec : ''}`); c.title = `Printed on Equation Sheet ${n}${sec ? ', section ' + sec : ''}`; return c; };
+  function marked(tag, cls, text) {
+    const m = String(text).match(MARK), e = withFmt(tag, cls, m ? String(text).replace(MARK, '') : text);
+    if (m) { e.classList.add('has-sheet'); e.append(sheetChip(m[1], m[2])); }
+    return e;
+  }
   const url = src => new URL(BASE + src, document.baseURI).href;
 
   /* ---------- blocks (shared by the slides and the printed packet) ---------- */
   function block(b) {
     switch (b.t) {
       case 'p': return withFmt('p', 'cr-p', b.text);
-      case 'ul': { const u = el('ul', 'cr-ul'); b.items.forEach(i => u.append(withFmt('li', '', i))); return u; }
-      case 'eq': { const d = el('div', 'cr-eq'); b.lines.forEach(l => d.append(withFmt('div', '', l))); return d; }
-      case 'call': { const d = el('div', 'cr-call ' + (b.kind || 'rule')); d.append(el('span', 'cr-ck', ({rule: 'Rule of thumb', watch: 'Watch out', tip: 'Remember', why: 'Why'})[b.kind || 'rule']), fmt(b.text)); return d; }
+      case 'ul': { const u = el('ul', 'cr-ul'); b.items.forEach(i => u.append(marked('li', '', i))); return u; }
+      case 'eq': { const d = el('div', 'cr-eq'); b.lines.forEach(l => d.append(marked('div', '', l))); return d; }
+      case 'call': { const d = el('div', 'cr-call ' + (b.kind || 'rule')), m = String(b.text).match(MARK); d.append(el('span', 'cr-ck', ({rule: 'Rule of thumb', watch: 'Watch out', tip: 'Remember', why: 'Why'})[b.kind || 'rule']), fmt(m ? String(b.text).replace(MARK, '') : b.text)); if (m) { d.classList.add('has-sheet'); d.append(sheetChip(m[1], m[2])); } return d; }
       case 'given': { const d = el('div', 'cr-given'); d.append(el('span', 'cr-ck', 'Given')); b.items.forEach(i => d.append(el('span', 'cr-chip', i))); return d; }
       case 'tbl': {
         const t = el('table', 'cr-tbl'), h = el('thead'), r = el('tr');
         b.head.forEach(x => r.append(withFmt('th', '', x))); h.append(r); t.append(h);
-        const tb = el('tbody'); b.rows.forEach(row => { const tr = el('tr'); row.forEach((c, i) => tr.append(withFmt(i === 0 ? 'th' : 'td', '', c))); tb.append(tr); }); t.append(tb); return t;
+        const tb = el('tbody'); b.rows.forEach(row => { const tr = el('tr'); row.forEach((c, i) => tr.append(withFmt(i === 0 ? 'th' : 'td', '', c))); tb.append(tr); }); t.append(tb);
+        if (!b.sheet) return t;
+        const w = el('div', 'cr-tblw'); const m = String(b.sheet).match(/^S(\d)(?:\s*§\s*(.+))?$/); w.append(t, el('div', 'cr-tnote')); w.lastChild.append(sheetChip(m[1], m[2]), document.createTextNode(' this table is on the equation sheet')); return w;
       }
       case 'steps': {
         const o = el('ol', 'cr-steps');
-        b.items.forEach(s => { const li = el('li'); li.append(el('span', 'cr-sh', s.h)); li.append(withFmt('span', 'cr-st', s.text)); if (s.res) li.append(withFmt('span', 'cr-res', s.res)); o.append(li); });
+        b.items.forEach(s => { const li = el('li'); li.append(el('span', 'cr-sh', s.h)); li.append(marked('span', 'cr-st', s.text)); if (s.res) li.append(marked('span', 'cr-res', s.res)); o.append(li); });
         return o;
       }
       case 'fig': {
@@ -110,11 +120,13 @@
   /* ---------- screens ---------- */
   function fit(main) {
     if (!main) return; main.style.setProperty('--fs', '1'); main.style.overflow = 'hidden';
-    let s = 1; for (let i = 0; i < 16 && main.scrollHeight > main.clientHeight + 1 && s > 0.58; i++) { s -= 0.03; main.style.setProperty('--fs', s.toFixed(2)); }
-    if (main.scrollHeight > main.clientHeight + 1) main.style.overflow = 'auto';
+    const over = () => main.scrollHeight > main.clientHeight + 1 || main.scrollWidth > main.clientWidth + 1;
+    let s = 1; for (let i = 0; i < 18 && over() && s > 0.52; i++) { s -= 0.03; main.style.setProperty('--fs', s.toFixed(2)); }
+    if (over()) main.style.overflow = 'auto';
   }
   function paintMain(topInfo, stage, keys) {
     const m = $('#cr-main'); m.replaceChildren(topInfo, stage, keys); fit(stage);
+    stage.querySelectorAll('img').forEach(i => { if (!i.complete) i.addEventListener('load', () => fit(stage), {once: true}); });   // diagrams change the height when they arrive
   }
   function keysBar(list) {
     const k = el('div', 'cr-keys');
@@ -138,7 +150,8 @@
     const stage = el('div', 'cr-stage'); stage.append(withFmt('h2', 'cr-h', s.title), slideBody(s));
     if (s.kind === 'example') stage.classList.add('ex');
     const acts = [['←', 'Back', () => go(-1)], ['→', s.last && s.topic === topics.length - 1 ? 'Finish' : (s.last ? 'Next topic' : 'Next'), () => go(1)], ['R', 'Redo topic', () => redo(s.topic)]];
-    paintMain(infoBar(s), stage, keysBar(acts));
+    const kb = keysBar(acts); if (stage.querySelector('.cr-sheet')) { const lg = el('span', 'cr-legend'); lg.append(sheetChip(3, ''), document.createTextNode(' tags mark formulas printed on the official equation sheet')); lg.firstChild.textContent = 'Sheet'; kb.append(lg); }
+    paintMain(infoBar(s), stage, kb);
     const cur = $('.cr-topic.cur'); cur && cur.scrollIntoView({block: 'nearest'});
   }
   function drawDone() {
@@ -206,11 +219,15 @@
       body.append(el('p', 'sx-exp', q.explanation));
     }
     let content = body;
-    if (prob) {
+    const hasFig = prob || !!qs.src.image;
+    if (hasFig) {
       const left = el('div', 'cr-pleft'), fig = el('figure', 'cr-fig'), im = el('img'); im.src = url(qs.src.image.src); im.alt = qs.src.image.alt || ''; fig.append(im);
-      const dots = el('div', 'sx-sdots'); qs.src.steps.forEach((x, i) => dots.append(el('span', 'sx-sd ' + (qs.results[i] === 1 ? 'ok' : qs.results[i] === 0 ? 'no' : i === qs.stepI ? 'now' : ''))));
-      const crumbs = el('ol', 'sx-crumbs'); qs.results.forEach((r, i) => { if (r !== undefined && !(i === qs.stepI && qs.phase === 'ask')) crumbs.append(el('li', r === 1 ? 'ok' : 'no', qs.src.steps[i].brief || '')); });
-      left.append(el('p', 'cr-ptitle', qs.src.prompt), fig, el('p', 'cr-setup', qs.src.setup), dots, crumbs); stage.append(left);
+      if (prob) {
+        const dots = el('div', 'sx-sdots'); qs.src.steps.forEach((x, i) => dots.append(el('span', 'sx-sd ' + (qs.results[i] === 1 ? 'ok' : qs.results[i] === 0 ? 'no' : i === qs.stepI ? 'now' : ''))));
+        const crumbs = el('ol', 'sx-crumbs'); qs.results.forEach((r, i) => { if (r !== undefined && !(i === qs.stepI && qs.phase === 'ask')) crumbs.append(el('li', r === 1 ? 'ok' : 'no', qs.src.steps[i].brief || '')); });
+        left.append(el('p', 'cr-ptitle', qs.src.prompt), fig, el('p', 'cr-setup', qs.src.setup), dots, crumbs);
+      } else left.append(fig);
+      stage.classList.add('cr-prob'); stage.append(left);
     }
     stage.append(content);
     const info = infoBar(s); const tag = info.querySelector('.cr-count'); if (prob) tag.append(el('span', '', `· step ${qs.stepI + 1} of ${qs.src.steps.length}`));
@@ -318,12 +335,14 @@
   const LET = 'ABCDEFGH';
   function qBlock(q, n) {                       // a printed question (options lettered; answers go in the key)
     const d = el('div', 'pk-q');
-    d.append(withFmt('p', 'pk-qp', `${n}. ${q.prompt}`));
+    if (q.image) { d.classList.add('has-fig'); const f = el('figure', 'cr-fig'), im = el('img'); im.src = url(q.image.src); im.alt = q.image.alt || ''; f.append(im); d.append(f); }
+    const qt = el('div', 'pk-qt'); qt.append(withFmt('p', 'pk-qp', `${n}. ${q.prompt}`));
     const ol = el('ol', 'pk-opts'); ol.type = 'A';
     const items = q.type === 'sequence' ? seqShown(q) : q.options;
-    items.forEach(o => ol.append(withFmt('li', '', o.text))); d.append(ol);
-    if (q.type === 'sequence') d.append(el('p', 'pk-note', 'Number the steps in the order they happen.'));
-    if (q.type === 'multi-select') d.append(el('p', 'pk-note', 'Select every correct answer.'));
+    items.forEach(o => ol.append(withFmt('li', '', o.text))); qt.append(ol);
+    if (q.type === 'sequence') qt.append(el('p', 'pk-note', 'Number the steps in the order they happen.'));
+    if (q.type === 'multi-select') qt.append(el('p', 'pk-note', 'Select every correct answer.'));
+    d.append(qt);
     return d;
   }
   const seqShown = q => q.steps.slice().reverse();          // printed in a fixed, different order than the answer
@@ -363,14 +382,16 @@
     });
     return {out, key};
   }
-  function buildPacket(opts) {
+  async function buildPacket(opts) {
     $('#cr-packet') && $('#cr-packet').remove();
     const pk = el('div', 'pk'); pk.id = 'cr-packet'; document.body.append(pk);
     const {out, key} = packetItems(opts);
+    // diagrams must be loaded before anything is measured, or the page breaks are wrong
+    await Promise.all(out.flatMap(t => t.blocks.flatMap(b => [...b.el.querySelectorAll('img')])).map(i => i.complete ? null : new Promise(r => { i.onload = i.onerror = r; })));
     // measuring area uses the same width as a printed page body
     const meas = el('div', 'pk-page pk-measure'), mbody = el('div', 'pk-body'); meas.append(mbody); pk.append(meas);
     const H = () => mbody.parentNode.querySelector('.pk-body').getBoundingClientRect();
-    const pageBodyH = (() => { const t = el('div', 'pk-page'); t.style.visibility = 'hidden'; t.style.position = 'absolute'; t.append(el('div', 'pk-head', 'x'), el('div', 'pk-body'), el('div', 'pk-foot', 'x')); pk.append(t); const h = t.querySelector('.pk-body').getBoundingClientRect().height; t.remove(); return h; })();
+    const pageBodyH = (() => { const t = el('div', 'pk-page'); t.style.visibility = 'hidden'; t.style.position = 'absolute'; t.append(el('div', 'pk-head', 'x'), el('div', 'pk-body'), el('div', 'pk-foot', 'x')); pk.append(t); const h = t.querySelector('.pk-body').getBoundingClientRect().height; t.remove(); return h - 32; })();                // 32px safety: measured blocks differ slightly from laid-out blocks
     const height = node => { mbody.append(node); const r = node.getBoundingClientRect(); const cs = getComputedStyle(node); const h = r.height + parseFloat(cs.marginTop) + parseFloat(cs.marginBottom); node.remove(); return h; };
     // paginate
     const pages = []; let page = null, used = 0, curTitle = '';
@@ -437,8 +458,8 @@
     pk.dataset.pages = String(total);
     return {pages: total, toc: rowsFinal.map(r => [r.title, r.page + offset]), tocPages: offset};
   }
-  function printPacket(opts) {
-    const info = buildPacket(opts);
+  async function printPacket(opts) {
+    const info = await buildPacket(opts);
     document.body.classList.add('cr-printing');
     const done = () => { document.body.classList.remove('cr-printing'); const p = $('#cr-packet'); p && p.remove(); removeEventListener('afterprint', done); };
     addEventListener('afterprint', done);

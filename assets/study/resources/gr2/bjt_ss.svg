@@ -1,0 +1,20 @@
+<svg class="sch" viewBox="0 0 430 270" width="430" height="270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hybrid-pi small-signal model of a BJT: r_pi from base to emitter and a controlled current source g_m v_be from collector to emitter"><style>text{font-family:"Segoe UI",Inter,Arial,sans-serif}.v{fill:#c9d2de}</style><circle cx="50" cy="90" r="3.2" fill="#0d1118" stroke="#e8edf4" stroke-width="1.4"/>
+<text x="30" y="94" font-size="14" text-anchor="end" fill="#e8edf4">B</text>
+<circle cx="50" cy="220" r="3.2" fill="#0d1118" stroke="#e8edf4" stroke-width="1.4"/>
+<text x="30" y="224" font-size="14" text-anchor="end" fill="#e8edf4">E</text>
+<polyline points="50,90 130,90" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="130" cy="90" r="2.8" fill="#e8edf4"/>
+<polyline points="130,90 130,127.0 136,130.0 124,136.0 136,142.0 124,148.0 136,154.0 124,160.0 130,163.0 130,200" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="118" y="149.0" font-size="13" text-anchor="end" fill="#e8edf4" font-style="italic">r<tspan dy="4" font-size="0.72em">π</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="130,200 130,220" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="130" cy="220" r="2.8" fill="#e8edf4"/>
+<circle cx="260" cy="60" r="3.2" fill="#0d1118" stroke="#e8edf4" stroke-width="1.4"/>
+<text x="270" y="56" font-size="14" text-anchor="start" fill="#e8edf4">C</text>
+<polyline points="260,60 260,145" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polygon points="260,145 275,160 260,175 245,160" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="260,152 260,169" fill="none" stroke="#e8edf4" stroke-width="1.4"/>
+<polygon points="260,169 257.8,163.4 262.2,163.4" fill="#e8edf4"/>
+<text x="283" y="165" font-size="13" text-anchor="start" fill="#e8edf4" font-style="italic">g<tspan dy="4" font-size="0.72em">m</tspan><tspan dy="-4"> </tspan> v<tspan dy="4" font-size="0.72em">be</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="260,175 260,220" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="260" cy="220" r="2.8" fill="#e8edf4"/>
+<polyline points="50,220 260,220" fill="none" stroke="#e8edf4" stroke-width="1.6"/></svg>
