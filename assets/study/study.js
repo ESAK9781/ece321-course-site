@@ -198,7 +198,11 @@
     });
     if (!catalog.length) list.append(el('p', 'sx-msg', 'No study sets are available yet.'));
     m.append(list);
-    paint(el('div', 'sx-top'), m, actions([['Enter', catalog.length ? 'Start' : '', () => catalog[0] && start(catalog[0])], ['H', 'Keys', help]]));
+    catalog.filter(e => e.cram).forEach(e => {
+      const a = el('a', 'sx-cram'); a.href = e.cram; a.append(el('kbd', '', 'C'), el('span', 'sx-bt', `${e.title.split(' · ')[0]} cram slides`), el('span', 'sx-bd', 'Short slides on every topic with worked examples and a few questions. Prints as a packet.'));
+      m.append(a);
+    });
+    paint(el('div', 'sx-top'), m, actions([['Enter', catalog.length ? 'Start' : '', () => catalog[0] && start(catalog[0])], ...(catalog.some(e => e.cram) ? [['C', 'Cram slides', () => { const e = catalog.find(x => x.cram); if (e) location.href = e.cram; }]] : []), ['H', 'Keys', help]]));
   }
 
   function openAI() { if (window.CourseAI && window.CourseAI.openSettings) window.CourseAI.openSettings(); }
@@ -520,6 +524,7 @@
       if (k === 'Enter') { take(); catalog[0] && start(catalog[0]); }
       else if (/^[1-9]$/.test(k) && catalog[+k - 1]) { take(); start(catalog[+k - 1]); }
       else if (K === 'a') { take(); openAI(); }
+      else if (K === 'c' && catalog.some(x => x.cram)) { take(); location.href = catalog.find(x => x.cram).cram; }
       else if (K === 'h' || k === '?') { take(); help(); }
       return;
     }

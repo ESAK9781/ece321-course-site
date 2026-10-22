@@ -1,0 +1,25 @@
+<svg class="sch" viewBox="0 0 430 270" width="430" height="270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Small-signal model of a MOSFET: open gate, controlled current source gm vgs and output resistance ro"><style>text{font-family:"Segoe UI",Inter,Arial,sans-serif}.v{fill:#c9d2de}</style><circle cx="50" cy="90" r="3.2" fill="#0d1118" stroke="#e8edf4" stroke-width="1.4"/>
+<circle cx="50" cy="220" r="3.2" fill="#0d1118" stroke="#e8edf4" stroke-width="1.4"/>
+<text x="30" y="94" font-size="14" text-anchor="end" fill="#e8edf4">G</text>
+<text x="30" y="224" font-size="14" text-anchor="end" fill="#e8edf4">S</text>
+<text x="70" y="160" font-size="13" text-anchor="middle" fill="#e8edf4">+</text>
+<text x="70" y="188" font-size="13" text-anchor="middle" fill="#e8edf4">−</text>
+<text x="88" y="176" font-size="13" text-anchor="start" fill="#e8edf4" font-style="italic">v<tspan dy="4" font-size="0.72em">gs</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="50,205 50,105" fill="none" stroke="#e8edf4" stroke-width="1.4"/>
+<polygon points="50,105 53.0,112.4 47.0,112.4" fill="#e8edf4"/>
+<text x="120" y="94" font-size="12" text-anchor="start" fill="#e8edf4">i<tspan dy="4" font-size="0.72em">g</tspan><tspan dy="-4"> </tspan> = 0 (open)</text>
+<circle cx="230" cy="60" r="3.2" fill="#0d1118" stroke="#e8edf4" stroke-width="1.4"/>
+<text x="240" y="56" font-size="14" text-anchor="start" fill="#e8edf4">D</text>
+<polyline points="230,60 230,145" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polygon points="230,145 245,160 230,175 215,160" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="230,152 230,169" fill="none" stroke="#e8edf4" stroke-width="1.4"/>
+<polygon points="230,169 227.8,163.4 232.2,163.4" fill="#e8edf4"/>
+<text x="207" y="165" font-size="13" text-anchor="end" fill="#e8edf4" font-style="italic">g<tspan dy="4" font-size="0.72em">m</tspan><tspan dy="-4"> </tspan> v<tspan dy="4" font-size="0.72em">gs</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="230,175 230,220" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="230" cy="100" r="2.8" fill="#e8edf4"/>
+<polyline points="230,100 330,100" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="330,100 330,132.0 336,135.0 324,141.0 336,147.0 324,153.0 336,159.0 324,165.0 330,168.0 330,200" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="342" y="154.0" font-size="13" text-anchor="start" fill="#e8edf4" font-style="italic">r<tspan dy="4" font-size="0.72em">o</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="330,200 330,220" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="230" cy="220" r="2.8" fill="#e8edf4"/>
+<polyline points="50,220 330,220" fill="none" stroke="#e8edf4" stroke-width="1.6"/></svg>

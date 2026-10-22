@@ -73,3 +73,4 @@ a.chip.ready:hover{background:#ff8f5a26}
 a.gr2-file{grid-template-columns:1fr auto;align-items:center;color:inherit}a.gr2-file:hover{background:#151c27}.gr2-go{color:var(--accent);font-size:15px}
 
 .gr2-cta{display:flex;flex-wrap:wrap;gap:14px;margin:0 0 26px}.gr2-cta .gr2-packet{margin:0;flex:1 1 320px}.gr2-study{border-color:#6cc7ff70;background:linear-gradient(120deg,#6cc7ff1c,#ff8f5a0c)}.gr2-study:hover{border-color:#6cc7ff}.gr2-study .eyebrow{color:#6cc7ff}
+.gr2-cram{border-color:#b99bff70;background:linear-gradient(120deg,#b99bff1c,#ff8f5a0c)}.gr2-cram:hover{border-color:#b99bff}.gr2-cram .eyebrow{color:#b99bff}
