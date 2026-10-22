@@ -1,18 +1,59 @@
-/* One course navbar shared by every website page. */
-.site-nav{height:52px;min-height:52px;width:100%;max-width:none;margin:0;padding:0 clamp(12px,4.5vw,70px);display:flex;align-items:center;justify-content:space-between;gap:20px;position:sticky;top:0;z-index:100;background:rgba(6,8,12,.97);border:0;border-bottom:1px solid #232c3a;border-radius:0;box-sizing:border-box;backdrop-filter:blur(16px);font:12px "Segoe UI",Arial,sans-serif}
-.site-nav .brand{display:flex;align-items:center;gap:6px;flex:0 0 auto;color:#f4f6fa;text-decoration:none;font-size:18px;font-weight:500;letter-spacing:-.5px;white-space:nowrap}
-.site-nav .brand strong{color:#ff8f5a;font-weight:600}
-.site-nav .brand-icon{display:grid;place-items:center;flex:0 0 30px;width:30px;height:30px;margin:0 5px 0 0;border-radius:6px;background:#ff8f5a;color:#06080c;overflow:hidden}
-.site-nav .brand-icon svg{display:block;width:27px;height:27px}
-.site-nav nav.nav-links{display:flex;align-self:stretch;align-items:center;justify-content:center;gap:clamp(12px,1.8vw,24px);flex:1 1 auto;min-width:0;margin:0 14px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}
-.site-nav nav.nav-links::-webkit-scrollbar{display:none}
-.site-nav nav.nav-links a{display:flex;align-items:center;justify-content:center;flex:0 0 auto;height:100%;min-height:0;padding:0 2px;border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;color:#d5dce7;text-decoration:none;font-size:12px;font-weight:400;white-space:nowrap;transition:color .15s,border-color .15s}
-.site-nav nav.nav-links a:hover,.site-nav nav.nav-links a.active,.site-nav nav.nav-links a[aria-current="page"]{color:#ff8f5a;background:transparent}
-.site-nav nav.nav-links a.active,.site-nav nav.nav-links a[aria-current="page"]{border-bottom-color:#ff8f5a;font-weight:500}
-.site-nav .semester{display:flex;align-items:center;flex:0 0 auto;color:#c9d2de;font:10px Consolas,monospace;letter-spacing:1.5px;white-space:nowrap}
-.site-nav .semester i{display:inline-block;width:6px;height:6px;margin-right:8px;border-radius:50%;background:#ff8f5a}
-@media(max-width:1050px){.site-nav .semester{display:none}.site-nav nav.nav-links{margin-right:0}}
-@media(max-width:700px){.site-nav{height:48px;min-height:48px;padding:0 12px;gap:8px}.site-nav .brand{font-size:15px}.site-nav .brand-icon{flex-basis:26px;width:26px;height:26px;margin-right:2px}.site-nav .brand-icon svg{width:23px;height:23px}.site-nav nav.nav-links{justify-content:flex-start;gap:17px;margin:0 0 0 auto}.site-nav nav.nav-links a{font-size:11px}}
-
-@media print{.site-nav{display:none!important}}
-html[data-mode="print"] .site-nav{display:none!important}
+/* The one course navbar. Every rule is scoped to header.sn and uses sn- classes so page
+   stylesheets cannot change it. Generated markup: relevant_skills/site_support/site_nav.py */
+header.sn,header.sn *{box-sizing:border-box;margin:0;font-family:"Segoe UI",Inter,Arial,sans-serif;letter-spacing:normal;text-transform:none;font-style:normal}
+header.sn{position:sticky;top:0;z-index:1000;display:flex;align-items:center;gap:20px;width:100%;height:52px;min-height:52px;padding:0 clamp(12px,3.4vw,56px);background:#06080c;border:0;border-bottom:1px solid #232c3a;border-radius:0;color:#d5dce7;font-size:13px;line-height:1.2;backdrop-filter:none}
+header.sn a{text-decoration:none;border:0;background:none}
+header.sn .sn-brand{display:flex;align-items:center;gap:9px;flex:0 0 auto;color:#f4f6fa;font-size:18px;font-weight:500;letter-spacing:-.4px;white-space:nowrap}
+header.sn .sn-brand strong{color:#ff8f5a;font-weight:600}
+header.sn .sn-logo{display:grid;place-items:center;width:30px;height:30px;border-radius:6px;background:#ff8f5a;color:#06080c;overflow:hidden}
+header.sn .sn-logo svg{display:block;width:26px;height:26px}
+header.sn .sn-collapse{display:flex;align-items:center;flex:1 1 auto;min-width:0;height:100%;gap:18px}
+header.sn .sn-menu{display:flex;align-items:stretch;height:100%;gap:2px}
+header.sn .sn-link,header.sn .sn-btn{display:flex;align-items:center;gap:6px;height:100%;padding:0 13px;border:0;border-bottom:2px solid transparent;border-radius:0;background:none;color:#d5dce7;font-size:13px;font-weight:400;cursor:pointer;white-space:nowrap;transition:color .12s,border-color .12s}
+header.sn .sn-link:hover,header.sn .sn-btn:hover,header.sn .sn-dd.sn-open>.sn-btn{color:#ff8f5a}
+header.sn .sn-link.sn-active,header.sn .sn-btn.sn-active{color:#ff8f5a;border-bottom-color:#ff8f5a;font-weight:500}
+header.sn .sn-link:focus-visible,header.sn .sn-btn:focus-visible,header.sn .sn-item:focus-visible,header.sn .sn-brand:focus-visible,header.sn .sn-toggle:focus-visible,header.sn .sn-input:focus-visible{outline:2px solid #ff8f5a;outline-offset:-2px}
+header.sn .sn-caret{width:9px;height:6px;flex:none;opacity:.8;transition:transform .15s}
+header.sn .sn-dd.sn-open .sn-caret{transform:rotate(180deg)}
+header.sn .sn-dd{position:relative;display:flex;height:100%}
+header.sn .sn-panel{display:none;position:absolute;top:calc(100% - 1px);left:0;z-index:1001;min-width:250px;max-height:calc(100vh - 70px);overflow:auto;padding:8px;background:#0d1118;border:1px solid #232c3a;border-radius:0 0 10px 10px;box-shadow:0 18px 40px rgba(0,0,0,.6)}
+header.sn .sn-dd.sn-open>.sn-panel{display:block}
+header.sn .sn-wide{min-width:330px}
+header.sn .sn-item{display:flex;flex-direction:column;gap:2px;padding:8px 11px;border-radius:6px;color:#e8edf4}
+header.sn .sn-item:hover,header.sn .sn-item[aria-selected="true"]{background:#1a2230;color:#fff}
+header.sn .sn-item[aria-current="page"] .sn-label{color:#ff8f5a}
+header.sn .sn-label{font-size:13px;font-weight:500;color:inherit}
+header.sn .sn-desc{font-size:11.5px;color:#aeb9c9;font-weight:400}
+header.sn .sn-sub{padding:10px 11px 4px;font:600 10.5px Consolas,monospace;letter-spacing:1.4px;color:#ff8f5a;text-transform:uppercase}
+header.sn .sn-search{position:relative;display:flex;align-items:center;margin-left:auto;width:min(300px,30vw);min-width:170px}
+header.sn .sn-sicon{position:absolute;left:10px;display:flex;width:15px;height:15px;color:#aeb9c9;pointer-events:none}
+header.sn .sn-sicon svg{width:15px;height:15px}
+header.sn .sn-input{width:100%;height:32px;padding:0 30px 0 32px;border:1px solid #2a3547;border-radius:8px;background:#0d1118;color:#f4f6fa;font-size:13px;outline:none;-webkit-appearance:none;appearance:none}
+header.sn .sn-input::placeholder{color:#8c98ab}
+header.sn .sn-input:focus{border-color:#ff8f5a;background:#111823}
+header.sn .sn-input::-webkit-search-cancel-button{display:none}
+header.sn .sn-kbd{position:absolute;right:8px;padding:1px 6px;border:1px solid #2a3547;border-radius:4px;color:#8c98ab;font:11px Consolas,monospace;pointer-events:none}
+header.sn .sn-search:focus-within .sn-kbd{display:none}
+header.sn .sn-results{position:absolute;top:calc(100% + 8px);right:0;width:max(100%,380px);max-height:min(70vh,520px);overflow:auto;padding:6px;background:#0d1118;border:1px solid #232c3a;border-radius:10px;box-shadow:0 18px 40px rgba(0,0,0,.6)}
+header.sn .sn-results[hidden]{display:none}
+header.sn .sn-res{display:flex;align-items:baseline;gap:10px;padding:8px 10px;border-radius:6px;color:#e8edf4}
+header.sn .sn-res:hover,header.sn .sn-res[aria-selected="true"]{background:#1a2230;color:#fff}
+header.sn .sn-res b{flex:1;min-width:0;font-size:13px;font-weight:500;overflow-wrap:anywhere}
+header.sn .sn-res i{flex:none;font:10.5px Consolas,monospace;letter-spacing:.8px;color:#ff8f5a;text-transform:uppercase}
+header.sn .sn-none{padding:12px;color:#aeb9c9;font-size:13px}
+header.sn .sn-toggle{display:none;flex-direction:column;justify-content:center;gap:4px;width:38px;height:34px;margin-left:auto;padding:0 9px;border:1px solid #2a3547;border-radius:8px;background:#0d1118;cursor:pointer}
+header.sn .sn-toggle span{display:block;height:2px;border-radius:2px;background:#d5dce7}
+@media(max-width:900px){
+ header.sn .sn-toggle{display:flex}
+ header.sn .sn-collapse{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:10px;height:auto;max-height:calc(100vh - 52px);overflow:auto;padding:10px 12px 16px;background:#06080c;border-bottom:1px solid #232c3a}
+ header.sn.sn-open .sn-collapse{display:flex}
+ header.sn .sn-menu{flex-direction:column;height:auto;gap:0}
+ header.sn .sn-link,header.sn .sn-btn{height:44px;padding:0 6px;border-bottom:1px solid #1a2230;justify-content:space-between;width:100%}
+ header.sn .sn-dd{flex-direction:column;height:auto}
+ header.sn .sn-panel{position:static;display:none;min-width:0;max-height:none;margin:4px 0 8px;box-shadow:none;border-radius:8px}
+ header.sn .sn-search{order:-1;width:100%;margin:0}
+ header.sn .sn-results{position:static;width:100%;margin-top:8px;max-height:50vh}
+ header.sn .sn-kbd{display:none}
+}
+@media print{header.sn{display:none!important}}
+html[data-mode="print"] header.sn{display:none!important}

@@ -113,6 +113,7 @@
       meta.append(textElement('span', '', `${entry.questionCount || '—'} QUESTIONS`));
       meta.append(textElement('span', stats.needsReview ? 'study-review-label' : 'study-meter', stats.needsReview ? `${stats.needsReview} TO REVIEW` : `${stats.attempted} ANSWERED`));
       const button = textElement('button', '', stats.index > 0 && stats.index < (entry.questionCount || Infinity) ? 'Continue session' : 'Start session');
+      button.dataset.bank = entry.id;
       button.addEventListener('click', () => openBank(entry, button));
       card.append(label, title, description, meta, button);
       grid.append(card);
@@ -629,10 +630,19 @@
     registerBank(bank) { if (bank?.id) registry[bank.id] = bank; }
   });
 
+  function autoOpenFromHash() {
+    const m = /^#study\/([\w-]+)/.exec(location.hash);
+    if (!m || (activeBank && activeBank.id === m[1])) return;
+    const button = document.querySelector(`#study-grid button[data-bank="${m[1]}"]`);
+    if (button) button.click();
+  }
+
   function init() {
     if (!document.querySelector('#study-grid')) return;
     attachEvents();
     renderCatalog();
+    autoOpenFromHash();
+    window.addEventListener('hashchange', autoOpenFromHash);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, {once: true});

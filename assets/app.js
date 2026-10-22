@@ -3,7 +3,9 @@
   const views = [...document.querySelectorAll('.view')];
   const allowed = new Set(views.map(v => v.id));
   function showView() {
-    const id = allowed.has(location.hash.slice(1)) ? location.hash.slice(1) : 'home';
+    const seg = location.hash.slice(1).split('/')[0];
+    const id = allowed.has(seg) ? seg : 'home';
+    document.body.classList.toggle('is-home', id === 'home');
     views.forEach(v => { v.hidden = v.id !== id; });
     links.forEach(a => {
       const active = a.hash === '#' + id;

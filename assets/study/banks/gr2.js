@@ -6,12 +6,12 @@ window.CourseStudy.registerBank({
   "requiresCalculations": false
  },
  "sources": [
-  "Admin/ECE321Syllabus_F26_v4.docx (Lessons 15-26)",
-  "LectureNotes/ECE321 Lesson Objectives F26.docx",
-  "EquationSheets/ECE321_Eqnsheet4.pdf",
-  "course-materials/Notetakers/Lessons_15-21 and Lessons_25-26 (L15-L21, L25, L26)",
-  "lesson-guides/lesson-15, 18, 19, 21, 25, 26",
-  "reading-guides/hw9.html"
+  "Course syllabus, Version 4 (Lessons 15-26)",
+  "Lesson objectives",
+  "Equation Sheet 3: Transistor Amplifiers & BJTs",
+  "Instructor notetakers for Lessons 15-21, 25 and 26",
+  "Lesson guides 15, 16, 17, 18, 19, 20, 21, 25, 26",
+  "Reading guide HW9"
  ],
  "questions": [
   {
@@ -84,7 +84,7 @@ window.CourseStudy.registerBank({
      "section": "A1 / B2 Amplifier models"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
    ]
@@ -159,7 +159,7 @@ window.CourseStudy.registerBank({
      "section": "A1"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
    ]
@@ -234,7 +234,7 @@ window.CourseStudy.registerBank({
      "section": "A1 Checks, B2 Matching Ri ≫ RS"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
    ]
@@ -309,7 +309,7 @@ window.CourseStudy.registerBank({
      "section": "A1, B2"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
    ]
@@ -360,7 +360,7 @@ window.CourseStudy.registerBank({
      "section": "A2 Checks"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
    ]
@@ -435,7 +435,7 @@ window.CourseStudy.registerBank({
      "section": "A2 Analyzing a cascade"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
    ]
@@ -510,7 +510,7 @@ window.CourseStudy.registerBank({
      "section": "A2 Common mistakes"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
    ]
@@ -585,7 +585,7 @@ window.CourseStudy.registerBank({
      "section": "A2 Checks"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
    ]
@@ -754,7 +754,7 @@ window.CourseStudy.registerBank({
      "section": "A1"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
    ]
@@ -815,7 +815,7 @@ window.CourseStudy.registerBank({
      "section": "A1 Method"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
    ]
@@ -866,7 +866,7 @@ window.CourseStudy.registerBank({
      "section": "B2 Open-loop op amp model"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
    ]
@@ -941,7 +941,7 @@ window.CourseStudy.registerBank({
      "section": "B1 Amplifier basics"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
    ]
@@ -1016,7 +1016,7 @@ window.CourseStudy.registerBank({
      "section": "A3 Measuring Ri"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 7 Measuring Ri"
     }
    ]
@@ -1091,7 +1091,7 @@ window.CourseStudy.registerBank({
      "section": "A3"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 7"
     }
    ]
@@ -1166,7 +1166,7 @@ window.CourseStudy.registerBank({
      "section": "A3 Measuring Ro"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 7 Measuring Ro"
     }
    ]
@@ -1217,7 +1217,7 @@ window.CourseStudy.registerBank({
      "section": "A3 Common mistakes"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 7"
     }
    ]
@@ -1363,7 +1363,7 @@ window.CourseStudy.registerBank({
      "section": "B5 VTC; A5"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
    ]
@@ -1438,7 +1438,7 @@ window.CourseStudy.registerBank({
      "section": "A5; B5"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 1"
     }
    ]
@@ -1513,7 +1513,7 @@ window.CourseStudy.registerBank({
      "section": "A5 Method; C3"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 1"
     }
    ]
@@ -1588,11 +1588,11 @@ window.CourseStudy.registerBank({
      "section": "A5 Checks"
     },
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "p. 16-2 \"Where in SAT is the slope the greatest?\""
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 1"
     }
    ]
@@ -1639,11 +1639,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "p. 16-2 (A_v,max)"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 16 objectives"
     }
    ]
@@ -1718,7 +1718,7 @@ window.CourseStudy.registerBank({
      "section": "A6 Common mistakes"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
    ]
@@ -1793,7 +1793,7 @@ window.CourseStudy.registerBank({
      "section": "A6 Method"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
    ]
@@ -1864,11 +1864,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "p. 16-1 \"phase shift\""
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 16 objectives"
     }
    ]
@@ -1956,7 +1956,7 @@ window.CourseStudy.registerBank({
      "section": "A6"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
    ]
@@ -2027,7 +2027,7 @@ window.CourseStudy.registerBank({
      "section": "A5 Method"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 1"
     }
    ]
@@ -2173,7 +2173,7 @@ window.CourseStudy.registerBank({
      "section": "B5 signal swing, linearity"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 15 objectives"
     }
    ]
@@ -2244,7 +2244,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 2 Step 6"
     },
     {
@@ -2317,11 +2317,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "p. 16-4 notation iD, ID, id; vGS, VGS, vgs"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 5 objectives"
     }
    ]
@@ -2390,7 +2390,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "p. 16-4"
     }
    ]
@@ -2459,11 +2459,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "pp. 16-4 to 16-6"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 16 objectives"
     }
    ]
@@ -2534,7 +2534,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "p. 16-5 DEF small-signal transconductance"
     },
     {
@@ -2607,11 +2607,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "pp. 16-4 to 16-5 \"Want to know when KnVOV >> ½Kn...\""
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 1 Validity check"
     }
    ]
@@ -2662,7 +2662,7 @@ window.CourseStudy.registerBank({
      "section": "B2 gm = Kn VOV = √(2 Kn ID)"
     },
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "p. 16-5"
     }
    ]
@@ -2750,7 +2750,7 @@ window.CourseStudy.registerBank({
      "section": "B2"
     },
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "p. 16-5"
     }
    ]
@@ -2821,7 +2821,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "p. 16-6 To use: DC voltage supplies →"
     },
     {
@@ -2907,11 +2907,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "p. 16-6, p. 16-9"
     },
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "p. 17-3"
     }
    ]
@@ -2980,11 +2980,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "pp. 16-7, 16-8 (ig = 0)"
     },
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "p. 17-3"
     }
    ]
@@ -3055,7 +3055,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "p. 16-8"
     },
     {
@@ -3128,11 +3128,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "p. 16-8"
     },
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "p. 17-8"
     },
     {
@@ -3205,11 +3205,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "p. 16-6, p. 16-9"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 1"
     }
    ]
@@ -3278,11 +3278,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "p. 16-9 \"If we consider no-load or ...\""
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6 Table, Av row"
     }
    ]
@@ -3351,11 +3351,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "p. 16-2"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 1 gain expression"
     }
    ]
@@ -3424,11 +3424,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 2 Step 4 note"
     },
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "p. 16-5"
     }
    ]
@@ -3497,7 +3497,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "pp. 16-3, 16-4 Steps 3-4"
     },
     {
@@ -3566,7 +3566,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "pp. 16-3, 16-4 Ex. 2"
     }
    ]
@@ -3631,7 +3631,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "p. 16-9 Steps 1-3"
     }
    ]
@@ -3700,11 +3700,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "p. 17-1 (C1 and C2 couple the source and load without affecting the biasing)"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 17 objectives"
     }
    ]
@@ -3773,11 +3773,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "p. 17-1 \"polarity requirement sets the side where voltage is higher\""
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 17 objectives"
     }
    ]
@@ -3846,11 +3846,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "p. 17-1 \"gate resistors program the voltage VG = VGS\""
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 2 Steps 4-5"
     }
    ]
@@ -3919,11 +3919,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "p. 17-3 For Ri"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6 Table, Ri row"
     }
    ]
@@ -4005,7 +4005,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "p. 17-3 For Ro"
     },
     {
@@ -4078,11 +4078,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "pp. 17-6, 17-7 (V(2) and ID change when Vt changes)"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 17 objectives"
     }
    ]
@@ -4151,7 +4151,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "pp. 17-6, 17-7 simulation results"
     }
    ]
@@ -4220,11 +4220,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "p. 17-4 Step 1"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 2 Step 1"
     }
    ]
@@ -4293,11 +4293,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "p. 17-4 Step 2"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 2 Steps 2-3"
     }
    ]
@@ -4362,11 +4362,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "p. 17-4, p. 17-5 Steps 1-7"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 2"
     }
    ]
@@ -4437,7 +4437,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "p. 17-5 Step 7"
     },
     {
@@ -4512,7 +4512,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "p. 17-8 \"Add resistor to contribute feedback\""
     },
     {
@@ -4587,11 +4587,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "p. 17-9"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 4 Gain with source degeneration"
     }
    ]
@@ -4666,7 +4666,7 @@ window.CourseStudy.registerBank({
      "section": "B1 Adding RS... bypassing it for the signal"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 18 objectives"
     }
    ]
@@ -4741,7 +4741,7 @@ window.CourseStudy.registerBank({
      "section": "A8 Predicting how the gain changes from device to device"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 18 objectives"
     }
    ]
@@ -4816,11 +4816,11 @@ window.CourseStudy.registerBank({
      "section": "A6, A8"
     },
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "p. 17-10"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 18 objectives"
     }
    ]
@@ -4889,7 +4889,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "p. 17-10 \"do not want RS too ... or else it swamps out the gain\""
     }
    ]
@@ -4958,7 +4958,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "p. 17-10 \"do not want RS too small\""
     }
    ]
@@ -5121,7 +5121,7 @@ window.CourseStudy.registerBank({
      "section": "A5 partial bypass"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 4 Step 9"
     }
    ]
@@ -5196,7 +5196,7 @@ window.CourseStudy.registerBank({
      "section": "A5 Common mistakes"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 4 Step 9"
     }
    ]
@@ -5271,7 +5271,7 @@ window.CourseStudy.registerBank({
      "section": "A2 Splitting the supply"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 3 Step 1"
     }
    ]
@@ -5342,7 +5342,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 18 objectives"
     },
     {
@@ -5397,7 +5397,7 @@ window.CourseStudy.registerBank({
      "section": "A6 Checks"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 4 Step 2 note"
     }
    ]
@@ -5472,7 +5472,7 @@ window.CourseStudy.registerBank({
      "section": "A8 Variants"
     },
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "p. 17-10 \"We will choose RS1 =\""
     }
    ]
@@ -5543,7 +5543,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 4 Step 1 \"slightly above midrange\""
     },
     {
@@ -5622,7 +5622,7 @@ window.CourseStudy.registerBank({
      "section": "A6"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 4 diagram"
     }
    ]
@@ -5697,7 +5697,7 @@ window.CourseStudy.registerBank({
      "section": "A6 Measuring distortion"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 19 objectives"
     }
    ]
@@ -5766,11 +5766,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L20_B.pdf",
+     "file": "Instructor notetaker, Lesson 20",
      "section": "pp. 20-7 and 20-10 THD readouts"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 20 objectives"
     }
    ]
@@ -5839,11 +5839,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 20 objectives"
     },
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L20_B.pdf",
+     "file": "Instructor notetaker, Lesson 20",
      "section": "p. 20-8 \"we must modify the ID design formula\""
     }
    ]
@@ -5914,7 +5914,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 4 Step 2 note"
     },
     {
@@ -5989,7 +5989,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 3 Step 2 vs p. 4 Step 2"
     },
     {
@@ -6065,7 +6065,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 4 Steps 1-9"
     },
     {
@@ -6141,7 +6141,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 3 Steps 1-8"
     },
     {
@@ -6220,7 +6220,7 @@ window.CourseStudy.registerBank({
      "section": "A3"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 3 Step 6"
     }
    ]
@@ -6295,7 +6295,7 @@ window.CourseStudy.registerBank({
      "section": "A4"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 3 Step 7"
     }
    ]
@@ -6520,7 +6520,7 @@ window.CourseStudy.registerBank({
      "section": "A1 Variants \"goes as 1/|Avo|²\""
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 3 Step 2"
     }
    ]
@@ -6589,11 +6589,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L20_B.pdf",
+     "file": "Instructor notetaker, Lesson 20",
      "section": "p. 20-8 Step 2"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 20 objectives"
     }
    ]
@@ -6668,7 +6668,7 @@ window.CourseStudy.registerBank({
      "section": "A1"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 19 objectives"
     }
    ]
@@ -6743,7 +6743,7 @@ window.CourseStudy.registerBank({
      "section": "A2"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 19 objectives"
     }
    ]
@@ -6818,7 +6818,7 @@ window.CourseStudy.registerBank({
      "section": "A2 Method"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 5 header"
     }
    ]
@@ -6964,7 +6964,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 5 header and p. 6 table"
     },
     {
@@ -7043,7 +7043,7 @@ window.CourseStudy.registerBank({
      "section": "A2"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 5 header"
     }
    ]
@@ -7131,7 +7131,7 @@ window.CourseStudy.registerBank({
      "section": "B2"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 20 objectives"
     }
    ]
@@ -7261,7 +7261,7 @@ window.CourseStudy.registerBank({
      "section": "A8"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 20 objectives"
     }
    ]
@@ -7336,7 +7336,7 @@ window.CourseStudy.registerBank({
      "section": "A2 Method"
     },
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L20_B.pdf",
+     "file": "Instructor notetaker, Lesson 20",
      "section": "p. 20-1"
     }
    ]
@@ -7407,7 +7407,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 5 Step 1"
     },
     {
@@ -7482,7 +7482,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 5 Step 2"
     },
     {
@@ -7561,7 +7561,7 @@ window.CourseStudy.registerBank({
      "section": "A1 Common mistakes"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 5 Steps 5-6"
     }
    ]
@@ -7632,7 +7632,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 5 Step 4"
     },
     {
@@ -7786,7 +7786,7 @@ window.CourseStudy.registerBank({
      "section": "A3 Common mistakes"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 5 Step 3"
     }
    ]
@@ -7936,7 +7936,7 @@ window.CourseStudy.registerBank({
      "section": "A1 Variants"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 21 objectives"
     }
    ]
@@ -8083,7 +8083,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 5 Steps 1-11"
     },
     {
@@ -8462,7 +8462,7 @@ window.CourseStudy.registerBank({
      "section": "A8 Recognize it"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 21 objectives"
     }
    ]
@@ -8657,11 +8657,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L20_B.pdf",
+     "file": "Instructor notetaker, Lesson 20",
      "section": "p. 20-2 What is the Common Gate topology?"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6"
     }
    ]
@@ -8730,11 +8730,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6 Table, Ri row"
     },
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L20_B.pdf",
+     "file": "Instructor notetaker, Lesson 20",
      "section": "p. 20-3 By inspection Ri"
     }
    ]
@@ -8803,11 +8803,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6 Table, Avo row"
     },
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L20_B.pdf",
+     "file": "Instructor notetaker, Lesson 20",
      "section": "p. 20-3"
     }
    ]
@@ -8876,7 +8876,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6 Table, Ro row"
     }
    ]
@@ -8945,11 +8945,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 20 objectives"
     },
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L20_B.pdf",
+     "file": "Instructor notetaker, Lesson 20",
      "section": "p. 20-4"
     }
    ]
@@ -8994,11 +8994,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6 diagram"
     },
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L20_B.pdf",
+     "file": "Instructor notetaker, Lesson 20",
      "section": "p. 20-2"
     }
    ]
@@ -9067,7 +9067,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6 Table of amplifier parameters"
     }
    ]
@@ -9136,7 +9136,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6 Table, Ro row"
     }
    ]
@@ -9212,7 +9212,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6 Table, Avo row"
     }
    ]
@@ -9287,7 +9287,7 @@ window.CourseStudy.registerBank({
      "section": "A1"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 20 objectives"
     }
    ]
@@ -9356,7 +9356,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6 Table, Av row"
     }
    ]
@@ -9425,7 +9425,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6 Table"
     }
    ]
@@ -9494,11 +9494,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L16_B.pdf",
+     "file": "Instructor notetaker, Lesson 16",
      "section": "p. 16-7 T-model"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 6"
     }
    ]
@@ -9873,7 +9873,7 @@ window.CourseStudy.registerBank({
      "section": "A6"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 19 objectives"
     }
    ]
@@ -9952,7 +9952,7 @@ window.CourseStudy.registerBank({
      "section": "A7 Method, A8"
     },
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L17_B.pdf",
+     "file": "Instructor notetaker, Lesson 17",
      "section": "pp. 17-6, 17-7"
     }
    ]
@@ -10153,7 +10153,7 @@ window.CourseStudy.registerBank({
      "section": "A6"
     },
     {
-     "file": "course-materials/Notetakers/Lessons_15-21/ECE321_L20_B.pdf",
+     "file": "Instructor notetaker, Lesson 20",
      "section": "pp. 20-7, 20-10, 20-11 THD readouts"
     }
    ]
@@ -11320,11 +11320,11 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "EquationSheets/ECE321_Eqnsheet3_F26.pdf (class folder)",
-     "section": "p. 1 symbols, source at top"
+     "file": "Equation Sheet 2: MOSFET Fundamentals & DC Analysis",
+     "section": "symbols, source at top"
     },
     {
-     "file": "Admin/ECE321Syllabus_F26_v4.docx (class folder)",
+     "file": "Course syllabus, Version 4",
      "section": "Lesson 26 topics: PMOS Design"
     }
    ]
@@ -11393,12 +11393,12 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "Admin/ECE321Syllabus_F26_v4.docx (class folder)",
+     "file": "Course syllabus, Version 4",
      "section": "Lesson 26: PMOS Design"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet3_F26.pdf (class folder)",
-     "section": "p. 1"
+     "file": "Equation Sheet 2: MOSFET Fundamentals & DC Analysis",
+     "section": "symbols"
     }
    ]
   },
@@ -11472,7 +11472,7 @@ window.CourseStudy.registerBank({
      "section": "B1"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
    ]
@@ -11547,7 +11547,7 @@ window.CourseStudy.registerBank({
      "section": "A1"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
    ]
@@ -11622,7 +11622,7 @@ window.CourseStudy.registerBank({
      "section": "A1 Method"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
    ]
@@ -11772,7 +11772,7 @@ window.CourseStudy.registerBank({
      "section": "A2 Method"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
    ]
@@ -11847,7 +11847,7 @@ window.CourseStudy.registerBank({
      "section": "A2"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
    ]
@@ -11922,7 +11922,7 @@ window.CourseStudy.registerBank({
      "section": "A6"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
    ]
@@ -11997,7 +11997,7 @@ window.CourseStudy.registerBank({
      "section": "A3"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
    ]
@@ -12044,7 +12044,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     },
     {
@@ -12190,7 +12190,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     },
     {
@@ -12269,7 +12269,7 @@ window.CourseStudy.registerBank({
      "section": "A4 Method"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 8 BJT"
     }
    ]
@@ -12344,7 +12344,7 @@ window.CourseStudy.registerBank({
      "section": "A4"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 8"
     }
    ]
@@ -12419,7 +12419,7 @@ window.CourseStudy.registerBank({
      "section": "A4 Variants"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
    ]
@@ -12494,7 +12494,7 @@ window.CourseStudy.registerBank({
      "section": "A4 Variants"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
    ]
@@ -12565,7 +12565,7 @@ window.CourseStudy.registerBank({
      "section": "A4 Method"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 8"
     }
    ]
@@ -12640,7 +12640,7 @@ window.CourseStudy.registerBank({
      "section": "A5"
     },
     {
-     "file": "EquationSheets/ECE321_Eqnsheet4.pdf (class folder)",
+     "file": "Equation Sheet 3: Transistor Amplifiers & BJTs",
      "section": "p. 8 Small-signal model"
     }
    ]
@@ -12782,7 +12782,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     },
     {
@@ -12857,7 +12857,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     },
     {
@@ -13015,7 +13015,7 @@ window.CourseStudy.registerBank({
      "section": "A6 Method"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
    ]
@@ -13062,7 +13062,7 @@ window.CourseStudy.registerBank({
    ],
    "sources": [
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     },
     {
@@ -13212,7 +13212,7 @@ window.CourseStudy.registerBank({
      "section": "A5"
     },
     {
-     "file": "LectureNotes/ECE321 Lesson Objectives F26.docx (class folder)",
+     "file": "Lesson objectives",
      "section": "Lesson 25 objectives"
     }
    ]
