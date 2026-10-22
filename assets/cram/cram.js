@@ -23,15 +23,36 @@
   let sideFocus = -1;
 
   /* ---------- inline text: **bold** ---------- */
+  /* course symbols in running text: R_L, V_DD, g_m ... (italic base, upright subscript) */
+  const SYMS = ('Avo Avo1 Avo2 Av Av1 Av2 Av3 Gv Ri Ro Ri1 Ri2 Ro1 Ro2 RL RS RD RC RE RG1 RG2 RB1 RB2 RS1 RS2 Rin Rth Rtest Rpot gm gm1 gm2 ro rπ Kn Vt VDD VCC VGS VDS VGD VOV Vov VG VS VD VT VA VBE VCE VRC VRE VRS VRD Vth ' +
+    'ID IC IB IE iD iC iB iE ig IG IL IRB1 IRB2 vgs vds vin vo vi vs vd vg vbe Vpk Vpp Vrms Pdiss PD VGS,B VDS,B Vov,B ID,min ID,max IL,pk IRS,max vgs,pk vg,pk vd,pk ids,pk vds,pk VD,max VD,min Vo,pk Vload,pp Vin,pp Vout,pp VRS,min').split(' ');
+  const SYMRE = new RegExp('(?<![A-Za-z0-9_])(' + SYMS.slice().sort((a, b) => b.length - a.length).join('|') + ')(?![A-Za-z0-9])', 'g');   // symbols hold only letters, digits and commas
+  function symbolize(text) {
+    const f = document.createDocumentFragment(); let last = 0, m; SYMRE.lastIndex = 0;
+    while ((m = SYMRE.exec(text))) {
+      if (m.index > last) f.append(document.createTextNode(text.slice(last, m.index)));
+      const v = el('i', 'cr-v'); v.append(document.createTextNode(m[1][0])); if (m[1].length > 1) v.append(el('sub', '', m[1].slice(1))); f.append(v); last = m.index + m[1].length;
+    }
+    if (last < text.length) f.append(document.createTextNode(text.slice(last)));
+    return f;
+  }
   function fmt(text) {
     const f = document.createDocumentFragment();
-    String(text).split('**').forEach((part, i) => { if (!part) return; if (i % 2) f.append(el('b', '', part)); else f.append(document.createTextNode(part)); });
+    String(text).split('**').forEach((part, i) => { if (!part) return; if (i % 2) { const b = el('b'); b.append(symbolize(part)); f.append(b); } else f.append(symbolize(part)); });
     return f;
   }
   const withFmt = (tag, cls, text) => { const e = el(tag, cls); e.append(fmt(text)); return e; };
   /* a trailing "@S3 §4" tags a formula as printed on the official equation sheet (sheet 3, section 4) */
   const MARK = /\s*@S(\d)(?:\s*§\s*([\w.,\- ]+?))?\s*$/;
   const sheetChip = (n, sec) => { const c = el('span', 'cr-sheet', `Sheet ${n}${sec ? ' §' + sec : ''}`); c.title = `Printed on Equation Sheet ${n}${sec ? ', section ' + sec : ''}`; return c; };
+  function eqRow(l) {
+    if (typeof l === 'string') return marked('div', 'cr-eqrow', l);
+    const row = el('div', 'cr-eqrow'); if (l.label) row.append(withFmt('span', 'cr-eql', l.label));
+    const m = el('span', 'cr-math'); m.innerHTML = l.math; row.append(m);
+    if (l.note) row.append(withFmt('span', 'cr-eqn', l.note));
+    if (l.sheet) { const k = String(l.sheet).match(/^S(\d)(?:\s*§\s*(.+))?$/); row.append(sheetChip(k[1], k[2])); }
+    return row;
+  }
   function marked(tag, cls, text) {
     const m = String(text).match(MARK), e = withFmt(tag, cls, m ? String(text).replace(MARK, '') : text);
     if (m) { e.classList.add('has-sheet'); e.append(sheetChip(m[1], m[2])); }
@@ -44,7 +65,7 @@
     switch (b.t) {
       case 'p': return withFmt('p', 'cr-p', b.text);
       case 'ul': { const u = el('ul', 'cr-ul'); b.items.forEach(i => u.append(marked('li', '', i))); return u; }
-      case 'eq': { const d = el('div', 'cr-eq'); b.lines.forEach(l => d.append(marked('div', '', l))); return d; }
+      case 'eq': { const d = el('div', 'cr-eq'); b.lines.forEach(l => d.append(eqRow(l))); return d; }
       case 'call': { const d = el('div', 'cr-call ' + (b.kind || 'rule')), m = String(b.text).match(MARK); d.append(el('span', 'cr-ck', ({rule: 'Rule of thumb', watch: 'Watch out', tip: 'Remember', why: 'Why'})[b.kind || 'rule']), fmt(m ? String(b.text).replace(MARK, '') : b.text)); if (m) { d.classList.add('has-sheet'); d.append(sheetChip(m[1], m[2])); } return d; }
       case 'given': { const d = el('div', 'cr-given'); d.append(el('span', 'cr-ck', 'Given')); b.items.forEach(i => d.append(el('span', 'cr-chip', i))); return d; }
       case 'tbl': {

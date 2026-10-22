@@ -64,10 +64,24 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Vi = VS · Ri / (Ri + RS)        input divider",
-        "Vo = Avo · Vi · RL / (RL + Ro)   output divider",
-        "Loaded gain:   Av = vo/vi = Avo · RL / (Ro + RL)  @S3 §1",
-        "Overall gain:  Gv = vo/vs = [Ri/(Rs + Ri)] · Avo · [RL/(Ro + RL)]  @S3 §1"
+        {
+         "math": "<math alttext=\"V_i=V_S\\cdot\\dfrac{R_i}{R_i+R_S}\"><mrow><msub><mi>V</mi><mi mathvariant=\"normal\">i</mi></msub><mo>=</mo><msub><mi>V</mi><mi mathvariant=\"normal\">S</mi></msub><mo>·</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">i</mi></msub></mrow><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">i</mi></msub><mo>+</mo><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "label": "Input divider"
+        },
+        {
+         "math": "<math alttext=\"V_o=A_{vo}V_i\\cdot\\dfrac{R_L}{R_L+R_o}\"><mrow><msub><mi>V</mi><mi mathvariant=\"normal\">o</mi></msub><mo>=</mo><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><msub><mi>V</mi><mi mathvariant=\"normal\">i</mi></msub><mo>·</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub></mrow><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub><mo>+</mo><msub><mi>R</mi><mi mathvariant=\"normal\">o</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "label": "Output divider"
+        },
+        {
+         "math": "<math alttext=\"A_v=\\dfrac{v_o}{v_i}=A_{vo}\\,\\dfrac{R_L}{R_o+R_L}\"><mrow><msub><mi>A</mi><mi mathvariant=\"normal\">v</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>v</mi><mi mathvariant=\"normal\">o</mi></msub></mrow><mrow><msub><mi>v</mi><mi mathvariant=\"normal\">i</mi></msub></mrow></mfrac></mstyle><mo>=</mo><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mspace width=\"0.17em\"/><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub></mrow><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">o</mi></msub><mo>+</mo><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "label": "Loaded gain",
+         "sheet": "S3 §1"
+        },
+        {
+         "math": "<math alttext=\"G_v=\\dfrac{v_o}{v_s}=\\dfrac{R_i}{R_s+R_i}\\,A_{vo}\\,\\dfrac{R_L}{R_o+R_L}\"><mrow><msub><mi>G</mi><mi mathvariant=\"normal\">v</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>v</mi><mi mathvariant=\"normal\">o</mi></msub></mrow><mrow><msub><mi>v</mi><mi mathvariant=\"normal\">s</mi></msub></mrow></mfrac></mstyle><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">i</mi></msub></mrow><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">s</mi></msub><mo>+</mo><msub><mi>R</mi><mi mathvariant=\"normal\">i</mi></msub></mrow></mfrac></mstyle><mspace width=\"0.17em\"/><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mspace width=\"0.17em\"/><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub></mrow><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">o</mi></msub><mo>+</mo><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "label": "Overall gain",
+         "sheet": "S3 §1"
+        }
        ]
       },
       {
@@ -143,9 +157,17 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Loaded gain of stage k:  Avk = Avo,k · Ri,k+1 / (Ri,k+1 + Ro,k)",
-        "Last stage:  use RL in place of Ri,k+1",
-        "Av = Av1 · Av2 · Av3 ...      Gv = [Ri1/(RS + Ri1)] · Av"
+        {
+         "math": "<math alttext=\"A_{v,k}=A_{vo,k}\\,\\dfrac{R_{i,k+1}}{R_{i,k+1}+R_{o,k}}\"><mrow><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">v</mi><mo>,</mo><mi mathvariant=\"normal\">k</mi></mrow></msub><mo>=</mo><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi><mo>,</mo><mi mathvariant=\"normal\">k</mi></mrow></msub><mspace width=\"0.17em\"/><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">i</mi><mo>,</mo><mi mathvariant=\"normal\">k</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">i</mi><mo>,</mo><mi mathvariant=\"normal\">k</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">o</mi><mo>,</mo><mi mathvariant=\"normal\">k</mi></mrow></msub></mrow></mfrac></mstyle></mrow></math>",
+         "label": "Stage k, loaded"
+        },
+        {
+         "math": "<math alttext=\"R_{i,k+1}\\ \\to\\ R_L\"><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">i</mi><mo>,</mo><mi mathvariant=\"normal\">k</mi><mo>+</mo><mn>1</mn></mrow></msub><mspace width=\"0.25em\"/><mo>→</mo><mspace width=\"0.25em\"/><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub></mrow></math>",
+         "label": "Last stage"
+        },
+        {
+         "math": "<math alttext=\"A_v=A_{v1}A_{v2}A_{v3}\\cdots\\qquad G_v=\\dfrac{R_{i1}}{R_S+R_{i1}}\\,A_v\"><mrow><msub><mi>A</mi><mi mathvariant=\"normal\">v</mi></msub><mo>=</mo><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">v</mi><mn>1</mn></mrow></msub><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">v</mi><mn>2</mn></mrow></msub><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">v</mi><mn>3</mn></mrow></msub><mo>⋯</mo><mspace width=\"2em\"/><msub><mi>G</mi><mi mathvariant=\"normal\">v</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">i</mi><mn>1</mn></mrow></msub></mrow><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub><mo>+</mo><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">i</mi><mn>1</mn></mrow></msub></mrow></mfrac></mstyle><mspace width=\"0.17em\"/><msub><mi>A</mi><mi mathvariant=\"normal\">v</mi></msub></mrow></math>"
+        }
        ]
       },
       {
@@ -257,8 +279,16 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Avo = Vout,pp / Vin,pp   (load disconnected)  @S3 §8",
-        "Av = Vout,pp / Vin,pp   (specified RL connected)  @S3 §8"
+        {
+         "math": "<math alttext=\"A_{vo}=\\dfrac{V_{out,pp}}{V_{in,pp}}\"><mrow><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">out</mi><mo>,</mo><mi mathvariant=\"normal\">pp</mi></mrow></msub></mrow><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">in</mi><mo>,</mo><mi mathvariant=\"normal\">pp</mi></mrow></msub></mrow></mfrac></mstyle></mrow></math>",
+         "note": "load disconnected",
+         "sheet": "S3 §8"
+        },
+        {
+         "math": "<math alttext=\"A_v=\\dfrac{V_{out,pp}}{V_{in,pp}}\"><mrow><msub><mi>A</mi><mi mathvariant=\"normal\">v</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">out</mi><mo>,</mo><mi mathvariant=\"normal\">pp</mi></mrow></msub></mrow><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">in</mi><mo>,</mo><mi mathvariant=\"normal\">pp</mi></mrow></msub></mrow></mfrac></mstyle></mrow></math>",
+         "note": "specified load connected",
+         "sheet": "S3 §8"
+        }
        ]
       }
      ],
@@ -283,7 +313,10 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Ri = Rtest · V2,pp / (V1,pp − V2,pp)  @S3 §8"
+        {
+         "math": "<math alttext=\"R_i=R_{test}\\,\\dfrac{V_{2,pp}}{V_{1,pp}-V_{2,pp}}\"><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">i</mi></msub><mo>=</mo><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">test</mi></mrow></msub><mspace width=\"0.17em\"/><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mn>2</mn><mo>,</mo><mi mathvariant=\"normal\">pp</mi></mrow></msub></mrow><mrow><msub><mi>V</mi><mrow><mn>1</mn><mo>,</mo><mi mathvariant=\"normal\">pp</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mrow><mn>2</mn><mo>,</mo><mi mathvariant=\"normal\">pp</mi></mrow></msub></mrow></mfrac></mstyle></mrow></math>",
+         "sheet": "S3 §8"
+        }
        ]
       }
      ],
@@ -401,9 +434,19 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "vo = vDS = VDD − RD·iD",
-        "Overdrive:  Vov = VGS − Vt  @S2 §1",
-        "Saturation current:  ID = ½·Kn·Vov²  @S2 §2"
+        {
+         "math": "<math alttext=\"v_o=v_{DS}=V_{DD}-R_D\\,i_D\"><mrow><msub><mi>v</mi><mi mathvariant=\"normal\">o</mi></msub><mo>=</mo><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">DS</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DD</mi></mrow></msub><mo>−</mo><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub><mspace width=\"0.17em\"/><msub><mi>i</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></math>"
+        },
+        {
+         "math": "<math alttext=\"V_{ov}=V_{GS}-V_t\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mi mathvariant=\"normal\">t</mi></msub></mrow></math>",
+         "label": "Overdrive",
+         "sheet": "S2 §1"
+        },
+        {
+         "math": "<math alttext=\"I_D=\\tfrac{1}{2}K_nV_{ov}^2\"><mrow><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><mstyle displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><msubsup><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow><mn>2</mn></msubsup></mrow></math>",
+         "label": "Saturation current",
+         "sheet": "S2 §2"
+        }
        ]
       }
      ],
@@ -429,8 +472,16 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Saturation:  vD = VDD − RD·[½·Kn·(vGS − Vt)²]  @S3 §2",
-        "Triode:  iD = Kn·[Vov·vDS − ½·vDS²]  @S2 §2"
+        {
+         "math": "<math alttext=\"v_D=V_{DD}-R_D\\left[\\tfrac{1}{2}K_n(v_{GS}-V_t)^2\\right]\"><mrow><msub><mi>v</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DD</mi></mrow></msub><mo>−</mo><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub><mrow><mo stretchy=\"true\">[</mo><mstyle displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><mo stretchy=\"false\">(</mo><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mi mathvariant=\"normal\">t</mi></msub><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup><mo stretchy=\"true\">]</mo></mrow></mrow></math>",
+         "label": "Saturation",
+         "sheet": "S3 §2"
+        },
+        {
+         "math": "<math alttext=\"i_D=K_n\\left[V_{ov}v_{DS}-\\tfrac{1}{2}v_{DS}^2\\right]\"><mrow><msub><mi>i</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><mrow><mo stretchy=\"true\">[</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">DS</mi></mrow></msub><mo>−</mo><mstyle displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><msubsup><mi>v</mi><mrow><mi mathvariant=\"normal\">DS</mi></mrow><mn>2</mn></msubsup><mo stretchy=\"true\">]</mo></mrow></mrow></math>",
+         "label": "Triode",
+         "sheet": "S2 §2"
+        }
        ]
       }
      ],
@@ -451,8 +502,13 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "VDS,B = Vov,B = (√(1 + 2·Kn·RD·VDD) − 1) / (Kn·RD)  @S3 §2",
-        "VGS,B = Vt + VDS,B"
+        {
+         "math": "<math alttext=\"V_{DS,B}=V_{ov,B}=\\dfrac{\\sqrt{1+2K_nR_DV_{DD}}-1}{K_nR_D}\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DS</mi><mo>,</mo><mi mathvariant=\"normal\">B</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi><mo>,</mo><mi mathvariant=\"normal\">B</mi></mrow></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msqrt><mrow><mn>1</mn><mo>+</mo><mn>2</mn><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DD</mi></mrow></msub></mrow></msqrt><mo>−</mo><mn>1</mn></mrow><mrow><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "sheet": "S3 §2"
+        },
+        {
+         "math": "<math alttext=\"V_{GS,B}=V_t+V_{DS,B}\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GS</mi><mo>,</mo><mi mathvariant=\"normal\">B</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi mathvariant=\"normal\">t</mi></msub><mo>+</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DS</mi><mo>,</mo><mi mathvariant=\"normal\">B</mi></mrow></msub></mrow></math>"
+        }
        ]
       },
       {
@@ -470,7 +526,10 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Avo = dvDS/dvGS at Q = −Kn·RD·Vov = −gm·RD  @S3 §2"
+        {
+         "math": "<math alttext=\"A_{vo}=\\dfrac{dv_{DS}}{dv_{GS}}\\ \\text{at } Q\\ =-K_nR_DV_{ov}=-g_mR_D\"><mrow><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mi>d</mi><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">DS</mi></mrow></msub></mrow><mrow><mi>d</mi><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub></mrow></mfrac></mstyle><mspace width=\"0.25em\"/><mtext>at </mtext><mi>Q</mi><mspace width=\"0.25em\"/><mo>=</mo><mo form=\"prefix\" lspace=\"0\" rspace=\"0.04em\">−</mo><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub><mo>=</mo><mo form=\"prefix\" lspace=\"0\" rspace=\"0.04em\">−</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></math>",
+         "sheet": "S3 §2"
+        }
        ]
       },
       {
@@ -594,7 +653,9 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "vGS = VGS + vgs        iD = ID + id"
+        {
+         "math": "<math alttext=\"v_{GS}=V_{GS}+v_{gs}\\qquad i_D=I_D+i_d\"><mrow><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub><mo>+</mo><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">gs</mi></mrow></msub><mspace width=\"2em\"/><msub><mi>i</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub><mo>+</mo><msub><mi>i</mi><mi mathvariant=\"normal\">d</mi></msub></mrow></math>"
+        }
        ]
       },
       {
@@ -612,7 +673,9 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "iD = ½·Kn·(VGS + vgs − Vt)²  =  ID + Kn·Vov·vgs + ½·Kn·vgs²"
+        {
+         "math": "<math alttext=\"i_D=\\tfrac{1}{2}K_n(V_{GS}+v_{gs}-V_t)^2=I_D+K_nV_{ov}v_{gs}+\\tfrac{1}{2}K_nv_{gs}^2\"><mrow><msub><mi>i</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><mstyle displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><mo stretchy=\"false\">(</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub><mo>+</mo><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">gs</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mi mathvariant=\"normal\">t</mi></msub><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup><mo>=</mo><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub><mo>+</mo><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">gs</mi></mrow></msub><mo>+</mo><mstyle displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><msubsup><mi>v</mi><mrow><mi mathvariant=\"normal\">gs</mi></mrow><mn>2</mn></msubsup></mrow></math>"
+        }
        ]
       },
       {
@@ -675,10 +738,22 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "gm = Kn·Vov  @S3 §5",
-        "gm = 2·ID / Vov = √(2·Kn·ID)",
-        "ro = VA / ID = 1/(λ·ID)  @S2 §2",
-        "|Avo| = gm·RD   (RS bypassed or absent, ro ignored)  @S3 §2"
+        {
+         "math": "<math alttext=\"g_m=K_nV_{ov}\"><mrow><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><mo>=</mo><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub></mrow></math>",
+         "sheet": "S3 §5"
+        },
+        {
+         "math": "<math alttext=\"g_m=\\dfrac{2I_D}{V_{ov}}=\\sqrt{2K_nI_D}\"><mrow><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mn>2</mn><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub></mrow><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub></mrow></mfrac></mstyle><mo>=</mo><msqrt><mrow><mn>2</mn><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></msqrt></mrow></math>"
+        },
+        {
+         "math": "<math alttext=\"r_o=\\dfrac{V_A}{I_D}=\\dfrac{1}{\\lambda I_D}\"><mrow><msub><mi>r</mi><mi mathvariant=\"normal\">o</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mi mathvariant=\"normal\">A</mi></msub></mrow><mrow><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></mfrac></mstyle><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mn>1</mn></mrow><mrow><mi>λ</mi><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "sheet": "S2 §2"
+        },
+        {
+         "math": "<math alttext=\"|A_{vo}|=g_mR_D\"><mrow><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><mo>=</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></math>",
+         "note": "RS bypassed or absent, ro ignored",
+         "sheet": "S3 §2"
+        }
        ]
       },
       {
@@ -791,7 +866,10 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "VG = VDD·RG2/(RG1 + RG2)  @S2 §5"
+        {
+         "math": "<math alttext=\"V_G=V_{DD}\\dfrac{R_{G2}}{R_{G1}+R_{G2}}\"><mrow><msub><mi>V</mi><mi mathvariant=\"normal\">G</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DD</mi></mrow></msub><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>2</mn></mrow></msub></mrow><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>2</mn></mrow></msub></mrow></mfrac></mstyle></mrow></math>",
+         "sheet": "S2 §5"
+        }
        ]
       }
      ],
@@ -804,9 +882,19 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Ri = RG1 ∥ RG2        Ro = RD ∥ ro ≈ RD  @S3 §7",
-        "Avo = −gm·(RD ∥ ro) ≈ −gm·RD  @S3 §7",
-        "Loaded gain: replace RD with RD ∥ RL  @S3 §7"
+        {
+         "math": "<math alttext=\"R_i=R_{G1}\\parallel R_{G2}\\qquad R_o=R_D\\parallel r_o\\approx R_D\"><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">i</mi></msub><mo>=</mo><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>1</mn></mrow></msub><mo>∥</mo><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>2</mn></mrow></msub><mspace width=\"2em\"/><msub><mi>R</mi><mi mathvariant=\"normal\">o</mi></msub><mo>=</mo><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub><mo>∥</mo><msub><mi>r</mi><mi mathvariant=\"normal\">o</mi></msub><mo>≈</mo><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></math>",
+         "sheet": "S3 §7"
+        },
+        {
+         "math": "<math alttext=\"A_{vo}=-g_m(R_D\\parallel r_o)\\approx -g_mR_D\"><mrow><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mo>=</mo><mo form=\"prefix\" lspace=\"0\" rspace=\"0.04em\">−</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><mo stretchy=\"false\">(</mo><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub><mo>∥</mo><msub><mi>r</mi><mi mathvariant=\"normal\">o</mi></msub><mo stretchy=\"false\">)</mo><mo>≈</mo><mo form=\"prefix\" lspace=\"0\" rspace=\"0.04em\">−</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></math>",
+         "sheet": "S3 §7"
+        },
+        {
+         "math": "<math alttext=\"R_D\\ \\to\\ R_D\\parallel R_L\"><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub><mspace width=\"0.25em\"/><mo>→</mo><mspace width=\"0.25em\"/><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub><mo>∥</mo><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub></mrow></math>",
+         "label": "Loaded gain",
+         "sheet": "S3 §7"
+        }
        ]
       },
       {
@@ -826,7 +914,9 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "ID = ½·Kn·(VG − Vt)²"
+        {
+         "math": "<math alttext=\"I_D=\\tfrac{1}{2}K_n(V_G-V_t)^2\"><mrow><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><mstyle displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><mo stretchy=\"false\">(</mo><msub><mi>V</mi><mi mathvariant=\"normal\">G</mi></msub><mo>−</mo><msub><mi>V</mi><mi mathvariant=\"normal\">t</mi></msub><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup></mrow></math>"
+        }
        ]
       },
       {
@@ -974,10 +1064,9 @@ window.CourseCram.registerDeck({
        "alt": "Common-source stage with a source resistor"
       },
       {
-       "t": "eq",
-       "lines": [
-        "ID rises  →  VS = ID·RS rises  →  VGS = VG − VS falls  →  ID falls back"
-       ]
+       "t": "call",
+       "kind": "rule",
+       "text": "If ID rises, VS = ID·RS rises, so VGS = VG − VS falls and ID falls back."
       },
       {
        "t": "ul",
@@ -997,8 +1086,17 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Unbypassed:   Avo = −gm·RD / (1 + gm·RS)   (ro ignored)  @S3 §7",
-        "because  vgs = vin / (1 + gm·RS)  : the source resistor drops part of the input"
+        {
+         "math": "<math alttext=\"A_{vo}=-\\dfrac{g_mR_D}{1+g_mR_S}\"><mrow><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mo>=</mo><mo form=\"prefix\" lspace=\"0\" rspace=\"0.04em\">−</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub></mrow><mrow><mn>1</mn><mo>+</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "label": "Unbypassed",
+         "note": "ro ignored",
+         "sheet": "S3 §7"
+        },
+        {
+         "math": "<math alttext=\"v_{gs}=\\dfrac{v_{in}}{1+g_mR_S}\"><mrow><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">gs</mi></mrow></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">in</mi></mrow></msub></mrow><mrow><mn>1</mn><mo>+</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "label": "Because",
+         "note": "the source resistor drops part of the input"
+        }
        ]
       },
       {
@@ -1031,7 +1129,11 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Fully bypassed:   |Avo| = gm·RD  @S3 §4"
+        {
+         "math": "<math alttext=\"|A_{vo}|=g_mR_D\"><mrow><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><mo>=</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></math>",
+         "label": "Fully bypassed",
+         "sheet": "S3 §4"
+        }
        ]
       }
      ],
@@ -1057,8 +1159,14 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Avo = −gm·RD / (1 + gm·RS1)  @S3 §7",
-        "RS1 = 1/gm   →   |Avo| = gm·RD / 2  @S3 §5"
+        {
+         "math": "<math alttext=\"A_{vo}=-\\dfrac{g_mR_D}{1+g_mR_{S1}}\"><mrow><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mo>=</mo><mo form=\"prefix\" lspace=\"0\" rspace=\"0.04em\">−</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub></mrow><mrow><mn>1</mn><mo>+</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">S</mi><mn>1</mn></mrow></msub></mrow></mfrac></mstyle></mrow></math>",
+         "sheet": "S3 §7"
+        },
+        {
+         "math": "<math alttext=\"R_{S1}=\\dfrac{1}{g_m}\\ \\Rightarrow\\ |A_{vo}|=\\dfrac{g_mR_D}{2}\"><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">S</mi><mn>1</mn></mrow></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mn>1</mn></mrow><mrow><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub></mrow></mfrac></mstyle><mspace width=\"0.25em\"/><mo>⇒</mo><mspace width=\"0.25em\"/><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle></mrow></math>",
+         "sheet": "S3 §5"
+        }
        ]
       }
      ],
@@ -1157,8 +1265,16 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Fully bypassed:   ID = 2·Kn·[ (VDD/3) / |Avo| ]²  @S3 §4",
-        "Partially bypassed:  ID = 2·Kn·[ VDD / (6·|Avo|) ]²  @S3 §5"
+        {
+         "math": "<math alttext=\"I_D=2K_n\\left[\\dfrac{V_{DD}/3}{|A_{vo}|}\\right]^2\"><mrow><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><mn>2</mn><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><msup><mrow><mo stretchy=\"true\">[</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DD</mi></mrow></msub><mo lspace=\"0.05em\" rspace=\"0.05em\">/</mo><mn>3</mn></mrow><mrow><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo></mrow></mfrac></mstyle><mo stretchy=\"true\">]</mo></mrow><mn>2</mn></msup></mrow></math>",
+         "label": "Fully bypassed",
+         "sheet": "S3 §4"
+        },
+        {
+         "math": "<math alttext=\"I_D=2K_n\\left[\\dfrac{V_{DD}}{6|A_{vo}|}\\right]^2\"><mrow><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><mn>2</mn><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><msup><mrow><mo stretchy=\"true\">[</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DD</mi></mrow></msub></mrow><mrow><mn>6</mn><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo></mrow></mfrac></mstyle><mo stretchy=\"true\">]</mo></mrow><mn>2</mn></msup></mrow></math>",
+         "label": "Partially bypassed",
+         "sheet": "S3 §5"
+        }
        ]
       },
       {
@@ -1189,10 +1305,22 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "RD = RS = (VDD/3) / ID  @S3 §4",
-        "Vov = √(2·ID/Kn),   gm = Kn·Vov  @S3 §5",
-        "RS1 = 1/gm,   RS2 = RS − RS1  @S3 §5",
-        "VGS = Vov + Vt,   VG = VGS + VRS = VGS + VDD/3  @S3 §5"
+        {
+         "math": "<math alttext=\"R_D=R_S=\\dfrac{V_{DD}/3}{I_D}\"><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DD</mi></mrow></msub><mo lspace=\"0.05em\" rspace=\"0.05em\">/</mo><mn>3</mn></mrow><mrow><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "sheet": "S3 §4"
+        },
+        {
+         "math": "<math alttext=\"V_{ov}=\\sqrt{\\dfrac{2I_D}{K_n}}\\qquad g_m=K_nV_{ov}\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub><mo>=</mo><msqrt><mrow><mstyle displaystyle=\"true\"><mfrac><mrow><mn>2</mn><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub></mrow><mrow><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub></mrow></mfrac></mstyle></mrow></msqrt><mspace width=\"2em\"/><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><mo>=</mo><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub></mrow></math>",
+         "sheet": "S3 §5"
+        },
+        {
+         "math": "<math alttext=\"R_{S1}=\\dfrac{1}{g_m}\\qquad R_{S2}=R_S-R_{S1}\"><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">S</mi><mn>1</mn></mrow></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mn>1</mn></mrow><mrow><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub></mrow></mfrac></mstyle><mspace width=\"2em\"/><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">S</mi><mn>2</mn></mrow></msub><mo>=</mo><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub><mo>−</mo><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">S</mi><mn>1</mn></mrow></msub></mrow></math>",
+         "sheet": "S3 §5"
+        },
+        {
+         "math": "<math alttext=\"V_{GS}=V_{ov}+V_t\\qquad V_G=V_{GS}+V_{RS}=V_{GS}+\\dfrac{V_{DD}}{3}\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub><mo>+</mo><msub><mi>V</mi><mi mathvariant=\"normal\">t</mi></msub><mspace width=\"2em\"/><msub><mi>V</mi><mi mathvariant=\"normal\">G</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub><mo>+</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">RS</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub><mo>+</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DD</mi></mrow></msub></mrow><mrow><mn>3</mn></mrow></mfrac></mstyle></mrow></math>",
+         "sheet": "S3 §5"
+        }
        ]
       }
      ],
@@ -1205,10 +1333,25 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "RG1 ≥ (VDD/VG)·Rin,   RG2 = RG1 / (VDD/VG − 1)  @S3 §5",
-        "Headroom:  vd,pk = |Avo|·vg,pk;  VD,max = VD + vd,pk ≤ VDD  @S3 §5",
-        "Legroom:   VD,min = VD − vd,pk ≥ VS + Vov  @S3 §5",
-        "Linearity:  vgs,pk = vg,pk / (1 + gm·RS1) ≤ 0.2·Vov  @S3 §5"
+        {
+         "math": "<math alttext=\"R_{G1}\\ge\\dfrac{V_{DD}}{V_G}R_{in}\\qquad R_{G2}=\\dfrac{R_{G1}}{V_{DD}/V_G-1}\"><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>1</mn></mrow></msub><mo>≥</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DD</mi></mrow></msub></mrow><mrow><msub><mi>V</mi><mi mathvariant=\"normal\">G</mi></msub></mrow></mfrac></mstyle><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">in</mi></mrow></msub><mspace width=\"2em\"/><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>2</mn></mrow></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>1</mn></mrow></msub></mrow><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DD</mi></mrow></msub><mo lspace=\"0.05em\" rspace=\"0.05em\">/</mo><msub><mi>V</mi><mi mathvariant=\"normal\">G</mi></msub><mo>−</mo><mn>1</mn></mrow></mfrac></mstyle></mrow></math>",
+         "sheet": "S3 §5"
+        },
+        {
+         "math": "<math alttext=\"v_{d,pk}=|A_{vo}|v_{g,pk}\\qquad V_{D,max}=V_D+v_{d,pk}\\le V_{DD}\"><mrow><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">d</mi><mo>,</mo><mi mathvariant=\"normal\">pk</mi></mrow></msub><mo>=</mo><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">g</mi><mo>,</mo><mi mathvariant=\"normal\">pk</mi></mrow></msub><mspace width=\"2em\"/><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">D</mi><mo>,</mo><mi mathvariant=\"normal\">max</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi mathvariant=\"normal\">D</mi></msub><mo>+</mo><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">d</mi><mo>,</mo><mi mathvariant=\"normal\">pk</mi></mrow></msub><mo>≤</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DD</mi></mrow></msub></mrow></math>",
+         "label": "Headroom",
+         "sheet": "S3 §5"
+        },
+        {
+         "math": "<math alttext=\"V_{D,min}=V_D-v_{d,pk}\\ge V_S+V_{ov}\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">D</mi><mo>,</mo><mi mathvariant=\"normal\">min</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi mathvariant=\"normal\">D</mi></msub><mo>−</mo><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">d</mi><mo>,</mo><mi mathvariant=\"normal\">pk</mi></mrow></msub><mo>≥</mo><msub><mi>V</mi><mi mathvariant=\"normal\">S</mi></msub><mo>+</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub></mrow></math>",
+         "label": "Legroom",
+         "sheet": "S3 §5"
+        },
+        {
+         "math": "<math alttext=\"v_{gs,pk}=\\dfrac{v_{g,pk}}{1+g_mR_{S1}}\\le 0.2\\,V_{ov}\"><mrow><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">gs</mi><mo>,</mo><mi mathvariant=\"normal\">pk</mi></mrow></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">g</mi><mo>,</mo><mi mathvariant=\"normal\">pk</mi></mrow></msub></mrow><mrow><mn>1</mn><mo>+</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">S</mi><mn>1</mn></mrow></msub></mrow></mfrac></mstyle><mo>≤</mo><mn>0.2</mn><mspace width=\"0.17em\"/><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub></mrow></math>",
+         "label": "Linearity",
+         "sheet": "S3 §5"
+        }
        ]
       },
       {
@@ -1374,11 +1517,32 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Ri = RG1 ∥ RG2   (very high)  @S3 §6",
-        "Avo = RS/(RS + 1/gm) = gm·RS/(1 + gm·RS) ≈ 1   (< 1)  @S3 §6",
-        "Ro = RS ∥ 1/gm ≈ 1/gm   (low)  @S3 §6",
-        "Loaded: replace RS with RS ∥ RL  →  Av = gm(RS∥RL) / (1 + gm(RS∥RL))  @S3 §7",
-        "With λ: Ro = RS ∥ 1/gm ∥ ro  @S3 §7"
+        {
+         "math": "<math alttext=\"R_i=R_{G1}\\parallel R_{G2}\"><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">i</mi></msub><mo>=</mo><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>1</mn></mrow></msub><mo>∥</mo><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>2</mn></mrow></msub></mrow></math>",
+         "note": "very high",
+         "sheet": "S3 §6"
+        },
+        {
+         "math": "<math alttext=\"A_{vo}=\\dfrac{R_S}{R_S+1/g_m}=\\dfrac{g_mR_S}{1+g_mR_S}\\approx 1\"><mrow><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub></mrow><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub><mo>+</mo><mn>1</mn><mo lspace=\"0.05em\" rspace=\"0.05em\">/</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub></mrow></mfrac></mstyle><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub></mrow><mrow><mn>1</mn><mo>+</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub></mrow></mfrac></mstyle><mo>≈</mo><mn>1</mn></mrow></math>",
+         "note": "just below 1",
+         "sheet": "S3 §6"
+        },
+        {
+         "math": "<math alttext=\"R_o=R_S\\parallel\\dfrac{1}{g_m}\\approx\\dfrac{1}{g_m}\"><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">o</mi></msub><mo>=</mo><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub><mo>∥</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mn>1</mn></mrow><mrow><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub></mrow></mfrac></mstyle><mo>≈</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mn>1</mn></mrow><mrow><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "note": "low",
+         "sheet": "S3 §6"
+        },
+        {
+         "math": "<math alttext=\"A_v=\\dfrac{g_m(R_S\\parallel R_L)}{1+g_m(R_S\\parallel R_L)}\"><mrow><msub><mi>A</mi><mi mathvariant=\"normal\">v</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><mo stretchy=\"false\">(</mo><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub><mo>∥</mo><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub><mo stretchy=\"false\">)</mo></mrow><mrow><mn>1</mn><mo>+</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><mo stretchy=\"false\">(</mo><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub><mo>∥</mo><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub><mo stretchy=\"false\">)</mo></mrow></mfrac></mstyle></mrow></math>",
+         "label": "Loaded",
+         "note": "RS is replaced by RS ∥ RL",
+         "sheet": "S3 §7"
+        },
+        {
+         "math": "<math alttext=\"R_o=R_S\\parallel\\dfrac{1}{g_m}\\parallel r_o\"><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">o</mi></msub><mo>=</mo><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub><mo>∥</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mn>1</mn></mrow><mrow><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub></mrow></mfrac></mstyle><mo>∥</mo><msub><mi>r</mi><mi mathvariant=\"normal\">o</mi></msub></mrow></math>",
+         "label": "With λ",
+         "sheet": "S3 §7"
+        }
        ]
       }
      ],
@@ -1441,8 +1605,16 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Preliminary input swing:  Vload,pp / Vin,pp ≈ 0.85  @S3 §6",
-        "Pick VS ≈ VDD/2  @S3 §6"
+        {
+         "math": "<math alttext=\"\\dfrac{V_{load,pp}}{V_{in,pp}}\\approx 0.85\"><mrow><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">load</mi><mo>,</mo><mi mathvariant=\"normal\">pp</mi></mrow></msub></mrow><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">in</mi><mo>,</mo><mi mathvariant=\"normal\">pp</mi></mrow></msub></mrow></mfrac></mstyle><mo>≈</mo><mn>0.85</mn></mrow></math>",
+         "label": "Preliminary swing",
+         "sheet": "S3 §6"
+        },
+        {
+         "math": "<math alttext=\"V_S\\approx\\dfrac{V_{DD}}{2}\"><mrow><msub><mi>V</mi><mi mathvariant=\"normal\">S</mi></msub><mo>≈</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DD</mi></mrow></msub></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle></mrow></math>",
+         "label": "Source bias",
+         "sheet": "S3 §6"
+        }
        ]
       },
       {
@@ -1472,9 +1644,18 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "IL,pk = Vload,pp / (2·RL)  @S3 §6",
-        "IRS,max = ID,min + IL,pk  @S3 §6",
-        "VRS,min = VS − Vload,pp/2  @S3 §6"
+        {
+         "math": "<math alttext=\"I_{L,pk}=\\dfrac{V_{load,pp}}{2R_L}\"><mrow><msub><mi>I</mi><mrow><mi mathvariant=\"normal\">L</mi><mo>,</mo><mi mathvariant=\"normal\">pk</mi></mrow></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">load</mi><mo>,</mo><mi mathvariant=\"normal\">pp</mi></mrow></msub></mrow><mrow><mn>2</mn><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "sheet": "S3 §6"
+        },
+        {
+         "math": "<math alttext=\"I_{RS,max}=I_{D,min}+I_{L,pk}\"><mrow><msub><mi>I</mi><mrow><mi mathvariant=\"normal\">RS</mi><mo>,</mo><mi mathvariant=\"normal\">max</mi></mrow></msub><mo>=</mo><msub><mi>I</mi><mrow><mi mathvariant=\"normal\">D</mi><mo>,</mo><mi mathvariant=\"normal\">min</mi></mrow></msub><mo>+</mo><msub><mi>I</mi><mrow><mi mathvariant=\"normal\">L</mi><mo>,</mo><mi mathvariant=\"normal\">pk</mi></mrow></msub></mrow></math>",
+         "sheet": "S3 §6"
+        },
+        {
+         "math": "<math alttext=\"V_{RS,min}=V_S-\\dfrac{V_{load,pp}}{2}\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">RS</mi><mo>,</mo><mi mathvariant=\"normal\">min</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi mathvariant=\"normal\">S</mi></msub><mo>−</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">load</mi><mo>,</mo><mi mathvariant=\"normal\">pp</mi></mrow></msub></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle></mrow></math>",
+         "sheet": "S3 §6"
+        }
        ]
       }
      ],
@@ -1487,11 +1668,27 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "RS = VRS,min / IRS,max   (then a standard value)  @S3 §6",
-        "ID = VS / RS  @S3 §6",
-        "Vov = √(2·ID/Kn)  @S3 §6",
-        "VG = VS + Vov + Vt  @S3 §6",
-        "RG1 ≥ (VDD/VG)·Rin,   RG2 = RG1/(VDD/VG − 1)  @S3 §6"
+        {
+         "math": "<math alttext=\"R_S=\\dfrac{V_{RS,min}}{I_{RS,max}}\"><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">RS</mi><mo>,</mo><mi mathvariant=\"normal\">min</mi></mrow></msub></mrow><mrow><msub><mi>I</mi><mrow><mi mathvariant=\"normal\">RS</mi><mo>,</mo><mi mathvariant=\"normal\">max</mi></mrow></msub></mrow></mfrac></mstyle></mrow></math>",
+         "note": "then pick a standard value",
+         "sheet": "S3 §6"
+        },
+        {
+         "math": "<math alttext=\"I_D=\\dfrac{V_S}{R_S}\"><mrow><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mi mathvariant=\"normal\">S</mi></msub></mrow><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "sheet": "S3 §6"
+        },
+        {
+         "math": "<math alttext=\"V_{ov}=\\sqrt{\\dfrac{2I_D}{K_n}}\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub><mo>=</mo><msqrt><mrow><mstyle displaystyle=\"true\"><mfrac><mrow><mn>2</mn><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub></mrow><mrow><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub></mrow></mfrac></mstyle></mrow></msqrt></mrow></math>",
+         "sheet": "S3 §6"
+        },
+        {
+         "math": "<math alttext=\"V_G=V_S+V_{ov}+V_t\"><mrow><msub><mi>V</mi><mi mathvariant=\"normal\">G</mi></msub><mo>=</mo><msub><mi>V</mi><mi mathvariant=\"normal\">S</mi></msub><mo>+</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub><mo>+</mo><msub><mi>V</mi><mi mathvariant=\"normal\">t</mi></msub></mrow></math>",
+         "sheet": "S3 §6"
+        },
+        {
+         "math": "<math alttext=\"R_{G1}\\ge\\dfrac{V_{DD}}{V_G}R_{in}\\qquad R_{G2}=\\dfrac{R_{G1}}{V_{DD}/V_G-1}\"><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>1</mn></mrow></msub><mo>≥</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DD</mi></mrow></msub></mrow><mrow><msub><mi>V</mi><mi mathvariant=\"normal\">G</mi></msub></mrow></mfrac></mstyle><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">in</mi></mrow></msub><mspace width=\"2em\"/><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>2</mn></mrow></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>1</mn></mrow></msub></mrow><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DD</mi></mrow></msub><mo lspace=\"0.05em\" rspace=\"0.05em\">/</mo><msub><mi>V</mi><mi mathvariant=\"normal\">G</mi></msub><mo>−</mo><mn>1</mn></mrow></mfrac></mstyle></mrow></math>",
+         "sheet": "S3 §6"
+        }
        ]
       },
       {
@@ -1623,7 +1820,12 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Single CS into RL:  Av = Avo · RL / (RL + Ro)  with Ro ≈ RD  @S3 §1"
+        {
+         "math": "<math alttext=\"A_v=A_{vo}\\dfrac{R_L}{R_L+R_o}\"><mrow><msub><mi>A</mi><mi mathvariant=\"normal\">v</mi></msub><mo>=</mo><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub></mrow><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub><mo>+</mo><msub><mi>R</mi><mi mathvariant=\"normal\">o</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "label": "Single CS stage",
+         "note": "with Ro ≈ RD",
+         "sheet": "S3 §1"
+        }
        ]
       }
      ],
@@ -1644,7 +1846,10 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Av = Avo1·[Ri2/(Ri2 + Ro1)] · Avo2·[RL/(RL + Ro2)]  @S3 §1"
+        {
+         "math": "<math alttext=\"A_v=A_{vo1}\\dfrac{R_{i2}}{R_{i2}+R_{o1}}\\cdot A_{vo2}\\dfrac{R_L}{R_L+R_{o2}}\"><mrow><msub><mi>A</mi><mi mathvariant=\"normal\">v</mi></msub><mo>=</mo><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi><mn>1</mn></mrow></msub><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">i</mi><mn>2</mn></mrow></msub></mrow><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">i</mi><mn>2</mn></mrow></msub><mo>+</mo><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">o</mi><mn>1</mn></mrow></msub></mrow></mfrac></mstyle><mo>·</mo><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi><mn>2</mn></mrow></msub><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub></mrow><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub><mo>+</mo><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">o</mi><mn>2</mn></mrow></msub></mrow></mfrac></mstyle></mrow></math>",
+         "sheet": "S3 §1"
+        }
        ]
       }
      ],
@@ -1785,10 +1990,25 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Ri = RS ∥ 1/gm ≈ 1/gm   (low)  @S3 §7",
-        "Avo = + gm·RD   (non-inverting)  @S3 §7",
-        "Ro = RD ∥ [ro·(1 + gm·RS) + RS] ≈ RD  @S3 §7",
-        "Loaded: replace RD with RD ∥ RL  @S3 §7"
+        {
+         "math": "<math alttext=\"R_i=R_S\\parallel\\dfrac{1}{g_m}\\approx\\dfrac{1}{g_m}\"><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">i</mi></msub><mo>=</mo><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub><mo>∥</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mn>1</mn></mrow><mrow><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub></mrow></mfrac></mstyle><mo>≈</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mn>1</mn></mrow><mrow><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "note": "low",
+         "sheet": "S3 §7"
+        },
+        {
+         "math": "<math alttext=\"A_{vo}=+g_mR_D\"><mrow><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mo>=</mo><mo>+</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></math>",
+         "note": "non-inverting",
+         "sheet": "S3 §7"
+        },
+        {
+         "math": "<math alttext=\"R_o=R_D\\parallel\\left[r_o(1+g_mR_S)+R_S\\right]\\approx R_D\"><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">o</mi></msub><mo>=</mo><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub><mo>∥</mo><mrow><mo stretchy=\"true\">[</mo><msub><mi>r</mi><mi mathvariant=\"normal\">o</mi></msub><mo stretchy=\"false\">(</mo><mn>1</mn><mo>+</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub><mo stretchy=\"false\">)</mo><mo>+</mo><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub><mo stretchy=\"true\">]</mo></mrow><mo>≈</mo><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></math>",
+         "sheet": "S3 §7"
+        },
+        {
+         "math": "<math alttext=\"R_D\\ \\to\\ R_D\\parallel R_L\"><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub><mspace width=\"0.25em\"/><mo>→</mo><mspace width=\"0.25em\"/><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub><mo>∥</mo><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub></mrow></math>",
+         "label": "Loaded",
+         "sheet": "S3 §7"
+        }
        ]
       },
       {
@@ -1938,9 +2158,20 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Loaded gain:  replace RD with RD ∥ RL  (CS, CG)  @S3 §7",
-        "Loaded gain:  replace RS with RS ∥ RL  (CD)  @S3 §7",
-        "Av = Avo · RL / (RL + Ro)  @S3 §1"
+        {
+         "math": "<math alttext=\"R_D\\ \\to\\ R_D\\parallel R_L\"><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub><mspace width=\"0.25em\"/><mo>→</mo><mspace width=\"0.25em\"/><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub><mo>∥</mo><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub></mrow></math>",
+         "label": "Loaded gain (CS, CG)",
+         "sheet": "S3 §7"
+        },
+        {
+         "math": "<math alttext=\"R_S\\ \\to\\ R_S\\parallel R_L\"><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub><mspace width=\"0.25em\"/><mo>→</mo><mspace width=\"0.25em\"/><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub><mo>∥</mo><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub></mrow></math>",
+         "label": "Loaded gain (CD)",
+         "sheet": "S3 §7"
+        },
+        {
+         "math": "<math alttext=\"A_v=A_{vo}\\dfrac{R_L}{R_L+R_o}\"><mrow><msub><mi>A</mi><mi mathvariant=\"normal\">v</mi></msub><mo>=</mo><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub></mrow><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">L</mi></msub><mo>+</mo><msub><mi>R</mi><mi mathvariant=\"normal\">o</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "sheet": "S3 §1"
+        }
        ]
       },
       {
@@ -2014,7 +2245,10 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "|Av| = Vout,pp / Vin,pp   (Multisim source: Vin,pp = 2 × Vpk)"
+        {
+         "math": "<math alttext=\"|A_v|=\\dfrac{V_{out,pp}}{V_{in,pp}}\"><mrow><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><msub><mi>A</mi><mi mathvariant=\"normal\">v</mi></msub><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">out</mi><mo>,</mo><mi mathvariant=\"normal\">pp</mi></mrow></msub></mrow><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">in</mi><mo>,</mo><mi mathvariant=\"normal\">pp</mi></mrow></msub></mrow></mfrac></mstyle></mrow></math>",
+         "note": "Multisim sources are labeled in Vpk, so Vin,pp = 2 × Vpk"
+        }
        ]
       },
       {
@@ -2056,11 +2290,31 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "DC, MOSFET:  Pdiss = VDS·ID  @S3 §8",
-        "DC, resistor:  Pdiss = V²/R = I²·R  @S3 §8",
-        "AC, sinusoid:  Vrms = Vpp/(2√2) = Vpk/√2  @S3 §8",
-        "AC, resistor:  Pdiss = Vrms²/R  @S3 §8",
-        "AC, MOSFET:  Pdiss = ½·vds,pk·ids,pk  @S3 §8"
+        {
+         "math": "<math alttext=\"P_{diss}=V_{DS}I_D\"><mrow><msub><mi>P</mi><mrow><mi mathvariant=\"normal\">diss</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DS</mi></mrow></msub><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></math>",
+         "label": "DC, MOSFET",
+         "sheet": "S3 §8"
+        },
+        {
+         "math": "<math alttext=\"P_{diss}=\\dfrac{V^2}{R}=I^2R\"><mrow><msub><mi>P</mi><mrow><mi mathvariant=\"normal\">diss</mi></mrow></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msup><mi>V</mi><mn>2</mn></msup></mrow><mrow><mi>R</mi></mrow></mfrac></mstyle><mo>=</mo><msup><mi>I</mi><mn>2</mn></msup><mi>R</mi></mrow></math>",
+         "label": "DC, resistor",
+         "sheet": "S3 §8"
+        },
+        {
+         "math": "<math alttext=\"V_{rms}=\\dfrac{V_{pp}}{2\\sqrt{2}}=\\dfrac{V_{pk}}{\\sqrt{2}}\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">rms</mi></mrow></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">pp</mi></mrow></msub></mrow><mrow><mn>2</mn><msqrt><mrow><mn>2</mn></mrow></msqrt></mrow></mfrac></mstyle><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">pk</mi></mrow></msub></mrow><mrow><msqrt><mrow><mn>2</mn></mrow></msqrt></mrow></mfrac></mstyle></mrow></math>",
+         "label": "AC, sinusoid",
+         "sheet": "S3 §8"
+        },
+        {
+         "math": "<math alttext=\"P_{diss}=\\dfrac{V_{rms}^2}{R}\"><mrow><msub><mi>P</mi><mrow><mi mathvariant=\"normal\">diss</mi></mrow></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msubsup><mi>V</mi><mrow><mi mathvariant=\"normal\">rms</mi></mrow><mn>2</mn></msubsup></mrow><mrow><mi>R</mi></mrow></mfrac></mstyle></mrow></math>",
+         "label": "AC, resistor",
+         "sheet": "S3 §8"
+        },
+        {
+         "math": "<math alttext=\"P_{diss}=\\tfrac{1}{2}v_{ds,pk}\\,i_{ds,pk}\"><mrow><msub><mi>P</mi><mrow><mi mathvariant=\"normal\">diss</mi></mrow></msub><mo>=</mo><mstyle displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">ds</mi><mo>,</mo><mi mathvariant=\"normal\">pk</mi></mrow></msub><mspace width=\"0.17em\"/><msub><mi>i</mi><mrow><mi mathvariant=\"normal\">ds</mi><mo>,</mo><mi mathvariant=\"normal\">pk</mi></mrow></msub></mrow></math>",
+         "label": "AC, MOSFET",
+         "sheet": "S3 §8"
+        }
        ]
       },
       {
@@ -2123,9 +2377,22 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Cutoff:  VGS < Vt (Vov ≤ 0),  ID = 0  @S2 §2",
-        "Saturation:  VGS ≥ Vt and VDS ≥ Vov  (equivalently VGD ≤ Vt)  @S2 §2",
-        "Triode:  VDS < Vov,  ID = Kn·[Vov·VDS − ½·VDS²]  @S2 §2"
+        {
+         "math": "<math alttext=\"V_{GS}&lt;V_t\\ (V_{ov}\\le 0),\\quad I_D=0\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub><mo>&lt;</mo><msub><mi>V</mi><mi mathvariant=\"normal\">t</mi></msub><mspace width=\"0.25em\"/><mo stretchy=\"false\">(</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub><mo>≤</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>,</mo><mspace width=\"1em\"/><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><mn>0</mn></mrow></math>",
+         "label": "Cutoff",
+         "sheet": "S2 §2"
+        },
+        {
+         "math": "<math alttext=\"V_{GS}\\ge V_t\\ \\text{ and }\\ V_{DS}\\ge V_{ov}\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub><mo>≥</mo><msub><mi>V</mi><mi mathvariant=\"normal\">t</mi></msub><mspace width=\"0.25em\"/><mtext> and </mtext><mspace width=\"0.25em\"/><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DS</mi></mrow></msub><mo>≥</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub></mrow></math>",
+         "label": "Saturation",
+         "note": "equivalently VGD ≤ Vt",
+         "sheet": "S2 §2"
+        },
+        {
+         "math": "<math alttext=\"V_{DS}&lt;V_{ov},\\quad I_D=K_n\\left[V_{ov}V_{DS}-\\tfrac{1}{2}V_{DS}^2\\right]\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DS</mi></mrow></msub><mo>&lt;</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub><mo>,</mo><mspace width=\"1em\"/><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><mrow><mo stretchy=\"true\">[</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DS</mi></mrow></msub><mo>−</mo><mstyle displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><msubsup><mi>V</mi><mrow><mi mathvariant=\"normal\">DS</mi></mrow><mn>2</mn></msubsup><mo stretchy=\"true\">]</mo></mrow></mrow></math>",
+         "label": "Triode",
+         "sheet": "S2 §2"
+        }
        ]
       }
      ],
@@ -2143,10 +2410,23 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "VG = VDD·RG2/(RG1 + RG2)   (IG = 0)  @S2 §5",
-        "VS = RS·ID,   VD = VDD − RD·ID  @S2 §5",
-        "VGS = VG − VS = VG − RS·ID  @S2 §5",
-        "VDS = VD − VS,   VGD = VG − VD,   Vov = VGS − Vt  @S2 §5"
+        {
+         "math": "<math alttext=\"V_G=V_{DD}\\dfrac{R_{G2}}{R_{G1}+R_{G2}}\"><mrow><msub><mi>V</mi><mi mathvariant=\"normal\">G</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DD</mi></mrow></msub><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>2</mn></mrow></msub></mrow><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>2</mn></mrow></msub></mrow></mfrac></mstyle></mrow></math>",
+         "note": "IG = 0",
+         "sheet": "S2 §5"
+        },
+        {
+         "math": "<math alttext=\"V_S=R_SI_D\\qquad V_D=V_{DD}-R_DI_D\"><mrow><msub><mi>V</mi><mi mathvariant=\"normal\">S</mi></msub><mo>=</mo><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub><mspace width=\"2em\"/><msub><mi>V</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DD</mi></mrow></msub><mo>−</mo><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></math>",
+         "sheet": "S2 §5"
+        },
+        {
+         "math": "<math alttext=\"V_{GS}=V_G-V_S=V_G-R_SI_D\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi mathvariant=\"normal\">G</mi></msub><mo>−</mo><msub><mi>V</mi><mi mathvariant=\"normal\">S</mi></msub><mo>=</mo><msub><mi>V</mi><mi mathvariant=\"normal\">G</mi></msub><mo>−</mo><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></math>",
+         "sheet": "S2 §5"
+        },
+        {
+         "math": "<math alttext=\"V_{DS}=V_D-V_S\\qquad V_{GD}=V_G-V_D\\qquad V_{ov}=V_{GS}-V_t\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DS</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi mathvariant=\"normal\">D</mi></msub><mo>−</mo><msub><mi>V</mi><mi mathvariant=\"normal\">S</mi></msub><mspace width=\"2em\"/><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GD</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi mathvariant=\"normal\">G</mi></msub><mo>−</mo><msub><mi>V</mi><mi mathvariant=\"normal\">D</mi></msub><mspace width=\"2em\"/><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mi mathvariant=\"normal\">t</mi></msub></mrow></math>",
+         "sheet": "S2 §5"
+        }
        ]
       }
      ],
@@ -2159,8 +2439,13 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "ID = ½·Kn·(VG − RS·ID − Vt)²  @S2 §5",
-        "a·ID² + b·ID + c = 0   →   ID = (−b ± √(b² − 4ac)) / (2a)"
+        {
+         "math": "<math alttext=\"I_D=\\tfrac{1}{2}K_n(V_G-R_SI_D-V_t)^2\"><mrow><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><mstyle displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><mo stretchy=\"false\">(</mo><msub><mi>V</mi><mi mathvariant=\"normal\">G</mi></msub><mo>−</mo><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub><mo>−</mo><msub><mi>V</mi><mi mathvariant=\"normal\">t</mi></msub><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup></mrow></math>",
+         "sheet": "S2 §5"
+        },
+        {
+         "math": "<math alttext=\"aI_D^2+bI_D+c=0\\ \\Rightarrow\\ I_D=\\dfrac{-b\\pm\\sqrt{b^2-4ac}}{2a}\"><mrow><mi>a</mi><msubsup><mi>I</mi><mi mathvariant=\"normal\">D</mi><mn>2</mn></msubsup><mo>+</mo><mi>b</mi><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub><mo>+</mo><mi>c</mi><mo>=</mo><mn>0</mn><mspace width=\"0.25em\"/><mo>⇒</mo><mspace width=\"0.25em\"/><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mo form=\"prefix\" lspace=\"0\" rspace=\"0.04em\">−</mo><mi>b</mi><mo>±</mo><msqrt><mrow><msup><mi>b</mi><mn>2</mn></msup><mo>−</mo><mn>4</mn><mi>a</mi><mi>c</mi></mrow></msqrt></mrow><mrow><mn>2</mn><mi>a</mi></mrow></mfrac></mstyle></mrow></math>"
+        }
        ]
       },
       {
@@ -2283,8 +2568,13 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "VD = VDD − RD·ID,    VG = VD·RG2 / (RG1 + RG2)",
-        "Source grounded:  VGS = VG"
+        {
+         "math": "<math alttext=\"V_D=V_{DD}-R_DI_D\\qquad V_G=V_D\\dfrac{R_{G2}}{R_{G1}+R_{G2}}\"><mrow><msub><mi>V</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DD</mi></mrow></msub><mo>−</mo><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub><mspace width=\"2em\"/><msub><mi>V</mi><mi mathvariant=\"normal\">G</mi></msub><mo>=</mo><msub><mi>V</mi><mi mathvariant=\"normal\">D</mi></msub><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>2</mn></mrow></msub></mrow><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>2</mn></mrow></msub></mrow></mfrac></mstyle></mrow></math>"
+        },
+        {
+         "math": "<math alttext=\"V_{GS}=V_G\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi mathvariant=\"normal\">G</mi></msub></mrow></math>",
+         "label": "Source grounded"
+        }
        ]
       }
      ],
@@ -2306,7 +2596,11 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Square law:  ID = ½·Kn·(VGS − Vt)²  @S2 §2"
+        {
+         "math": "<math alttext=\"I_D=\\tfrac{1}{2}K_n(V_{GS}-V_t)^2\"><mrow><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><mstyle displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><mo stretchy=\"false\">(</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mi mathvariant=\"normal\">t</mi></msub><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup></mrow></math>",
+         "label": "Square law",
+         "sheet": "S2 §2"
+        }
        ]
       }
      ],
@@ -2319,8 +2613,13 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "Nodal equation at the drain, vgs = vin:   vo/RD + gm·vgs + (vo − vgs)/RG1 = 0",
-        "vo/vin = (1/RG1 − gm) / (1/RD + 1/RG1)  ≈  −gm·RD"
+        {
+         "math": "<math alttext=\"\\dfrac{v_o}{R_D}+g_mv_{gs}+\\dfrac{v_o-v_{gs}}{R_{G1}}=0\"><mrow><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>v</mi><mi mathvariant=\"normal\">o</mi></msub></mrow><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></mfrac></mstyle><mo>+</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">gs</mi></mrow></msub><mo>+</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>v</mi><mi mathvariant=\"normal\">o</mi></msub><mo>−</mo><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">gs</mi></mrow></msub></mrow><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>1</mn></mrow></msub></mrow></mfrac></mstyle><mo>=</mo><mn>0</mn></mrow></math>",
+         "label": "Drain node (vgs = vin)"
+        },
+        {
+         "math": "<math alttext=\"\\dfrac{v_o}{v_{in}}=\\dfrac{1/R_{G1}-g_m}{1/R_D+1/R_{G1}}\\approx -g_mR_D\"><mrow><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>v</mi><mi mathvariant=\"normal\">o</mi></msub></mrow><mrow><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">in</mi></mrow></msub></mrow></mfrac></mstyle><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mn>1</mn><mo lspace=\"0.05em\" rspace=\"0.05em\">/</mo><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub></mrow><mrow><mn>1</mn><mo lspace=\"0.05em\" rspace=\"0.05em\">/</mo><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub><mo>+</mo><mn>1</mn><mo lspace=\"0.05em\" rspace=\"0.05em\">/</mo><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">G</mi><mn>1</mn></mrow></msub></mrow></mfrac></mstyle><mo>≈</mo><mo form=\"prefix\" lspace=\"0\" rspace=\"0.04em\">−</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></math>"
+        }
        ]
       },
       {
@@ -2525,7 +2824,10 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "IC = IS·e^(VBE/VT)  @S3 §9"
+        {
+         "math": "<math alttext=\"I_C=I_Se^{V_{BE}/V_T}\"><mrow><msub><mi>I</mi><mi mathvariant=\"normal\">C</mi></msub><mo>=</mo><msub><mi>I</mi><mi mathvariant=\"normal\">S</mi></msub><msup><mi>e</mi><mrow><msub><mi mathvariant=\"normal\">V</mi><mrow><mi mathvariant=\"normal\">BE</mi></mrow></msub><mo lspace=\"0.05em\" rspace=\"0.05em\">/</mo><msub><mi mathvariant=\"normal\">V</mi><mi mathvariant=\"normal\">T</mi></msub></mrow></msup></mrow></math>",
+         "sheet": "S3 §9"
+        }
        ]
       }
      ],
@@ -2547,7 +2849,9 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "i1/i2 = (Dn/Dp)·(N_D,E·Lp)/(N_A,B·W)"
+        {
+         "math": "<math alttext=\"\\dfrac{i_1}{i_2}=\\dfrac{D_n}{D_p}\\cdot\\dfrac{N_{D,E}L_p}{N_{A,B}W}\"><mrow><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>i</mi><mn>1</mn></msub></mrow><mrow><msub><mi>i</mi><mn>2</mn></msub></mrow></mfrac></mstyle><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>D</mi><mi mathvariant=\"normal\">n</mi></msub></mrow><mrow><msub><mi>D</mi><mi mathvariant=\"normal\">p</mi></msub></mrow></mfrac></mstyle><mo>·</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>N</mi><mrow><mi mathvariant=\"normal\">D</mi><mo>,</mo><mi mathvariant=\"normal\">E</mi></mrow></msub><msub><mi>L</mi><mi mathvariant=\"normal\">p</mi></msub></mrow><mrow><msub><mi>N</mi><mrow><mi mathvariant=\"normal\">A</mi><mo>,</mo><mi mathvariant=\"normal\">B</mi></mrow></msub><mi>W</mi></mrow></mfrac></mstyle></mrow></math>"
+        }
        ]
       }
      ],
@@ -2586,9 +2890,18 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "iC = β·iB,   iE = iB + iC = (β + 1)·iB  @S3 §9",
-        "iC = α·iE,   α = β/(β + 1),   β = α/(1 − α)  @S3 §9",
-        "IC = IS·e^(VBE/VT)  @S3 §9"
+        {
+         "math": "<math alttext=\"i_C=\\beta i_B\\qquad i_E=i_B+i_C=(\\beta+1)i_B\"><mrow><msub><mi>i</mi><mi mathvariant=\"normal\">C</mi></msub><mo>=</mo><mi>β</mi><msub><mi>i</mi><mi mathvariant=\"normal\">B</mi></msub><mspace width=\"2em\"/><msub><mi>i</mi><mi mathvariant=\"normal\">E</mi></msub><mo>=</mo><msub><mi>i</mi><mi mathvariant=\"normal\">B</mi></msub><mo>+</mo><msub><mi>i</mi><mi mathvariant=\"normal\">C</mi></msub><mo>=</mo><mo stretchy=\"false\">(</mo><mi>β</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><msub><mi>i</mi><mi mathvariant=\"normal\">B</mi></msub></mrow></math>",
+         "sheet": "S3 §9"
+        },
+        {
+         "math": "<math alttext=\"i_C=\\alpha i_E\\qquad \\alpha=\\dfrac{\\beta}{\\beta+1}\\qquad \\beta=\\dfrac{\\alpha}{1-\\alpha}\"><mrow><msub><mi>i</mi><mi mathvariant=\"normal\">C</mi></msub><mo>=</mo><mi>α</mi><msub><mi>i</mi><mi mathvariant=\"normal\">E</mi></msub><mspace width=\"2em\"/><mi>α</mi><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mi>β</mi></mrow><mrow><mi>β</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mstyle><mspace width=\"2em\"/><mi>β</mi><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mi>α</mi></mrow><mrow><mn>1</mn><mo>−</mo><mi>α</mi></mrow></mfrac></mstyle></mrow></math>",
+         "sheet": "S3 §9"
+        },
+        {
+         "math": "<math alttext=\"I_C=I_Se^{V_{BE}/V_T}\"><mrow><msub><mi>I</mi><mi mathvariant=\"normal\">C</mi></msub><mo>=</mo><msub><mi>I</mi><mi mathvariant=\"normal\">S</mi></msub><msup><mi>e</mi><mrow><msub><mi mathvariant=\"normal\">V</mi><mrow><mi mathvariant=\"normal\">BE</mi></mrow></msub><mo lspace=\"0.05em\" rspace=\"0.05em\">/</mo><msub><mi mathvariant=\"normal\">V</mi><mi mathvariant=\"normal\">T</mi></msub></mrow></msup></mrow></math>",
+         "sheet": "S3 §9"
+        }
        ]
       },
       {
@@ -2647,8 +2960,14 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "IB = (Vth − VBE) / (Rth + (β + 1)·RE)",
-        "If (β+1)·RE ≫ Rth:   IC ≈ (Vth − VBE) / RE   (independent of β)"
+        {
+         "math": "<math alttext=\"I_B=\\dfrac{V_{th}-V_{BE}}{R_{th}+(\\beta+1)R_E}\"><mrow><msub><mi>I</mi><mi mathvariant=\"normal\">B</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">th</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">BE</mi></mrow></msub></mrow><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">th</mi></mrow></msub><mo>+</mo><mo stretchy=\"false\">(</mo><mi>β</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><msub><mi>R</mi><mi mathvariant=\"normal\">E</mi></msub></mrow></mfrac></mstyle></mrow></math>"
+        },
+        {
+         "math": "<math alttext=\"I_C\\approx\\dfrac{V_{th}-V_{BE}}{R_E}\"><mrow><msub><mi>I</mi><mi mathvariant=\"normal\">C</mi></msub><mo>≈</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">th</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">BE</mi></mrow></msub></mrow><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">E</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "label": "If (β+1)·RE ≫ Rth",
+         "note": "independent of β"
+        }
        ]
       },
       {
@@ -2679,9 +2998,19 @@ window.CourseCram.registerDeck({
       {
        "t": "eq",
        "lines": [
-        "gm = IC / VT   (VT ≈ 25 mV)  @S3 §9",
-        "rπ = β/gm = β·VT/IC  @S3 §9",
-        "ro = VA / IC  @S3 §9"
+        {
+         "math": "<math alttext=\"g_m=\\dfrac{I_C}{V_T}\"><mrow><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>I</mi><mi mathvariant=\"normal\">C</mi></msub></mrow><mrow><msub><mi>V</mi><mi mathvariant=\"normal\">T</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "note": "VT ≈ 25 mV",
+         "sheet": "S3 §9"
+        },
+        {
+         "math": "<math alttext=\"r_\\pi=\\dfrac{\\beta}{g_m}=\\dfrac{\\beta V_T}{I_C}\"><mrow><msub><mi>r</mi><mi>π</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mi>β</mi></mrow><mrow><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub></mrow></mfrac></mstyle><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mi>β</mi><msub><mi>V</mi><mi mathvariant=\"normal\">T</mi></msub></mrow><mrow><msub><mi>I</mi><mi mathvariant=\"normal\">C</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "sheet": "S3 §9"
+        },
+        {
+         "math": "<math alttext=\"r_o=\\dfrac{V_A}{I_C}\"><mrow><msub><mi>r</mi><mi mathvariant=\"normal\">o</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mi mathvariant=\"normal\">A</mi></msub></mrow><mrow><msub><mi>I</mi><mi mathvariant=\"normal\">C</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "sheet": "S3 §9"
+        }
        ]
       },
       {

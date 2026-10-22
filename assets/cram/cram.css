@@ -182,3 +182,17 @@ dialog.cr-dlg::backdrop{background:rgba(3,5,9,.72)}
 .cr-call.has-sheet{display:flex;align-items:baseline;gap:.2em}.cr-call.has-sheet .cr-ck{flex:none}.cr-call.has-sheet .cr-sheet{margin-left:auto;padding-left:.5em}.cr-steps .cr-st.has-sheet,.cr-steps .cr-res.has-sheet{display:flex;align-items:baseline;gap:.8em}
 .cr-body,.cr-text,.cr-tblw{min-width:0;max-width:100%}.cr-tbl{max-width:100%}.cr-tbl th:first-child{width:1%;white-space:nowrap}
 .cr-tbl{min-width:0;width:100%}.cr-tbl thead th,.cr-tbl thead th:nth-child(n){width:auto;font-size:.8em;letter-spacing:.06em;text-transform:uppercase;padding:.4em .7em;font-weight:600}.cr-tbl th,.cr-tbl td{padding:.4em .7em;vertical-align:top}.cr-tbl thead{background:none}.cr-tbl th:first-child{width:auto}
+
+/* typeset equations */
+.cr-eq{font:inherit;white-space:normal;gap:.35em;padding:.5em .9em}
+.cr-eqrow{display:flex;align-items:center;flex-wrap:wrap;gap:.15em .9em;min-height:1.5em}
+.cr-eql{font-size:.8em;color:var(--mute);letter-spacing:.02em;min-width:0}
+.cr-eql::after{content:""}
+.cr-eqn{font-size:.78em;color:var(--mute);font-style:italic}
+.cr-eqrow .cr-sheet{margin-left:auto}
+.cr-math,.cr-math math{color:var(--ink)}
+math{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Cambria,serif;font-size:1.28em;line-height:1.35}
+.cr-v{font-family:"Cambria Math","STIX Two Text","Times New Roman",Georgia,serif;font-style:italic;font-size:1.06em}
+.cr-v sub{font-family:"Segoe UI",Inter,Arial,sans-serif;font-style:normal;font-size:.7em;vertical-align:sub;line-height:0;margin-left:.04em}
+.pk .cr-math math{font-size:1.15em}.pk .cr-eq{font-size:13px}
+i.cr-v{display:inline;width:auto;height:auto;margin:0;background:none;border-radius:0}
