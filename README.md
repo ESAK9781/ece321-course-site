@@ -7,3 +7,5 @@ The site includes the Fall 2026 syllabus, published lesson and homework reading 
 AI settings are available from the small settings control on the page. Provider keys stay in this browser?s local storage. Without keys, core navigation, guide reading, answer reveal, and local study progress remain available; provider-dependent answer checking and clarification are disabled.
 
 All paths are relative, so the site can be opened locally or hosted under a subdirectory.
+
+Live site: https://esak9781.github.io/ece321-course-site/ (GitHub Pages, deployed from the main branch root).
