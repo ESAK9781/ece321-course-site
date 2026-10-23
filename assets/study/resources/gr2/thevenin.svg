@@ -1,0 +1,31 @@
+<svg class="sch" viewBox="0 0 560 280" width="560" height="280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Thevenin equivalent: a divider fed by a supply becomes a voltage source V_th in series with R_th"><style>text{font-family:"Segoe UI",Inter,Arial,sans-serif}.v{fill:#c9d2de}</style><polyline points="60,50 60,38" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polygon points="60,30 55,40 65,40" fill="#e8edf4"/>
+<text x="60" y="25" font-size="12" text-anchor="middle" fill="#e8edf4" font-style="italic">V<tspan dy="4" font-size="0.72em">CC</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="60,50 60,67.0 66,70.0 54,76.0 66,82.0 54,88.0 66,94.0 54,100.0 60,103.0 60,120" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="72" y="89.0" font-size="13" text-anchor="start" fill="#e8edf4" font-style="italic">R<tspan dy="4" font-size="0.72em">B1</tspan><tspan dy="-4"> </tspan></text>
+<circle cx="60" cy="135" r="2.8" fill="#e8edf4"/>
+<polyline points="60,120 60,135" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="60,135 130,135" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="130" cy="135" r="3.2" fill="#0d1118" stroke="#e8edf4" stroke-width="1.4"/>
+<polyline points="60,135 60,157.0 66,160.0 54,166.0 66,172.0 54,178.0 66,184.0 54,190.0 60,193.0 60,215" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="72" y="179.0" font-size="13" text-anchor="start" fill="#e8edf4" font-style="italic">R<tspan dy="4" font-size="0.72em">B2</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="60,215 60,225" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="60,225 60,235" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="48,235 72,235" fill="none" stroke="#e8edf4" stroke-width="1.8"/>
+<polyline points="52.5,239.5 67.5,239.5" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="57,244 63,244" fill="none" stroke="#e8edf4" stroke-width="1.4"/>
+<text x="205" y="140" font-size="26" text-anchor="middle" fill="#e8edf4">⇒</text>
+<circle cx="300" cy="135" r="3.2" fill="#0d1118" stroke="#e8edf4" stroke-width="1.4"/>
+<polyline points="300,135 350,135" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="350,135 372.0,135 375.0,129 381.0,141 387.0,129 393.0,141 399.0,129 405.0,141 408.0,135 430,135" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="390.0" y="123" font-size="13" text-anchor="middle" fill="#e8edf4" font-style="italic">R<tspan dy="4" font-size="0.72em">th</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="430,135 470,135 470,160" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="470" cy="175" r="15" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<text x="470" y="173" font-size="12" text-anchor="middle" fill="#e8edf4">+</text>
+<text x="470" y="186" font-size="12" text-anchor="middle" fill="#e8edf4">−</text>
+<text x="449" y="179" font-size="13" text-anchor="end" fill="#e8edf4" font-style="italic">V<tspan dy="4" font-size="0.72em">th</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="470,190 470,225" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="470,225 470,235" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="458,235 482,235" fill="none" stroke="#e8edf4" stroke-width="1.8"/>
+<polyline points="462.5,239.5 477.5,239.5" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="467,244 473,244" fill="none" stroke="#e8edf4" stroke-width="1.4"/></svg>

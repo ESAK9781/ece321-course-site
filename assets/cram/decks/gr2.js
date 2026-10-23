@@ -7,6 +7,496 @@ window.CourseCram.registerDeck({
  "studyHref": "index.html#study/gr2",
  "topics": [
   {
+   "title": "Foundations: circuits and MOSFET basics",
+   "lessons": "Prerequisites (Lessons 1-14)",
+   "slides": [
+    {
+     "title": "The big picture",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "ul",
+       "items": [
+        "A transistor amplifier takes a **small signal** and produces a **larger copy** of it",
+        "The transistor only works as an amplifier if it is first set up with **DC voltages and currents** (the **bias**, or Q-point)",
+        "So every problem is solved **twice**: a **DC analysis** (find the bias) and a **signal analysis** (find the gain)",
+        "GR2 covers how to **model**, **design** and **measure** these amplifiers"
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "rule",
+       "text": "DC first, signal second. Never mix the two in one set of equations."
+      }
+     ],
+     "id": "t1-1"
+    },
+    {
+     "title": "Ohm, KCL, KVL and power",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "eq",
+       "lines": [
+        {
+         "math": "<math alttext=\"V=IR\"><mrow><mi>V</mi><mo>=</mo><mi>I</mi><mi>R</mi></mrow></math>",
+         "label": "Ohm\\'s law"
+        },
+        {
+         "math": "<math alttext=\"\\sum I_{in}=\\sum I_{out}\\quad(\\text{at a node})\"><mrow><mo>∑</mo><msub><mi>I</mi><mrow><mi mathvariant=\"normal\">in</mi></mrow></msub><mo>=</mo><mo>∑</mo><msub><mi>I</mi><mrow><mi mathvariant=\"normal\">out</mi></mrow></msub><mspace width=\"1em\"/><mo stretchy=\"false\">(</mo><mtext>at a node</mtext><mo stretchy=\"false\">)</mo></mrow></math>",
+         "label": "KCL"
+        },
+        {
+         "math": "<math alttext=\"\\sum V=0\\quad(\\text{around a loop})\"><mrow><mo>∑</mo><mi>V</mi><mo>=</mo><mn>0</mn><mspace width=\"1em\"/><mo stretchy=\"false\">(</mo><mtext>around a loop</mtext><mo stretchy=\"false\">)</mo></mrow></math>",
+         "label": "KVL"
+        },
+        {
+         "math": "<math alttext=\"P=VI=I^2R=\\dfrac{V^2}{R}\"><mrow><mi>P</mi><mo>=</mo><mi>V</mi><mi>I</mi><mo>=</mo><msup><mi>I</mi><mn>2</mn></msup><mi>R</mi><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msup><mi>V</mi><mn>2</mn></msup></mrow><mrow><mi>R</mi></mrow></mfrac></mstyle></mrow></math>",
+         "label": "Power"
+        }
+       ]
+      },
+      {
+       "t": "ul",
+       "items": [
+        "Units: **V = mA × kΩ** and **mW = V × mA**, so work in mA and kΩ and you never convert",
+        "A node is one point at one voltage; a loop is any closed path",
+        "Voltages are **differences**: V_AB means the potential of A relative to B"
+       ]
+      }
+     ],
+     "id": "t1-2"
+    },
+    {
+     "title": "Resistors in series and parallel",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "eq",
+       "lines": [
+        {
+         "math": "<math alttext=\"R_{eq}=R_1+R_2\"><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">eq</mi></mrow></msub><mo>=</mo><msub><mi>R</mi><mn>1</mn></msub><mo>+</mo><msub><mi>R</mi><mn>2</mn></msub></mrow></math>",
+         "label": "Series"
+        },
+        {
+         "math": "<math alttext=\"R_1\\parallel R_2=\\dfrac{R_1R_2}{R_1+R_2}\"><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>∥</mo><msub><mi>R</mi><mn>2</mn></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mn>1</mn></msub><msub><mi>R</mi><mn>2</mn></msub></mrow><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>+</mo><msub><mi>R</mi><mn>2</mn></msub></mrow></mfrac></mstyle></mrow></math>",
+         "label": "Parallel"
+        }
+       ]
+      },
+      {
+       "t": "ul",
+       "items": [
+        "The symbol **∥** means \"in parallel with\"",
+        "A parallel combination is **always smaller than the smallest** resistor",
+        "If one resistor is much larger than the other, the parallel value is about the smaller one: 1 kΩ ∥ 100 kΩ ≈ 1 kΩ",
+        "Two equal resistors in parallel give half: R ∥ R = R/2"
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "tip",
+       "text": "Example: 6 kΩ ∥ 3 kΩ = (6 × 3)/(6 + 3) = 2 kΩ, smaller than both."
+      }
+     ],
+     "id": "t1-3"
+    },
+    {
+     "title": "The voltage divider",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "fig",
+       "src": "assets/study/resources/gr2/divider.svg",
+       "alt": "Resistive voltage divider"
+      },
+      {
+       "t": "eq",
+       "lines": [
+        {
+         "math": "<math alttext=\"V_{out}=V_{in}\\,\\dfrac{R_2}{R_1+R_2}\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">out</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">in</mi></mrow></msub><mspace width=\"0.17em\"/><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mn>2</mn></msub></mrow><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>+</mo><msub><mi>R</mi><mn>2</mn></msub></mrow></mfrac></mstyle></mrow></math>"
+        }
+       ]
+      },
+      {
+       "t": "ul",
+       "items": [
+        "The same current flows in both resistors, so the voltage splits **in proportion to resistance**",
+        "It is only valid if nothing else draws current from the output node",
+        "You will use it constantly: the **gate bias divider**, the **input divider** Ri/(RS + Ri), and the **output divider** RL/(Ro + RL)"
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "why",
+       "text": "A MOSFET gate draws no DC current, so the gate divider is not loaded and the formula holds exactly."
+      }
+     ],
+     "id": "t1-4"
+    },
+    {
+     "title": "A divider with and without a load",
+     "kind": "example",
+     "blocks": [
+      {
+       "t": "fig",
+       "src": "assets/study/resources/gr2/divider.svg",
+       "alt": "Resistive voltage divider"
+      },
+      {
+       "t": "given",
+       "items": [
+        "Vin = 12 V",
+        "R1 = 10 kΩ, R2 = 20 kΩ",
+        "load RL = 20 kΩ on the output"
+       ]
+      },
+      {
+       "t": "steps",
+       "items": [
+        {
+         "h": "1",
+         "text": "Unloaded divider",
+         "res": "Vout = 12 × 20/(10 + 20) = 8 V"
+        },
+        {
+         "h": "2",
+         "text": "The load is in parallel with R2",
+         "res": "R2 ∥ RL = 20 ∥ 20 = 10 kΩ"
+        },
+        {
+         "h": "3",
+         "text": "Loaded divider",
+         "res": "Vout = 12 × 10/(10 + 10) = 6 V"
+        },
+        {
+         "h": "4",
+         "text": "The load cost signal",
+         "res": "8 V fell to 6 V: this is exactly what \"loading\" means"
+        }
+       ]
+      }
+     ],
+     "id": "t1-5"
+    },
+    {
+     "title": "Thevenin equivalent",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "fig",
+       "src": "assets/study/resources/gr2/thevenin.svg",
+       "alt": "Thevenin equivalent of a divider"
+      },
+      {
+       "t": "ul",
+       "items": [
+        "Any linear network seen from two terminals can be replaced by **one voltage source Vth in series with one resistance Rth**",
+        "**Vth** = the open-circuit voltage at the terminals",
+        "**Rth** = the resistance seen into the terminals with the independent sources **killed** (voltage sources shorted, current sources opened)",
+        "For a divider fed from VCC: Vth = VCC·R2/(R1 + R2) and Rth = R1 ∥ R2"
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "tip",
+       "text": "You will use it for the BJT base divider, because the base does draw current."
+      }
+     ],
+     "id": "t1-6"
+    },
+    {
+     "title": "DC, signal and notation",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "tbl",
+       "head": [
+        "Quantity",
+        "Meaning",
+        "Examples"
+       ],
+       "rows": [
+        [
+         "Capital letter, capital subscript",
+         "DC (bias) value",
+         "VGS, ID, VDD"
+        ],
+        [
+         "Lowercase letter, lowercase subscript",
+         "Signal only",
+         "vgs, id, vin"
+        ],
+        [
+         "Lowercase letter, capital subscript",
+         "Total = DC + signal",
+         "vGS, iD"
+        ]
+       ]
+      },
+      {
+       "t": "eq",
+       "lines": [
+        {
+         "math": "<math alttext=\"v_{GS}=V_{GS}+v_{gs}\\qquad i_D=I_D+i_d\"><mrow><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub><mo>+</mo><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">gs</mi></mrow></msub><mspace width=\"2em\"/><msub><mi>i</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub><mo>+</mo><msub><mi>i</mi><mi mathvariant=\"normal\">d</mi></msub></mrow></math>"
+        }
+       ]
+      },
+      {
+       "t": "ul",
+       "items": [
+        "**Superposition** lets us split the problem: the DC solution does not depend on the signal, and (for small signals) the signal solution does not depend on the DC values except through gm and ro",
+        "The **peak** value of a sinusoid is half of its **peak-to-peak** value"
+       ]
+      }
+     ],
+     "id": "t1-7"
+    },
+    {
+     "title": "Capacitors in amplifier circuits",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "ul",
+       "items": [
+        "A capacitor is an **open circuit for DC** and, if it is large, a **short circuit for the signal**: its impedance is 1/(ωC)",
+        "**Coupling capacitors** (C1 at the input, C2 at the output) pass the signal and block the DC levels, so source and load do not disturb the bias",
+        "**Bypass capacitors** (across RS, or from the gate to ground) put a point at **ac ground** while leaving its DC voltage alone",
+        "\"Large\" means the capacitor impedance is **much smaller** than the resistance it is working against at the lowest signal frequency"
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "rule",
+       "text": "DC analysis: capacitors become **opens**.  Signal analysis: large capacitors become **shorts**."
+      }
+     ],
+     "id": "t1-8"
+    },
+    {
+     "title": "Controlled sources and killing sources",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "ul",
+       "items": [
+        "An amplifier model uses **dependent (controlled) sources**: the source value depends on a voltage or current elsewhere",
+        "Voltage-controlled voltage source: **Avo·vi**   (the amplifier model)",
+        "Voltage-controlled current source: **gm·vgs**   (the transistor model)",
+        "**Killing** an independent source for a resistance calculation: a **voltage source becomes a short**, a **current source becomes an open**",
+        "A DC supply is a voltage source, so it is a short (ac ground) for the signal"
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "watch",
+       "text": "Never kill a dependent source: its value is set by the circuit."
+      }
+     ],
+     "id": "t1-9"
+    },
+    {
+     "title": "The MOSFET",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "fig",
+       "src": "assets/study/resources/gr2/mos_struct.svg",
+       "alt": "Cross-section of an n-channel MOSFET"
+      },
+      {
+       "t": "ul",
+       "items": [
+        "Three terminals: **gate (G)**, **drain (D)** and **source (S)**; the body (B) is tied to the source",
+        "A positive gate voltage attracts electrons under the oxide and forms a **conducting n-channel** between source and drain once VGS exceeds the **threshold Vt**",
+        "The gate is **insulated** by the oxide: **iG = 0** at DC and at low frequency",
+        "The gate voltage **controls** the drain current: a voltage-controlled current source"
+       ]
+      }
+     ],
+     "id": "t1-10"
+    },
+    {
+     "title": "Overdrive and the device constant",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "eq",
+       "lines": [
+        {
+         "math": "<math alttext=\"V_{ov}=V_{GS}-V_t\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mi mathvariant=\"normal\">t</mi></msub></mrow></math>",
+         "label": "Overdrive",
+         "sheet": "S2 §1"
+        },
+        {
+         "math": "<math alttext=\"k_n^{\\prime}=\\mu_nC_{ox}\\quad(\\text{A/V}^2)\"><mrow><msubsup><mi>k</mi><mi mathvariant=\"normal\">n</mi><mrow><mo>′</mo></mrow></msubsup><mo>=</mo><msub><mi>μ</mi><mi mathvariant=\"normal\">n</mi></msub><msub><mi>C</mi><mrow><mi mathvariant=\"normal\">ox</mi></mrow></msub><mspace width=\"1em\"/><mo stretchy=\"false\">(</mo><msup><mtext>A/V</mtext><mn>2</mn></msup><mo stretchy=\"false\">)</mo></mrow></math>",
+         "label": "Process constant",
+         "sheet": "S2 §1"
+        },
+        {
+         "math": "<math alttext=\"K_n=k_n^{\\prime}\\,\\dfrac{W}{L}\"><mrow><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><mo>=</mo><msubsup><mi>k</mi><mi mathvariant=\"normal\">n</mi><mrow><mo>′</mo></mrow></msubsup><mspace width=\"0.17em\"/><mstyle displaystyle=\"true\"><mfrac><mrow><mi>W</mi></mrow><mrow><mi>L</mi></mrow></mfrac></mstyle></mrow></math>",
+         "label": "Device constant",
+         "sheet": "S2 §1"
+        }
+       ]
+      },
+      {
+       "t": "ul",
+       "items": [
+        "**Vt** is the threshold voltage, typically 0.3 V to 4 V",
+        "**Vov** is the **overdrive voltage**: how far the gate is above threshold",
+        "**Kn** sets how much current the device gives per volt of overdrive; the designer raises it with a wider channel (larger W/L)"
+       ]
+      }
+     ],
+     "id": "t1-11"
+    },
+    {
+     "title": "The three regions",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "fig",
+       "src": "assets/study/resources/gr2/mos_iv.svg",
+       "alt": "Drain current versus drain-source voltage for several gate voltages"
+      },
+      {
+       "t": "tbl",
+       "head": [
+        "Region",
+        "Condition",
+        "Drain current"
+       ],
+       "rows": [
+        [
+         "Cutoff",
+         "VGS < Vt",
+         "ID = 0"
+        ],
+        [
+         "Triode",
+         "VGS ≥ Vt and VDS < Vov",
+         "ID = Kn[Vov·VDS − ½VDS²]"
+        ],
+        [
+         "Saturation",
+         "VGS ≥ Vt and VDS ≥ Vov",
+         "ID = ½·Kn·Vov²"
+        ]
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "tip",
+       "text": "Amplifiers use **saturation**: the current is set by the gate voltage and is flat against VDS.  @S2 §2"
+      }
+     ],
+     "id": "t1-12"
+    },
+    {
+     "title": "Saturation current and channel-length modulation",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "eq",
+       "lines": [
+        {
+         "math": "<math alttext=\"I_D=\\tfrac{1}{2}K_nV_{ov}^2\"><mrow><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><mstyle displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><msubsup><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow><mn>2</mn></msubsup></mrow></math>",
+         "label": "Ideal saturation",
+         "sheet": "S2 §2"
+        },
+        {
+         "math": "<math alttext=\"I_D=\\tfrac{1}{2}K_nV_{ov}^2\\,(1+\\lambda V_{DS})\"><mrow><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><mstyle displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><msubsup><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow><mn>2</mn></msubsup><mspace width=\"0.17em\"/><mo stretchy=\"false\">(</mo><mn>1</mn><mo>+</mo><mi>λ</mi><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DS</mi></mrow></msub><mo stretchy=\"false\">)</mo></mrow></math>",
+         "label": "With λ",
+         "sheet": "S2 §2"
+        },
+        {
+         "math": "<math alttext=\"r_o=\\dfrac{V_A}{I_D}=\\dfrac{1}{\\lambda I_D}\"><mrow><msub><mi>r</mi><mi mathvariant=\"normal\">o</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mi mathvariant=\"normal\">A</mi></msub></mrow><mrow><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></mfrac></mstyle><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mn>1</mn></mrow><mrow><mi>λ</mi><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></mfrac></mstyle></mrow></math>",
+         "label": "Output resistance",
+         "sheet": "S2 §2"
+        }
+       ]
+      },
+      {
+       "t": "ul",
+       "items": [
+        "In real devices the \"flat\" curve tilts up slightly: **channel-length modulation**",
+        "λ (or the Early voltage VA = 1/λ) measures the tilt; the hand method usually sets **λ = 0**, so ro = ∞",
+        "The tilt is why a transistor has a finite output resistance **ro**"
+       ]
+      }
+     ],
+     "id": "t1-13"
+    },
+    {
+     "title": "Subscripts and the saturation test",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "eq",
+       "lines": [
+        {
+         "math": "<math alttext=\"V_{GS}=V_G-V_S\\qquad V_{DS}=V_D-V_S\\qquad V_{GD}=V_G-V_D=V_{GS}-V_{DS}\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi mathvariant=\"normal\">G</mi></msub><mo>−</mo><msub><mi>V</mi><mi mathvariant=\"normal\">S</mi></msub><mspace width=\"2em\"/><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DS</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi mathvariant=\"normal\">D</mi></msub><mo>−</mo><msub><mi>V</mi><mi mathvariant=\"normal\">S</mi></msub><mspace width=\"2em\"/><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GD</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi mathvariant=\"normal\">G</mi></msub><mo>−</mo><msub><mi>V</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub><mo>−</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DS</mi></mrow></msub></mrow></math>",
+         "sheet": "S2 §4"
+        },
+        {
+         "math": "<math alttext=\"\\text{Saturation}:\\ V_{DS}\\ge V_{ov}\\ \\Longleftrightarrow\\ V_{GD}\\le V_t\"><mrow><mtext>Saturation</mtext><mo>:</mo><mspace width=\"0.25em\"/><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DS</mi></mrow></msub><mo>≥</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub><mspace width=\"0.25em\"/><mo>⇔</mo><mspace width=\"0.25em\"/><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">GD</mi></mrow></msub><mo>≤</mo><msub><mi>V</mi><mi mathvariant=\"normal\">t</mi></msub></mrow></math>",
+         "sheet": "S2 §4"
+        }
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "rule",
+       "text": "The first subscript is the point, the second the reference: V_XY = V_X − V_Y."
+      },
+      {
+       "t": "call",
+       "kind": "watch",
+       "text": "The saturation test compares VDS with **Vov**, not with Vt."
+      }
+     ],
+     "id": "t1-14"
+    },
+    {
+     "title": "Which region? Find ID",
+     "kind": "example",
+     "blocks": [
+      {
+       "t": "given",
+       "items": [
+        "Kn = 2 mA/V²",
+        "Vt = 1 V",
+        "three bias points (VGS, VDS)"
+       ]
+      },
+      {
+       "t": "steps",
+       "items": [
+        {
+         "h": "1",
+         "text": "VGS = 0.5 V, VDS = 5 V",
+         "res": "VGS < Vt, so cutoff: ID = 0"
+        },
+        {
+         "h": "2",
+         "text": "VGS = 3 V, VDS = 1 V",
+         "res": "Vov = 2 V and VDS = 1 V < Vov: triode, ID = 2[2·1 − ½·1²] = 3 mA"
+        },
+        {
+         "h": "3",
+         "text": "VGS = 3 V, VDS = 5 V",
+         "res": "Vov = 2 V and VDS = 5 V ≥ Vov: saturation, ID = ½·2·2² = 4 mA"
+        }
+       ]
+      }
+     ],
+     "id": "t1-15"
+    }
+   ],
+   "id": "t1-foundations-circuits-and-mosfe"
+  },
+  {
    "title": "Amplifier models and cascades",
    "lessons": "Lesson 15",
    "slides": [
@@ -29,7 +519,54 @@ window.CourseCram.registerDeck({
        "text": "Voltage gain Av = vo/vi, current gain Ai = io/ii, power gain Ap = po/pi."
       }
      ],
-     "id": "t1-1"
+     "id": "t2-1"
+    },
+    {
+     "title": "Gain, ratios and decibels",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "eq",
+       "lines": [
+        {
+         "math": "<math alttext=\"A_v=\\dfrac{v_o}{v_i}\\qquad A_i=\\dfrac{i_o}{i_i}\\qquad A_p=\\dfrac{p_o}{p_i}\"><mrow><msub><mi>A</mi><mi mathvariant=\"normal\">v</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>v</mi><mi mathvariant=\"normal\">o</mi></msub></mrow><mrow><msub><mi>v</mi><mi mathvariant=\"normal\">i</mi></msub></mrow></mfrac></mstyle><mspace width=\"2em\"/><msub><mi>A</mi><mi mathvariant=\"normal\">i</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>i</mi><mi mathvariant=\"normal\">o</mi></msub></mrow><mrow><msub><mi>i</mi><mi mathvariant=\"normal\">i</mi></msub></mrow></mfrac></mstyle><mspace width=\"2em\"/><msub><mi>A</mi><mi mathvariant=\"normal\">p</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>p</mi><mi mathvariant=\"normal\">o</mi></msub></mrow><mrow><msub><mi>p</mi><mi mathvariant=\"normal\">i</mi></msub></mrow></mfrac></mstyle></mrow></math>"
+        },
+        {
+         "math": "<math alttext=\"|A_v|\\ \\text{in dB}=20\\log_{10}|A_v|\"><mrow><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><msub><mi>A</mi><mi mathvariant=\"normal\">v</mi></msub><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><mspace width=\"0.25em\"/><mtext>in dB</mtext><mo>=</mo><mn>20</mn><msub><mi>log</mi><mrow><mn>10</mn></mrow></msub><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><msub><mi>A</mi><mi mathvariant=\"normal\">v</mi></msub><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo></mrow></math>"
+        }
+       ]
+      },
+      {
+       "t": "ul",
+       "items": [
+        "A gain of 10 is 20 dB, 100 is 40 dB, 1000 is 60 dB: every factor of 10 in voltage adds 20 dB",
+        "|Av| = 100 is 40 dB; |Av| = 75 is 37.5 dB",
+        "A negative gain means the output is **inverted** (180° phase shift); the dB value uses the magnitude"
+       ]
+      }
+     ],
+     "id": "t2-2"
+    },
+    {
+     "title": "Why we use a model",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "ul",
+       "items": [
+        "The inside of a real amplifier is a complicated circuit; we only care what it does at its **terminals**",
+        "A **behavioral model** replaces it with a few components that behave the same at the terminals",
+        "Once you have the model you can find the effect of any source and load **without** solving the transistor circuit again",
+        "The same model is used to **measure** an unknown amplifier in the lab and to **plan** a cascade"
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "rule",
+       "text": "Input side: a resistor.  Output side: a voltage source behind a resistor."
+      }
+     ],
+     "id": "t2-3"
     },
     {
      "title": "The three-parameter model",
@@ -55,7 +592,7 @@ window.CourseCram.registerDeck({
        "text": "Any linear amplifier stage reduces to these three numbers @S3 §1"
       }
      ],
-     "id": "t1-2"
+     "id": "t2-4"
     },
     {
      "title": "Source and load losses",
@@ -95,7 +632,89 @@ window.CourseCram.registerDeck({
        "text": "Avo already assumes no load. Use it only before the output divider."
       }
      ],
-     "id": "t1-3"
+     "id": "t2-5"
+    },
+    {
+     "title": "Deriving the overall gain",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        {
+         "h": "1",
+         "text": "Input loop: source RS drives Ri",
+         "res": "vi = vs·Ri/(RS + Ri)"
+        },
+        {
+         "h": "2",
+         "text": "Amplifier output (no load): the controlled source",
+         "res": "Avo·vi appears behind Ro"
+        },
+        {
+         "h": "3",
+         "text": "Output loop: Ro drives RL",
+         "res": "vo = Avo·vi·RL/(Ro + RL)"
+        },
+        {
+         "h": "4",
+         "text": "Substitute step 1 into step 3",
+         "res": "vo/vs = [Ri/(RS + Ri)]·Avo·[RL/(Ro + RL)]  @S3 §1"
+        }
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "tip",
+       "text": "Every \"loss\" is just a voltage divider. Spot the two dividers and write the product."
+      }
+     ],
+     "id": "t2-6"
+    },
+    {
+     "title": "Source and load loss on one stage",
+     "kind": "example",
+     "blocks": [
+      {
+       "t": "given",
+       "items": [
+        "RS = 1 kΩ",
+        "Ri = 9 kΩ, Avo = −100, Ro = 0.5 kΩ",
+        "RL = 1.5 kΩ"
+       ]
+      },
+      {
+       "t": "steps",
+       "items": [
+        {
+         "h": "1",
+         "text": "Input divider",
+         "res": "Ri/(RS + Ri) = 9/10 = 0.9"
+        },
+        {
+         "h": "2",
+         "text": "Output divider",
+         "res": "RL/(Ro + RL) = 1.5/2.0 = 0.75"
+        },
+        {
+         "h": "3",
+         "text": "Loaded gain (no RS)",
+         "res": "Av = −100 × 0.75 = -75"
+        },
+        {
+         "h": "4",
+         "text": "Overall gain (with RS)",
+         "res": "Gv = 0.9 × -75 = -67.5"
+        },
+        {
+         "h": "5",
+         "text": "Compare with the open-circuit gain",
+         "res": "−100 became -67.5: about 32.5 % of the gain was lost to the two dividers"
+        }
+       ]
+      }
+     ],
+     "id": "t2-7"
     },
     {
      "title": "Av versus Gv",
@@ -143,7 +762,7 @@ window.CourseCram.registerDeck({
        "text": "A quoted \"gain\" may be Av or Gv. Check where it starts."
       }
      ],
-     "id": "t1-4"
+     "id": "t2-8"
     },
     {
      "title": "Cascades: stage by stage",
@@ -178,7 +797,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t1-5"
+     "id": "t2-9"
     },
     {
      "title": "Cascade pitfalls",
@@ -194,7 +813,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t1-6"
+     "id": "t2-10"
     },
     {
      "title": "Two-stage gain with loading",
@@ -240,24 +859,24 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t1-7"
+     "id": "t2-11"
     },
     {
      "title": "gr2-model-006",
      "kind": "q",
      "ref": "gr2-model-006",
      "blocks": [],
-     "id": "t1-8"
+     "id": "t2-12"
     },
     {
      "title": "gr2-wk-004",
      "kind": "workout",
      "ref": "gr2-wk-004",
      "blocks": [],
-     "id": "t1-9"
+     "id": "t2-13"
     }
    ],
-   "id": "t1-amplifier-models-and-cascades"
+   "id": "t2-amplifier-models-and-cascades"
   },
   {
    "title": "Measuring Ri, Ro and Avo",
@@ -292,7 +911,31 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t2-1"
+     "id": "t3-1"
+    },
+    {
+     "title": "Why the half-voltage trick works",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "ul",
+       "items": [
+        "With a series resistor R, the input is a **divider**: vi = vs·Ri/(R + Ri)",
+        "It equals **vs/2** only when **R = Ri**",
+        "So when the scope shows half the generator voltage, the variable resistor **equals** Ri: you read Ri off the resistor",
+        "The same argument on the output side gives Ro: the test source drives Ro through R, and v_o = Vtest/2 when R = Ro"
+       ]
+      },
+      {
+       "t": "eq",
+       "lines": [
+        {
+         "math": "<math alttext=\"v_i=v_s\\dfrac{R_i}{R+R_i}=\\dfrac{v_s}{2}\\ \\Longleftrightarrow\\ R=R_i\"><mrow><msub><mi>v</mi><mi mathvariant=\"normal\">i</mi></msub><mo>=</mo><msub><mi>v</mi><mi mathvariant=\"normal\">s</mi></msub><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">i</mi></msub></mrow><mrow><mi>R</mi><mo>+</mo><msub><mi>R</mi><mi mathvariant=\"normal\">i</mi></msub></mrow></mfrac></mstyle><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>v</mi><mi mathvariant=\"normal\">s</mi></msub></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mspace width=\"0.25em\"/><mo>⇔</mo><mspace width=\"0.25em\"/><mi>R</mi><mo>=</mo><msub><mi>R</mi><mi mathvariant=\"normal\">i</mi></msub></mrow></math>"
+        }
+       ]
+      }
+     ],
+     "id": "t3-2"
     },
     {
      "title": "Input resistance Ri",
@@ -320,7 +963,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t2-2"
+     "id": "t3-3"
     },
     {
      "title": "Output resistance Ro",
@@ -345,7 +988,54 @@ window.CourseCram.registerDeck({
        "text": "Two-reading shortcut with a known load: Ro = RL·(v_open / v_loaded − 1)"
       }
      ],
-     "id": "t2-3"
+     "id": "t3-4"
+    },
+    {
+     "title": "A lab checklist",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        {
+         "h": "1",
+         "text": "Set the DC supplies and confirm the bias",
+         "res": "the amplifier must be in its normal operating state"
+        },
+        {
+         "h": "2",
+         "text": "Choose a small input",
+         "res": "the output must not clip; check the waveform"
+        },
+        {
+         "h": "3",
+         "text": "Measure Avo with the load removed",
+         "res": "then Av with the specified RL"
+        },
+        {
+         "h": "4",
+         "text": "Measure Ri with the series pot or Rtest",
+         "res": "read V1,pp and V2,pp"
+        },
+        {
+         "h": "5",
+         "text": "Measure Ro: input to ground, drive the output",
+         "res": "DC supplies stay on"
+        },
+        {
+         "h": "6",
+         "text": "Predict, then compare",
+         "res": "Gv = Ri/(RS + Ri) · Avo · RL/(Ro + RL)"
+        }
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "watch",
+       "text": "A reading taken while the output is clipping is meaningless: reduce the input first."
+      }
+     ],
+     "id": "t3-5"
     },
     {
      "title": "Find Ri and Ro from readings",
@@ -389,31 +1079,31 @@ window.CourseCram.registerDeck({
        "text": "Measuring Avo with the load attached gives the loaded gain, not Avo. Leaving the input signal on while measuring Ro adds the Avo·vi term."
       }
      ],
-     "id": "t2-4"
+     "id": "t3-6"
     },
     {
      "title": "gr2-measure-001",
      "kind": "q",
      "ref": "gr2-measure-001",
      "blocks": [],
-     "id": "t2-5"
+     "id": "t3-7"
     },
     {
      "title": "gr2-measure-005",
      "kind": "q",
      "ref": "gr2-measure-005",
      "blocks": [],
-     "id": "t2-6"
+     "id": "t3-8"
     },
     {
      "title": "gr2-wk-009",
      "kind": "workout",
      "ref": "gr2-wk-009",
      "blocks": [],
-     "id": "t2-7"
+     "id": "t3-9"
     }
    ],
-   "id": "t2-measuring-ri-ro-and-avo"
+   "id": "t3-measuring-ri-ro-and-avo"
   },
   {
    "title": "Voltage transfer curve and Q-point",
@@ -450,7 +1140,76 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t3-1"
+     "id": "t4-1"
+    },
+    {
+     "title": "Reading the curve as a table",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "tbl",
+       "head": [
+        "vGS (V)",
+        "Region",
+        "vo = vDS (V)"
+       ],
+       "rows": [
+        [
+         "0.5",
+         "cutoff",
+         "10"
+        ],
+        [
+         "1",
+         "cutoff",
+         "10"
+        ],
+        [
+         "1.5",
+         "saturation",
+         "9.5"
+        ],
+        [
+         "2",
+         "saturation",
+         "8"
+        ],
+        [
+         "2.5",
+         "saturation",
+         "5.5"
+        ],
+        [
+         "3",
+         "saturation",
+         "2"
+        ],
+        [
+         "4",
+         "triode",
+         "0.892"
+        ],
+        [
+         "5",
+         "triode",
+         "0.636"
+        ]
+       ]
+      },
+      {
+       "t": "ul",
+       "items": [
+        "Same stage as the worked example: VDD = 10 V, Kn = 2 mA/V², RD = 2 kΩ, Vt = 1 V",
+        "Below Vt the output sits at VDD; between A and B it falls steeply (high gain); past B it flattens in triode"
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "tip",
+       "text": "To find a point: pick vGS, decide the region, then use that region's equation for vo."
+      }
+     ],
+     "id": "t4-2"
     },
     {
      "title": "Three regions",
@@ -485,7 +1244,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t3-2"
+     "id": "t4-3"
     },
     {
      "title": "Points A, B and C",
@@ -517,7 +1276,28 @@ window.CourseCram.registerDeck({
        "text": "At B set vDS = vGS − Vt in the saturation equation: ½·Kn·RD·V² + V − VDD = 0, then take the positive root."
       }
      ],
-     "id": "t3-3"
+     "id": "t4-4"
+    },
+    {
+     "title": "Small signal versus large signal",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "ul",
+       "items": [
+        "The whole curve is the **large-signal** behavior: nonlinear",
+        "Near Q the curve looks like a **straight line** (its tangent); the slope of that line is the small-signal gain",
+        "If the input swings so far that the output leaves the steep part, the output is **distorted** (clipped or flattened)",
+        "The usable output swing is limited above by the supply and below by the edge of saturation (point B)"
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "rule",
+       "text": "Small signal = stay on the tangent line."
+      }
+     ],
+     "id": "t4-5"
     },
     {
      "title": "Q-point and gain",
@@ -547,7 +1327,7 @@ window.CourseCram.registerDeck({
        "text": "Do not bias at B or at A itself."
       }
      ],
-     "id": "t3-4"
+     "id": "t4-6"
     },
     {
      "title": "Find B, then the gain at a chosen Q",
@@ -598,24 +1378,24 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t3-5"
+     "id": "t4-7"
     },
     {
      "title": "gr2-vtc-003",
      "kind": "q",
      "ref": "gr2-vtc-003",
      "blocks": [],
-     "id": "t3-6"
+     "id": "t4-8"
     },
     {
      "title": "gr2-vtc-006",
      "kind": "q",
      "ref": "gr2-vtc-006",
      "blocks": [],
-     "id": "t3-7"
+     "id": "t4-9"
     }
    ],
-   "id": "t3-voltage-transfer-curve-and-q-p"
+   "id": "t4-voltage-transfer-curve-and-q-p"
   },
   {
    "title": "Small-signal model and gm",
@@ -664,7 +1444,7 @@ window.CourseCram.registerDeck({
        "text": "The signal rides on the DC bias. DC analysis first, signal analysis second."
       }
      ],
-     "id": "t4-1"
+     "id": "t5-1"
     },
     {
      "title": "Why a model, and where it comes from",
@@ -692,7 +1472,33 @@ window.CourseCram.registerDeck({
        "text": "Small-signal results are valid only while the signal is small. Check linearity at the end of every design."
       }
      ],
-     "id": "t4-2"
+     "id": "t5-2"
+    },
+    {
+     "title": "Where gm and ro come from",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "eq",
+       "lines": [
+        {
+         "math": "<math alttext=\"g_m=\\dfrac{\\partial i_D}{\\partial v_{GS}}\\ \\text{at } Q=K_nV_{ov}\"><mrow><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mi>∂</mi><msub><mi>i</mi><mi mathvariant=\"normal\">D</mi></msub></mrow><mrow><mi>∂</mi><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">GS</mi></mrow></msub></mrow></mfrac></mstyle><mspace width=\"0.25em\"/><mtext>at </mtext><mi>Q</mi><mo>=</mo><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub></mrow></math>"
+        },
+        {
+         "math": "<math alttext=\"i_D=\\tfrac{1}{2}K_nV_{ov}^2(1+\\lambda v_{DS})\\ \\Rightarrow\\ \\dfrac{1}{r_o}=\\dfrac{\\partial i_D}{\\partial v_{DS}}=\\lambda I_D\"><mrow><msub><mi>i</mi><mi mathvariant=\"normal\">D</mi></msub><mo>=</mo><mstyle displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><msub><mi>K</mi><mi mathvariant=\"normal\">n</mi></msub><msubsup><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow><mn>2</mn></msubsup><mo stretchy=\"false\">(</mo><mn>1</mn><mo>+</mo><mi>λ</mi><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">DS</mi></mrow></msub><mo stretchy=\"false\">)</mo><mspace width=\"0.25em\"/><mo>⇒</mo><mspace width=\"0.25em\"/><mstyle displaystyle=\"true\"><mfrac><mrow><mn>1</mn></mrow><mrow><msub><mi>r</mi><mi mathvariant=\"normal\">o</mi></msub></mrow></mfrac></mstyle><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mi>∂</mi><msub><mi>i</mi><mi mathvariant=\"normal\">D</mi></msub></mrow><mrow><mi>∂</mi><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">DS</mi></mrow></msub></mrow></mfrac></mstyle><mo>=</mo><mi>λ</mi><msub><mi>I</mi><mi mathvariant=\"normal\">D</mi></msub></mrow></math>"
+        }
+       ]
+      },
+      {
+       "t": "ul",
+       "items": [
+        "**gm** is the slope of the iD–vGS curve at Q: how many mA of drain current per volt of gate signal",
+        "**1/ro** is the slope of the iD–vDS curve at Q: it is zero if λ = 0",
+        "The small-signal model is just these two slopes as circuit elements"
+       ]
+      }
+     ],
+     "id": "t5-3"
     },
     {
      "title": "Build the small-signal circuit",
@@ -729,7 +1535,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t4-3"
+     "id": "t5-4"
     },
     {
      "title": "The parameters",
@@ -765,7 +1571,67 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t4-4"
+     "id": "t5-5"
+    },
+    {
+     "title": "The T-model",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "ul",
+       "items": [
+        "An equivalent model for the same transistor: the controlled source **gm·vgs** is replaced by a current **ie** that flows out of the source through a resistor **1/gm**",
+        "Both models give the same answers; the T-model is **easier when a resistor sits in the source lead**, because that resistor adds directly to 1/gm",
+        "Rule: looking into the **source** you see 1/gm; looking into the **gate** you see an open circuit"
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "tip",
+       "text": "1/gm shows up again as the output resistance of the follower and the input resistance of the common gate."
+      }
+     ],
+     "id": "t5-6"
+    },
+    {
+     "title": "Find gm, ro and the linear limit",
+     "kind": "example",
+     "blocks": [
+      {
+       "t": "given",
+       "items": [
+        "ID = 0.5 mA",
+        "Vov = 0.25 V",
+        "λ = 0.02 V⁻¹"
+       ]
+      },
+      {
+       "t": "steps",
+       "items": [
+        {
+         "h": "1",
+         "text": "Transconductance",
+         "res": "gm = 2·ID/Vov = 2 × 0.5 / 0.25 = 4 mS"
+        },
+        {
+         "h": "2",
+         "text": "Output resistance",
+         "res": "ro = 1/(λ·ID) = 1/(0.02 × 0.5) = 100 kΩ"
+        },
+        {
+         "h": "3",
+         "text": "Check Kn",
+         "res": "Kn = gm/Vov = 16 mA/V²"
+        },
+        {
+         "h": "4",
+         "text": "Linear limit on the signal",
+         "res": "vgs,pk ≤ 0.2·Vov = 50 mV; absolute limit vgs ≪ 2·Vov = 0.5 V"
+        }
+       ]
+      }
+     ],
+     "id": "t5-7"
     },
     {
      "title": "Gain of a CS stage with a load",
@@ -816,31 +1682,31 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t4-5"
+     "id": "t5-8"
     },
     {
      "title": "gr2-ss-004",
      "kind": "q",
      "ref": "gr2-ss-004",
      "blocks": [],
-     "id": "t4-6"
+     "id": "t5-9"
     },
     {
      "title": "gr2-ss-013",
      "kind": "q",
      "ref": "gr2-ss-013",
      "blocks": [],
-     "id": "t4-7"
+     "id": "t5-10"
     },
     {
      "title": "gr2-wk-006",
      "kind": "workout",
      "ref": "gr2-wk-006",
      "blocks": [],
-     "id": "t4-8"
+     "id": "t5-11"
     }
    ],
-   "id": "t4-small-signal-model-and-gm"
+   "id": "t5-small-signal-model-and-gm"
   },
   {
    "title": "CS design with no source resistor",
@@ -873,7 +1739,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t5-1"
+     "id": "t6-1"
     },
     {
      "title": "What it gives you",
@@ -905,7 +1771,27 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t5-2"
+     "id": "t6-2"
+    },
+    {
+     "title": "Two circuits: DC and signal",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "ul",
+       "items": [
+        "**DC view:** capacitors open, supply is a supply. The divider sets VG, the transistor draws ID, RD drops (VDD − VDS)",
+        "**Signal view:** capacitors short, supply is ground. RG1 and RG2 are in parallel at the input; RD (in parallel with RL) is the load of the controlled source",
+        "Design the DC circuit first for the chosen Q-point, then check what the signal circuit gives"
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "rule",
+       "text": "The divider resistors are chosen **large** so that Ri = RG1 ∥ RG2 is large, but their ratio sets VG."
+      }
+     ],
+     "id": "t6-3"
     },
     {
      "title": "Why this bias is weak",
@@ -933,7 +1819,7 @@ window.CourseCram.registerDeck({
        "text": "A source resistor adds negative feedback and fixes this (next topic)."
       }
      ],
-     "id": "t5-3"
+     "id": "t6-4"
     },
     {
      "title": "Design recipe (equation sheet)",
@@ -975,7 +1861,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t5-4"
+     "id": "t6-5"
     },
     {
      "title": "CS design with no source resistor",
@@ -1031,24 +1917,48 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t5-5"
+     "id": "t6-6"
+    },
+    {
+     "title": "Swing limits",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "ul",
+       "items": [
+        "The output swings about the DC drain voltage VD = VDD − RD·ID by ±|Avo|·vg,pk",
+        "**Headroom:** VD + swing must stay below VDD",
+        "**Legroom:** VD − swing must stay above **Vov** (so the device stays in saturation; with the source grounded, VDS ≥ Vov)",
+        "VDS = VDD/2 gives equal room above and below, which is why step 1 picks it"
+       ]
+      },
+      {
+       "t": "eq",
+       "lines": [
+        {
+         "math": "<math alttext=\"V_{D,max}=V_D+|A_{vo}|v_{g,pk}\\le V_{DD}\\qquad V_{D,min}=V_D-|A_{vo}|v_{g,pk}\\ge V_{ov}\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">D</mi><mo>,</mo><mi mathvariant=\"normal\">max</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi mathvariant=\"normal\">D</mi></msub><mo>+</mo><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">g</mi><mo>,</mo><mi mathvariant=\"normal\">pk</mi></mrow></msub><mo>≤</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">DD</mi></mrow></msub><mspace width=\"2em\"/><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">D</mi><mo>,</mo><mi mathvariant=\"normal\">min</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mi mathvariant=\"normal\">D</mi></msub><mo>−</mo><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">g</mi><mo>,</mo><mi mathvariant=\"normal\">pk</mi></mrow></msub><mo>≥</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">ov</mi></mrow></msub></mrow></math>"
+        }
+       ]
+      }
+     ],
+     "id": "t6-7"
     },
     {
      "title": "gr2-csdes-006",
      "kind": "q",
      "ref": "gr2-csdes-006",
      "blocks": [],
-     "id": "t5-6"
+     "id": "t6-8"
     },
     {
      "title": "gr2-csdes-009",
      "kind": "q",
      "ref": "gr2-csdes-009",
      "blocks": [],
-     "id": "t5-7"
+     "id": "t6-9"
     }
    ],
-   "id": "t5-cs-design-with-no-source-resis"
+   "id": "t6-cs-design-with-no-source-resis"
   },
   {
    "title": "Source resistor feedback and bypassing",
@@ -1077,7 +1987,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t6-1"
+     "id": "t7-1"
     },
     {
      "title": "The price: lost gain",
@@ -1107,7 +2017,49 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t6-2"
+     "id": "t7-2"
+    },
+    {
+     "title": "Deriving the reduced gain",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        {
+         "h": "1",
+         "text": "KVL around the input loop",
+         "res": "vin = vgs + vs, where vs = id·RS"
+        },
+        {
+         "h": "2",
+         "text": "The transistor gives id",
+         "res": "id = gm·vgs"
+        },
+        {
+         "h": "3",
+         "text": "Substitute",
+         "res": "vin = vgs·(1 + gm·RS), so vgs = vin/(1 + gm·RS)"
+        },
+        {
+         "h": "4",
+         "text": "Output",
+         "res": "vo = −id·RD = −gm·vgs·RD"
+        },
+        {
+         "h": "5",
+         "text": "Combine",
+         "res": "vo/vin = −gm·RD/(1 + gm·RS)  @S3 §7"
+        }
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "why",
+       "text": "The source resistor feeds back part of the output current as a voltage subtracted from vgs."
+      }
+     ],
+     "id": "t7-3"
     },
     {
      "title": "The bypass capacitor",
@@ -1137,7 +2089,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t6-3"
+     "id": "t7-4"
     },
     {
      "title": "Partial bypass: RS = RS1 + RS2",
@@ -1170,7 +2122,47 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t6-4"
+     "id": "t7-5"
+    },
+    {
+     "title": "Why partial bypass makes the gain steadier",
+     "kind": "example",
+     "blocks": [
+      {
+       "t": "given",
+       "items": [
+        "gm = 4 mS (nominal), RD = 5 kΩ",
+        "a different transistor gives gm = 3 mS",
+        "partial bypass with RS1 = 1/gm(nominal) = 250 Ω"
+       ]
+      },
+      {
+       "t": "steps",
+       "items": [
+        {
+         "h": "1",
+         "text": "Fully bypassed, nominal",
+         "res": "Avo = −4 × 5 = -20"
+        },
+        {
+         "h": "2",
+         "text": "Fully bypassed, gm = 3 mS",
+         "res": "Avo = −3 × 5 = -15: a 25 % drop"
+        },
+        {
+         "h": "3",
+         "text": "Partial bypass, nominal",
+         "res": "Avo = −4×5 / (1 + 4×0.25) = -10"
+        },
+        {
+         "h": "4",
+         "text": "Partial bypass, gm = 3 mS",
+         "res": "Avo = −3×5 / (1 + 3×0.25) = -8.57: only a 14.3 % drop"
+        }
+       ]
+      }
+     ],
+     "id": "t7-6"
     },
     {
      "title": "Three options side by side",
@@ -1211,24 +2203,24 @@ window.CourseCram.registerDeck({
        "text": "Less unbypassed RS means higher gain and more distortion; more unbypassed RS means lower gain and less distortion."
       }
      ],
-     "id": "t6-5"
+     "id": "t7-7"
     },
     {
      "title": "gr2-fb-001",
      "kind": "q",
      "ref": "gr2-fb-001",
      "blocks": [],
-     "id": "t6-6"
+     "id": "t7-8"
     },
     {
      "title": "gr2-fb-014",
      "kind": "q",
      "ref": "gr2-fb-014",
      "blocks": [],
-     "id": "t6-7"
+     "id": "t7-9"
     }
    ],
-   "id": "t6-source-resistor-feedback-and-b"
+   "id": "t7-source-resistor-feedback-and-b"
   },
   {
    "title": "Partially and fully bypassed CS design",
@@ -1256,7 +2248,7 @@ window.CourseCram.registerDeck({
        "text": "Fully bypassed means the whole of RS is bypassed; partial means RS1 stays in the signal path and RS2 is bypassed."
       }
      ],
-     "id": "t7-1"
+     "id": "t8-1"
     },
     {
      "title": "Current from the gain",
@@ -1291,7 +2283,49 @@ window.CourseCram.registerDeck({
        "text": "The exponent is on the whole bracket. Do not use VDD in place of VDD/3 or VDD/6."
       }
      ],
-     "id": "t7-2"
+     "id": "t8-2"
+    },
+    {
+     "title": "Where the current formula comes from",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        {
+         "h": "1",
+         "text": "Fully bypassed gain",
+         "res": "|Avo| = gm·RD"
+        },
+        {
+         "h": "2",
+         "text": "Use gm = 2·ID/Vov and RD = (VDD/3)/ID",
+         "res": "|Avo| = (2·ID/Vov)·(VDD/3)/ID = 2·(VDD/3)/Vov"
+        },
+        {
+         "h": "3",
+         "text": "Solve for the overdrive",
+         "res": "Vov = 2·(VDD/3)/|Avo|"
+        },
+        {
+         "h": "4",
+         "text": "ID = ½·Kn·Vov²",
+         "res": "ID = 2·Kn·[(VDD/3)/|Avo|]²  @S3 §4"
+        },
+        {
+         "h": "5",
+         "text": "Partial bypass: the gain is halved",
+         "res": "replace |Avo| by 2|Avo|: ID = 2·Kn·[VDD/(6|Avo|)]²  @S3 §5"
+        }
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "tip",
+       "text": "Notice the gain target alone fixes ID once the supply split and the device are chosen."
+      }
+     ],
+     "id": "t8-3"
     },
     {
      "title": "Resistors and gate bias",
@@ -1324,7 +2358,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t7-3"
+     "id": "t8-4"
     },
     {
      "title": "Divider and checks",
@@ -1367,7 +2401,53 @@ window.CourseCram.registerDeck({
        "text": "VG = VGS + VS, not just VGS."
       }
      ],
-     "id": "t7-4"
+     "id": "t8-5"
+    },
+    {
+     "title": "Fully bypassed design, for comparison",
+     "kind": "example",
+     "blocks": [
+      {
+       "t": "given",
+       "items": [
+        "VDD = 15 V",
+        "Kn = 4 mA/V², Vt = 1 V",
+        "|Avo| = 5",
+        "Rin ≥ 100 kΩ"
+       ]
+      },
+      {
+       "t": "steps",
+       "items": [
+        {
+         "h": "1",
+         "text": "Drain current",
+         "res": "ID = 2·4·[(15/3)/5]² = 8 mA"
+        },
+        {
+         "h": "2",
+         "text": "RD = RS from one third of VDD",
+         "res": "RD = RS = 5 V / 8 mA = 625 Ω"
+        },
+        {
+         "h": "3",
+         "text": "Overdrive and gm",
+         "res": "Vov = √(2·8/4) = 2 V;  gm = 8 mS"
+        },
+        {
+         "h": "4",
+         "text": "Check the gain",
+         "res": "gm·RD = 8 × 0.625 = 5"
+        },
+        {
+         "h": "5",
+         "text": "Gate voltage and divider",
+         "res": "VGS = 3 V;  VG = 8 V;  RG1 ≥ 188 kΩ, RG2 = 214 kΩ"
+        }
+       ]
+      }
+     ],
+     "id": "t8-6"
     },
     {
      "title": "Partially bypassed design, start to finish",
@@ -1424,24 +2504,24 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t7-5"
+     "id": "t8-7"
     },
     {
      "title": "gr2-des-001",
      "kind": "q",
      "ref": "gr2-des-001",
      "blocks": [],
-     "id": "t7-6"
+     "id": "t8-8"
     },
     {
      "title": "gr2-wk-001",
      "kind": "workout",
      "ref": "gr2-wk-001",
      "blocks": [],
-     "id": "t7-7"
+     "id": "t8-9"
     }
    ],
-   "id": "t7-partially-and-fully-bypassed-c"
+   "id": "t8-partially-and-fully-bypassed-c"
   },
   {
    "title": "Common-drain amplifier behavior",
@@ -1466,7 +2546,7 @@ window.CourseCram.registerDeck({
        "text": "Drain at ac ground, signal in at the gate, output taken at the source."
       }
      ],
-     "id": "t8-1"
+     "id": "t9-1"
     },
     {
      "title": "Small-signal analysis",
@@ -1508,7 +2588,31 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t8-2"
+     "id": "t9-2"
+    },
+    {
+     "title": "Why the gain is just below 1",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "ul",
+       "items": [
+        "In the T-model the input drives the series path **1/gm + RS**: current i = vi/(1/gm + RS)",
+        "The output is the part of that current across RS: vo = i·RS",
+        "So vo/vi = RS/(RS + 1/gm): a divider between RS and 1/gm",
+        "When gm·RS is large, 1/gm is tiny next to RS and the gain approaches 1"
+       ]
+      },
+      {
+       "t": "eq",
+       "lines": [
+        {
+         "math": "<math alttext=\"A_{vo}=\\dfrac{R_S}{R_S+1/g_m}=\\dfrac{g_mR_S}{1+g_mR_S}\"><mrow><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub></mrow><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub><mo>+</mo><mn>1</mn><mo lspace=\"0.05em\" rspace=\"0.05em\">/</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub></mrow></mfrac></mstyle><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub></mrow><mrow><mn>1</mn><mo>+</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">S</mi></msub></mrow></mfrac></mstyle></mrow></math>"
+        }
+       ]
+      }
+     ],
+     "id": "t9-3"
     },
     {
      "title": "Results",
@@ -1546,7 +2650,47 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t8-3"
+     "id": "t9-4"
+    },
+    {
+     "title": "A follower driving a small load",
+     "kind": "example",
+     "blocks": [
+      {
+       "t": "given",
+       "items": [
+        "gm = 20 mS",
+        "RS = 1 kΩ",
+        "RL = 100 Ω"
+       ]
+      },
+      {
+       "t": "steps",
+       "items": [
+        {
+         "h": "1",
+         "text": "Open-circuit gain",
+         "res": "Avo = 20×1/(1 + 20×1) = 0.952"
+        },
+        {
+         "h": "2",
+         "text": "Output resistance",
+         "res": "Ro = 1 kΩ ∥ 50 Ω = 47.6 Ω"
+        },
+        {
+         "h": "3",
+         "text": "Loaded gain from the two-port model",
+         "res": "Av = 0.952 × 100/(100 + 47.6) = 0.645"
+        },
+        {
+         "h": "4",
+         "text": "Check with RS replaced by RS ∥ RL",
+         "res": "RS ∥ RL = 90.9 Ω;  Av = gm·(RS∥RL)/(1 + gm·(RS∥RL)) = 0.645"
+        }
+       ]
+      }
+     ],
+     "id": "t9-5"
     },
     {
      "title": "Reading the results",
@@ -1567,24 +2711,24 @@ window.CourseCram.registerDeck({
        "text": "No voltage gain, but a strong low-resistance output: that is what a buffer is for."
       }
      ],
-     "id": "t8-4"
+     "id": "t9-6"
     },
     {
      "title": "gr2-cd-003",
      "kind": "q",
      "ref": "gr2-cd-003",
      "blocks": [],
-     "id": "t8-5"
+     "id": "t9-7"
     },
     {
      "title": "gr2-cd-005",
      "kind": "q",
      "ref": "gr2-cd-005",
      "blocks": [],
-     "id": "t8-6"
+     "id": "t9-8"
     }
    ],
-   "id": "t8-common-drain-amplifier-behavio"
+   "id": "t9-common-drain-amplifier-behavio"
   },
   {
    "title": "Common-drain design",
@@ -1623,7 +2767,7 @@ window.CourseCram.registerDeck({
        "text": "Peak-to-peak where a peak is needed is the classic slip. The notes sometimes start with a gain of 0.8 instead of 0.85."
       }
      ],
-     "id": "t9-1"
+     "id": "t10-1"
     },
     {
      "title": "Worst case: the negative peak",
@@ -1659,7 +2803,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t9-2"
+     "id": "t10-2"
     },
     {
      "title": "The 11-step workflow",
@@ -1699,7 +2843,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t9-3"
+     "id": "t10-3"
     },
     {
      "title": "Checks and fixes",
@@ -1720,7 +2864,7 @@ window.CourseCram.registerDeck({
        "text": "Each waveform (vL, iL, vRS, iRS, iD) is in phase; mark each maximum and minimum."
       }
      ],
-     "id": "t9-4"
+     "id": "t10-4"
     },
     {
      "title": "Source follower into a small load",
@@ -1782,24 +2926,69 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t9-5"
+     "id": "t10-5"
+    },
+    {
+     "title": "Checking both output peaks",
+     "kind": "example",
+     "blocks": [
+      {
+       "t": "given",
+       "items": [
+        "the follower just designed",
+        "RS = 220 Ω, VS = 7.5 V, RL = 100 Ω",
+        "Vo,pk = 2 V"
+       ]
+      },
+      {
+       "t": "steps",
+       "items": [
+        {
+         "h": "1",
+         "text": "Negative peak: source node at VS − 2",
+         "res": "IRS = 5.5 V/220 Ω = 25 mA; the load takes back 20 mA"
+        },
+        {
+         "h": "2",
+         "text": "Drain current there",
+         "res": "ID = 25 − 20 = 5 mA, which is ID,min: the device just stays on"
+        },
+        {
+         "h": "3",
+         "text": "Positive peak: source node at VS + 2",
+         "res": "IRS = 9.5 V/220 Ω = 43.2 mA; the load takes 20 mA"
+        },
+        {
+         "h": "4",
+         "text": "Drain current there",
+         "res": "ID = 23.2 mA, so Vov = 0.681 V"
+        },
+        {
+         "h": "5",
+         "text": "Still saturated?",
+         "res": "VDS = 15 − 7.5 − 2 = 5.5 V ≥ 0.681 V: yes"
+        }
+       ]
+      }
+     ],
+     "id": "t10-6"
     },
     {
      "title": "gr2-cddes-004",
      "kind": "q",
      "ref": "gr2-cddes-004",
      "blocks": [],
-     "id": "t9-6"
+     "id": "t10-7"
     },
     {
      "title": "gr2-wk-002",
      "kind": "workout",
      "ref": "gr2-wk-002",
      "blocks": [],
-     "id": "t9-7"
+     "id": "t10-8"
     }
    ],
-   "id": "t9-common-drain-design"
+   "id": "t10-common-drain-design"
   },
   {
    "title": "Multi-stage amplifier planning",
@@ -1829,7 +3018,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t10-1"
+     "id": "t11-1"
     },
     {
      "title": "CS then CD",
@@ -1853,7 +3042,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t10-2"
+     "id": "t11-2"
     },
     {
      "title": "Plan from the spec",
@@ -1895,7 +3084,7 @@ window.CourseCram.registerDeck({
        "text": "Choosing the stages comes before designing any of them."
       }
      ],
-     "id": "t10-3"
+     "id": "t11-3"
     },
     {
      "title": "Why the CD stage is worth adding",
@@ -1940,24 +3129,24 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t10-4"
+     "id": "t11-4"
     },
     {
      "title": "gr2-multi-002",
      "kind": "q",
      "ref": "gr2-multi-002",
      "blocks": [],
-     "id": "t10-5"
+     "id": "t11-5"
     },
     {
      "title": "gr2-multi-003",
      "kind": "q",
      "ref": "gr2-multi-003",
      "blocks": [],
-     "id": "t10-6"
+     "id": "t11-6"
     }
    ],
-   "id": "t10-multi-stage-amplifier-planning"
+   "id": "t11-multi-stage-amplifier-planning"
   },
   {
    "title": "Common-gate amplifier",
@@ -1981,7 +3170,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t11-1"
+     "id": "t12-1"
     },
     {
      "title": "Its numbers",
@@ -2019,7 +3208,44 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t11-2"
+     "id": "t12-2"
+    },
+    {
+     "title": "Why Ri = 1/gm",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        {
+         "h": "1",
+         "text": "Gate at ac ground",
+         "res": "so vgs = 0 − vs = −vi when the signal is applied to the source"
+        },
+        {
+         "h": "2",
+         "text": "The controlled current",
+         "res": "id = gm·vgs = −gm·vi (it flows from source to drain)"
+        },
+        {
+         "h": "3",
+         "text": "The input current is that same current",
+         "res": "ii = gm·vi flowing into the source"
+        },
+        {
+         "h": "4",
+         "text": "Ri = vi/ii",
+         "res": "Ri = 1/gm, in parallel with RS from the bias network"
+        }
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "tip",
+       "text": "The output current gm·vi flows through RD, so vo = gm·vi·RD with no sign change: Avo = +gm·RD."
+      }
+     ],
+     "id": "t12-3"
     },
     {
      "title": "When to use it",
@@ -2039,7 +3265,7 @@ window.CourseCram.registerDeck({
        "text": "The gate being \"grounded\" does not make the gain zero: the signal drives the source, and the output current still flows through RD."
       }
      ],
-     "id": "t11-3"
+     "id": "t12-4"
     },
     {
      "title": "Source loss at a common-gate input",
@@ -2080,24 +3306,24 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t11-4"
+     "id": "t12-5"
     },
     {
      "title": "gr2-cg-002",
      "kind": "q",
      "ref": "gr2-cg-002",
      "blocks": [],
-     "id": "t11-5"
+     "id": "t12-6"
     },
     {
      "title": "gr2-cg-003",
      "kind": "q",
      "ref": "gr2-cg-003",
      "blocks": [],
-     "id": "t11-6"
+     "id": "t12-7"
     }
    ],
-   "id": "t11-common-gate-amplifier"
+   "id": "t12-common-gate-amplifier"
   },
   {
    "title": "Comparing amplifier configurations",
@@ -2149,7 +3375,7 @@ window.CourseCram.registerDeck({
        "text": "The sheet also gives the exact Ro with ro, for example CS partial: RD ∥ [ro(1 + gm·RS1) + RS1]."
       }
      ],
-     "id": "t12-1"
+     "id": "t13-1"
     },
     {
      "title": "Loading and rule of thumb",
@@ -2182,7 +3408,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t12-2"
+     "id": "t13-2"
     },
     {
      "title": "Which one when",
@@ -2199,24 +3425,66 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t12-3"
+     "id": "t13-3"
+    },
+    {
+     "title": "Choosing a stage: quick cases",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "tbl",
+       "head": [
+        "You need ...",
+        "Use",
+        "Because"
+       ],
+       "rows": [
+        [
+         "Large voltage gain, any load",
+         "CS (bypassed)",
+         "Avo = −gm·RD is the largest"
+        ],
+        [
+         "Gain that does not drift with the transistor",
+         "CS with partial bypass",
+         "gain set by RD/(RS1 + 1/gm)"
+        ],
+        [
+         "To drive a low-resistance load",
+         "CD",
+         "Ro ≈ 1/gm is small"
+        ],
+        [
+         "To isolate a high-gain stage from its load",
+         "CD after CS",
+         "Ri of the CD is large, Ro small"
+        ],
+        [
+         "A very low input resistance",
+         "CG",
+         "Ri ≈ 1/gm"
+        ]
+       ]
+      }
+     ],
+     "id": "t13-4"
     },
     {
      "title": "gr2-cmp-002",
      "kind": "q",
      "ref": "gr2-cmp-002",
      "blocks": [],
-     "id": "t12-4"
+     "id": "t13-5"
     },
     {
      "title": "gr2-cmp-004",
      "kind": "q",
      "ref": "gr2-cmp-004",
      "blocks": [],
-     "id": "t12-5"
+     "id": "t13-6"
     }
    ],
-   "id": "t12-comparing-amplifier-configurat"
+   "id": "t13-comparing-amplifier-configurat"
   },
   {
    "title": "Simulation and measurement",
@@ -2236,7 +3504,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t13-1"
+     "id": "t14-1"
     },
     {
      "title": "Gain from a transient run",
@@ -2265,7 +3533,7 @@ window.CourseCram.registerDeck({
        "text": "Dividing by the peak instead of the peak-to-peak input, or reading cursors that are not on a peak and a trough, gives the wrong gain."
       }
      ],
-     "id": "t13-2"
+     "id": "t14-2"
     },
     {
      "title": "Distortion",
@@ -2281,7 +3549,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t13-3"
+     "id": "t14-3"
     },
     {
      "title": "Power dissipation",
@@ -2323,24 +3591,58 @@ window.CourseCram.registerDeck({
        "text": "Check that each device and resistor in a design is within its power rating."
       }
      ],
-     "id": "t13-4"
+     "id": "t14-4"
+    },
+    {
+     "title": "Reading the gain from the cursors",
+     "kind": "example",
+     "blocks": [
+      {
+       "t": "given",
+       "items": [
+        "Multisim source labeled 0.05 Vpk",
+        "cursor readout: dy = 1.02 V (crest to trough of vo)"
+       ]
+      },
+      {
+       "t": "steps",
+       "items": [
+        {
+         "h": "1",
+         "text": "Input peak-to-peak",
+         "res": "Vin,pp = 2 × 0.05 = 0.1 V"
+        },
+        {
+         "h": "2",
+         "text": "Gain magnitude",
+         "res": "|Av| = 1.02 / 0.1 = 10.2"
+        },
+        {
+         "h": "3",
+         "text": "Wrong way (peak input)",
+         "res": "1.02 / 0.05 = 20.4: twice too large"
+        }
+       ]
+      }
+     ],
+     "id": "t14-5"
     },
     {
      "title": "gr2-sim-001",
      "kind": "q",
      "ref": "gr2-sim-001",
      "blocks": [],
-     "id": "t13-5"
+     "id": "t14-6"
     },
     {
      "title": "gr2-sim-002",
      "kind": "q",
      "ref": "gr2-sim-002",
      "blocks": [],
-     "id": "t13-6"
+     "id": "t14-7"
     }
    ],
-   "id": "t13-simulation-and-measurement"
+   "id": "t14-simulation-and-measurement"
   },
   {
    "title": "DC operating point and region checks",
@@ -2396,7 +3698,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t14-1"
+     "id": "t15-1"
     },
     {
      "title": "The bias network equations",
@@ -2430,7 +3732,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t14-2"
+     "id": "t15-2"
     },
     {
      "title": "Solving the quadratic",
@@ -2462,7 +3764,7 @@ window.CourseCram.registerDeck({
        "text": "Compare VDS with **Vov**, not with Vt. If the saturation check fails, the assumed region was wrong."
       }
      ],
-     "id": "t14-3"
+     "id": "t15-3"
     },
     {
      "title": "Find ID and check the region",
@@ -2518,31 +3820,76 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t14-4"
+     "id": "t15-4"
+    },
+    {
+     "title": "When saturation fails: redo in triode",
+     "kind": "example",
+     "blocks": [
+      {
+       "t": "given",
+       "items": [
+        "VDD = 10 V, VG = 5 V (divider already solved)",
+        "RD = 5 kΩ, RS = 0.5 kΩ",
+        "Kn = 2 mA/V², Vt = 1 V"
+       ]
+      },
+      {
+       "t": "steps",
+       "items": [
+        {
+         "h": "1",
+         "text": "Assume saturation and solve",
+         "res": "ID = (4 − 0.5·ID)²  →  ID = 4 mA"
+        },
+        {
+         "h": "2",
+         "text": "Check the voltages",
+         "res": "VD = 10 − 5×4 = -10 V: impossible (below ground), so the assumption is wrong"
+        },
+        {
+         "h": "3",
+         "text": "Triode equations",
+         "res": "VGS = 5 − 0.5·ID,  VDS = 10 − 5.5·ID,  ID = 2[(VGS − 1)·VDS − ½·VDS²]"
+        },
+        {
+         "h": "4",
+         "text": "Solve numerically",
+         "res": "ID = 1.76 mA, VGS = 4.12 V, VDS = 0.297 V"
+        },
+        {
+         "h": "5",
+         "text": "Confirm triode",
+         "res": "VDS = 0.297 V < Vov = 3.12 V: consistent"
+        }
+       ]
+      }
+     ],
+     "id": "t15-5"
     },
     {
      "title": "gr2-dc-005",
      "kind": "q",
      "ref": "gr2-dc-005",
      "blocks": [],
-     "id": "t14-5"
+     "id": "t15-6"
     },
     {
      "title": "gr2-dc-006",
      "kind": "q",
      "ref": "gr2-dc-006",
      "blocks": [],
-     "id": "t14-6"
+     "id": "t15-7"
     },
     {
      "title": "gr2-wk-003",
      "kind": "workout",
      "ref": "gr2-wk-003",
      "blocks": [],
-     "id": "t14-7"
+     "id": "t15-8"
     }
    ],
-   "id": "t14-dc-operating-point-and-region-"
+   "id": "t15-dc-operating-point-and-region-"
   },
   {
    "title": "Drain-feedback bias and PMOS",
@@ -2578,7 +3925,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t15-1"
+     "id": "t16-1"
     },
     {
      "title": "Solve and check",
@@ -2604,7 +3951,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t15-2"
+     "id": "t16-2"
     },
     {
      "title": "Small-signal gain",
@@ -2630,7 +3977,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t15-3"
+     "id": "t16-3"
     },
     {
      "title": "PMOS: the mirror image",
@@ -2655,7 +4002,79 @@ window.CourseCram.registerDeck({
        "text": "PMOS symbol: arrow on the source, source at the top in circuits.  @S2 §1"
       }
      ],
-     "id": "t15-4"
+     "id": "t16-4"
+    },
+    {
+     "title": "Why drain feedback stabilizes ID",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "ul",
+       "items": [
+        "Suppose a transistor has a larger Kn, so ID tries to rise",
+        "More ID drops more voltage across RD, so **VD falls**",
+        "The divider passes the lower VD to the gate: **VG falls**, which cuts ID back",
+        "The result: the bias changes less with Kn and Vt than with a plain gate divider"
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "tip",
+       "text": "Compare: a fixed divider from VDD has no such feedback."
+      }
+     ],
+     "id": "t16-5"
+    },
+    {
+     "title": "A PMOS stage",
+     "kind": "example",
+     "blocks": [
+      {
+       "t": "fig",
+       "src": "assets/study/resources/gr2/pmos_cs.svg",
+       "alt": "PMOS common-source stage"
+      },
+      {
+       "t": "given",
+       "items": [
+        "VDD = 10 V, source tied to VDD",
+        "gate held at VG = 7 V",
+        "|Vt| = 1 V, Kp = 2 mA/V²",
+        "RD = 1 kΩ to ground"
+       ]
+      },
+      {
+       "t": "steps",
+       "items": [
+        {
+         "h": "1",
+         "text": "Source-gate voltage",
+         "res": "VSG = VDD − VG = 3 V"
+        },
+        {
+         "h": "2",
+         "text": "Overdrive",
+         "res": "Vov = VSG − |Vt| = 2 V"
+        },
+        {
+         "h": "3",
+         "text": "Saturation current (same law, with magnitudes)",
+         "res": "ID = ½·2·2² = 4 mA"
+        },
+        {
+         "h": "4",
+         "text": "Drain voltage",
+         "res": "VD = 1 × 4 = 4 V, so VSD = 6 V"
+        },
+        {
+         "h": "5",
+         "text": "Saturation check",
+         "res": "VSD = 6 V ≥ Vov = 2 V: yes"
+        }
+       ]
+      }
+     ],
+     "id": "t16-6"
     },
     {
      "title": "Drain-feedback bias and gain",
@@ -2711,36 +4130,57 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t15-5"
+     "id": "t16-7"
     },
     {
      "title": "gr2-fbk-002",
      "kind": "q",
      "ref": "gr2-fbk-002",
      "blocks": [],
-     "id": "t15-6"
+     "id": "t16-8"
     },
     {
      "title": "gr2-pmos-002",
      "kind": "q",
      "ref": "gr2-pmos-002",
      "blocks": [],
-     "id": "t15-7"
+     "id": "t16-9"
     },
     {
      "title": "gr2-wk-007",
      "kind": "workout",
      "ref": "gr2-wk-007",
      "blocks": [],
-     "id": "t15-8"
+     "id": "t16-10"
     }
    ],
-   "id": "t15-drain-feedback-bias-and-pmos"
+   "id": "t16-drain-feedback-bias-and-pmos"
   },
   {
    "title": "BJT structure and operating modes",
    "lessons": "Lesson 25",
    "slides": [
+    {
+     "title": "Background: n, p and the pn junction",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "ul",
+       "items": [
+        "**n-type** silicon has extra electrons (donor atoms); **p-type** has holes (acceptor atoms)",
+        "A **pn junction** is a diode: **forward bias** (p positive) lets a large current flow once the voltage reaches about 0.7 V; **reverse bias** blocks it",
+        "An **npn** transistor is two junctions back to back: n (emitter) – p (base) – n (collector)",
+        "**Minority carriers** (electrons in the p base) are the ones that cross the base"
+       ]
+      },
+      {
+       "t": "call",
+       "kind": "rule",
+       "text": "Forward bias: roughly a constant 0.65–0.7 V drop. Reverse bias: no current."
+      }
+     ],
+     "id": "t17-1"
+    },
     {
      "title": "The npn transistor",
      "kind": "learn",
@@ -2759,7 +4199,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t16-1"
+     "id": "t17-2"
     },
     {
      "title": "Operating modes",
@@ -2807,7 +4247,7 @@ window.CourseCram.registerDeck({
        "text": "If you assume active and compute VC below VB, the device is actually saturated."
       }
      ],
-     "id": "t16-2"
+     "id": "t17-3"
     },
     {
      "title": "Active-mode physics",
@@ -2831,7 +4271,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t16-3"
+     "id": "t17-4"
     },
     {
      "title": "Why β is large",
@@ -2855,24 +4295,58 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t16-4"
+     "id": "t17-5"
+    },
+    {
+     "title": "Find the operating mode from the voltages",
+     "kind": "example",
+     "blocks": [
+      {
+       "t": "given",
+       "items": [
+        "npn transistor",
+        "three cases (VB, VC, VE)"
+       ]
+      },
+      {
+       "t": "steps",
+       "items": [
+        {
+         "h": "1",
+         "text": "VB = 0, VC = 5 V, VE = 0",
+         "res": "VBE = 0 < 0.7 V: EBJ off. CBJ reverse: cutoff, no current"
+        },
+        {
+         "h": "2",
+         "text": "VB = 0.7 V, VC = 5 V, VE = 0",
+         "res": "VBE = 0.7 V: EBJ forward. VC > VB: CBJ reverse: active"
+        },
+        {
+         "h": "3",
+         "text": "VB = 0.7 V, VC = 0.2 V, VE = 0",
+         "res": "EBJ forward. VC < VB: CBJ forward as well: saturation"
+        }
+       ]
+      }
+     ],
+     "id": "t17-6"
     },
     {
      "title": "gr2-bjt-003",
      "kind": "q",
      "ref": "gr2-bjt-003",
      "blocks": [],
-     "id": "t16-5"
+     "id": "t17-7"
     },
     {
      "title": "gr2-bjt-005",
      "kind": "q",
      "ref": "gr2-bjt-005",
      "blocks": [],
-     "id": "t16-6"
+     "id": "t17-8"
     }
    ],
-   "id": "t16-bjt-structure-and-operating-mo"
+   "id": "t17-bjt-structure-and-operating-mo"
   },
   {
    "title": "BJT currents, bias and small-signal model",
@@ -2910,7 +4384,7 @@ window.CourseCram.registerDeck({
        "text": "iE is the largest current. α is just below 1, β is large. For silicon in active mode VBE ≈ 0.65–0.7 V.  @S3 §9"
       }
      ],
-     "id": "t17-1"
+     "id": "t18-1"
     },
     {
      "title": "Divider-bias analysis",
@@ -2951,7 +4425,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t17-2"
+     "id": "t18-2"
     },
     {
      "title": "Stability and the shortcut",
@@ -2984,7 +4458,7 @@ window.CourseCram.registerDeck({
        "text": "Do not drop the (β+1) on RE: the whole emitter current flows in RE."
       }
      ],
-     "id": "t17-3"
+     "id": "t18-3"
     },
     {
      "title": "Small-signal model",
@@ -3027,7 +4501,33 @@ window.CourseCram.registerDeck({
        "text": "gm uses the DC value IC, not the total iC."
       }
      ],
-     "id": "t17-4"
+     "id": "t18-4"
+    },
+    {
+     "title": "Gain of the BJT stage (from the model)",
+     "kind": "learn",
+     "blocks": [
+      {
+       "t": "ul",
+       "items": [
+        "With the emitter resistor **bypassed** and no load: the controlled source drives RC",
+        "With **RE unbypassed**: the signal also drops across RE, which reduces the gain the same way RS does for a MOSFET",
+        "These follow directly from the hybrid-π model"
+       ]
+      },
+      {
+       "t": "eq",
+       "lines": [
+        {
+         "math": "<math alttext=\"A_{vo}=-g_mR_C\\quad(R_E\\ \\text{bypassed})\"><mrow><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mo>=</mo><mo form=\"prefix\" lspace=\"0\" rspace=\"0.04em\">−</mo><msub><mi>g</mi><mi mathvariant=\"normal\">m</mi></msub><msub><mi>R</mi><mi mathvariant=\"normal\">C</mi></msub><mspace width=\"1em\"/><mo stretchy=\"false\">(</mo><msub><mi>R</mi><mi mathvariant=\"normal\">E</mi></msub><mspace width=\"0.25em\"/><mtext>bypassed</mtext><mo stretchy=\"false\">)</mo></mrow></math>"
+        },
+        {
+         "math": "<math alttext=\"A_{vo}=-\\dfrac{\\beta R_C}{r_\\pi+(\\beta+1)R_E}\\approx-\\dfrac{R_C}{R_E}\\quad(R_E\\ \\text{unbypassed})\"><mrow><msub><mi>A</mi><mrow><mi mathvariant=\"normal\">vo</mi></mrow></msub><mo>=</mo><mo form=\"prefix\" lspace=\"0\" rspace=\"0.04em\">−</mo><mstyle displaystyle=\"true\"><mfrac><mrow><mi>β</mi><msub><mi>R</mi><mi mathvariant=\"normal\">C</mi></msub></mrow><mrow><msub><mi>r</mi><mi>π</mi></msub><mo>+</mo><mo stretchy=\"false\">(</mo><mi>β</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><msub><mi>R</mi><mi mathvariant=\"normal\">E</mi></msub></mrow></mfrac></mstyle><mo>≈</mo><mo form=\"prefix\" lspace=\"0\" rspace=\"0.04em\">−</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">C</mi></msub></mrow><mrow><msub><mi>R</mi><mi mathvariant=\"normal\">E</mi></msub></mrow></mfrac></mstyle><mspace width=\"1em\"/><mo stretchy=\"false\">(</mo><msub><mi>R</mi><mi mathvariant=\"normal\">E</mi></msub><mspace width=\"0.25em\"/><mtext>unbypassed</mtext><mo stretchy=\"false\">)</mo></mrow></math>"
+        }
+       ]
+      }
+     ],
+     "id": "t18-5"
     },
     {
      "title": "Biasing design procedure (equation sheet)",
@@ -3074,7 +4574,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t17-5"
+     "id": "t18-6"
     },
     {
      "title": "Bias a BJT, then find gm and rπ",
@@ -3135,7 +4635,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t17-6"
+     "id": "t18-7"
     },
     {
      "title": "Design the bias from a collector current",
@@ -3186,31 +4686,70 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t17-7"
+     "id": "t18-8"
+    },
+    {
+     "title": "BJT stage gain from the bias point",
+     "kind": "example",
+     "blocks": [
+      {
+       "t": "given",
+       "items": [
+        "the biased stage above: IC = 1.56 mA, β = 100",
+        "RC = 3 kΩ, RE = 1 kΩ"
+       ]
+      },
+      {
+       "t": "steps",
+       "items": [
+        {
+         "h": "1",
+         "text": "Small-signal parameters",
+         "res": "gm = 62.4 mS;  rπ = 1.6 kΩ"
+        },
+        {
+         "h": "2",
+         "text": "RE bypassed",
+         "res": "Avo = −gm·RC = −62.4 × 3 = -187"
+        },
+        {
+         "h": "3",
+         "text": "RE unbypassed",
+         "res": "Avo = −100×3 / (1.6 + 101×1) = -2.92"
+        },
+        {
+         "h": "4",
+         "text": "Compare with −RC/RE",
+         "res": "−3/1 = −3: close to -2.92"
+        }
+       ]
+      }
+     ],
+     "id": "t18-9"
     },
     {
      "title": "gr2-bjt2-007",
      "kind": "q",
      "ref": "gr2-bjt2-007",
      "blocks": [],
-     "id": "t17-8"
+     "id": "t18-10"
     },
     {
      "title": "gr2-bjt2-010",
      "kind": "q",
      "ref": "gr2-bjt2-010",
      "blocks": [],
-     "id": "t17-9"
+     "id": "t18-11"
     },
     {
      "title": "gr2-wk-005",
      "kind": "workout",
      "ref": "gr2-wk-005",
      "blocks": [],
-     "id": "t17-10"
+     "id": "t18-12"
     }
    ],
-   "id": "t17-bjt-currents-bias-and-small-si"
+   "id": "t18-bjt-currents-bias-and-small-si"
   },
   {
    "title": "BJT versus MOSFET",
@@ -3249,7 +4788,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t18-1"
+     "id": "t19-1"
     },
     {
      "title": "Models side by side",
@@ -3296,7 +4835,7 @@ window.CourseCram.registerDeck({
        "text": "Both ro formulas come from the same idea: the output voltage nudges the effective width. BJT: Early effect in the base. MOSFET: channel-length modulation.  @S3 §9"
       }
      ],
-     "id": "t18-2"
+     "id": "t19-2"
     },
     {
      "title": "Key differences",
@@ -3333,24 +4872,63 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t18-3"
+     "id": "t19-3"
+    },
+    {
+     "title": "Same current, different gm",
+     "kind": "example",
+     "blocks": [
+      {
+       "t": "given",
+       "items": [
+        "both devices carry 1 mA",
+        "MOSFET overdrive Vov = 0.25 V"
+       ]
+      },
+      {
+       "t": "steps",
+       "items": [
+        {
+         "h": "1",
+         "text": "BJT",
+         "res": "gm = IC/VT = 1/0.025 = 40 mS"
+        },
+        {
+         "h": "2",
+         "text": "MOSFET",
+         "res": "gm = 2·ID/Vov = 2×1/0.25 = 8 mS"
+        },
+        {
+         "h": "3",
+         "text": "Compare",
+         "res": "The BJT gives 5× more gm for the same current, so it gives more gain per mA"
+        },
+        {
+         "h": "4",
+         "text": "But the input",
+         "res": "the BJT draws base current (rπ = β/gm); the MOSFET gate draws none"
+        }
+       ]
+      }
+     ],
+     "id": "t19-4"
     },
     {
      "title": "gr2-cmp2-001",
      "kind": "q",
      "ref": "gr2-cmp2-001",
      "blocks": [],
-     "id": "t18-4"
+     "id": "t19-5"
     },
     {
      "title": "gr2-cmp2-003",
      "kind": "q",
      "ref": "gr2-cmp2-003",
      "blocks": [],
-     "id": "t18-5"
+     "id": "t19-6"
     }
    ],
-   "id": "t18-bjt-versus-mosfet"
+   "id": "t19-bjt-versus-mosfet"
   }
  ]
 });

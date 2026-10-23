@@ -25,7 +25,7 @@
   /* ---------- inline text: **bold** ---------- */
   /* course symbols in running text: R_L, V_DD, g_m ... (italic base, upright subscript) */
   const SYMS = ('Avo Avo1 Avo2 Av Av1 Av2 Av3 Gv Ri Ro Ri1 Ri2 Ro1 Ro2 RL RS RD RC RE RG1 RG2 RB1 RB2 RS1 RS2 Rin Rth Rtest Rpot gm gm1 gm2 ro rπ Kn Vt VDD VCC VGS VDS VGD VOV Vov VG VS VD VT VA VBE VCE VRC VRE VRS VRD Vth ' +
-    'ID IC IB IE iD iC iB iE ig IG IL IRB1 IRB2 vgs vds vin vo vi vs vd vg vbe Vpk Vpp Vrms Pdiss PD VGS,B VDS,B Vov,B ID,min ID,max IL,pk IRS,max vgs,pk vg,pk vd,pk ids,pk vds,pk VD,max VD,min Vo,pk Vload,pp Vin,pp Vout,pp VRS,min').split(' ');
+    'ID IC IB IE iD iC iB iE ig IG IL IRB1 IRB2 vgs vds vin vo vi vs vd vg vbe Vpk Vpp Vrms Pdiss PD VSG VSD Kp VGS,B VDS,B Vov,B ID,min ID,max IL,pk IRS,max vgs,pk vg,pk vd,pk ids,pk vds,pk VD,max VD,min Vo,pk Vload,pp Vin,pp Vout,pp VRS,min').split(' ');
   const SYMRE = new RegExp('(?<![A-Za-z0-9_])(' + SYMS.slice().sort((a, b) => b.length - a.length).join('|') + ')(?![A-Za-z0-9])', 'g');   // symbols hold only letters, digits and commas
   function symbolize(text) {
     const f = document.createDocumentFragment(); let last = 0, m; SYMRE.lastIndex = 0;
