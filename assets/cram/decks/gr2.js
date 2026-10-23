@@ -7,8 +7,8 @@ window.CourseCram.registerDeck({
  "studyHref": "index.html#study/gr2",
  "topics": [
   {
-   "title": "Foundations: circuits and MOSFET basics",
-   "lessons": "Prerequisites (Lessons 1-14)",
+   "title": "MOSFET and signal basics",
+   "lessons": "Review of Lessons 8-14",
    "slides": [
     {
      "title": "The big picture",
@@ -17,6 +17,7 @@ window.CourseCram.registerDeck({
       {
        "t": "ul",
        "items": [
+        "Prior circuit analysis (KVL, KCL, dividers, Thevenin) is assumed; this topic reviews only what the course added: the MOSFET and how amplifiers use it",
         "A transistor amplifier takes a **small signal** and produces a **larger copy** of it",
         "The transistor only works as an amplifier if it is first set up with **DC voltages and currents** (the **bias**, or Q-point)",
         "So every problem is solved **twice**: a **DC analysis** (find the bias) and a **signal analysis** (find the gain)",
@@ -30,180 +31,6 @@ window.CourseCram.registerDeck({
       }
      ],
      "id": "t1-1"
-    },
-    {
-     "title": "Ohm, KCL, KVL and power",
-     "kind": "learn",
-     "blocks": [
-      {
-       "t": "eq",
-       "lines": [
-        {
-         "math": "<math alttext=\"V=IR\"><mrow><mi>V</mi><mo>=</mo><mi>I</mi><mi>R</mi></mrow></math>",
-         "label": "Ohm\\'s law"
-        },
-        {
-         "math": "<math alttext=\"\\sum I_{in}=\\sum I_{out}\\quad(\\text{at a node})\"><mrow><mo>∑</mo><msub><mi>I</mi><mrow><mi mathvariant=\"normal\">in</mi></mrow></msub><mo>=</mo><mo>∑</mo><msub><mi>I</mi><mrow><mi mathvariant=\"normal\">out</mi></mrow></msub><mspace width=\"1em\"/><mo stretchy=\"false\">(</mo><mtext>at a node</mtext><mo stretchy=\"false\">)</mo></mrow></math>",
-         "label": "KCL"
-        },
-        {
-         "math": "<math alttext=\"\\sum V=0\\quad(\\text{around a loop})\"><mrow><mo>∑</mo><mi>V</mi><mo>=</mo><mn>0</mn><mspace width=\"1em\"/><mo stretchy=\"false\">(</mo><mtext>around a loop</mtext><mo stretchy=\"false\">)</mo></mrow></math>",
-         "label": "KVL"
-        },
-        {
-         "math": "<math alttext=\"P=VI=I^2R=\\dfrac{V^2}{R}\"><mrow><mi>P</mi><mo>=</mo><mi>V</mi><mi>I</mi><mo>=</mo><msup><mi>I</mi><mn>2</mn></msup><mi>R</mi><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msup><mi>V</mi><mn>2</mn></msup></mrow><mrow><mi>R</mi></mrow></mfrac></mstyle></mrow></math>",
-         "label": "Power"
-        }
-       ]
-      },
-      {
-       "t": "ul",
-       "items": [
-        "Units: **V = mA × kΩ** and **mW = V × mA**, so work in mA and kΩ and you never convert",
-        "A node is one point at one voltage; a loop is any closed path",
-        "Voltages are **differences**: V_AB means the potential of A relative to B"
-       ]
-      }
-     ],
-     "id": "t1-2"
-    },
-    {
-     "title": "Resistors in series and parallel",
-     "kind": "learn",
-     "blocks": [
-      {
-       "t": "eq",
-       "lines": [
-        {
-         "math": "<math alttext=\"R_{eq}=R_1+R_2\"><mrow><msub><mi>R</mi><mrow><mi mathvariant=\"normal\">eq</mi></mrow></msub><mo>=</mo><msub><mi>R</mi><mn>1</mn></msub><mo>+</mo><msub><mi>R</mi><mn>2</mn></msub></mrow></math>",
-         "label": "Series"
-        },
-        {
-         "math": "<math alttext=\"R_1\\parallel R_2=\\dfrac{R_1R_2}{R_1+R_2}\"><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>∥</mo><msub><mi>R</mi><mn>2</mn></msub><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mn>1</mn></msub><msub><mi>R</mi><mn>2</mn></msub></mrow><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>+</mo><msub><mi>R</mi><mn>2</mn></msub></mrow></mfrac></mstyle></mrow></math>",
-         "label": "Parallel"
-        }
-       ]
-      },
-      {
-       "t": "ul",
-       "items": [
-        "The symbol **∥** means \"in parallel with\"",
-        "A parallel combination is **always smaller than the smallest** resistor",
-        "If one resistor is much larger than the other, the parallel value is about the smaller one: 1 kΩ ∥ 100 kΩ ≈ 1 kΩ",
-        "Two equal resistors in parallel give half: R ∥ R = R/2"
-       ]
-      },
-      {
-       "t": "call",
-       "kind": "tip",
-       "text": "Example: 6 kΩ ∥ 3 kΩ = (6 × 3)/(6 + 3) = 2 kΩ, smaller than both."
-      }
-     ],
-     "id": "t1-3"
-    },
-    {
-     "title": "The voltage divider",
-     "kind": "learn",
-     "blocks": [
-      {
-       "t": "fig",
-       "src": "assets/study/resources/gr2/divider.svg",
-       "alt": "Resistive voltage divider"
-      },
-      {
-       "t": "eq",
-       "lines": [
-        {
-         "math": "<math alttext=\"V_{out}=V_{in}\\,\\dfrac{R_2}{R_1+R_2}\"><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">out</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">in</mi></mrow></msub><mspace width=\"0.17em\"/><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>R</mi><mn>2</mn></msub></mrow><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>+</mo><msub><mi>R</mi><mn>2</mn></msub></mrow></mfrac></mstyle></mrow></math>"
-        }
-       ]
-      },
-      {
-       "t": "ul",
-       "items": [
-        "The same current flows in both resistors, so the voltage splits **in proportion to resistance**",
-        "It is only valid if nothing else draws current from the output node",
-        "You will use it constantly: the **gate bias divider**, the **input divider** Ri/(RS + Ri), and the **output divider** RL/(Ro + RL)"
-       ]
-      },
-      {
-       "t": "call",
-       "kind": "why",
-       "text": "A MOSFET gate draws no DC current, so the gate divider is not loaded and the formula holds exactly."
-      }
-     ],
-     "id": "t1-4"
-    },
-    {
-     "title": "A divider with and without a load",
-     "kind": "example",
-     "blocks": [
-      {
-       "t": "fig",
-       "src": "assets/study/resources/gr2/divider.svg",
-       "alt": "Resistive voltage divider"
-      },
-      {
-       "t": "given",
-       "items": [
-        "Vin = 12 V",
-        "R1 = 10 kΩ, R2 = 20 kΩ",
-        "load RL = 20 kΩ on the output"
-       ]
-      },
-      {
-       "t": "steps",
-       "items": [
-        {
-         "h": "1",
-         "text": "Unloaded divider",
-         "res": "Vout = 12 × 20/(10 + 20) = 8 V"
-        },
-        {
-         "h": "2",
-         "text": "The load is in parallel with R2",
-         "res": "R2 ∥ RL = 20 ∥ 20 = 10 kΩ"
-        },
-        {
-         "h": "3",
-         "text": "Loaded divider",
-         "res": "Vout = 12 × 10/(10 + 10) = 6 V"
-        },
-        {
-         "h": "4",
-         "text": "The load cost signal",
-         "res": "8 V fell to 6 V: this is exactly what \"loading\" means"
-        }
-       ]
-      }
-     ],
-     "id": "t1-5"
-    },
-    {
-     "title": "Thevenin equivalent",
-     "kind": "learn",
-     "blocks": [
-      {
-       "t": "fig",
-       "src": "assets/study/resources/gr2/thevenin.svg",
-       "alt": "Thevenin equivalent of a divider"
-      },
-      {
-       "t": "ul",
-       "items": [
-        "Any linear network seen from two terminals can be replaced by **one voltage source Vth in series with one resistance Rth**",
-        "**Vth** = the open-circuit voltage at the terminals",
-        "**Rth** = the resistance seen into the terminals with the independent sources **killed** (voltage sources shorted, current sources opened)",
-        "For a divider fed from VCC: Vth = VCC·R2/(R1 + R2) and Rth = R1 ∥ R2"
-       ]
-      },
-      {
-       "t": "call",
-       "kind": "tip",
-       "text": "You will use it for the BJT base divider, because the base does draw current."
-      }
-     ],
-     "id": "t1-6"
     },
     {
      "title": "DC, signal and notation",
@@ -250,7 +77,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t1-7"
+     "id": "t1-2"
     },
     {
      "title": "Capacitors in amplifier circuits",
@@ -271,7 +98,7 @@ window.CourseCram.registerDeck({
        "text": "DC analysis: capacitors become **opens**.  Signal analysis: large capacitors become **shorts**."
       }
      ],
-     "id": "t1-8"
+     "id": "t1-3"
     },
     {
      "title": "Controlled sources and killing sources",
@@ -293,7 +120,7 @@ window.CourseCram.registerDeck({
        "text": "Never kill a dependent source: its value is set by the circuit."
       }
      ],
-     "id": "t1-9"
+     "id": "t1-4"
     },
     {
      "title": "The MOSFET",
@@ -314,7 +141,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t1-10"
+     "id": "t1-5"
     },
     {
      "title": "Overdrive and the device constant",
@@ -349,7 +176,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t1-11"
+     "id": "t1-6"
     },
     {
      "title": "The three regions",
@@ -391,7 +218,7 @@ window.CourseCram.registerDeck({
        "text": "Amplifiers use **saturation**: the current is set by the gate voltage and is flat against VDS.  @S2 §2"
       }
      ],
-     "id": "t1-12"
+     "id": "t1-7"
     },
     {
      "title": "Saturation current and channel-length modulation",
@@ -426,7 +253,7 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t1-13"
+     "id": "t1-8"
     },
     {
      "title": "Subscripts and the saturation test",
@@ -456,7 +283,7 @@ window.CourseCram.registerDeck({
        "text": "The saturation test compares VDS with **Vov**, not with Vt."
       }
      ],
-     "id": "t1-14"
+     "id": "t1-9"
     },
     {
      "title": "Which region? Find ID",
@@ -491,10 +318,10 @@ window.CourseCram.registerDeck({
        ]
       }
      ],
-     "id": "t1-15"
+     "id": "t1-10"
     }
    ],
-   "id": "t1-foundations-circuits-and-mosfe"
+   "id": "t1-mosfet-and-signal-basics"
   },
   {
    "title": "Amplifier models and cascades",
