@@ -384,7 +384,7 @@ window.CourseCram.registerDeck({
         "The inside of a real amplifier is a complicated circuit; we only care what it does at its **terminals**",
         "A **behavioral model** replaces it with a few components that behave the same at the terminals",
         "Once you have the model you can find the effect of any source and load **without** solving the transistor circuit again",
-        "The same model is used to **measure** an unknown amplifier in the lab and to **plan** a cascade"
+        "The same model is used to **measure** an unknown amplifier and to **plan** a cascade"
        ]
       },
       {
@@ -717,7 +717,7 @@ window.CourseCram.registerDeck({
        "t": "ul",
        "items": [
         "Treat the amplifier as a **black box**: you only apply a signal and read voltages",
-        "Use the function generator and scope with **peak-to-peak** readings",
+        "Use **peak-to-peak** readings",
         "Keep the DC supplies **on** for every measurement",
         "Do each measurement with the correct load: Avo needs **no load**, Av needs the **specified RL**"
        ]
@@ -749,7 +749,7 @@ window.CourseCram.registerDeck({
        "items": [
         "With a series resistor R, the input is a **divider**: vi = vs·Ri/(R + Ri)",
         "It equals **vs/2** only when **R = Ri**",
-        "So when the scope shows half the generator voltage, the variable resistor **equals** Ri: you read Ri off the resistor",
+        "So when the measured input is half the source voltage, the variable resistor **equals** Ri: you read Ri off the resistor",
         "The same argument on the output side gives Ro: the test source drives Ro through R, and v_o = Vtest/2 when R = Ro"
        ]
       },
@@ -818,53 +818,6 @@ window.CourseCram.registerDeck({
      "id": "t3-4"
     },
     {
-     "title": "A lab checklist",
-     "kind": "learn",
-     "blocks": [
-      {
-       "t": "steps",
-       "items": [
-        {
-         "h": "1",
-         "text": "Set the DC supplies and confirm the bias",
-         "res": "the amplifier must be in its normal operating state"
-        },
-        {
-         "h": "2",
-         "text": "Choose a small input",
-         "res": "the output must not clip; check the waveform"
-        },
-        {
-         "h": "3",
-         "text": "Measure Avo with the load removed",
-         "res": "then Av with the specified RL"
-        },
-        {
-         "h": "4",
-         "text": "Measure Ri with the series pot or Rtest",
-         "res": "read V1,pp and V2,pp"
-        },
-        {
-         "h": "5",
-         "text": "Measure Ro: input to ground, drive the output",
-         "res": "DC supplies stay on"
-        },
-        {
-         "h": "6",
-         "text": "Predict, then compare",
-         "res": "Gv = Ri/(RS + Ri) · Avo · RL/(Ro + RL)"
-        }
-       ]
-      },
-      {
-       "t": "call",
-       "kind": "watch",
-       "text": "A reading taken while the output is clipping is meaningless: reduce the input first."
-      }
-     ],
-     "id": "t3-5"
-    },
-    {
      "title": "Find Ri and Ro from readings",
      "kind": "example",
      "blocks": [
@@ -906,28 +859,28 @@ window.CourseCram.registerDeck({
        "text": "Measuring Avo with the load attached gives the loaded gain, not Avo. Leaving the input signal on while measuring Ro adds the Avo·vi term."
       }
      ],
-     "id": "t3-6"
+     "id": "t3-5"
     },
     {
      "title": "gr2-measure-001",
      "kind": "q",
      "ref": "gr2-measure-001",
      "blocks": [],
-     "id": "t3-7"
+     "id": "t3-6"
     },
     {
      "title": "gr2-measure-005",
      "kind": "q",
      "ref": "gr2-measure-005",
      "blocks": [],
-     "id": "t3-8"
+     "id": "t3-7"
     },
     {
      "title": "gr2-wk-009",
      "kind": "workout",
      "ref": "gr2-wk-009",
      "blocks": [],
-     "id": "t3-9"
+     "id": "t3-8"
     }
    ],
    "id": "t3-measuring-ri-ro-and-avo"
@@ -1636,8 +1589,7 @@ window.CourseCram.registerDeck({
        "t": "ul",
        "items": [
         "ID follows **Kn** and **Vt** directly: nothing resists a change",
-        "Swap the transistor (different Vt, Kn) and Q moves a lot; the output can even clip or enter triode",
-        "In simulation, sweeping Vt and Kn shows the drain voltage wandering"
+        "Swap the transistor (different Vt, Kn) and Q moves a lot; the output can even clip or enter triode"
        ]
       },
       {
@@ -2681,8 +2633,7 @@ window.CourseCram.registerDeck({
        "items": [
         "**Negative peak:** ID = (VS − Vo,pk)/RS − IL,pk must stay above 0.  Clips here? ID,min was too small: use a smaller RS",
         "**Positive peak:** VDS = VDD − VS − Vo,pk must still exceed Vov at that current.  Clips here? Lower VS or raise VDD",
-        "Bigger swing or smaller RL: IL,pk grows, RS shrinks, ID rises. Recheck power",
-        "Simulate: confirm the swing, the gain and THD"
+        "Bigger swing or smaller RL: IL,pk grows, RS shrinks, ID rises. Recheck power"
        ]
       },
       {
@@ -2901,7 +2852,7 @@ window.CourseCram.registerDeck({
         {
          "h": "5",
          "text": "Check each ID and the power",
-         "res": "then design and simulate each stage"
+         "res": "then design each stage"
         }
        ]
       },
@@ -3314,72 +3265,11 @@ window.CourseCram.registerDeck({
    "id": "t13-comparing-amplifier-configurat"
   },
   {
-   "title": "Simulation and measurement",
-   "lessons": "Lessons 17, 18, 19",
+   "title": "Power dissipation",
+   "lessons": "Lessons 19, 21",
    "slides": [
     {
-     "title": "Operating point",
-     "kind": "learn",
-     "blocks": [
-      {
-       "t": "ul",
-       "items": [
-        "Run a **DC operating point**; compare node voltages and ID with the hand values",
-        "A few percent off is normal: the hand method ignores λ and uses ideal parameters",
-        "Sweep **Vt and Kn** over their stated values and tabulate ID, VD, VS and the gain",
-        "The bias with a source resistor should barely move; the no-RS bias should move a lot"
-       ]
-      }
-     ],
-     "id": "t14-1"
-    },
-    {
-     "title": "Gain from a transient run",
-     "kind": "learn",
-     "blocks": [
-      {
-       "t": "eq",
-       "lines": [
-        {
-         "math": "<math alttext=\"|A_v|=\\dfrac{V_{out,pp}}{V_{in,pp}}\"><mrow><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><msub><mi>A</mi><mi mathvariant=\"normal\">v</mi></msub><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">|</mo><mo>=</mo><mstyle displaystyle=\"true\"><mfrac><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">out</mi><mo>,</mo><mi mathvariant=\"normal\">pp</mi></mrow></msub></mrow><mrow><msub><mi>V</mi><mrow><mi mathvariant=\"normal\">in</mi><mo>,</mo><mi mathvariant=\"normal\">pp</mi></mrow></msub></mrow></mfrac></mstyle></mrow></math>",
-         "note": "Multisim sources are labeled in Vpk, so Vin,pp = 2 × Vpk"
-        }
-       ]
-      },
-      {
-       "t": "ul",
-       "items": [
-        "Put the cursors on a **crest** and the next **trough**; dy is Vout,pp",
-        "Ignore dy/dx: that is a slope in V/s",
-        "Raise the input until the output reaches the required swing and confirm it does not clip"
-       ]
-      },
-      {
-       "t": "call",
-       "kind": "watch",
-       "text": "Dividing by the peak instead of the peak-to-peak input, or reading cursors that are not on a peak and a trough, gives the wrong gain."
-      }
-     ],
-     "id": "t14-2"
-    },
-    {
-     "title": "Distortion",
-     "kind": "learn",
-     "blocks": [
-      {
-       "t": "ul",
-       "items": [
-        "Connect the **distortion analyzer to the output**, not the input",
-        "Set the fundamental to the source frequency; the resolution must divide it",
-        "Read **THD** in percent: larger THD means more distortion",
-        "More unbypassed RS (a smaller vgs) lowers THD"
-       ]
-      }
-     ],
-     "id": "t14-3"
-    },
-    {
-     "title": "Power dissipation",
+     "title": "DC and AC power",
      "kind": "learn",
      "blocks": [
       {
@@ -3406,29 +3296,37 @@ window.CourseCram.registerDeck({
          "sheet": "S3 §8"
         },
         {
-         "math": "<math alttext=\"P_{diss}=\\tfrac{1}{2}v_{ds,pk}\\,i_{ds,pk}\"><mrow><msub><mi>P</mi><mrow><mi mathvariant=\"normal\">diss</mi></mrow></msub><mo>=</mo><mstyle displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">ds</mi><mo>,</mo><mi mathvariant=\"normal\">pk</mi></mrow></msub><mspace width=\"0.17em\"/><msub><mi>i</mi><mrow><mi mathvariant=\"normal\">ds</mi><mo>,</mo><mi mathvariant=\"normal\">pk</mi></mrow></msub></mrow></math>",
+         "math": "<math alttext=\"P_{diss}=\tfrac{1}{2}v_{ds,pk}\\,i_{ds,pk}\"><mrow><msub><mi>P</mi><mrow><mi mathvariant=\"normal\">diss</mi></mrow></msub><mo>=</mo><mi>f</mi><mi>r</mi><mi>a</mi><mi>c</mi><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow><msub><mi>v</mi><mrow><mi mathvariant=\"normal\">ds</mi><mo>,</mo><mi mathvariant=\"normal\">pk</mi></mrow></msub><mspace width=\"0.17em\"/><msub><mi>i</mi><mrow><mi mathvariant=\"normal\">ds</mi><mo>,</mo><mi mathvariant=\"normal\">pk</mi></mrow></msub></mrow></math>",
          "label": "AC, MOSFET",
          "sheet": "S3 §8"
         }
        ]
       },
       {
+       "t": "ul",
+       "items": [
+        "DC power uses the **bias** values; AC power uses the **signal** amplitudes",
+        "The supplies provide the power: the amplifier turns DC power into signal power plus heat",
+        "Check that every device and resistor in a design stays within its power rating"
+       ]
+      },
+      {
        "t": "call",
        "kind": "tip",
-       "text": "Check that each device and resistor in a design is within its power rating."
+       "text": "A larger output swing or a smaller load raises the bias current, so recheck power after a design change."
       }
      ],
-     "id": "t14-4"
+     "id": "t14-1"
     },
     {
-     "title": "Reading the gain from the cursors",
+     "title": "Power in the source follower",
      "kind": "example",
      "blocks": [
       {
        "t": "given",
        "items": [
-        "Multisim source labeled 0.05 Vpk",
-        "cursor readout: dy = 1.02 V (crest to trough of vo)"
+        "the follower designed earlier",
+        "ID = 34.1 mA, RS = 220 Ω, VS = 7.5 V, VDD = 15 V"
        ]
       },
       {
@@ -3436,40 +3334,26 @@ window.CourseCram.registerDeck({
        "items": [
         {
          "h": "1",
-         "text": "Input peak-to-peak",
-         "res": "Vin,pp = 2 × 0.05 = 0.1 V"
+         "text": "MOSFET: VDS = VDD − VS",
+         "res": "PD = 7.5 V × 34.1 mA = 256 mW"
         },
         {
          "h": "2",
-         "text": "Gain magnitude",
-         "res": "|Av| = 1.02 / 0.1 = 10.2"
+         "text": "Resistor RS",
+         "res": "P = I²R = (34.1 mA)² × 220 Ω = 256 mW"
         },
         {
          "h": "3",
-         "text": "Wrong way (peak input)",
-         "res": "1.02 / 0.05 = 20.4: twice too large"
+         "text": "Compare with ratings",
+         "res": "a quarter-watt resistor would be too small for RS here"
         }
        ]
       }
      ],
-     "id": "t14-5"
-    },
-    {
-     "title": "gr2-sim-001",
-     "kind": "q",
-     "ref": "gr2-sim-001",
-     "blocks": [],
-     "id": "t14-6"
-    },
-    {
-     "title": "gr2-sim-002",
-     "kind": "q",
-     "ref": "gr2-sim-002",
-     "blocks": [],
-     "id": "t14-7"
+     "id": "t14-2"
     }
    ],
-   "id": "t14-simulation-and-measurement"
+   "id": "t14-power-dissipation"
   },
   {
    "title": "DC operating point and region checks",
