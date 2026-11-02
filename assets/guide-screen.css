@@ -106,3 +106,6 @@ html:not([data-mode="print"]) .fill:has(mfrac, msqrt, mroot) { overflow-x:auto; 
 @media screen and (max-width:560px) { html:not([data-mode="print"]) body { font-size:16.5px; } html:not([data-mode="print"]) h2 { font-size:24px; } html:not([data-mode="print"]) math { font-size:1.06em; } }
 
 .model-credit{margin:.65rem 0 0;padding-top:.5rem;border-top:1px solid var(--line);font:10px/1.5 system-ui,sans-serif;color:var(--muted)}.model-credit span{margin-right:.45rem;color:var(--accent);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+
+/* Long inline equations scroll inside their paragraph instead of widening the page. */
+html:not([data-mode="print"]) main p, html:not([data-mode="print"]) main li { overflow-x:auto; overflow-y:hidden; }
