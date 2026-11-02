@@ -217,51 +217,51 @@
       "lesson": 27
     },
     {
-      "topic": "Digital Logic Circuits: TTL, NMOS, CMOS; Symbols; Power Dissipation, Propagation Delay, Chip Area; The Logic Inverter; PullUp and PullDown Networks; Synthesis",
+      "topic": "Digital Logic Circuits: TTL, NMOS, CMOS; Symbols; Power Dissipation, Propagation Delay, Chip Area; The Logic Inverter",
       "exercise": "PE9",
       "reading": "16.1-16.2",
-      "assigned": "Ethics2; 16.5, 16.7",
+      "assigned": "",
       "due": "SP6",
       "lesson": 28
     },
     {
-      "topic": "CMOS Logic Inverter: Voltage Transfer Curve; Propagation/Transition Time Definitions",
+      "topic": "Analyzing and Synthesizing Pull-Up and Pull-Down Networks",
       "exercise": "PE10",
+      "reading": "16.1-16.2",
+      "assigned": "16.5, 16.7",
+      "due": "SP7",
+      "lesson": 29
+    },
+    {
+      "topic": "CMOS Logic Inverter: Voltage Transfer Curve; Asymmetry; Noise Margins",
+      "exercise": "PE10 (cont)",
       "reading": "16.2-16.3; 17.1",
       "assigned": "16.18, 16.28",
-      "due": "Lab3; SP7",
-      "lesson": 29
+      "due": "Lab3; SP8",
+      "lesson": 30
     },
     {
       "topic": "Propagation Time Derivation: Method 1 Average Current, Method 2 Equivalent Resistance",
       "exercise": "PE11",
       "reading": "17.1",
-      "assigned": "Quiz 6; 17.14, 17.15, 17.26",
-      "due": "SP8; HW10: L25, L28, L29",
-      "lesson": 30
-    },
-    {
-      "topic": "Sizing Transistors to Optimize Delay; Power Dissipation; Driving Large Capacitance",
-      "exercise": "PE12",
-      "reading": "17.2-17.3",
-      "assigned": "16.13, 17.22",
-      "due": "Ethics2; SP9",
+      "assigned": "17.14, 17.15, 17.26",
+      "due": "Ethics2; SP9; HW10: L25, L28, L29",
       "lesson": 31
     },
     {
-      "topic": "Pass Transistors, Transmission Gates, Latches, Flip Flops",
+      "topic": "Sizing Transistors in CMOS gates to Optimize Delay; Power Dissipation",
       "exercise": "",
-      "reading": "18.1-18.2",
-      "assigned": "Quiz 7; 18.1, 18.17",
-      "due": "HW11: L30, L31",
+      "reading": "17.2-17.3",
+      "assigned": "Quiz 6; 16.13, 17.22",
+      "due": "",
       "lesson": 32
     },
     {
-      "topic": "Lab 4 Introduction",
+      "topic": "Pass Transistors, Transmission Gates, Latches, Flip Flops; Lab 4 Introduction",
       "exercise": "PreLab4 time",
-      "reading": "",
-      "assigned": "",
-      "due": "SP10; HW12: L32",
+      "reading": "18.1-18.2",
+      "assigned": "Quiz 7; 18.1, 18.17",
+      "due": "HW11: L30, L31",
       "lesson": 33
     },
     {
@@ -269,7 +269,7 @@
       "exercise": "",
       "reading": "",
       "assigned": "",
-      "due": "Prelab4a; SP11",
+      "due": "SP10; Prelab4a; HW12: L32",
       "lesson": 34
     },
     {
@@ -277,7 +277,7 @@
       "exercise": "",
       "reading": "",
       "assigned": "",
-      "due": "Prelab 4b",
+      "due": "SP11; Prelab 4b",
       "lesson": 35
     },
     {
@@ -293,7 +293,7 @@
       "exercise": "PE13",
       "reading": "18.2",
       "assigned": "18.27",
-      "due": "Ethics3; SP12",
+      "due": "Ethics2; SP12",
       "lesson": 37
     },
     {
