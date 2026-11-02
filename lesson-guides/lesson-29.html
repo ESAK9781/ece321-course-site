@@ -1,0 +1,1634 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lesson 29: Analyzing and Synthesizing Pull-Up and Pull-Down Networks · ECE 321</title><script>try{if(localStorage.getItem("notes-mode")==="print")document.documentElement.setAttribute("data-mode","print")}catch(e){}</script><link rel="icon" href="../assets/favicon.svg"><link rel="stylesheet" href="../assets/guide-fonts.css"><link rel="stylesheet" href="../assets/lesson-base.css"><link rel="stylesheet" href="../assets/guide-screen.css"><link rel="stylesheet" href="../assets/ai.css"><link rel="stylesheet" href="../assets/navbar.css"><script src="../assets/search-index.js" defer></script><script src="../assets/nav.js" defer></script></head><body><header class="sn" data-prefix="../"><a class="sn-brand" href="../index.html#home"><span class="sn-logo"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 16C8 5 12 5 16 16S24 27 28 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span><span>ECE <strong>321</strong></span></a><button class="sn-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="sn-collapse"><span></span><span></span><span></span></button><div class="sn-collapse" id="sn-collapse"><div class="sn-menu" role="navigation" aria-label="Course navigation"><a class="sn-link" href="../index.html#syllabus">Syllabus</a><div class="sn-dd"><button class="sn-btn sn-active" type="button" aria-haspopup="true" aria-expanded="false">Guides<svg class="sn-caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><div class="sn-panel"><a class="sn-item" href="../index.html#lessons"><span class="sn-label">Lesson guides</span><span class="sn-desc">Filled notetakers, one per lesson</span></a><a class="sn-item" href="../index.html#homework"><span class="sn-label">Reading guides</span><span class="sn-desc">Homework readings and worked problems</span></a></div></div><a class="sn-link" href="../index.html#study">Study sessions</a><div class="sn-dd"><button class="sn-btn" type="button" aria-haspopup="true" aria-expanded="false">Reference<svg class="sn-caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><div class="sn-panel sn-wide"><a class="sn-item" href="../course-docs/index.html"><span class="sn-label">All course documents</span></a><div class="sn-sub">Documents</div><a class="sn-item" href="../course-docs/ai-setup.html"><span class="sn-label">AI Setup (Optional) · ECE 321 Electronics I</span></a><a class="sn-item" href="../course-docs/ethics-1.html"><span class="sn-label">Ethics Case Study #1: &quot;To Ship or Not to Ship&quot; · ECE 321 Electronics I</span></a><a class="sn-item" href="../course-docs/hints.html"><span class="sn-label">Homework Hint Guide (H1–H13) · ECE 321 Electronics I</span></a><a class="sn-item" href="../course-docs/labs.html"><span class="sn-label">Laboratory Handouts &amp; Guides · ECE 321 Electronics I</span></a><a class="sn-item" href="../course-docs/multisim.html"><span class="sn-label">Multisim Installation &amp; Setup Guide · ECE 321 Electronics I</span></a><a class="sn-item" href="../course-docs/objectives.html"><span class="sn-label">Lesson Objectives · ECE 321 Electronics I</span></a><a class="sn-item" href="../course-docs/policy.html"><span class="sn-label">Course Policy · ECE 321 Electronics I</span></a><a class="sn-item" href="../course-docs/practical-exercises.html"><span class="sn-label">Practical Exercises (PE1–PE8) · ECE 321 Electronics I</span></a><a class="sn-item" href="../course-docs/presentations.html"><span class="sn-label">5-Minute Special Topic Presentations · ECE 321 Electronics I</span></a><a class="sn-item" href="../course-docs/syllabus.html"><span class="sn-label">Course Syllabus (Version 5) · ECE 321 Electronics I</span></a><a class="sn-item" href="../equation-sheets/index.html"><span class="sn-label">All equation sheets</span></a><div class="sn-sub">Equation sheets</div><a class="sn-item" href="../equation-sheets/ece245.html"><span class="sn-label">ECE 245 Helpful Equations Sheet 1</span></a><a class="sn-item" href="../equation-sheets/sheet-1.html"><span class="sn-label">ECE 321 Equation Sheet 1: Semiconductor Physics &amp; Diodes</span></a><a class="sn-item" href="../equation-sheets/sheet-2.html"><span class="sn-label">ECE 321 Equation Sheet 2: MOSFET Fundamentals &amp; DC Analysis</span></a><a class="sn-item" href="../equation-sheets/sheet-3.html"><span class="sn-label">ECE 321 Equation Sheet 3: Transistor Amplifiers &amp; BJTs</span></a></div></div></div><form class="sn-search" role="search" onsubmit="return false"><span class="sn-sicon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.2" stroke="currentColor" stroke-width="2"/><path d="m15.2 15.2 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><input class="sn-input" type="search" placeholder="Search pages" aria-label="Search pages" autocomplete="off" spellcheck="false"><kbd class="sn-kbd" aria-hidden="true">/</kbd><div class="sn-results" role="listbox" hidden></div></form></div></header><main class="page"><header class="top"><div class="controls"><button id="mode-switch" class="switch" role="switch" aria-checked="false" type="button"><span class="track" aria-hidden="true"><span class="knob"></span></span>Printer-friendly</button><button id="xp-toggle" class="xp-all" type="button">Open all expansion notes</button></div><p class="course eyebrow">ECE 321 / LESSON NOTES</p><h1>Lesson 29: Analyzing and Synthesizing Pull-Up and Pull-Down Networks</h1></header><section class="part" id="cmos">
+<span class="pg">29-1</span>
+<h2>Implementation of Logic Gates using CMOS</h2>
+<p>(*) Recall of last time</p>
+<div class="figs-2">
+<figure><svg class="sch" viewBox="0 0 380 250" width="380" style="max-width:380px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Block diagram of a CMOS gate: a pull-up network from VDD to the output, a pull-down network from the output to ground, both driven by the logic inputs"><polyline points="230,40 230,28" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="230,20 225,30 235,30" fill="currentColor"/>
+<text x="230" y="15" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="230,40 230,56" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<rect x="170" y="56" width="120" height="70" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<rect x="170" y="150" width="120" height="70" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<text x="230" y="98" font-size="17" text-anchor="middle" style="fill:var(--fill-ink)">PUN</text>
+<text x="230" y="192" font-size="17" text-anchor="middle" style="fill:var(--fill-ink)">PDN</text>
+<polyline points="230,126 230,150" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="230" cy="138" r="2.8" fill="currentColor"/>
+<polyline points="230,138 350,138" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="350" cy="138" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="360" y="143" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">Y</text>
+<polyline points="230,220 230,232" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="230,232 230,238" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="218,238 242,238" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="222.5,242.5 237.5,242.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="227,247 233,247" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="70,138 102,138" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102,80 102,174" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102,80 170,80" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102,174 170,174" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="102" cy="138" r="2.8" fill="currentColor"/>
+<text x="66" y="142" font-size="13" text-anchor="end" fill="currentColor">Logic</text></svg></figure>
+<div>
+<p><b>PUN:</b> Pulls Output <span class="fill">up</span> to <span class="fill">V<sub>DD</sub></span>.</p>
+<p class="indent">→ All <span class="fill">PMOS</span></p>
+<p><b>PDN:</b> Pulls Output <span class="fill">down</span> to <span class="fill">ground (0 V)</span>.</p>
+<p class="indent">→ All <span class="fill">NMOS</span></p>
+<p><b>PUN &amp; PDN must be</b> <span class="fill">complementary</span></p>
+<details class="xp"><summary>Expansion note: what "complementary" means for the two networks</summary>
+<p>For every input combination exactly one network conducts. If both conducted, a direct path from <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math> to ground would exist and the output would sit at some in-between voltage while the supply wastes current. If neither conducted, the output would float. Because exactly one conducts, the output is always pulled hard to <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math> or to ground and a CMOS gate draws almost no DC current in either steady state.</p>
+</details>
+</div>
+</div>
+<div class="figs-2">
+<figure><svg class="sch" viewBox="0 0 300 330" width="300" style="max-width:300px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CMOS inverter: PMOS on top, NMOS below, gates tied to VIN, drains tied to VOUT"><polyline points="190,56 190,44" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="190,36 185,46 195,46" fill="currentColor"/>
+<text x="190" y="31" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="161,94 161,126" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="170,90 170,101" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="170,105 170,115" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="170,119 170,130" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="136,110 161,110" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="170,94 190,94 190,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="170,126 190,126 190,150" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="171,94 179,90 179,98" fill="currentColor"/>
+<polyline points="161,214 161,246" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="170,210 170,221" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="170,225 170,235" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="170,239 170,250" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="136,230 161,230" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="170,214 190,214 190,190" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="170,246 190,246 190,270" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="186,246 178,242 178,250" fill="currentColor"/>
+<polyline points="190,150 190,190" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="190" cy="170" r="2.8" fill="currentColor"/>
+<polyline points="190,170 260,170" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="268" y="175" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">OUT</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="136,110 110,110 110,230 136,230" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="110" cy="170" r="2.8" fill="currentColor"/>
+<polyline points="110,170 50,170" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="44" y="175" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">IN</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="190,270 190,280" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="178,280 202,280" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="182.5,284.5 197.5,284.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="187,289 193,289" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></figure>
+<div>
+<p><math alttext="V_{IN}"><mrow><mrow class="term" data-term="V_IN"><msub><mi>V</mi><mrow><mi mathvariant="normal">IN</mi></mrow></msub></mrow></mrow></math> = <span class="fill">0</span> (low)</p>
+<figure><svg class="sch" viewBox="0 0 270 260" width="270" style="max-width:270px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Switch model of the inverter with V_IN low: the PMOS switch is closed and the output is at VDD"><circle cx="100" cy="40" r="2.8" fill="currentColor"/>
+<text x="90" y="36" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="100,40 100,48" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="100,102 100,110" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="100" cy="48" r="2.6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<circle cx="100" cy="102" r="2.6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="100.0,50.0 100.0,100.0" fill="none" stroke-width="2.4" style="stroke:var(--fill-ink)"/>
+<text x="86" y="79.0" font-size="12" text-anchor="end" style="fill:var(--fill-ink)">PMOS ON</text>
+<polyline points="100,110 100,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="100" cy="135" r="2.8" fill="currentColor"/>
+<polyline points="100,160 100,168" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="100,222 100,230" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="100" cy="168" r="2.6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<circle cx="100" cy="222" r="2.6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="100.0,170.0 116.0,216.0" fill="none" stroke-width="2.4" style="stroke:var(--fill-ink)"/>
+<text x="86" y="199.0" font-size="12" text-anchor="end" style="fill:var(--fill-ink)">NMOS OFF</text>
+<polyline points="100,135 180,135" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="180" cy="135" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="190" y="140" font-size="12" text-anchor="start" style="fill:var(--fill-ink)">V<tspan dy="4" font-size="0.72em">OUT</tspan><tspan dy="-4"> </tspan> = V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="100,230 100,236" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="88,236 112,236" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="92.5,240.5 107.5,240.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="97,245 103,245" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></figure>
+<p><math alttext="V_{IN}"><mrow><mrow class="term" data-term="V_IN"><msub><mi>V</mi><mrow><mi mathvariant="normal">IN</mi></mrow></msub></mrow></mrow></math> = <span class="fill"><math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math></span> (high)</p>
+<figure><svg class="sch" viewBox="0 0 270 260" width="270" style="max-width:270px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Switch model of the inverter with V_IN high: the NMOS switch is closed and the output is at ground"><circle cx="100" cy="40" r="2.8" fill="currentColor"/>
+<text x="90" y="36" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="100,40 100,48" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="100,102 100,110" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="100" cy="48" r="2.6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<circle cx="100" cy="102" r="2.6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="100.0,50.0 116.0,96.0" fill="none" stroke-width="2.4" style="stroke:var(--fill-ink)"/>
+<text x="86" y="79.0" font-size="12" text-anchor="end" style="fill:var(--fill-ink)">PMOS OFF</text>
+<polyline points="100,110 100,160" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="100" cy="135" r="2.8" fill="currentColor"/>
+<polyline points="100,160 100,168" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="100,222 100,230" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="100" cy="168" r="2.6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<circle cx="100" cy="222" r="2.6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="100.0,170.0 100.0,220.0" fill="none" stroke-width="2.4" style="stroke:var(--fill-ink)"/>
+<text x="86" y="199.0" font-size="12" text-anchor="end" style="fill:var(--fill-ink)">NMOS ON</text>
+<polyline points="100,135 180,135" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="180" cy="135" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="190" y="140" font-size="12" text-anchor="start" style="fill:var(--fill-ink)">V<tspan dy="4" font-size="0.72em">OUT</tspan><tspan dy="-4"> </tspan> = 0</text>
+<polyline points="100,230 100,236" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="88,236 112,236" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="92.5,240.5 107.5,240.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="97,245 103,245" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></figure>
+</div>
+</div>
+<details class="xp"><summary>Expansion note: reading the two switch pictures</summary>
+<p>With <math alttext="V_{IN}"><mrow><mrow class="term" data-term="V_IN"><msub><mi>V</mi><mrow><mi mathvariant="normal">IN</mi></mrow></msub></mrow></mrow></math> = 0 the NMOS has <math alttext="V_{GS}"><mrow><mrow class="term" data-term="V_GS"><msub><mi>V</mi><mrow><mi mathvariant="normal">GS</mi></mrow></msub></mrow></mrow></math> = 0, so it is off, while the PMOS has <math alttext="V_{SG}"><mrow><mrow class="term" data-term="V_SG"><msub><mi>V</mi><mrow><mi mathvariant="normal">SG</mi></mrow></msub></mrow></mrow></math> = <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math> and is on: the output connects to <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math> and <math alttext="V_{OUT}"><mrow><mrow class="term" data-term="V_OUT"><msub><mi>V</mi><mrow><mi mathvariant="normal">OUT</mi></mrow></msub></mrow></mrow></math> = <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math>. With <math alttext="V_{IN}"><mrow><mrow class="term" data-term="V_IN"><msub><mi>V</mi><mrow><mi mathvariant="normal">IN</mi></mrow></msub></mrow></mrow></math> = <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math> the roles swap and <math alttext="V_{OUT}"><mrow><mrow class="term" data-term="V_OUT"><msub><mi>V</mi><mrow><mi mathvariant="normal">OUT</mi></mrow></msub></mrow></mrow></math> = 0. This is why the inverter inverts.</p>
+</details>
+
+<h3>BLUF</h3>
+<ul>
+<li>Switches in <span class="fill">series</span> act like logical <span class="fill">AND</span></li>
+<li>Switches in <span class="fill">parallel</span> act like logical <span class="fill">OR</span></li>
+<li>The PUN implements <span class="fill"><math><mrow><mi>Y</mi></mrow></math></span> (the output function)<br>The PDN implements <span class="fill"><math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover></mrow></math></span> (the complement of the output function)</li>
+<li>Since PMOS requires <span class="fill">a low input (0)</span> to turn <span class="fill">on</span>, PMOS inputs require a <span class="fill">complement</span></li>
+</ul>
+<details class="xp"><summary>Expansion note: why series means AND and parallel means OR</summary>
+<p>A series string passes current only if every switch is closed: switch 1 and switch 2 and so on. A parallel group passes current if any one switch is closed: switch 1 or switch 2. "Closed" means the transistor is on, which is a high gate for an NMOS and a low gate for a PMOS.</p>
+</details>
+<details class="xp"><summary>Expansion note: why the PDN implements the complement of the output</summary>
+<p>The PDN conducts when its logic expression is 1, and conducting pulls the output low. So the expression the PDN is built from is true exactly when the output is 0, which is <math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover></mrow></math>. The PUN conducts, and pulls the output high, when the output is 1, so it is built from <math alttext="Y"><mrow><mrow class="term" data-term="Y"><mi>Y</mi></mrow></mrow></math> itself (written with complemented inputs because PMOS switch on a low gate).</p>
+</details>
+</section>
+
+<section class="part" id="ex1">
+<span class="pg">29-2</span>
+<h2>Ex. 1</h2>
+<p>Determine the type of logic gate</p>
+<figure><svg class="sch" viewBox="0 0 390 398" width="390" style="max-width:390px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NAND gate: two parallel PMOS pull-ups P1 and P2, two series NMOS pull-downs N1 and N2"><polyline points="182.0,46 182.0,34" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="182.0,26 177.0,36 187.0,36" fill="currentColor"/>
+<text x="182.0" y="21" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="93.0,86 93.0,118" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,82 102.0,93" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,97 102.0,107" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,111 102.0,122" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,102 93.0,102" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,86 122.0,86 122.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,118 122.0,118 122.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="103.0,86 111.0,82 111.0,90" fill="currentColor"/>
+<text x="64.0" y="106" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<text x="132.0" y="106" font-size="12" text-anchor="start" fill="currentColor">P1</text>
+<polyline points="213.0,86 213.0,118" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,82 222.0,93" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,97 222.0,107" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,111 222.0,122" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,102 213.0,102" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,86 242.0,86 242.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,118 242.0,118 242.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="223.0,86 231.0,82 231.0,90" fill="currentColor"/>
+<text x="184.0" y="106" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<text x="252.0" y="106" font-size="12" text-anchor="start" fill="currentColor">P2</text>
+<polyline points="122.0,62 242.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,142 242.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,46 182.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,142 182.0,158" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,62 242.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,142 242.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,158 182.0,192" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="182.0" cy="175.0" r="2.8" fill="currentColor"/>
+<polyline points="182.0,175.0 342.0,175.0" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="342.0" cy="175.0" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="351.0" y="180.0" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">Y</text>
+<polyline points="153.0,216 153.0,248" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="162.0,212 162.0,223" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="162.0,227 162.0,237" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="162.0,241 162.0,252" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="128.0,232 153.0,232" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="162.0,216 182.0,216 182.0,192" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="162.0,248 182.0,248 182.0,272" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="178.0,248 170.0,244 170.0,252" fill="currentColor"/>
+<text x="124.0" y="236" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<text x="192.0" y="236" font-size="12" text-anchor="start" fill="currentColor">N1</text>
+<polyline points="182.0,272 182.0,280" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="153.0,304 153.0,336" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="162.0,300 162.0,311" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="162.0,315 162.0,325" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="162.0,329 162.0,340" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="128.0,320 153.0,320" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="162.0,304 182.0,304 182.0,280" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="162.0,336 182.0,336 182.0,360" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="178.0,336 170.0,332 170.0,340" fill="currentColor"/>
+<text x="124.0" y="324" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<text x="192.0" y="324" font-size="12" text-anchor="start" fill="currentColor">N2</text>
+<polyline points="182.0,360 182.0,370" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="170.0,370 194.0,370" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="174.5,374.5 189.5,374.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="179.0,379 185.0,379" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></figure>
+<details class="xp"><summary>Expansion note: which input drives which transistor in Ex. 1 and Ex. 2</summary>
+<p>The printed schematics leave the gate inputs unlabeled. The truth-table columns (A, B, then N<sub>1</sub>, N<sub>2</sub>, P<sub>1</sub>, P<sub>2</sub>) show how they are meant: A drives P<sub>1</sub> and N<sub>1</sub>, B drives P<sub>2</sub> and N<sub>2</sub>, so each input drives one PMOS and one NMOS. The figures are drawn that way.</p>
+</details>
+<ul>
+<li>Series switches like <span class="fill">AND</span></li>
+<li>Parallel switches like <span class="fill">OR</span></li>
+<li>PUN <span class="fill">is the dual</span> of PDN</li>
+</ul>
+<div class="tbl"><table>
+<tr><th>A</th><th>B</th><th><math alttext="N_1"><mrow><mrow class="term" data-term="N_1"><msub><mi>N</mi><mn>1</mn></msub></mrow></mrow></math></th><th><math alttext="N_2"><mrow><mrow class="term" data-term="N_2"><msub><mi>N</mi><mn>2</mn></msub></mrow></mrow></math></th><th><math alttext="P_1"><mrow><mrow class="term" data-term="P_1"><msub><mi>P</mi><mn>1</mn></msub></mrow></mrow></math></th><th><math alttext="P_2"><mrow><mrow class="term" data-term="P_2"><msub><mi>P</mi><mn>2</mn></msub></mrow></mrow></math></th><th>Y</th></tr>
+<tr><td>0</td><td>0</td><td><span class="fill">OFF</span></td><td><span class="fill">OFF</span></td><td><span class="fill">ON</span></td><td><span class="fill">ON</span></td><td><span class="fill">1</span></td></tr>
+<tr><td>0</td><td>1</td><td><span class="fill">OFF</span></td><td><span class="fill">ON</span></td><td><span class="fill">ON</span></td><td><span class="fill">OFF</span></td><td><span class="fill">1</span></td></tr>
+<tr><td>1</td><td>0</td><td><span class="fill">ON</span></td><td><span class="fill">OFF</span></td><td><span class="fill">OFF</span></td><td><span class="fill">ON</span></td><td><span class="fill">1</span></td></tr>
+<tr><td>1</td><td>1</td><td><span class="fill">ON</span></td><td><span class="fill">ON</span></td><td><span class="fill">OFF</span></td><td><span class="fill">OFF</span></td><td><span class="fill">0</span></td></tr>
+</table></div>
+<details class="xp"><summary>Expansion note: how each row of the table is filled</summary>
+<p>An NMOS is ON when its gate input is 1; a PMOS is ON when its gate input is 0. Take the row A = 0, B = 1: N<sub>1</sub> (gate A = 0) is OFF, N<sub>2</sub> (gate B = 1) is ON, P<sub>1</sub> (gate A = 0) is ON and P<sub>2</sub> (gate B = 1) is OFF. The series pull-down is broken (N<sub>1</sub> is off) and P<sub>1</sub> is on, so the output is pulled up and Y = 1.</p>
+</details>
+<ul>
+<li>Need <span class="fill">either</span> P<sub>1</sub> or P<sub>2</sub> to pull <span class="fill">up</span></li>
+<li>Need <span class="fill">both</span> N<sub>1</sub> &amp; N<sub>2</sub> to pull <span class="fill">down</span></li>
+</ul>
+<p><u>PUN</u> → Y = <span class="fill"><math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math></span> = <span class="fill"><math><mrow><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">¯</mo></mover></mrow></math></span> <span style="display:inline-block;vertical-align:middle;margin-left:1.2rem"><svg class="sch" viewBox="0 0 190 80" width="190" style="max-width:190px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NAND gate symbol with inputs A and B and output Y"><path d="M60,18 L84,18 A22 22 0 0 1 84,62 L60,62 Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<circle cx="110" cy="40" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="114,40 146,40" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="34,29 62,29" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="34,51 62,51" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="30" y="33" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<text x="30" y="55" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<text x="154" y="45" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">Y</text></svg></span></p>
+<p><u>PDN</u> → Y = <span class="fill"><math><mrow><mi>A</mi><mi>B</mi></mrow></math></span> → Y = <span class="fill"><math><mrow><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">¯</mo></mover></mrow></math></span></p>
+<details class="xp"><summary>Expansion note: reading the PUN and PDN lines</summary>
+<p>The PUN has P<sub>1</sub> in parallel with P<sub>2</sub>. Each PMOS is on when its input is low, so the PUN conducts when <math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover></mrow></math> or <math><mrow><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math> is 1, giving <math><mrow><mi>Y</mi><mo>=</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math>. DeMorgan's law turns this into <math><mrow><mi>Y</mi><mo>=</mo><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">¯</mo></mover></mrow></math>. The PDN has N<sub>1</sub> in series with N<sub>2</sub>, so it conducts when <math><mrow><mi>A</mi><mi>B</mi></mrow></math> = 1, and conducting pulls the output low: the output is the complement of that, <math><mrow><mi>Y</mi><mo>=</mo><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">¯</mo></mover></mrow></math>. Both networks give the same function, a NAND gate.</p>
+</details>
+<p>(*) Recall, R<sub>DS,p</sub> <span class="fill">&gt;</span> R<sub>DS,n</sub> because <math alttext="μ_p"><mrow><mrow class="term" data-term="μ_p"><msub><mi>μ</mi><mi mathvariant="normal">p</mi></msub></mrow></mrow></math> <span class="fill">&lt;</span> <math alttext="μ_n"><mrow><mrow class="term" data-term="μ_n"><msub><mi>μ</mi><mi mathvariant="normal">n</mi></msub></mrow></mrow></math>,<br>so having P<sub>1</sub> &amp; P<sub>2</sub> <span class="fill">in parallel</span> together means their resistance is in <span class="fill">parallel</span> and will be the <span class="fill">lowest</span>, giving the <span class="fill">smallest</span> <math alttext="τ = RC"><mrow><mrow class="term" data-term="τ"><mi>τ</mi></mrow><mo>=</mo><mrow class="term" data-term="R"><mi>R</mi></mrow><mrow class="term" data-term="C"><mi>C</mi></mrow></mrow></math> and best condition for switching</p>
+<details class="xp"><summary>Expansion note: why parallel PMOS give the best switching condition</summary>
+<p>Holes are less mobile than electrons (<math alttext="μ_p &lt; μ_n"><mrow><mrow class="term" data-term="μ_p"><msub><mi>μ</mi><mi mathvariant="normal">p</mi></msub></mrow><mo>&lt;</mo><mrow class="term" data-term="μ_n"><msub><mi>μ</mi><mi mathvariant="normal">n</mi></msub></mrow></mrow></math>), so a PMOS of the same size has a larger on-resistance than an NMOS. Putting the two PMOS in parallel halves the pull-up resistance when both are on (A = B = 0), which lowers the time constant <math alttext="τ = RC"><mrow><mrow class="term" data-term="τ"><mi>τ</mi></mrow><mo>=</mo><mrow class="term" data-term="R"><mi>R</mi></mrow><mrow class="term" data-term="C"><mi>C</mi></mrow></mrow></math> of charging the output. The worst case is a single PMOS conducting (one input high), where the resistance is that of one PMOS. The series NMOS pair, by contrast, always adds its two resistances, which is why NAND gates are preferred over NOR gates.</p>
+</details>
+</section>
+
+<section class="part" id="ex2">
+<span class="pg">29-3</span>
+<h2>Ex. 2</h2>
+<p>Determine the type of logic gate</p>
+<div class="figs-2">
+<figure><svg class="sch" viewBox="0 0 390 398" width="390" style="max-width:390px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NOR gate: two series PMOS pull-ups P1 and P2, two parallel NMOS pull-downs N1 and N2"><polyline points="182.0,46 182.0,34" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="182.0,26 177.0,36 187.0,36" fill="currentColor"/>
+<text x="182.0" y="21" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="153.0,70 153.0,102" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="162.0,66 162.0,77" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="162.0,81 162.0,91" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="162.0,95 162.0,106" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="128.0,86 153.0,86" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="162.0,70 182.0,70 182.0,46" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="162.0,102 182.0,102 182.0,126" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="163.0,70 171.0,66 171.0,74" fill="currentColor"/>
+<text x="124.0" y="90" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<text x="192.0" y="90" font-size="12" text-anchor="start" fill="currentColor">P1</text>
+<polyline points="182.0,126 182.0,134" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="153.0,158 153.0,190" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="162.0,154 162.0,165" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="162.0,169 162.0,179" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="162.0,183 162.0,194" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="128.0,174 153.0,174" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="162.0,158 182.0,158 182.0,134" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="162.0,190 182.0,190 182.0,214" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="163.0,158 171.0,154 171.0,162" fill="currentColor"/>
+<text x="124.0" y="178" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<text x="192.0" y="178" font-size="12" text-anchor="start" fill="currentColor">P2</text>
+<polyline points="182.0,214 182.0,248" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="182.0" cy="231.0" r="2.8" fill="currentColor"/>
+<polyline points="182.0,231.0 342.0,231.0" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="342.0" cy="231.0" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="351.0" y="236.0" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">Y</text>
+<polyline points="93.0,288 93.0,320" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,284 102.0,295" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,299 102.0,309" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,313 102.0,324" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,304 93.0,304" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,288 122.0,288 122.0,264" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,320 122.0,320 122.0,344" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="118.0,320 110.0,316 110.0,324" fill="currentColor"/>
+<text x="64.0" y="308" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<text x="132.0" y="308" font-size="12" text-anchor="start" fill="currentColor">N1</text>
+<polyline points="213.0,288 213.0,320" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,284 222.0,295" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,299 222.0,309" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,313 222.0,324" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,304 213.0,304" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,288 242.0,288 242.0,264" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,320 242.0,320 242.0,344" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="238.0,320 230.0,316 230.0,324" fill="currentColor"/>
+<text x="184.0" y="308" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<text x="252.0" y="308" font-size="12" text-anchor="start" fill="currentColor">N2</text>
+<polyline points="122.0,264 242.0,264" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,344 242.0,344" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,248 182.0,264" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,344 182.0,360" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,264 242.0,264" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,344 242.0,344" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,360 182.0,370" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="170.0,370 194.0,370" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="174.5,374.5 189.5,374.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="179.0,379 185.0,379" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></figure>
+<div>
+<ul>
+<li>Series devices perform <span class="fill">AND</span></li>
+<li>Parallel devices perform <span class="fill">OR</span></li>
+<li>PUN → <span class="fill"><math><mrow><mi>Y</mi></mrow></math></span><sup class="inf">†</sup> &nbsp; PDN → <span class="fill"><math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover></mrow></math></span><sup class="inf">†</sup></li>
+</ul>
+</div>
+</div>
+<div class="tbl"><table>
+<tr><th>A</th><th>B</th><th><math alttext="N_1"><mrow><mrow class="term" data-term="N_1"><msub><mi>N</mi><mn>1</mn></msub></mrow></mrow></math></th><th><math alttext="N_2"><mrow><mrow class="term" data-term="N_2"><msub><mi>N</mi><mn>2</mn></msub></mrow></mrow></math></th><th><math alttext="P_1"><mrow><mrow class="term" data-term="P_1"><msub><mi>P</mi><mn>1</mn></msub></mrow></mrow></math></th><th><math alttext="P_2"><mrow><mrow class="term" data-term="P_2"><msub><mi>P</mi><mn>2</mn></msub></mrow></mrow></math></th><th>Y</th></tr>
+<tr><td>0</td><td>0</td><td><span class="fill">OFF</span></td><td><span class="fill">OFF</span></td><td><span class="fill">ON</span></td><td><span class="fill">ON</span></td><td><span class="fill">1</span></td></tr>
+<tr><td>0</td><td>1</td><td><span class="fill">OFF</span></td><td><span class="fill">ON</span></td><td><span class="fill">ON</span></td><td><span class="fill">OFF</span></td><td><span class="fill">0</span></td></tr>
+<tr><td>1</td><td>0</td><td><span class="fill">ON</span></td><td><span class="fill">OFF</span></td><td><span class="fill">OFF</span></td><td><span class="fill">ON</span></td><td><span class="fill">0</span></td></tr>
+<tr><td>1</td><td>1</td><td><span class="fill">ON</span></td><td><span class="fill">ON</span></td><td><span class="fill">OFF</span></td><td><span class="fill">OFF</span></td><td><span class="fill">0</span></td></tr>
+</table></div>
+<p><math><mrow><msub><mi>Y</mi><mi mathvariant="normal">PUN</mi></msub></mrow></math> = <span class="fill"><math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math></span> &nbsp;&nbsp;&nbsp; Recall DeMorgan's Law</p>
+<p class="indent"><math><mrow><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">¯</mo></mover></mrow></math> = <span class="fill"><math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math></span></p>
+<p class="indent"><math><mrow><mover accent="true"><mrow><mi>A</mi><mo>+</mo><mi>B</mi></mrow><mo stretchy="true">¯</mo></mover></mrow></math> = <span class="fill"><math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math></span></p>
+<p><math><mrow><msub><mi>Y</mi><mi mathvariant="normal">PUN</mi></msub></mrow></math> = <span class="fill"><math><mrow><mover accent="true"><mrow><mi>A</mi><mo>+</mo><mi>B</mi></mrow><mo stretchy="true">¯</mo></mover></mrow></math></span></p>
+<p><math><mrow><msub><mi>Y</mi><mi mathvariant="normal">PDN</mi></msub></mrow></math> = <span class="fill"><math><mrow><mi>A</mi><mo>+</mo><mi>B</mi></mrow></math></span> → <math><mrow><msub><mi>Y</mi><mi mathvariant="normal">PDN</mi></msub></mrow></math> = <span class="fill"><math><mrow><mover accent="true"><mrow><mi>A</mi><mo>+</mo><mi>B</mi></mrow><mo stretchy="true">¯</mo></mover></mrow></math></span></p>
+<p>So they <span class="fill">agree</span> and are called <span class="fill">a NOR gate</span></p>
+<details class="xp"><summary>Expansion note: how the PUN and PDN expressions come out</summary>
+<p>The two PMOS are in series, so the PUN conducts only when both are on, which needs A low and B low: <math><mrow><msub><mi>Y</mi><mi mathvariant="normal">PUN</mi></msub><mo>=</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math>. DeMorgan's law says <math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mo>=</mo><mover accent="true"><mrow><mi>A</mi><mo>+</mo><mi>B</mi></mrow><mo stretchy="true">¯</mo></mover></mrow></math>, the NOR function. The two NMOS are in parallel, so the PDN conducts when <math><mrow><mi>A</mi><mo>+</mo><mi>B</mi></mrow></math> = 1 and then pulls the output low, giving <math><mrow><msub><mi>Y</mi><mi mathvariant="normal">PDN</mi></msub><mo>=</mo><mover accent="true"><mrow><mi>A</mi><mo>+</mo><mi>B</mi></mrow><mo stretchy="true">¯</mo></mover></mrow></math>. The truth table agrees: Y is 1 only for A = B = 0.</p>
+</details>
+<p>(*) PMOS in <span class="fill">series</span> not as good because they have <span class="fill">high</span> R<sub>DS</sub> and <span class="fill">low mobility</span>. We try to <span class="fill">avoid NOR</span> gates when designing more complex circuits because of the <span class="fill">PMOS</span> and the <span class="fill">larger</span> time constants!</p>
+<details class="xp"><summary>Expansion note: why NOR gates are avoided in complex circuits</summary>
+<p>In a NOR gate the weak PMOS devices are stacked in series, so the pull-up resistance is about twice that of one PMOS, and the pull-up time constant <math alttext="τ = RC"><mrow><mrow class="term" data-term="τ"><mi>τ</mi></mrow><mo>=</mo><mrow class="term" data-term="R"><mi>R</mi></mrow><mrow class="term" data-term="C"><mi>C</mi></mrow></mrow></math> is large. In a NAND gate the series devices are the stronger NMOS, so the stack costs much less. Designers therefore prefer NAND-based structures when a choice exists.</p>
+</details>
+</section>
+
+<section class="part" id="ex3">
+<span class="pg">29-4</span>
+<h2>Notation Simplification</h2>
+<div class="figs-2">
+<div><figure><svg class="sch" viewBox="0 0 300 130" width="300" style="max-width:300px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The full NMOS symbol equals the simplified symbol without the arrow"><polyline points="81,49 81,81" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="90,45 90,56" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="90,60 90,70" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="90,74 90,85" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="56,65 81,65" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="90,49 110,49 110,25" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="90,81 110,81 110,105" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="106,81 98,77 98,85" fill="currentColor"/>
+<text x="150" y="70" font-size="20" text-anchor="middle" fill="currentColor">=</text>
+<polyline points="226,49 226,81" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="235,45 235,56" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="235,60 235,70" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="235,74 235,85" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="201,65 226,65" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="235,49 255,49 255,25" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="235,81 255,81 255,105" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></figure><p style="text-align:center"><span class="fill">1 (high)</span> to turn ON</p></div>
+<div><figure><svg class="sch" viewBox="0 0 300 130" width="300" style="max-width:300px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The full PMOS symbol equals the simplified symbol with a bubble on the gate and no arrow"><polyline points="81,49 81,81" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="90,45 90,56" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="90,60 90,70" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="90,74 90,85" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="56,65 81,65" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="90,49 110,49 110,25" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="90,81 110,81 110,105" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="91,49 99,45 99,53" fill="currentColor"/>
+<text x="150" y="70" font-size="20" text-anchor="middle" fill="currentColor">=</text>
+<polyline points="226,49 226,81" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="235,45 235,56" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="235,60 235,70" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="235,74 235,85" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="201,65 218,65" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="222" cy="65" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="235,49 255,49 255,25" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="235,81 255,81 255,105" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></figure><p style="text-align:center"><span class="fill">0 (low)</span> to turn ON</p></div>
+</div>
+<details class="xp"><summary>Expansion note: what the simplified symbols mean</summary>
+<p>The simplified NMOS is the plain transistor: it turns on when its gate is high. The simplified PMOS carries a small bubble on the gate, the usual sign of an active-low input: it turns on when its gate is low. The bubble replaces the source arrow, so from here on a PMOS is recognized by its bubble and an NMOS by its absence.</p>
+</details>
+
+<h2>Ex. 3</h2>
+<p>Determine the logic gate</p>
+<figure><svg class="sch" viewBox="0 0 390 550" width="390" style="max-width:390px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="XNOR gate: PUN is a parallel pair (A bar, B) in series with a parallel pair (A, B bar); PDN is two series branches (A bar, B) and (A, B bar)"><polyline points="182.0,46 182.0,34" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="182.0,26 177.0,36 187.0,36" fill="currentColor"/>
+<text x="182.0" y="21" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="93.0,86 93.0,118" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,82 102.0,93" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,97 102.0,107" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,111 102.0,122" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,102 85.0,102" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="89.0" cy="102" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="102.0,86 122.0,86 122.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,118 122.0,118 122.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="106" font-size="13" text-anchor="end" fill="currentColor" font-style="italic"><tspan text-decoration="overline">A</tspan></text>
+<polyline points="213.0,86 213.0,118" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,82 222.0,93" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,97 222.0,107" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,111 222.0,122" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,102 205.0,102" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="209.0" cy="102" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="222.0,86 242.0,86 242.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,118 242.0,118 242.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="106" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<polyline points="122.0,62 242.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,142 242.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,46 182.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,142 182.0,158" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,62 242.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,142 242.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,158 182.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="93.0,206 93.0,238" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,202 102.0,213" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,217 102.0,227" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,231 102.0,242" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,222 85.0,222" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="89.0" cy="222" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="102.0,206 122.0,206 122.0,182" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,238 122.0,238 122.0,262" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="226" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<polyline points="213.0,206 213.0,238" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,202 222.0,213" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,217 222.0,227" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,231 222.0,242" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,222 205.0,222" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="209.0" cy="222" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="222.0,206 242.0,206 242.0,182" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,238 242.0,238 242.0,262" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="226" font-size="13" text-anchor="end" fill="currentColor" font-style="italic"><tspan text-decoration="overline">B</tspan></text>
+<polyline points="122.0,182 242.0,182" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,262 242.0,262" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,166 182.0,182" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,262 182.0,278" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,182 242.0,182" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,262 242.0,262" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,278 182.0,312" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="182.0" cy="295.0" r="2.8" fill="currentColor"/>
+<polyline points="182.0,295.0 342.0,295.0" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="342.0" cy="295.0" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="351.0" y="300.0" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">Y</text>
+<polyline points="93.0,352 93.0,384" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,348 102.0,359" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,363 102.0,373" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,377 102.0,388" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,368 93.0,368" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,352 122.0,352 122.0,328" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,384 122.0,384 122.0,408" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="372" font-size="13" text-anchor="end" fill="currentColor" font-style="italic"><tspan text-decoration="overline">A</tspan></text>
+<polyline points="122.0,408 122.0,416" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="93.0,440 93.0,472" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,436 102.0,447" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,451 102.0,461" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,465 102.0,476" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,456 93.0,456" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,440 122.0,440 122.0,416" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,472 122.0,472 122.0,496" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="460" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<polyline points="213.0,352 213.0,384" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,348 222.0,359" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,363 222.0,373" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,377 222.0,388" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,368 213.0,368" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,352 242.0,352 242.0,328" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,384 242.0,384 242.0,408" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="372" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<polyline points="242.0,408 242.0,416" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="213.0,440 213.0,472" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,436 222.0,447" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,451 222.0,461" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,465 222.0,476" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,456 213.0,456" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,440 242.0,440 242.0,416" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,472 242.0,472 242.0,496" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="460" font-size="13" text-anchor="end" fill="currentColor" font-style="italic"><tspan text-decoration="overline">B</tspan></text>
+<polyline points="122.0,328 242.0,328" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,496 242.0,496" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,312 182.0,328" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,496 182.0,512" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,328 242.0,328" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,496 242.0,496" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,512 182.0,522" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="170.0,522 194.0,522" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="174.5,526.5 189.5,526.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="179.0,531 185.0,531" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></figure>
+<ul>
+<li>Series devices → <span class="fill">AND</span></li>
+<li>Parallel devices → <span class="fill">OR</span></li>
+<li>PUN → <span class="fill"><math><mrow><mi>Y</mi></mrow></math></span><sup class="inf">†</sup> &nbsp; PDN → <span class="fill"><math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover></mrow></math></span><sup class="inf">†</sup></li>
+<li>PMOS requires <span class="fill">a low input, so the inputs go in complemented</span></li>
+</ul>
+<p>(*) From PUN</p>
+<p>Y = <span class="fill"><math><mrow><mo stretchy="false">(</mo><mi>A</mi><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mi>B</mi><mo stretchy="false">)</mo></mrow></math></span></p>
+<details class="xp"><summary>Expansion note: reading the PUN of Ex. 3 into an expression</summary>
+<p>The upper pair of PMOS has gates <math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover></mrow></math> and B in parallel. A PMOS is on when its gate is low, so the <math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover></mrow></math> device is on when A = 1 and the B device is on when B = 0: the pair conducts when <math><mrow><mi>A</mi><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math>. The lower pair has gates A and <math><mrow><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math>, on when A = 0 or B = 1, so it conducts when <math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mi>B</mi></mrow></math>. The two pairs are in series (AND), giving <math><mrow><mi>Y</mi><mo>=</mo><mo stretchy="false">(</mo><mi>A</mi><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mi>B</mi><mo stretchy="false">)</mo></mrow></math>.</p>
+</details>
+<p class="indent">expand</p>
+<p>Y = A<span class="fill"><math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover></mrow></math> +</span> A<span class="fill">B +</span> <span class="fill"><math><mrow><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math></span><span class="fill"><math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover></mrow></math> +</span> <span class="fill"><math><mrow><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math></span><span class="fill">B</span></p>
+<p class="indent">simplify</p>
+<p>Y = <span class="fill"><math><mrow><mi>A</mi><mi>B</mi><mo>+</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math></span></p>
+<p>This gives an <span class="fill">XNOR gate</span></p>
+<details class="xp"><summary>Expansion note: why two of the four products vanish</summary>
+<p>A variable times its own complement is always 0, so <math><mrow><mi>A</mi><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>=</mo><mn>0</mn></mrow></math> and <math><mrow><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mi>B</mi><mo>=</mo><mn>0</mn></mrow></math>. What remains is <math><mrow><mi>Y</mi><mo>=</mo><mi>A</mi><mi>B</mi><mo>+</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math>, which is 1 when A and B are equal: the XNOR (equivalence) function. Check: A = B = 0 gives <math><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mn>0</mn><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn></mrow></math> and A = 0, B = 1 gives <math><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>+</mo><mn>0</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow></math>.</p>
+</details>
+<p>(*) From PDN → Y = <span class="fill"><math><mrow><mover accent="true"><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mi>B</mi><mo>+</mo><mi>A</mi><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow><mo stretchy="true">¯</mo></mover></mrow></math></span> → Y = AB + <span class="fill"><math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math></span><sup class="inf">†</sup></p>
+<p class="indent">DeMorgan: reverse input, change AND ↔ OR, reverse total</p>
+<details class="xp"><summary>Expansion note: getting the same answer from the PDN</summary>
+<p>The PDN has two series branches in parallel: the left branch (<math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover></mrow></math>, B) conducts when <math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mi>B</mi></mrow></math> = 1 and the right branch (A, <math><mrow><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math>) when <math><mrow><mi>A</mi><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math> = 1. When either conducts the output is pulled low, so <math><mrow><mi>Y</mi><mo>=</mo><mover accent="true"><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mi>B</mi><mo>+</mo><mi>A</mi><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow><mo stretchy="true">¯</mo></mover></mrow></math>. Applying DeMorgan's law as the notes say (complement each input, swap AND and OR, complement the total) gives <math><mrow><mi>Y</mi><mo>=</mo><mo stretchy="false">(</mo><mi>A</mi><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mi>B</mi><mo stretchy="false">)</mo><mo>=</mo><mi>A</mi><mi>B</mi><mo>+</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math>, the same XNOR function the PUN produced. That the two networks agree is the check that the gate is a proper complementary pair.</p>
+</details>
+</section>
+
+<section class="part" id="ex4">
+<span class="pg">29-5</span>
+<h2>Synthesizing Logic Circuits: Expressions or Truth Tables</h2>
+<h3>Ex. 4</h3>
+<p>Realize the PUN &amp; PDN for <math><mrow><mi>Y</mi><mo>=</mo><mover accent="true"><mrow><mi>A</mi><mo stretchy="false">(</mo><mi>B</mi><mo>+</mo><mi>C</mi><mi>D</mi><mo stretchy="false">)</mo></mrow><mo stretchy="true">¯</mo></mover></mrow></math></p>
+<p><u>STEP 1:</u> First work with the <span class="fill">PUN</span></p>
+<ul>
+<li>Apply DeMorgan →
+<ol class="tight paren"><li>Complement each input</li><li>Swap AND &amp; OR (inside to outside)</li><li>Complement</li></ol></li>
+</ul>
+<p>① <math><mrow><mover accent="true"><mrow><mi>A</mi><mo stretchy="false">(</mo><mi>B</mi><mo>+</mo><mi>C</mi><mi>D</mi><mo stretchy="false">)</mo></mrow><mo stretchy="true">¯</mo></mover></mrow></math> → <span class="fill"><math><mrow><mover accent="true"><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">(</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>C</mi><mo stretchy="true">¯</mo></mover><mover accent="true"><mi>D</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">)</mo></mrow><mo stretchy="true">¯</mo></mover></mrow></math></span></p>
+<p>② <span class="fill"><math><mrow><mover accent="true"><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">(</mo><mover accent="true"><mi>C</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>D</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">)</mo></mrow><mo stretchy="true">¯</mo></mover></mrow></math></span></p>
+<p>③ <span class="fill"><math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">(</mo><mover accent="true"><mi>C</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>D</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">)</mo></mrow></math></span></p>
+<details class="xp"><summary>Expansion note: what each of the three DeMorgan moves does</summary>
+<p>Move 1 puts a bar on every input letter and leaves the big bar alone. Move 2 swaps every AND for an OR and every OR for an AND, working from the innermost group outward: the product <math><mrow><mover accent="true"><mi>C</mi><mo stretchy="true">¯</mo></mover><mover accent="true"><mi>D</mi><mo stretchy="true">¯</mo></mover></mrow></math> becomes a sum, the sum with <math><mrow><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math> becomes a product, and the outer product with <math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover></mrow></math> becomes a sum. Move 3 complements the whole expression, which cancels the big bar and leaves <math><mrow><mi>Y</mi><mo>=</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">(</mo><mover accent="true"><mi>C</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>D</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">)</mo></mrow></math>. A direct check with the textbook's step-by-step DeMorgan gives the same result: <math><mrow><mover accent="true"><mrow><mi>A</mi><mo stretchy="false">(</mo><mi>B</mi><mo>+</mo><mi>C</mi><mi>D</mi><mo stretchy="false">)</mo></mrow><mo stretchy="true">¯</mo></mover><mo>=</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mrow><mi>B</mi><mo>+</mo><mi>C</mi><mi>D</mi></mrow><mo stretchy="true">¯</mo></mover><mo>=</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">(</mo><mover accent="true"><mi>C</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>D</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">)</mo></mrow></math>.</p>
+</details>
+<ul><li>Remember, PUN works with <span class="fill">PMOS and complemented inputs</span></li></ul>
+<figure><svg class="sch" viewBox="0 0 510 322" width="510" style="max-width:510px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pull-up network for Y = A bar + B bar (C bar + D bar): PMOS A in parallel with PMOS B in series with the parallel pair C, D"><polyline points="242.0,46 242.0,34" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="242.0,26 237.0,36 247.0,36" fill="currentColor"/>
+<text x="242.0" y="21" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="93.0,86 93.0,118" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,82 102.0,93" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,97 102.0,107" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,111 102.0,122" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,102 85.0,102" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="89.0" cy="102" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="102.0,86 122.0,86 122.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,118 122.0,118 122.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="106" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<polyline points="273.0,86 273.0,118" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="282.0,82 282.0,93" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="282.0,97 282.0,107" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="282.0,111 282.0,122" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="248.0,102 265.0,102" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="269.0" cy="102" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="282.0,86 302.0,86 302.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="282.0,118 302.0,118 302.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="244.0" y="106" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<polyline points="302.0,142 302.0,150" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="213.0,190 213.0,222" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,186 222.0,197" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,201 222.0,211" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,215 222.0,226" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,206 205.0,206" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="209.0" cy="206" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="222.0,190 242.0,190 242.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,222 242.0,222 242.0,246" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="210" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">C</text>
+<polyline points="333.0,190 333.0,222" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="342.0,186 342.0,197" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="342.0,201 342.0,211" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="342.0,215 342.0,226" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="308.0,206 325.0,206" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="329.0" cy="206" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="342.0,190 362.0,190 362.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="342.0,222 362.0,222 362.0,246" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="304.0" y="210" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">D</text>
+<polyline points="242.0,166 362.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="242.0,246 362.0,246" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="302.0,150 302.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="302.0,246 302.0,262" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="242.0,166 362.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="242.0,246 362.0,246" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,62 302.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,262 302.0,262" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,142 122.0,262" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="242.0,46 242.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="242.0,262 242.0,278" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,62 302.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,262 302.0,262" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="242.0,278 242.0,300" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="242.0" cy="300" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="251.0" y="304" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">Y</text></svg></figure>
+<details class="xp"><summary>Expansion note: how the expression becomes the PUN</summary>
+<p>Read <math><mrow><mi>Y</mi><mo>=</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">(</mo><mover accent="true"><mi>C</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>D</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">)</mo></mrow></math> as a switch network: a plus is a parallel connection and a product is a series connection. So the PMOS with gate A is in parallel with a branch made of the PMOS with gate B in series with the parallel pair C and D. Each PMOS turns on when its gate is low, which is exactly the "complemented" letter in the expression. The gates therefore receive the plain signals A, B, C and D; no inverters are needed here.</p>
+</details>
+</section>
+
+<section class="part" id="ex4b">
+<span class="pg">29-6</span>
+<p><u>STEP 2:</u> Synthesize the <span class="fill">PDN</span></p>
+<p>If <math><mrow><mi>Y</mi><mo>=</mo><mover accent="true"><mrow><mi>A</mi><mo stretchy="false">(</mo><mi>B</mi><mo>+</mo><mi>C</mi><mi>D</mi><mo stretchy="false">)</mo></mrow><mo stretchy="true">¯</mo></mover></mrow></math> then <math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover></mrow></math> = <span class="fill"><math><mrow><mi>A</mi><mo stretchy="false">(</mo><mi>B</mi><mo>+</mo><mi>C</mi><mi>D</mi><mo stretchy="false">)</mo></mrow></math></span></p>
+<ul><li>Remember, PDN works with <span class="fill">NMOS and uncomplemented inputs</span></li></ul>
+<figure><svg class="sch" viewBox="0 0 390 396" width="390" style="max-width:390px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pull-down network for Y bar = A (B + C D): NMOS A in series with the parallel combination of B and the series pair C, D"><polyline points="182.0,46 182.0,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="182.0" cy="46" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="191.0" y="50" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">Y</text>
+<polyline points="153.0,94 153.0,126" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="162.0,90 162.0,101" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="162.0,105 162.0,115" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="162.0,119 162.0,130" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="128.0,110 153.0,110" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="162.0,94 182.0,94 182.0,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="162.0,126 182.0,126 182.0,150" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="124.0" y="114" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<polyline points="182.0,150 182.0,158" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="93.0,198 93.0,230" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,194 102.0,205" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,209 102.0,219" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,223 102.0,234" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,214 93.0,214" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,198 122.0,198 122.0,174" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,230 122.0,230 122.0,254" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="218" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<polyline points="213.0,198 213.0,230" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,194 222.0,205" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,209 222.0,219" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,223 222.0,234" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,214 213.0,214" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,198 242.0,198 242.0,174" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,230 242.0,230 242.0,254" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="218" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">C</text>
+<polyline points="242.0,254 242.0,262" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="213.0,286 213.0,318" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,282 222.0,293" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,297 222.0,307" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,311 222.0,322" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,302 213.0,302" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,286 242.0,286 242.0,262" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,318 242.0,318 242.0,342" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="306" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">D</text>
+<polyline points="122.0,174 242.0,174" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,342 242.0,342" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,254 122.0,342" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,158 182.0,174" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,342 182.0,358" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,174 242.0,174" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,342 242.0,342" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,358 182.0,368" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="170.0,368 194.0,368" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="174.5,372.5 189.5,372.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="179.0,377 185.0,377" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></figure>
+<details class="xp"><summary>Expansion note: how the expression becomes the PDN</summary>
+<p>The PDN conducts when <math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover></mrow></math> = 1, that is when <math><mrow><mi>A</mi><mo stretchy="false">(</mo><mi>B</mi><mo>+</mo><mi>C</mi><mi>D</mi><mo stretchy="false">)</mo></mrow></math> = 1. Product means series, sum means parallel: NMOS A in series with the parallel combination of NMOS B and the series pair C, D. Each NMOS is on when its gate is high, so the gates take the plain letters.</p>
+</details>
+<p>(*) Recall, we can synthesize the <span class="fill">PDN</span> as the logic <span class="fill">dual</span> of the <span class="fill">PUN</span></p>
+<p class="indent"><math><mrow><mi>Y</mi><mo>=</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">(</mo><mover accent="true"><mi>C</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>D</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">)</mo></mrow></math></p>
+<ul>
+<li>Complements vars</li>
+<li>Work inside out, swap AND ↔ OR</li>
+</ul>
+<details class="xp"><summary>Expansion note: how the dual gives the PDN from the PUN</summary>
+<p>Swap AND and OR in <math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">(</mo><mover accent="true"><mi>C</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>D</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">)</mo></mrow></math> to get <math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">(</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>C</mi><mo stretchy="true">¯</mo></mover><mover accent="true"><mi>D</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">)</mo></mrow></math>, then complement the variables to get <math><mrow><mi>A</mi><mo stretchy="false">(</mo><mi>B</mi><mo>+</mo><mi>C</mi><mi>D</mi><mo stretchy="false">)</mo></mrow></math>, the PDN expression. In circuit terms every series branch of the PUN becomes a parallel branch of the PDN and vice versa, and PMOS become NMOS.</p>
+</details>
+</section>
+
+<section class="part" id="ex5">
+<span class="pg">29-7</span>
+<h3>Ex. 5</h3>
+<p>Create the PUN &amp; PDN from the truth table</p>
+<div class="figs-2">
+<div class="tbl"><table>
+<tr><th>A</th><th>B</th><th>Y</th><th><math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover></mrow></math></th></tr>
+<tr><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+<tr><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+<tr><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+<tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+</table></div>
+<div>
+<p><u>Review</u></p>
+<p>Minterms: <span class="fill">AND (product)</span> of <span class="fill">all the inputs</span><br>→ where Y = 1</p>
+<p>Maxterms: <span class="fill">OR (sum)</span> of <span class="fill">all the inputs</span><br>→ where Y = <span class="fill">0</span></p>
+</div>
+</div>
+<details class="xp"><summary>Expansion note: minterms and maxterms for this table</summary>
+<p>A minterm is a product that contains every input (complemented or not) and is 1 for exactly one row. Rows 01 and 10 have Y = 1, so the minterms are <math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mi>B</mi></mrow></math> and <math><mrow><mi>A</mi><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math>. A maxterm is a sum that is 0 for exactly one row, used where Y = 0: rows 00 and 11 give <math><mrow><mi>A</mi><mo>+</mo><mi>B</mi></mrow></math> and <math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math>. The notes use sum of products (SOP), so the minterms are what matter here.</p>
+</details>
+<p><u>STEP 1:</u> Express Y &amp; <math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover></mrow></math> using SOP</p>
+<p class="indent">Y = <span class="fill"><math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mi>B</mi><mo>+</mo><mi>A</mi><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math></span></p>
+<p class="indent"><math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover></mrow></math> = <span class="fill"><math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mi>A</mi><mi>B</mi></mrow></math></span></p>
+<p><u>STEP 2:</u> Create PUN (use <span class="fill">Y</span>, <span class="fill">PMOS</span>, <span class="fill">input</span><sup class="inf">†</sup> complements)</p>
+<figure><svg class="sch" viewBox="0 0 390 290" width="390" style="max-width:390px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pull-up network for the XOR truth table: series PMOS (A, B bar) in parallel with series PMOS (A bar, B)"><polyline points="182.0,46 182.0,34" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="182.0,26 177.0,36 187.0,36" fill="currentColor"/>
+<text x="182.0" y="21" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="93.0,86 93.0,118" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,82 102.0,93" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,97 102.0,107" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,111 102.0,122" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,102 85.0,102" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="89.0" cy="102" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="102.0,86 122.0,86 122.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,118 122.0,118 122.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="106" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<polyline points="122.0,142 122.0,150" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="93.0,174 93.0,206" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,170 102.0,181" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,185 102.0,195" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,199 102.0,210" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,190 85.0,190" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="89.0" cy="190" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="102.0,174 122.0,174 122.0,150" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,206 122.0,206 122.0,230" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="194" font-size="13" text-anchor="end" fill="currentColor" font-style="italic"><tspan text-decoration="overline">B</tspan></text>
+<polyline points="213.0,86 213.0,118" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,82 222.0,93" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,97 222.0,107" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,111 222.0,122" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,102 205.0,102" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="209.0" cy="102" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="222.0,86 242.0,86 242.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,118 242.0,118 242.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="106" font-size="13" text-anchor="end" fill="currentColor" font-style="italic"><tspan text-decoration="overline">A</tspan></text>
+<polyline points="242.0,142 242.0,150" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="213.0,174 213.0,206" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,170 222.0,181" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,185 222.0,195" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,199 222.0,210" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,190 205.0,190" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="209.0" cy="190" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="222.0,174 242.0,174 242.0,150" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,206 242.0,206 242.0,230" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="194" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<polyline points="122.0,62 242.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,230 242.0,230" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,46 182.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,230 182.0,246" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,62 242.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,230 242.0,230" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,246 182.0,268" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="182.0" cy="268" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="191.0" y="272" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">Y</text></svg></figure>
+<details class="xp"><summary>Expansion note: how the PUN is drawn from the minterms</summary>
+<p>Each product term is a series branch and the sum is the parallel of the branches. The term <math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mi>B</mi></mrow></math> needs a PMOS that is on when A = 0, so its gate gets A, and a PMOS that is on when B = 1, so its gate gets <math><mrow><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math>. The term <math><mrow><mi>A</mi><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math> needs gates <math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover></mrow></math> and B. The PUN therefore needs the complemented signals <math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover></mrow></math> and <math><mrow><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math>, produced by two extra inverters.</p>
+</details>
+<p><u>STEP 3:</u> Create PDN (use <span class="fill"><math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover></mrow></math></span>, <span class="fill">NMOS</span>, <span class="fill">no</span><sup class="inf">†</sup> complements)</p>
+<figure><svg class="sch" viewBox="0 0 390 308" width="390" style="max-width:390px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pull-down network for the XOR truth table: series NMOS (A bar, B bar) in parallel with series NMOS (A, B)"><polyline points="182.0,46 182.0,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="182.0" cy="46" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="191.0" y="50" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">Y</text>
+<polyline points="93.0,110 93.0,142" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,106 102.0,117" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,121 102.0,131" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,135 102.0,146" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,126 93.0,126" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,110 122.0,110 122.0,86" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,142 122.0,142 122.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="130" font-size="13" text-anchor="end" fill="currentColor" font-style="italic"><tspan text-decoration="overline">A</tspan></text>
+<polyline points="122.0,166 122.0,174" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="93.0,198 93.0,230" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,194 102.0,205" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,209 102.0,219" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,223 102.0,234" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,214 93.0,214" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,198 122.0,198 122.0,174" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,230 122.0,230 122.0,254" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="218" font-size="13" text-anchor="end" fill="currentColor" font-style="italic"><tspan text-decoration="overline">B</tspan></text>
+<polyline points="213.0,110 213.0,142" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,106 222.0,117" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,121 222.0,131" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,135 222.0,146" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,126 213.0,126" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,110 242.0,110 242.0,86" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,142 242.0,142 242.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="130" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<polyline points="242.0,166 242.0,174" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="213.0,198 213.0,230" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,194 222.0,205" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,209 222.0,219" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,223 222.0,234" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,214 213.0,214" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,198 242.0,198 242.0,174" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,230 242.0,230 242.0,254" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="218" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<polyline points="122.0,86 242.0,86" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,254 242.0,254" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,70 182.0,86" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,254 182.0,270" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,86 242.0,86" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,254 242.0,254" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,270 182.0,280" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="170.0,280 194.0,280" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="174.5,284.5 189.5,284.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="179.0,289 185.0,289" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></figure>
+<details class="xp"><summary>Expansion note: how the PDN is drawn from the complement</summary>
+<p>The PDN conducts when <math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover></mrow></math> = <math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mi>A</mi><mi>B</mi></mrow></math> = 1. NMOS turn on for a high gate, so each letter in the expression goes straight to a gate: the branch <math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math> has NMOS with gates <math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover></mrow></math> and <math><mrow><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math> in series, and the branch <math><mrow><mi>A</mi><mi>B</mi></mrow></math> has gates A and B in series, the two branches in parallel. The letters appear exactly as written in the expression, with no extra complementing of the gate signal.</p>
+</details>
+<p><u>Note:</u> This is NOT the <span class="fill">dual of the PUN</span></p>
+</section>
+
+<section class="part" id="ex5b">
+<span class="pg">29-8</span>
+<p><u>Q.</u> How create PDN using dual? [swap AND/OR]</p>
+<div class="figs-2">
+<div>
+<p><span class="fill">Start from the PUN: <math><mrow><mi>Y</mi><mo>=</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mi>B</mi><mo>+</mo><mi>A</mi><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math>. Swap AND and OR: <math><mrow><mo stretchy="false">(</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mi>B</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>A</mi><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">)</mo></mrow></math>. Complement the variables: <math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover><mo>=</mo><mo stretchy="false">(</mo><mi>A</mi><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mi>B</mi><mo stretchy="false">)</mo></mrow></math>. In the circuit: swap every series for a parallel and every parallel for a series, and change PMOS to NMOS with the same gate signals.</span></p>
+</div>
+<figure><svg class="sch" viewBox="0 0 390 340" width="390" style="max-width:390px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dual pull-down network: parallel pair (A, B bar) in series with parallel pair (A bar, B), NMOS devices"><polyline points="182.0,46 182.0,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="182.0" cy="46" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="191.0" y="50" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">Y</text>
+<polyline points="93.0,110 93.0,142" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,106 102.0,117" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,121 102.0,131" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,135 102.0,146" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,126 93.0,126" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,110 122.0,110 122.0,86" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,142 122.0,142 122.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="130" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<polyline points="213.0,110 213.0,142" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,106 222.0,117" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,121 222.0,131" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,135 222.0,146" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,126 213.0,126" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,110 242.0,110 242.0,86" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,142 242.0,142 242.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="130" font-size="13" text-anchor="end" fill="currentColor" font-style="italic"><tspan text-decoration="overline">B</tspan></text>
+<polyline points="122.0,86 242.0,86" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,166 242.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,70 182.0,86" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,166 182.0,182" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,86 242.0,86" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,166 242.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,182 182.0,190" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="93.0,230 93.0,262" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,226 102.0,237" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,241 102.0,251" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,255 102.0,266" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,246 93.0,246" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,230 122.0,230 122.0,206" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,262 122.0,262 122.0,286" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="250" font-size="13" text-anchor="end" fill="currentColor" font-style="italic"><tspan text-decoration="overline">A</tspan></text>
+<polyline points="213.0,230 213.0,262" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,226 222.0,237" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,241 222.0,251" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,255 222.0,266" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,246 213.0,246" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,230 242.0,230 242.0,206" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,262 242.0,262 242.0,286" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="250" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<polyline points="122.0,206 242.0,206" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,286 242.0,286" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,190 182.0,206" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,286 182.0,302" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,206 242.0,206" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,286 242.0,286" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,302 182.0,312" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="170.0,312 194.0,312" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="174.5,316.5 189.5,316.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="179.0,321 185.0,321" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></figure>
+</div>
+<details class="xp"><summary>Expansion note: why the dual PDN is a different but valid network</summary>
+<p>The dual PDN conducts when <math><mrow><mo stretchy="false">(</mo><mi>A</mi><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mi>B</mi><mo stretchy="false">)</mo></mrow></math> = 1. Expanding gives <math><mrow><mi>A</mi><mi>B</mi><mo>+</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math> (the cross terms <math><mrow><mi>A</mi><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover></mrow></math> and <math><mrow><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mi>B</mi></mrow></math> are 0), the same condition as the direct PDN of Step 3. The two networks have different shapes but the same function and the same number of transistors. The textbook notes that a PDN and PUN need not be duals, and that the direct synthesis is often the easier route.</p>
+</details>
+<p><u>Q.</u> How many transistors required?</p>
+<p><span class="fill">Every input signal drives one PMOS and one NMOS, so a gate with N transistor inputs needs 2N. Here the PUN has 4 and the PDN has 4, which is 8, plus two inverters (2 transistors each) to make <math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover></mrow></math> and <math><mrow><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math>: 12 transistors in all.</span></p>
+<details class="xp"><summary>Expansion note: why this count matters</summary>
+<p>An exclusive-OR gate is not cheap in CMOS: 12 transistors against 4 for a NAND or a NOR. More transistors mean more chip area and more capacitance to charge, so designers avoid XOR where a simpler gate will do, and share the inverters that make complemented inputs.</p>
+</details>
+
+<h2>Noise Margins</h2>
+<p><b>DEF:</b> How much positive or negative <span class="fill">noise</span> can <span class="fill">be added to</span> a signal before the <span class="fill">receiving</span> gate <span class="fill">misreads</span> the value.</p>
+<p>(*) Let's propose an idealized logic inverter</p>
+<figure><svg class="sch" viewBox="0 0 480 320" width="480" style="max-width:480px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Voltage transfer curve of the idealized inverter: V_OUT stays at V_OH until V_IL, falls to V_OL at V_IH, and stays at V_OL up to V_DD"><polyline points="80,270 80,30" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="80,30 83.0,37.4 77.0,37.4" fill="currentColor"/>
+<polyline points="68,270 440,270" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="440,270 432.6,273.0 432.6,267.0" fill="currentColor"/>
+<text x="80" y="20" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">OUT</tspan><tspan dy="-4"> </tspan></text>
+<text x="450" y="275" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">IN</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="160,270 160,44" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="4 3"/>
+<polyline points="260,270 260,44" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="4 3"/>
+<polyline points="380,270 380,44" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="4 3"/>
+<polyline points="80,80 420,80" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="4 3"/>
+<polyline points="80,235 420,235" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="4 3"/>
+<polyline points="80.0,80.0 160.0,80.0 260.0,235.0 380.0,235.0" fill="none" stroke-width="2.6" style="stroke:var(--fill-ink)"/>
+<text x="72" y="85" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">OH</tspan><tspan dy="-4"> </tspan></text>
+<text x="72" y="240" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">OL</tspan><tspan dy="-4"> </tspan></text>
+<text x="160" y="290" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">IL</tspan><tspan dy="-4"> </tspan></text>
+<text x="260" y="290" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">IH</tspan><tspan dy="-4"> </tspan></text>
+<text x="380" y="290" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text></svg></figure>
+<details class="xp"><summary>Expansion note: how to read the idealized inverter plot</summary>
+<p>The horizontal axis is the input, the vertical axis the output. For any input up to <math alttext="V_{IL}"><mrow><mrow class="term" data-term="V_IL"><msub><mi>V</mi><mrow><mi mathvariant="normal">IL</mi></mrow></msub></mrow></mrow></math> the output sits at the high level <math alttext="V_{OH}"><mrow><mrow class="term" data-term="V_OH"><msub><mi>V</mi><mrow><mi mathvariant="normal">OH</mi></mrow></msub></mrow></mrow></math>, and for any input above <math alttext="V_{IH}"><mrow><mrow class="term" data-term="V_IH"><msub><mi>V</mi><mrow><mi mathvariant="normal">IH</mi></mrow></msub></mrow></mrow></math> it sits at the low level <math alttext="V_{OL}"><mrow><mrow class="term" data-term="V_OL"><msub><mi>V</mi><mrow><mi mathvariant="normal">OL</mi></mrow></msub></mrow></mrow></math>; in between it makes its transition. The output barely depends on the exact input value inside the two flat regions, which is what lets digital circuits ignore small noise. The textbook's perfect inverter has <math alttext="V_{IL}"><mrow><mrow class="term" data-term="V_IL"><msub><mi>V</mi><mrow><mi mathvariant="normal">IL</mi></mrow></msub></mrow></mrow></math> = <math alttext="V_{IH}"><mrow><mrow class="term" data-term="V_IH"><msub><mi>V</mi><mrow><mi mathvariant="normal">IH</mi></mrow></msub></mrow></mrow></math> = <math alttext="V_{DD}/2"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mn>2</mn></mrow></math> with a vertical transition and <math alttext="V_{OH}"><mrow><mrow class="term" data-term="V_OH"><msub><mi>V</mi><mrow><mi mathvariant="normal">OH</mi></mrow></msub></mrow></mrow></math> = <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math>, <math alttext="V_{OL}"><mrow><mrow class="term" data-term="V_OL"><msub><mi>V</mi><mrow><mi mathvariant="normal">OL</mi></mrow></msub></mrow></mrow></math> = 0.</p>
+</details>
+</section>
+
+<section class="part" id="nm">
+<span class="pg">29-9</span>
+<p>where</p>
+<p class="indent"><math alttext="V_{OH}"><mrow><mrow class="term" data-term="V_OH"><msub><mi>V</mi><mrow><mi mathvariant="normal">OH</mi></mrow></msub></mrow></mrow></math> = Voltage Output <span class="fill">High</span></p>
+<p class="indent"><math alttext="V_{OL}"><mrow><mrow class="term" data-term="V_OL"><msub><mi>V</mi><mrow><mi mathvariant="normal">OL</mi></mrow></msub></mrow></mrow></math> = Voltage Output <span class="fill">Low</span></p>
+<p class="indent"><math alttext="V_{IL}"><mrow><mrow class="term" data-term="V_IL"><msub><mi>V</mi><mrow><mi mathvariant="normal">IL</mi></mrow></msub></mrow></mrow></math> = <span class="fill">Maximum</span> value of <math alttext="V_{IN}"><mrow><mrow class="term" data-term="V_IN"><msub><mi>V</mi><mrow><mi mathvariant="normal">IN</mi></mrow></msub></mrow></mrow></math> while still being interpreted as a logic <span class="fill">0</span></p>
+<p class="indent"><math alttext="V_{IH}"><mrow><mrow class="term" data-term="V_IH"><msub><mi>V</mi><mrow><mi mathvariant="normal">IH</mi></mrow></msub></mrow></mrow></math> = <span class="fill">Minimum</span> value of <math alttext="V_{IN}"><mrow><mrow class="term" data-term="V_IN"><msub><mi>V</mi><mrow><mi mathvariant="normal">IN</mi></mrow></msub></mrow></mrow></math> while still being interpreted as a logic <span class="fill">1</span></p>
+<p>then it follows that</p>
+<p class="indent">For <span class="fill">low</span> input &nbsp; <math alttext="\mathrm{NM}_L"><mrow><mrow class="term" data-term="NM_L"><msub><mi mathvariant="normal">NM</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow></math> = <span class="fill"><math alttext="V_{IL} - V_{OL}"><mrow><mrow class="term" data-term="V_IL"><msub><mi>V</mi><mrow><mi mathvariant="normal">IL</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_OL"><msub><mi>V</mi><mrow><mi mathvariant="normal">OL</mi></mrow></msub></mrow></mrow></math></span></p>
+<p class="indent">For <span class="fill">high</span> input &nbsp; <i>NM</i><sub><span class="fill">H</span></sub><sup class="inf">†</sup> = <span class="fill"><math alttext="V_{OH} - V_{IH}"><mrow><mrow class="term" data-term="V_OH"><msub><mi>V</mi><mrow><mi mathvariant="normal">OH</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_IH"><msub><mi>V</mi><mrow><mi mathvariant="normal">IH</mi></mrow></msub></mrow></mrow></math></span></p>
+<details class="xp"><summary>Expansion note: where the two noise-margin formulas come from</summary>
+<p>Gate 1 drives gate 2 and noise <math alttext="v_N"><mrow><mrow class="term" data-term="v_N"><msub><mi>v</mi><mi mathvariant="normal">N</mi></msub></mrow></mrow></math> is added on the wire between them, so gate 2 sees <math alttext="V_{OL} + v_N"><mrow><mrow class="term" data-term="V_OL"><msub><mi>V</mi><mrow><mi mathvariant="normal">OL</mi></mrow></msub></mrow><mo>+</mo><mrow class="term" data-term="v_N"><msub><mi>v</mi><mi mathvariant="normal">N</mi></msub></mrow></mrow></math> or <math alttext="V_{OH} + v_N"><mrow><mrow class="term" data-term="V_OH"><msub><mi>V</mi><mrow><mi mathvariant="normal">OH</mi></mrow></msub></mrow><mo>+</mo><mrow class="term" data-term="v_N"><msub><mi>v</mi><mi mathvariant="normal">N</mi></msub></mrow></mrow></math>. If gate 1 outputs a low, gate 2 still reads a 0 as long as its input stays below <math alttext="V_{IL}"><mrow><mrow class="term" data-term="V_IL"><msub><mi>V</mi><mrow><mi mathvariant="normal">IL</mi></mrow></msub></mrow></mrow></math>, so the noise can rise by <math alttext="V_{IL} - V_{OL}"><mrow><mrow class="term" data-term="V_IL"><msub><mi>V</mi><mrow><mi mathvariant="normal">IL</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_OL"><msub><mi>V</mi><mrow><mi mathvariant="normal">OL</mi></mrow></msub></mrow></mrow></math>: that is <math alttext="\mathrm{NM}_L"><mrow><mrow class="term" data-term="NM_L"><msub><mi mathvariant="normal">NM</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow></math>. If gate 1 outputs a high, gate 2 still reads a 1 as long as its input stays above <math alttext="V_{IH}"><mrow><mrow class="term" data-term="V_IH"><msub><mi>V</mi><mrow><mi mathvariant="normal">IH</mi></mrow></msub></mrow></mrow></math>, so the noise can fall by <math alttext="V_{OH} - V_{IH}"><mrow><mrow class="term" data-term="V_OH"><msub><mi>V</mi><mrow><mi mathvariant="normal">OH</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_IH"><msub><mi>V</mi><mrow><mi mathvariant="normal">IH</mi></mrow></msub></mrow></mrow></math>: that is <math alttext="\mathrm{NM}_H"><mrow><mrow class="term" data-term="NM_H"><msub><mi mathvariant="normal">NM</mi><mi mathvariant="normal">H</mi></msub></mrow></mrow></math>. Both margins want to be as large as possible; for a symmetric inverter they are equal.</p>
+</details>
+<p>(*) So, <span class="fill">these four</span> parameters define the <span class="fill">VTC</span> of an inverter and thus determine its <span class="fill">noise</span> margins, which provide a measure of the inverter<span class="fill">'s ability</span> to <span class="fill">tolerate variations</span> in the input signal levels</p>
+<details class="xp"><summary>Expansion note: how <math alttext="V_{IL}"><mrow><mrow class="term" data-term="V_IL"><msub><mi>V</mi><mrow><mi mathvariant="normal">IL</mi></mrow></msub></mrow></mrow></math> and <math alttext="V_{IH}"><mrow><mrow class="term" data-term="V_IH"><msub><mi>V</mi><mrow><mi mathvariant="normal">IH</mi></mrow></msub></mrow></mrow></math> are located on a real curve</summary>
+<p>A real inverter does not switch at a single point. The textbook defines <math alttext="V_{IL}"><mrow><mrow class="term" data-term="V_IL"><msub><mi>V</mi><mrow><mi mathvariant="normal">IL</mi></mrow></msub></mrow></mrow></math> and <math alttext="V_{IH}"><mrow><mrow class="term" data-term="V_IH"><msub><mi>V</mi><mrow><mi mathvariant="normal">IH</mi></mrow></msub></mrow></mrow></math> as the two points on the VTC where the slope is −1 V/V. Between them the gain magnitude exceeds 1 and the circuit is in its transition region; outside them the gain is below 1 and small input changes shrink at the output. The next lessons find these points for the CMOS inverter.</p>
+</details>
+<p>(*) We will need to explore the mathematics of this for a "real" inverter!</p>
+</section>
+
+<section class="part" id="appendix">
+<h2>Appendix</h2>
+
+<div id="guide-types">
+<h3>A. Problem Types in This Notetaker and How to Solve Them</h3>
+
+<details class="ap"><summary>A1. Identifying a logic gate from its transistor schematic</summary>
+<h4>Recognize it</h4>
+<p>You are shown a PUN of PMOS devices and a PDN of NMOS devices (Ex. 1, 2, 3) and asked what gate they make.</p>
+<div class="figs-2">
+<figure><svg class="sch" viewBox="0 0 270 276" width="270" style="max-width:270px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Series NMOS pull-down: conducts when A and B are both high"><polyline points="122.0,46 122.0,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="122.0" cy="46" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="131.0" y="50" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">Y</text>
+<polyline points="93.0,94 93.0,126" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,90 102.0,101" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,105 102.0,115" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,119 102.0,130" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,110 93.0,110" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,94 122.0,94 122.0,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,126 122.0,126 122.0,150" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="114" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<polyline points="122.0,150 122.0,158" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="93.0,182 93.0,214" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,178 102.0,189" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,193 102.0,203" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,207 102.0,218" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,198 93.0,198" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,182 122.0,182 122.0,158" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,214 122.0,214 122.0,238" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="202" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<polyline points="122.0,238 122.0,248" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="110.0,248 134.0,248" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="114.5,252.5 129.5,252.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="119.0,257 125.0,257" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><figcaption>NMOS in series: conducts only if A and B are both high.</figcaption></figure>
+<figure><svg class="sch" viewBox="0 0 390 220" width="390" style="max-width:390px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Parallel NMOS pull-down: conducts when A or B is high"><polyline points="182.0,46 182.0,70" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="182.0" cy="46" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="191.0" y="50" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">Y</text>
+<polyline points="93.0,110 93.0,142" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,106 102.0,117" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,121 102.0,131" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,135 102.0,146" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,126 93.0,126" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,110 122.0,110 122.0,86" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,142 122.0,142 122.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="130" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<polyline points="213.0,110 213.0,142" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,106 222.0,117" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,121 222.0,131" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,135 222.0,146" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,126 213.0,126" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,110 242.0,110 242.0,86" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,142 242.0,142 242.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="130" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<polyline points="122.0,86 242.0,86" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,166 242.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,70 182.0,86" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,166 182.0,182" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,86 242.0,86" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,166 242.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,182 182.0,192" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="170.0,192 194.0,192" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="174.5,196.5 189.5,196.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="179.0,201 185.0,201" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><figcaption>NMOS in parallel: conducts if A or B is high.</figcaption></figure>
+<figure><svg class="sch" viewBox="0 0 270 258" width="270" style="max-width:270px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Series PMOS pull-up: conducts when A and B are both low"><polyline points="122.0,46 122.0,34" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="122.0,26 117.0,36 127.0,36" fill="currentColor"/>
+<text x="122.0" y="21" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="93.0,70 93.0,102" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,66 102.0,77" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,81 102.0,91" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,95 102.0,106" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,86 85.0,86" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="89.0" cy="86" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="102.0,70 122.0,70 122.0,46" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,102 122.0,102 122.0,126" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="90" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<polyline points="122.0,126 122.0,134" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="93.0,158 93.0,190" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,154 102.0,165" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,169 102.0,179" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,183 102.0,194" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,174 85.0,174" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="89.0" cy="174" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="102.0,158 122.0,158 122.0,134" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,190 122.0,190 122.0,214" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="178" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<polyline points="122.0,214 122.0,236" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="122.0" cy="236" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="131.0" y="240" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">Y</text></svg><figcaption>PMOS in series: conducts only if A and B are both low.</figcaption></figure>
+<figure><svg class="sch" viewBox="0 0 390 202" width="390" style="max-width:390px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Parallel PMOS pull-up: conducts when A or B is low"><polyline points="182.0,46 182.0,34" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="182.0,26 177.0,36 187.0,36" fill="currentColor"/>
+<text x="182.0" y="21" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="93.0,86 93.0,118" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,82 102.0,93" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,97 102.0,107" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,111 102.0,122" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,102 85.0,102" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="89.0" cy="102" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="102.0,86 122.0,86 122.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,118 122.0,118 122.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="106" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<polyline points="213.0,86 213.0,118" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,82 222.0,93" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,97 222.0,107" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,111 222.0,122" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,102 205.0,102" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="209.0" cy="102" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="222.0,86 242.0,86 242.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,118 242.0,118 242.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="106" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<polyline points="122.0,62 242.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,142 242.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,46 182.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,142 182.0,158" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,62 242.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,142 242.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,158 182.0,180" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="182.0" cy="180" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="191.0" y="184" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">Y</text></svg><figcaption>PMOS in parallel: conducts if A or B is low.</figcaption></figure>
+</div>
+<h4>Method</h4>
+<ol class="tight">
+<li>Mark which transistors are PMOS (the PUN, between <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math> and the output) and which are NMOS (the PDN, between the output and ground).</li>
+<li>For the PDN, write when it conducts: series is AND, parallel is OR, using the gate signals as they are. That expression is <math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover></mrow></math>.</li>
+<li>Complement it to get the output: <math><mrow><mi>Y</mi><mo>=</mo><mover accent="true"><mrow><mi>P</mi><mi>D</mi><mi>N</mi><mi>e</mi><mi>x</mi><mi>p</mi><mi>r</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi></mrow><mo stretchy="true">¯</mo></mover></mrow></math>.</li>
+<li>For the PUN, write when it conducts using the complement of each gate signal (a PMOS is on when its gate is low). That expression is Y.</li>
+<li>Use DeMorgan's law to confirm the two forms are equal, then name the function.</li>
+</ol>
+<h4>Checks</h4>
+<ul class="tight">
+<li>Where the PDN has series devices the PUN should have parallel ones, and vice versa (dual networks).</li>
+<li>Fill the ON/OFF truth table: for every row exactly one network should conduct.</li>
+</ul>
+<h4>Common mistakes</h4>
+<ul class="tight">
+<li>Forgetting that a PMOS conducts for a low gate and writing its gate letter uncomplemented in the PUN expression.</li>
+<li>Reading the PDN expression as the output instead of its complement.</li>
+</ul>
+<p><i>Worked in these notes:</i> Ex. 1 (NAND), Ex. 2 (NOR), Ex. 3 (XNOR), pp. 29-2 to 29-4.</p>
+</details>
+
+<details class="ap"><summary>A2. Filling a switch-state truth table (ON and OFF for each transistor)</summary>
+<h4>Recognize it</h4>
+<p>A table lists A, B, one column per transistor and the output Y (Ex. 1 and Ex. 2).</p>
+<h4>Method</h4>
+<ol class="tight">
+<li>For each row, look at the gate signal of every transistor.</li>
+<li>NMOS: gate 1 is ON, gate 0 is OFF. PMOS: gate 0 is ON, gate 1 is OFF.</li>
+<li>Decide whether the PUN conducts (series needs all ON, parallel needs any ON) and whether the PDN conducts.</li>
+<li>PUN conducts: Y = 1. PDN conducts: Y = 0. Exactly one should conduct.</li>
+</ol>
+<h4>Common mistakes</h4>
+<ul class="tight">
+<li>Treating a PMOS gate of 1 as ON.</li>
+<li>Calling the output 1 because a transistor is ON without checking that it is in the pull-up path.</li>
+</ul>
+<p><i>Worked in these notes:</i> Ex. 1 and Ex. 2 tables, pp. 29-2 and 29-3.</p>
+</details>
+
+<details class="ap"><summary>A3. Synthesizing the PUN and PDN from a Boolean expression</summary>
+<h4>Recognize it</h4>
+<p>You are given Y as an expression, such as <math><mrow><mi>Y</mi><mo>=</mo><mover accent="true"><mrow><mi>A</mi><mo stretchy="false">(</mo><mi>B</mi><mo>+</mo><mi>C</mi><mi>D</mi><mo stretchy="false">)</mo></mrow><mo stretchy="true">¯</mo></mover></mrow></math>, and asked for the transistor networks (Ex. 4).</p>
+<figure><svg class="sch" viewBox="0 0 510 638" width="510" style="max-width:510px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Complete CMOS gate for Y = not of A (B + C D)"><polyline points="242.0,46 242.0,34" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="242.0,26 237.0,36 247.0,36" fill="currentColor"/>
+<text x="242.0" y="21" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="93.0,86 93.0,118" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,82 102.0,93" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,97 102.0,107" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,111 102.0,122" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,102 85.0,102" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="89.0" cy="102" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="102.0,86 122.0,86 122.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,118 122.0,118 122.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="106" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<polyline points="273.0,86 273.0,118" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="282.0,82 282.0,93" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="282.0,97 282.0,107" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="282.0,111 282.0,122" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="248.0,102 265.0,102" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="269.0" cy="102" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="282.0,86 302.0,86 302.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="282.0,118 302.0,118 302.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="244.0" y="106" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<polyline points="302.0,142 302.0,150" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="213.0,190 213.0,222" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,186 222.0,197" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,201 222.0,211" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,215 222.0,226" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,206 205.0,206" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="209.0" cy="206" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="222.0,190 242.0,190 242.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,222 242.0,222 242.0,246" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="210" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">C</text>
+<polyline points="333.0,190 333.0,222" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="342.0,186 342.0,197" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="342.0,201 342.0,211" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="342.0,215 342.0,226" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="308.0,206 325.0,206" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="329.0" cy="206" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="342.0,190 362.0,190 362.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="342.0,222 362.0,222 362.0,246" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="304.0" y="210" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">D</text>
+<polyline points="242.0,166 362.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="242.0,246 362.0,246" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="302.0,150 302.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="302.0,246 302.0,262" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="242.0,166 362.0,166" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="242.0,246 362.0,246" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,62 302.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,262 302.0,262" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,142 122.0,262" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="242.0,46 242.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="242.0,262 242.0,278" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,62 302.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,262 302.0,262" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="242.0,278 242.0,312" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="242.0" cy="295.0" r="2.8" fill="currentColor"/>
+<polyline points="242.0,295.0 462.0,295.0" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="462.0" cy="295.0" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="471.0" y="300.0" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">Y</text>
+<polyline points="213.0,336 213.0,368" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,332 222.0,343" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,347 222.0,357" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,361 222.0,372" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,352 213.0,352" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,336 242.0,336 242.0,312" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,368 242.0,368 242.0,392" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="356" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<polyline points="242.0,392 242.0,400" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="153.0,440 153.0,472" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="162.0,436 162.0,447" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="162.0,451 162.0,461" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="162.0,465 162.0,476" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="128.0,456 153.0,456" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="162.0,440 182.0,440 182.0,416" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="162.0,472 182.0,472 182.0,496" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="124.0" y="460" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<polyline points="273.0,440 273.0,472" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="282.0,436 282.0,447" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="282.0,451 282.0,461" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="282.0,465 282.0,476" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="248.0,456 273.0,456" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="282.0,440 302.0,440 302.0,416" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="282.0,472 302.0,472 302.0,496" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="244.0" y="460" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">C</text>
+<polyline points="302.0,496 302.0,504" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="273.0,528 273.0,560" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="282.0,524 282.0,535" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="282.0,539 282.0,549" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="282.0,553 282.0,564" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="248.0,544 273.0,544" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="282.0,528 302.0,528 302.0,504" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="282.0,560 302.0,560 302.0,584" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="244.0" y="548" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">D</text>
+<polyline points="182.0,416 302.0,416" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,584 302.0,584" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,496 182.0,584" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="242.0,400 242.0,416" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="242.0,584 242.0,600" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,416 302.0,416" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,584 302.0,584" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="242.0,600 242.0,610" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="230.0,610 254.0,610" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="234.5,614.5 249.5,614.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="239.0,619 245.0,619" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><figcaption>The complete gate for <math><mrow><mi>Y</mi><mo>=</mo><mover accent="true"><mrow><mi>A</mi><mo stretchy="false">(</mo><mi>B</mi><mo>+</mo><mi>C</mi><mi>D</mi><mo stretchy="false">)</mo></mrow><mo stretchy="true">¯</mo></mover></mrow></math>.</figcaption></figure>
+<h4>Method</h4>
+<ol class="tight">
+<li><b>PDN:</b> take the expression inside the big bar, <math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover><mo>=</mo><mi>A</mi><mo stretchy="false">(</mo><mi>B</mi><mo>+</mo><mi>C</mi><mi>D</mi><mo stretchy="false">)</mo></mrow></math>. Product is series, sum is parallel, NMOS, true inputs on the gates.</li>
+<li><b>PUN:</b> apply DeMorgan until Y has no big bar and every variable is complemented: complement each input, swap AND and OR from the inside out, complement the whole. Here <math><mrow><mi>Y</mi><mo>=</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">(</mo><mover accent="true"><mi>C</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>D</mi><mo stretchy="true">¯</mo></mover><mo stretchy="false">)</mo></mrow></math>.</li>
+<li>Draw the PUN with PMOS: sum is parallel, product is series, and feed the plain letters to the gates.</li>
+<li>Check the networks are duals (series branches in one are parallel in the other).</li>
+</ol>
+<h4>Checks</h4>
+<ul class="tight">
+<li>Pick two input rows (one with Y = 0, one with Y = 1) and trace which network conducts.</li>
+<li>Count transistors: one PMOS and one NMOS per input literal, 8 for four inputs.</li>
+</ul>
+<h4>Common mistakes</h4>
+<ul class="tight">
+<li>Complementing only part of the expression, or skipping the final complement of the whole.</li>
+<li>Putting the original letters, not their complements, in the PUN expression before reading it into PMOS.</li>
+</ul>
+<p><i>Worked in these notes:</i> Ex. 4, pp. 29-5 and 29-6.</p>
+</details>
+
+<details class="ap"><summary>A4. Synthesizing the PUN and PDN from a truth table</summary>
+<h4>Recognize it</h4>
+<p>A truth table gives Y for every input combination (Ex. 5).</p>
+<figure><svg class="sch" viewBox="0 0 390 518" width="390" style="max-width:390px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Complete XOR gate from the PUN and PDN just synthesized (the inverters that make A bar and B bar are not drawn)"><polyline points="182.0,46 182.0,34" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="182.0,26 177.0,36 187.0,36" fill="currentColor"/>
+<text x="182.0" y="21" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="93.0,86 93.0,118" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,82 102.0,93" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,97 102.0,107" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,111 102.0,122" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,102 85.0,102" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="89.0" cy="102" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="102.0,86 122.0,86 122.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,118 122.0,118 122.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="106" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<polyline points="122.0,142 122.0,150" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="93.0,174 93.0,206" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,170 102.0,181" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,185 102.0,195" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,199 102.0,210" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,190 85.0,190" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="89.0" cy="190" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="102.0,174 122.0,174 122.0,150" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,206 122.0,206 122.0,230" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="194" font-size="13" text-anchor="end" fill="currentColor" font-style="italic"><tspan text-decoration="overline">B</tspan></text>
+<polyline points="213.0,86 213.0,118" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,82 222.0,93" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,97 222.0,107" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,111 222.0,122" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,102 205.0,102" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="209.0" cy="102" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="222.0,86 242.0,86 242.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,118 242.0,118 242.0,142" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="106" font-size="13" text-anchor="end" fill="currentColor" font-style="italic"><tspan text-decoration="overline">A</tspan></text>
+<polyline points="242.0,142 242.0,150" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="213.0,174 213.0,206" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,170 222.0,181" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,185 222.0,195" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,199 222.0,210" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,190 205.0,190" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="209.0" cy="190" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<polyline points="222.0,174 242.0,174 242.0,150" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,206 242.0,206 242.0,230" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="194" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<polyline points="122.0,62 242.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,230 242.0,230" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,46 182.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,230 182.0,246" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,62 242.0,62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,230 242.0,230" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,246 182.0,280" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="182.0" cy="263.0" r="2.8" fill="currentColor"/>
+<polyline points="182.0,263.0 342.0,263.0" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="342.0" cy="263.0" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="351.0" y="268.0" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">Y</text>
+<polyline points="93.0,320 93.0,352" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,316 102.0,327" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,331 102.0,341" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,345 102.0,356" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,336 93.0,336" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,320 122.0,320 122.0,296" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,352 122.0,352 122.0,376" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="340" font-size="13" text-anchor="end" fill="currentColor" font-style="italic"><tspan text-decoration="overline">A</tspan></text>
+<polyline points="122.0,376 122.0,384" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="93.0,408 93.0,440" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="102.0,404 102.0,415" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,419 102.0,429" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="102.0,433 102.0,444" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="68.0,424 93.0,424" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,408 122.0,408 122.0,384" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102.0,440 122.0,440 122.0,464" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="64.0" y="428" font-size="13" text-anchor="end" fill="currentColor" font-style="italic"><tspan text-decoration="overline">B</tspan></text>
+<polyline points="213.0,320 213.0,352" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,316 222.0,327" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,331 222.0,341" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,345 222.0,356" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,336 213.0,336" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,320 242.0,320 242.0,296" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,352 242.0,352 242.0,376" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="340" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">A</text>
+<polyline points="242.0,376 242.0,384" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="213.0,408 213.0,440" fill="none" stroke="currentColor" stroke-width="2"/>
+<polyline points="222.0,404 222.0,415" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,419 222.0,429" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="222.0,433 222.0,444" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="188.0,424 213.0,424" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,408 242.0,408 242.0,384" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="222.0,440 242.0,440 242.0,464" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<text x="184.0" y="428" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">B</text>
+<polyline points="122.0,296 242.0,296" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,464 242.0,464" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,280 182.0,296" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,464 182.0,480" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,296 242.0,296" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="122.0,464 242.0,464" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="182.0,480 182.0,490" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="170.0,490 194.0,490" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="174.5,494.5 189.5,494.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="179.0,499 185.0,499" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><figcaption>The complete XOR gate built from the SOP of Y (PUN) and of <math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover></mrow></math> (PDN). Two inverters, not drawn, supply <math><mrow><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover></mrow></math> and <math><mrow><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math>.</figcaption></figure>
+<h4>Method</h4>
+<ol class="tight">
+<li>Add a column <math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover></mrow></math>.</li>
+<li>Write Y as a sum of minterms (an AND of every input for each row where Y = 1), and <math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover></mrow></math> the same way for rows where Y = 0.</li>
+<li><b>PUN:</b> use Y with PMOS and complemented gate signals: a minterm letter written plain needs a PMOS whose gate takes that letter, a complemented letter needs its complement on the gate.</li>
+<li><b>PDN:</b> use <math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover></mrow></math> with NMOS and the letters exactly as written.</li>
+<li>Generate the complemented signals with inverters.</li>
+</ol>
+<h4>Checks</h4>
+<ul class="tight">
+<li>For every row exactly one network conducts.</li>
+<li>The two networks need not be duals; if they are not, it is still correct.</li>
+</ul>
+<h4>Common mistakes</h4>
+<ul class="tight">
+<li>Using the maxterms where minterms are wanted.</li>
+<li>Forgetting the inverters in the transistor count.</li>
+</ul>
+<p><i>Worked in these notes:</i> Ex. 5, pp. 29-7 and 29-8.</p>
+</details>
+
+<details class="ap"><summary>A5. Getting one network from the other with the dual</summary>
+<h4>Recognize it</h4>
+<p>The notes ask "How create PDN using dual?" (p. 29-8).</p>
+<h4>Method</h4>
+<ol class="tight">
+<li>Take the PUN expression Y (the one written in complemented-gate form).</li>
+<li>Swap AND and OR, working inside out.</li>
+<li>Complement the variables. The result is <math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover></mrow></math>, the PDN expression.</li>
+<li>As a drawing: swap every series for parallel and every parallel for series, and replace PMOS by NMOS with the same gate signals.</li>
+</ol>
+<h4>Checks</h4>
+<ul class="tight">
+<li>Expanding the dual expression must give the same function as the direct synthesis.</li>
+</ul>
+<p><i>Worked in these notes:</i> Ex. 4, p. 29-6; Q&amp;A on p. 29-8.</p>
+</details>
+
+<details class="ap"><summary>A6. Counting transistors and comparing gates</summary>
+<h4>Recognize it</h4>
+<p>"How many transistors required?" (p. 29-8) and the remarks on NAND versus NOR (pp. 29-2, 29-3).</p>
+<h4>Method</h4>
+<ol class="tight">
+<li>Count the gate signals that appear in the PUN; the PDN has the same number of NMOS.</li>
+<li>Add two transistors for each inverter that makes a complemented input.</li>
+<li>Compare speed by looking at the worst-case series stack: NAND stacks the (stronger) NMOS, NOR stacks the (weaker) PMOS.</li>
+</ol>
+<div class="tbl"><table>
+<tr><th>Gate</th><th>PUN</th><th>PDN</th><th>Transistors</th></tr>
+<tr><td>NAND (2 in)</td><td>parallel PMOS</td><td>series NMOS</td><td>4</td></tr>
+<tr><td>NOR (2 in)</td><td>series PMOS</td><td>parallel NMOS</td><td>4</td></tr>
+<tr><td>XNOR (Ex. 3)</td><td>2 parallel pairs in series</td><td>2 series branches in parallel</td><td>8 + inverters</td></tr>
+<tr><td>XOR (Ex. 5)</td><td>2 series branches in parallel</td><td>2 series branches in parallel</td><td>8 + 4 for inverters = 12</td></tr>
+</table></div>
+<p><i>Worked in these notes:</i> pp. 29-2, 29-3, 29-8.</p>
+</details>
+
+<details class="ap"><summary>A7. Finding noise margins from the four inverter levels</summary>
+<h4>Recognize it</h4>
+<p>You are given or can read <math alttext="V_{OH}"><mrow><mrow class="term" data-term="V_OH"><msub><mi>V</mi><mrow><mi mathvariant="normal">OH</mi></mrow></msub></mrow></mrow></math>, <math alttext="V_{OL}"><mrow><mrow class="term" data-term="V_OL"><msub><mi>V</mi><mrow><mi mathvariant="normal">OL</mi></mrow></msub></mrow></mrow></math>, <math alttext="V_{IL}"><mrow><mrow class="term" data-term="V_IL"><msub><mi>V</mi><mrow><mi mathvariant="normal">IL</mi></mrow></msub></mrow></mrow></math> and <math alttext="V_{IH}"><mrow><mrow class="term" data-term="V_IH"><msub><mi>V</mi><mrow><mi mathvariant="normal">IH</mi></mrow></msub></mrow></mrow></math> and asked for <math alttext="\mathrm{NM}_L"><mrow><mrow class="term" data-term="NM_L"><msub><mi mathvariant="normal">NM</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow></math> and <math alttext="\mathrm{NM}_H"><mrow><mrow class="term" data-term="NM_H"><msub><mi mathvariant="normal">NM</mi><mi mathvariant="normal">H</mi></msub></mrow></mrow></math> (p. 29-9; applied in the next lesson to a CMOS inverter).</p>
+<figure><svg class="sch" viewBox="0 0 470 320" width="470" style="max-width:470px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Noise margins: the driving gate outputs V_OH and V_OL; the receiving gate accepts a high above V_IH and a low below V_IL; NM_H is V_OH minus V_IH and NM_L is V_IL minus V_OL"><polyline points="70,56 150,56" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<text x="62" y="61" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">OH</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="70,280 150,280" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<text x="62" y="285" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">OL</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="310,128 390,128" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<text x="398" y="133" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">IH</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="310,214 390,214" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<text x="398" y="219" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">IL</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="150,56 310,56" fill="none" stroke="currentColor" stroke-width="1.0" stroke-dasharray="4 3"/>
+<polyline points="150,280 310,280" fill="none" stroke="currentColor" stroke-width="1.0" stroke-dasharray="4 3"/>
+<polyline points="150,128 310,128" fill="none" stroke="currentColor" stroke-width="1.0" stroke-dasharray="4 3"/>
+<polyline points="150,214 310,214" fill="none" stroke="currentColor" stroke-width="1.0" stroke-dasharray="4 3"/>
+<polyline points="230,95.0 230,56" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="230,56 232.2,61.6 227.8,61.6" fill="currentColor"/>
+<polyline points="230,89.0 230,128" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="230,128 227.8,122.4 232.2,122.4" fill="currentColor"/>
+<text x="240" y="97.0" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">NM<tspan dy="4" font-size="0.72em">H</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="230,250.0 230,214" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="230,214 232.2,219.6 227.8,219.6" fill="currentColor"/>
+<polyline points="230,244.0 230,280" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="230,280 227.8,274.4 232.2,274.4" fill="currentColor"/>
+<text x="240" y="252.0" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">NM<tspan dy="4" font-size="0.72em">L</tspan><tspan dy="-4"> </tspan></text>
+<text x="110" y="24" font-size="12" text-anchor="middle" fill="currentColor" class="v">driving gate output</text>
+<text x="350" y="24" font-size="12" text-anchor="middle" fill="currentColor" class="v">receiving gate input</text>
+<text x="350" y="96" font-size="11" text-anchor="middle" fill="currentColor" class="v">read as 1</text>
+<text x="350" y="176" font-size="11" text-anchor="middle" fill="currentColor" class="v">undefined</text>
+<text x="350" y="250" font-size="11" text-anchor="middle" fill="currentColor" class="v">read as 0</text></svg></figure>
+<h4>Method</h4>
+<ol class="tight">
+<li>Low-input margin: <math alttext="\mathrm{NM}_L = V_{IL} - V_{OL}"><mrow><mrow class="term" data-term="NM_L"><msub><mi mathvariant="normal">NM</mi><mi mathvariant="normal">L</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_IL"><msub><mi>V</mi><mrow><mi mathvariant="normal">IL</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_OL"><msub><mi>V</mi><mrow><mi mathvariant="normal">OL</mi></mrow></msub></mrow></mrow></math>.</li>
+<li>High-input margin: <math alttext="\mathrm{NM}_H = V_{OH} - V_{IH}"><mrow><mrow class="term" data-term="NM_H"><msub><mi mathvariant="normal">NM</mi><mi mathvariant="normal">H</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_OH"><msub><mi>V</mi><mrow><mi mathvariant="normal">OH</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_IH"><msub><mi>V</mi><mrow><mi mathvariant="normal">IH</mi></mrow></msub></mrow></mrow></math>.</li>
+<li>The worst-case margin is the smaller of the two.</li>
+</ol>
+<h4>Checks</h4>
+<ul class="tight">
+<li>Both margins must be positive; a negative margin means a gate cannot reliably drive another identical gate.</li>
+<li>Ordering must be <math alttext="V_{OL} &lt; V_{IL} &lt; V_{IH} &lt; V_{OH}"><mrow><mrow class="term" data-term="V_OL"><msub><mi>V</mi><mrow><mi mathvariant="normal">OL</mi></mrow></msub></mrow><mo>&lt;</mo><mrow class="term" data-term="V_IL"><msub><mi>V</mi><mrow><mi mathvariant="normal">IL</mi></mrow></msub></mrow><mo>&lt;</mo><mrow class="term" data-term="V_IH"><msub><mi>V</mi><mrow><mi mathvariant="normal">IH</mi></mrow></msub></mrow><mo>&lt;</mo><mrow class="term" data-term="V_OH"><msub><mi>V</mi><mrow><mi mathvariant="normal">OH</mi></mrow></msub></mrow></mrow></math>.</li>
+</ul>
+<h4>Common mistakes</h4>
+<ul class="tight">
+<li>Swapping the pairs (using <math alttext="V_{IL} - V_{IH}"><mrow><mrow class="term" data-term="V_IL"><msub><mi>V</mi><mrow><mi mathvariant="normal">IL</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_IH"><msub><mi>V</mi><mrow><mi mathvariant="normal">IH</mi></mrow></msub></mrow></mrow></math> or <math alttext="V_{OH} - V_{IL}"><mrow><mrow class="term" data-term="V_OH"><msub><mi>V</mi><mrow><mi mathvariant="normal">OH</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_IL"><msub><mi>V</mi><mrow><mi mathvariant="normal">IL</mi></mrow></msub></mrow></mrow></math>).</li>
+<li>Mixing which output level pairs with which input threshold: low output goes with <math alttext="V_{IL}"><mrow><mrow class="term" data-term="V_IL"><msub><mi>V</mi><mrow><mi mathvariant="normal">IL</mi></mrow></msub></mrow></mrow></math>, high output with <math alttext="V_{IH}"><mrow><mrow class="term" data-term="V_IH"><msub><mi>V</mi><mrow><mi mathvariant="normal">IH</mi></mrow></msub></mrow></mrow></math>.</li>
+</ul>
+<p><i>Worked in these notes:</i> p. 29-9 (definitions only).</p>
+</details>
+</div>
+
+<div id="guide-topics">
+<h3>B. Topics Covered by the Lesson 29 Notes</h3>
+
+<details class="ap"><summary>B1. Complementary CMOS gates (PUN and PDN)</summary>
+<p>A static CMOS gate has a PMOS pull-up network from <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math> to the output and an NMOS pull-down network from the output to ground, driven by the same inputs. One network conducts for each input combination, so the output is driven hard to <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math> or 0 and no DC current flows from supply to ground in steady state.</p>
+<figure><svg class="sch" viewBox="0 0 380 250" width="380" style="max-width:380px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Block diagram of a CMOS gate: a pull-up network from VDD to the output, a pull-down network from the output to ground, both driven by the logic inputs"><polyline points="230,40 230,28" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="230,20 225,30 235,30" fill="currentColor"/>
+<text x="230" y="15" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="230,40 230,56" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<rect x="170" y="56" width="120" height="70" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<rect x="170" y="150" width="120" height="70" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<text x="230" y="98" font-size="17" text-anchor="middle" style="fill:var(--fill-ink)">PUN</text>
+<text x="230" y="192" font-size="17" text-anchor="middle" style="fill:var(--fill-ink)">PDN</text>
+<polyline points="230,126 230,150" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="230" cy="138" r="2.8" fill="currentColor"/>
+<polyline points="230,138 350,138" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="350" cy="138" r="3.2" fill="#ffffff" stroke="currentColor" stroke-width="1.4"/>
+<text x="360" y="143" font-size="14" text-anchor="start" fill="currentColor" font-style="italic">Y</text>
+<polyline points="230,220 230,232" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="230,232 230,238" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="218,238 242,238" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<polyline points="222.5,242.5 237.5,242.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="227,247 233,247" fill="none" stroke="currentColor" stroke-width="1.4"/>
+<polyline points="70,138 102,138" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102,80 102,174" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102,80 170,80" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<polyline points="102,174 170,174" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<circle cx="102" cy="138" r="2.8" fill="currentColor"/>
+<text x="66" y="142" font-size="13" text-anchor="end" fill="currentColor">Logic</text></svg></figure>
+</details>
+<details class="ap"><summary>B2. Transistors as switches: series, parallel and active-low</summary>
+<p>An NMOS is a switch that closes for a high gate and a PMOS one that closes for a low gate (drawn with a bubble). Series switches form an AND of their conditions and parallel switches an OR. A PMOS gate therefore receives the complement of the signal that appears in the expression.</p>
+</details>
+<details class="ap"><summary>B3. Boolean tools: DeMorgan, SOP, minterms and maxterms, duality</summary>
+<p>DeMorgan: <math><mrow><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">¯</mo></mover><mo>=</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math> and <math><mrow><mover accent="true"><mrow><mi>A</mi><mo>+</mo><mi>B</mi></mrow><mo stretchy="true">¯</mo></mover><mo>=</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math>. SOP: a sum of minterms, one product per row with Y = 1. Dual: swap AND and OR (series and parallel). The PUN expression comes out in complemented variables; the PDN expression in the uncomplemented ones.</p>
+</details>
+<details class="ap"><summary>B4. Gate speed: resistance, mobility and the time constant</summary>
+<p>PMOS have higher on-resistance than NMOS of the same size because hole mobility is lower than electron mobility. The delay is set by the time constant <math alttext="τ = RC"><mrow><mrow class="term" data-term="τ"><mi>τ</mi></mrow><mo>=</mo><mrow class="term" data-term="R"><mi>R</mi></mrow><mrow class="term" data-term="C"><mi>C</mi></mrow></mrow></math>, so stacking PMOS in series (NOR) is slower than stacking NMOS (NAND); parallel PMOS give the best pull-up.</p>
+</details>
+<details class="ap"><summary>B5. Logic levels, the VTC and noise margins</summary>
+<p>An inverter's voltage transfer curve is described by four numbers: <math alttext="V_{OH}"><mrow><mrow class="term" data-term="V_OH"><msub><mi>V</mi><mrow><mi mathvariant="normal">OH</mi></mrow></msub></mrow></mrow></math>, <math alttext="V_{OL}"><mrow><mrow class="term" data-term="V_OL"><msub><mi>V</mi><mrow><mi mathvariant="normal">OL</mi></mrow></msub></mrow></mrow></math>, <math alttext="V_{IL}"><mrow><mrow class="term" data-term="V_IL"><msub><mi>V</mi><mrow><mi mathvariant="normal">IL</mi></mrow></msub></mrow></mrow></math> and <math alttext="V_{IH}"><mrow><mrow class="term" data-term="V_IH"><msub><mi>V</mi><mrow><mi mathvariant="normal">IH</mi></mrow></msub></mrow></mrow></math>. The noise margins <math alttext="\mathrm{NM}_L"><mrow><mrow class="term" data-term="NM_L"><msub><mi mathvariant="normal">NM</mi><mi mathvariant="normal">L</mi></msub></mrow></mrow></math> and <math alttext="\mathrm{NM}_H"><mrow><mrow class="term" data-term="NM_H"><msub><mi mathvariant="normal">NM</mi><mi mathvariant="normal">H</mi></msub></mrow></mrow></math> measure how much noise a signal can carry without the next gate misreading it. The ideal inverter switches sharply at <math alttext="V_{DD}/2"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow><mo lspace="0.05em" rspace="0.05em">/</mo><mn>2</mn></mrow></math> with <math alttext="V_{OH}"><mrow><mrow class="term" data-term="V_OH"><msub><mi>V</mi><mrow><mi mathvariant="normal">OH</mi></mrow></msub></mrow></mrow></math> = <math alttext="V_{DD}"><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math> and <math alttext="V_{OL}"><mrow><mrow class="term" data-term="V_OL"><msub><mi>V</mi><mrow><mi mathvariant="normal">OL</mi></mrow></msub></mrow></mrow></math> = 0.</p>
+<figure><svg class="sch" viewBox="0 0 480 320" width="480" style="max-width:480px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Voltage transfer curve of the idealized inverter: V_OUT stays at V_OH until V_IL, falls to V_OL at V_IH, and stays at V_OL up to V_DD"><polyline points="80,270 80,30" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="80,30 83.0,37.4 77.0,37.4" fill="currentColor"/>
+<polyline points="68,270 440,270" fill="none" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="440,270 432.6,273.0 432.6,267.0" fill="currentColor"/>
+<text x="80" y="20" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">OUT</tspan><tspan dy="-4"> </tspan></text>
+<text x="450" y="275" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">IN</tspan><tspan dy="-4"> </tspan></text>
+<polyline points="160,270 160,44" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="4 3"/>
+<polyline points="260,270 260,44" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="4 3"/>
+<polyline points="380,270 380,44" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="4 3"/>
+<polyline points="80,80 420,80" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="4 3"/>
+<polyline points="80,235 420,235" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="4 3"/>
+<polyline points="80.0,80.0 160.0,80.0 260.0,235.0 380.0,235.0" fill="none" stroke-width="2.6" style="stroke:var(--fill-ink)"/>
+<text x="72" y="85" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">OH</tspan><tspan dy="-4"> </tspan></text>
+<text x="72" y="240" font-size="13" text-anchor="end" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">OL</tspan><tspan dy="-4"> </tspan></text>
+<text x="160" y="290" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">IL</tspan><tspan dy="-4"> </tspan></text>
+<text x="260" y="290" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">IH</tspan><tspan dy="-4"> </tspan></text>
+<text x="380" y="290" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">V<tspan dy="4" font-size="0.72em">DD</tspan><tspan dy="-4"> </tspan></text></svg></figure>
+</details>
+</div>
+
+<div id="guide-eqs">
+<h3>C. Equations Used Throughout</h3>
+<details class="ap"><summary>C1. Boolean relations</summary>
+<p><math display="block"><mrow><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">¯</mo></mover><mo>=</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>+</mo><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math></p>
+<p><math display="block"><mrow><mover accent="true"><mrow><mi>A</mi><mo>+</mo><mi>B</mi></mrow><mo stretchy="true">¯</mo></mover><mo>=</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math></p>
+<p><math display="block"><mrow><mi>A</mi><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>=</mo><mn>0</mn><mo>,</mo><mi>A</mi><mo>+</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mo>=</mo><mn>1</mn></mrow></math></p>
+<p>XOR: <math><mrow><mi>Y</mi><mo>=</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mi>B</mi><mo>+</mo><mi>A</mi><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math>, &nbsp; XNOR: <math><mrow><mi>Y</mi><mo>=</mo><mi>A</mi><mi>B</mi><mo>+</mo><mover accent="true"><mi>A</mi><mo stretchy="true">¯</mo></mover><mover accent="true"><mi>B</mi><mo stretchy="true">¯</mo></mover></mrow></math></p>
+</details>
+<details class="ap"><summary>C2. Conduction conditions</summary>
+<p>PDN (NMOS): conducts when <math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover></mrow></math> = 1, series = AND, parallel = OR, plain inputs.</p>
+<p>PUN (PMOS): conducts when Y = 1, series = AND, parallel = OR, each PMOS gate takes the complement of the letter in the expression.</p>
+<p>Dual: <math><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">¯</mo></mover></mrow></math> (PDN) from Y (PUN): swap AND and OR, complement the variables.</p>
+</details>
+<details class="ap"><summary>C3. Noise margins and the ideal inverter</summary>
+<p><math alttext="\mathrm{NM}_L = V_{IL} - V_{OL}"><mrow><mrow class="term" data-term="NM_L"><msub><mi mathvariant="normal">NM</mi><mi mathvariant="normal">L</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_IL"><msub><mi>V</mi><mrow><mi mathvariant="normal">IL</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_OL"><msub><mi>V</mi><mrow><mi mathvariant="normal">OL</mi></mrow></msub></mrow></mrow></math></p>
+<p><math alttext="\mathrm{NM}_H = V_{OH} - V_{IH}"><mrow><mrow class="term" data-term="NM_H"><msub><mi mathvariant="normal">NM</mi><mi mathvariant="normal">H</mi></msub></mrow><mo>=</mo><mrow class="term" data-term="V_OH"><msub><mi>V</mi><mrow><mi mathvariant="normal">OH</mi></mrow></msub></mrow><mo>−</mo><mrow class="term" data-term="V_IH"><msub><mi>V</mi><mrow><mi mathvariant="normal">IH</mi></mrow></msub></mrow></mrow></math></p>
+<p>Ideal: <math alttext="V_{OH} = V_{DD}"><mrow><mrow class="term" data-term="V_OH"><msub><mi>V</mi><mrow><mi mathvariant="normal">OH</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow></math>, &nbsp; <math alttext="V_{OL} = 0"><mrow><mrow class="term" data-term="V_OL"><msub><mi>V</mi><mrow><mi mathvariant="normal">OL</mi></mrow></msub></mrow><mo>=</mo><mn>0</mn></mrow></math>, &nbsp; <math alttext="V_{IL} = V_{IH} = V_M = \dfrac{V_{DD}}{2}"><mrow><mrow class="term" data-term="V_IL"><msub><mi>V</mi><mrow><mi mathvariant="normal">IL</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="V_IH"><msub><mi>V</mi><mrow><mi mathvariant="normal">IH</mi></mrow></msub></mrow><mo>=</mo><mrow class="term" data-term="V_M"><msub><mi>V</mi><mi mathvariant="normal">M</mi></msub></mrow><mo>=</mo><mstyle displaystyle="true"><mfrac><mrow><mrow class="term" data-term="V_DD"><msub><mi>V</mi><mrow><mi mathvariant="normal">DD</mi></mrow></msub></mrow></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle></mrow></math></p>
+</details>
+<details class="ap"><summary>C4. Time constant and transistor count</summary>
+<p><math alttext="τ = RC"><mrow><mrow class="term" data-term="τ"><mi>τ</mi></mrow><mo>=</mo><mrow class="term" data-term="R"><mi>R</mi></mrow><mrow class="term" data-term="C"><mi>C</mi></mrow></mrow></math></p>
+<p>Transistors in a gate with N transistor-driving inputs: <math alttext="2N"><mrow><mn>2</mn><mrow class="term" data-term="N"><mi>N</mi></mrow></mrow></math>, plus 2 for each inverter that makes a complemented input.</p>
+</details>
+</div>
+</section>
+<footer><p>Completed from ECE321_L29_B.pdf, notetaker pages 29-1 to 29-9. The notetaker is blank; every fill is reconstructed from the lesson and the textbook (Ch. 16).</p><p>Highlighted text fills a source blank (underlined when printed). † marks a value reconstructed from the simulations or the lesson; [handout value] marks a value given only in the named handout.</p><p class="model-credit"><span>AI drafting model</span> Claude Sonnet 5.5 (Claude Code)</p></footer></main><script type="application/json" id="glossary">{"math": {"V_DD": ["V_DD", "Positive supply voltage of the CMOS circuit."], "V_IN": ["V_IN", "Input voltage of the inverter."], "V_OUT": ["V_OUT", "Output voltage of the inverter."], "V_OH": ["V_OH", "Output high level: the output voltage when the output is a logic 1."], "V_OL": ["V_OL", "Output low level: the output voltage when the output is a logic 0."], "V_IL": ["V_IL", "Largest input voltage still interpreted as a logic 0 (slope -1 point on the VTC)."], "V_IH": ["V_IH", "Smallest input voltage still interpreted as a logic 1 (slope -1 point on the VTC)."], "V_M": ["V_M", "Midpoint of the VTC, where the output equals the input."], "NM_L": ["NM_L", "Noise margin for a low input: V_IL - V_OL."], "NM_H": ["NM_H", "Noise margin for a high input: V_OH - V_IH."], "N_1": ["N_1", "First NMOS transistor of the gate."], "N_2": ["N_2", "Second NMOS transistor of the gate."], "P_1": ["P_1", "First PMOS transistor of the gate."], "P_2": ["P_2", "Second PMOS transistor of the gate."], "μ_p": ["μ_p", "Mobility of holes, the carriers in a PMOS channel."], "μ_n": ["μ_n", "Mobility of electrons, the carriers in an NMOS channel."], "τ": ["τ", "Time constant, RC: the product of the resistance and capacitance that set the switching delay."], "V_GS": ["V_GS", "Gate-to-source voltage; an NMOS is on when it exceeds the threshold."], "V_SG": ["V_SG", "Source-to-gate voltage; a PMOS is on when it exceeds the threshold magnitude."], "Y": ["Y", "Output of the logic gate."], "N": ["N", "Number of gate inputs that drive transistors."], "R": ["R", "Resistance in the time constant."], "C": ["C", "Capacitance at the gate output."], "v_N": ["v_N", "Noise voltage added to the signal on the wire between two gates."], "R_DS,p": ["R_DS,p", "On-resistance (drain to source) of a PMOS."], "R_DS,n": ["R_DS,n", "On-resistance (drain to source) of an NMOS."]}, "text": {"CMOS": ["CMOS", "Complementary metal-oxide-semiconductor: logic built from NMOS and PMOS transistors working as a pair."], "NMOS": ["NMOS", "n-channel MOSFET: conducts (ON) when its gate is high."], "PMOS": ["PMOS", "p-channel MOSFET: conducts (ON) when its gate is low."], "MOSFET": ["MOSFET", "Metal-oxide-semiconductor field-effect transistor."], "PUN": ["PUN", "Pull-up network: PMOS transistors between V_DD and the output that pull the output high."], "PDN": ["PDN", "Pull-down network: NMOS transistors between the output and ground that pull the output low."], "VTC": ["VTC", "Voltage transfer curve: output voltage plotted against input voltage."], "BLUF": ["BLUF", "Bottom line up front: the key points stated first."], "AND": ["AND", "Logical product: 1 only when all inputs are 1. Series switches act this way."], "OR": ["OR", "Logical sum: 1 when any input is 1. Parallel switches act this way."], "NAND": ["NAND", "AND followed by an inversion: output is 0 only when all inputs are 1."], "NOR": ["NOR", "OR followed by an inversion: output is 1 only when all inputs are 0."], "XNOR": ["XNOR", "Exclusive NOR (equivalence): output is 1 when the two inputs are equal."], "XOR": ["XOR", "Exclusive OR: output is 1 when the two inputs differ."], "SOP": ["SOP", "Sum of products: an OR of AND terms."], "DeMorgan": ["DeMorgan", "DeMorgan's law: the complement of an AND is the OR of the complements, and the complement of an OR is the AND of the complements."], "minterm": ["minterm", "A product containing every input, complemented or not, that is 1 for exactly one row of the truth table."], "minterms": ["minterms", "Products containing every input, complemented or not, each 1 for exactly one row of the truth table."], "maxterm": ["maxterm", "A sum containing every input that is 0 for exactly one row of the truth table."], "maxterms": ["maxterms", "Sums containing every input, each 0 for exactly one row of the truth table."], "dual": ["dual", "The network (or expression) with AND and OR swapped, that is, series and parallel swapped."], "complement": ["complement", "The logical inverse of a signal (a bar over the letter)."], "complemented": ["complemented", "Inverted: the logical opposite of the signal."], "complementary": ["complementary", "Working in opposite fashion: exactly one of the PUN and PDN conducts at any time."], "complements": ["complements", "Logical inverses of the signals."], "series": ["series", "Connected end to end; current flows only if every device conducts (AND)."], "parallel": ["parallel", "Connected side by side; current flows if any one device conducts (OR)."], "truth table": ["truth table", "A table listing the output of a logic function for every input combination."], "inverter": ["inverter", "A gate whose output is the complement of its input."], "noise": ["noise", "Unwanted voltage added to a signal."], "noise margin": ["noise margin", "How much noise a logic level can tolerate before the next gate misreads it."], "noise margins": ["noise margins", "How much noise a logic level can tolerate before the next gate misreads it."], "logic gate": ["logic gate", "A circuit that computes a Boolean function of its inputs."], "time constant": ["time constant", "Product RC; the larger it is, the slower the output changes."], "time constants": ["time constants", "Products RC; the larger they are, the slower the output changes."], "mobility": ["mobility", "How readily carriers move in the channel; lower mobility means higher resistance."], "switching": ["switching", "Changing the output between the logic levels."], "logic 0": ["logic 0", "The low logic level."], "logic 1": ["logic 1", "The high logic level."], "ground": ["ground", "The 0 V reference node."]}}</script><script>
+(function () {
+  var root = document.documentElement;
+  var KEY = 'notes-mode';
+  var sw = document.getElementById('mode-switch');
+  var all = function () { return Array.prototype.slice.call(document.querySelectorAll('details')); };
+  var notes = function () { return Array.prototype.slice.call(document.querySelectorAll('details.xp')); };
+
+  /* Printer-friendly mode opens every dropdown; leaving it restores exactly
+     the dropdowns the reader had open before switching. */
+  var before = null;
+  function enterPrint() {
+    before = all().map(function (d) { return d.open; });
+    all().forEach(function (d) { d.open = true; });
+  }
+  function leavePrint() {
+    var list = all();
+    list.forEach(function (d, i) { d.open = before ? !!before[i] : false; });
+    before = null;
+  }
+  function setMode(print, initial) {
+    var wasPrint = root.getAttribute('data-mode') === 'print' && !initial;
+    if (print) root.setAttribute('data-mode', 'print'); else root.removeAttribute('data-mode');
+    if (sw) sw.setAttribute('aria-checked', print ? 'true' : 'false');
+    if (print && (initial || !wasPrint)) enterPrint();
+    if (!print && wasPrint) leavePrint();
+  }
+  var stored = 'dark';
+  try { stored = localStorage.getItem(KEY) || 'dark'; } catch (e) {}
+  setMode(stored === 'print', true);
+  if (sw) sw.addEventListener('click', function () {
+    var print = root.getAttribute('data-mode') !== 'print';
+    setMode(print, false);
+    try { localStorage.setItem(KEY, print ? 'print' : 'dark'); } catch (e) {}
+  });
+
+  /* Real printing from dark mode: open everything, then put it back. */
+  var printing = null;
+  addEventListener('beforeprint', function () {
+    printing = all().map(function (d) { return d.open; });
+    all().forEach(function (d) { d.open = true; });
+  });
+  addEventListener('afterprint', function () {
+    if (printing) all().forEach(function (d, i) { d.open = !!printing[i]; });
+    printing = null;
+  });
+
+  var b = document.getElementById('xp-toggle');
+  if (b) b.addEventListener('click', function () {
+    var open = notes().some(function (d) { return !d.open; });
+    notes().forEach(function (d) { d.open = open; });
+    b.textContent = open ? 'Close all expansion notes' : 'Open all expansion notes';
+  });
+})();
+</script>
+<script>
+/* Hover definitions. Variables in the math are tagged at build time
+   (mrow.term[data-term]); acronyms and ECE terms in running text are wrapped
+   here from the same glossary. Tooltips are off in printer-friendly mode. */
+(function () {
+  var root = document.documentElement;
+  var data = JSON.parse(document.getElementById('glossary').textContent);
+  var TEXT = data.text, MATH = data.math, LOWER = {};
+  Object.keys(TEXT).forEach(function (k) { if (k === k.toLowerCase()) LOWER[k] = TEXT[k]; });
+
+  var esc = function (s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); };
+  var keys = Object.keys(TEXT).sort(function (a, b) { return b.length - a.length; });
+  var re = new RegExp('(?<![A-Za-z0-9])(' + keys.map(esc).join('|') + ')(?![A-Za-z0-9])', 'gi');
+  var lookup = function (m) { return TEXT[m] || LOWER[m.toLowerCase()] || null; };
+  var SKIP = 'math, svg, script, style, button, .controls, h1, h2, h3, h4, .term, #tip';
+
+  var page = document.querySelector('.page');
+  var walker = document.createTreeWalker(page, NodeFilter.SHOW_TEXT, {
+    acceptNode: function (n) {
+      if (!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+      return n.parentElement.closest(SKIP) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+    }
+  });
+  var nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(function (n) {
+    var text = n.nodeValue, last = 0, m, frag = null;
+    re.lastIndex = 0;
+    while ((m = re.exec(text))) {
+      var entry = lookup(m[0]);
+      if (!entry) continue;
+      frag = frag || document.createDocumentFragment();
+      frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+      var span = document.createElement('span');
+      span.className = 'term'; span.setAttribute('data-text', m[0]); span.textContent = m[0];
+      frag.appendChild(span); last = m.index + m[0].length;
+    }
+    if (frag) { frag.appendChild(document.createTextNode(text.slice(last))); n.parentNode.replaceChild(frag, n); }
+  });
+
+  var tip = document.createElement('div');
+  tip.id = 'tip'; tip.className = 'tip'; tip.setAttribute('role', 'tooltip'); tip.hidden = true;
+  document.body.appendChild(tip);
+
+  function label(s) {   /* "V_GS" -> V<sub>GS</sub>, built as DOM nodes */
+    var b = document.createElement('b'), i = s.indexOf('_');
+    if (i < 0) { b.textContent = s; return b; }
+    b.appendChild(document.createTextNode(s.slice(0, i)));
+    var sub = document.createElement('sub'); sub.textContent = s.slice(i + 1); b.appendChild(sub);
+    return b;
+  }
+  function rich(text) {   /* "V_GS − V_t" -> V<sub>GS</sub> − V<sub>t</sub> */
+    var frag = document.createDocumentFragment(), re2 = /([A-Za-zλ])_([A-Za-z0-9]+(?:,[A-Za-z]+)?)/g, last = 0, m;
+    while ((m = re2.exec(text))) {
+      frag.appendChild(document.createTextNode(text.slice(last, m.index) + m[1]));
+      var sub = document.createElement('sub'); sub.textContent = m[2]; frag.appendChild(sub);
+      last = m.index + m[0].length;
+    }
+    frag.appendChild(document.createTextNode(text.slice(last)));
+    return frag;
+  }
+  var current = null;
+  function show(el) {
+    if (root.getAttribute('data-mode') === 'print') return;
+    var entry = el.hasAttribute('data-term') ? MATH[el.getAttribute('data-term')] : lookup(el.getAttribute('data-text') || '');
+    if (!entry) return;
+    tip.textContent = '';
+    tip.appendChild(label(entry[0]));
+    tip.appendChild(rich(entry[1]));
+    tip.hidden = false; current = el;
+    var r = el.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
+    var left = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8);
+    var top = r.bottom + 8;
+    if (top + h > innerHeight - 8) top = r.top - h - 8;
+    tip.style.left = left + 'px'; tip.style.top = Math.max(8, top) + 'px';
+  }
+  function hide() { tip.hidden = true; current = null; }
+  var termOf = function (t) { return t && t.closest ? t.closest('.term') : null; };
+
+  /* Mouse: the box appears only after the pointer rests on a term for 1 s. */
+  var DELAY = 1000, timer = null, pending = null;
+  function cancel() { clearTimeout(timer); timer = null; pending = null; }
+  document.addEventListener('mouseover', function (e) {
+    var t = termOf(e.target);
+    if (!t || t === current || t === pending) return;
+    cancel(); pending = t;
+    timer = setTimeout(function () { if (pending === t) show(t); pending = null; }, DELAY);
+  });
+  document.addEventListener('mouseout', function (e) {
+    var t = termOf(e.target);
+    if (t && !t.contains(e.relatedTarget)) { if (t === pending) cancel(); if (t === current) hide(); }
+  });
+  document.addEventListener('pointerup', function (e) {
+    if (e.pointerType === 'mouse') return;
+    var t = termOf(e.target);
+    if (t && t !== current) show(t); else hide();
+  });
+  addEventListener('scroll', function () { cancel(); hide(); }, { passive: true });
+  addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
+  var sw = document.getElementById('mode-switch');
+  if (sw) sw.addEventListener('click', hide);
+})();
+</script>
+<script src="../assets/ai.js"></script></body></html>
