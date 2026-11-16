@@ -1,0 +1,34 @@
+<svg class="sch" viewBox="0 0 520 250" width="520" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A pn junction: p region with holes, n region with electrons, depletion region with fixed ions and a built-in field from n toward p"><style>text{font-family:"Segoe UI",Inter,Arial,sans-serif}.v{fill:#c9d2de}</style><rect x="40" y="50" width="440" height="120" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<rect x="215" y="50" width="90" height="120" fill="rgba(231,194,138,0.10)" stroke="none"/>
+<polyline points="215,50 215,170" fill="none" stroke="#e8edf4" stroke-width="1.1" stroke-dasharray="4 3"/>
+<polyline points="305,50 305,170" fill="none" stroke="#e8edf4" stroke-width="1.1" stroke-dasharray="4 3"/>
+<text x="75" y="85" font-size="18" text-anchor="middle" fill="#e8edf4">+</text>
+<text x="120" y="85" font-size="18" text-anchor="middle" fill="#e8edf4">+</text>
+<text x="165" y="85" font-size="18" text-anchor="middle" fill="#e8edf4">+</text>
+<text x="355" y="85" font-size="18" text-anchor="middle" fill="#e8edf4">−</text>
+<text x="400" y="85" font-size="18" text-anchor="middle" fill="#e8edf4">−</text>
+<text x="445" y="85" font-size="18" text-anchor="middle" fill="#e8edf4">−</text>
+<text x="75" y="115" font-size="18" text-anchor="middle" fill="#e8edf4">+</text>
+<text x="120" y="115" font-size="18" text-anchor="middle" fill="#e8edf4">+</text>
+<text x="165" y="115" font-size="18" text-anchor="middle" fill="#e8edf4">+</text>
+<text x="355" y="115" font-size="18" text-anchor="middle" fill="#e8edf4">−</text>
+<text x="400" y="115" font-size="18" text-anchor="middle" fill="#e8edf4">−</text>
+<text x="445" y="115" font-size="18" text-anchor="middle" fill="#e8edf4">−</text>
+<text x="75" y="145" font-size="18" text-anchor="middle" fill="#e8edf4">+</text>
+<text x="120" y="145" font-size="18" text-anchor="middle" fill="#e8edf4">+</text>
+<text x="165" y="145" font-size="18" text-anchor="middle" fill="#e8edf4">+</text>
+<text x="355" y="145" font-size="18" text-anchor="middle" fill="#e8edf4">−</text>
+<text x="400" y="145" font-size="18" text-anchor="middle" fill="#e8edf4">−</text>
+<text x="445" y="145" font-size="18" text-anchor="middle" fill="#e8edf4">−</text>
+<text x="235" y="90" font-size="15" text-anchor="middle" fill="#e8edf4">−</text>
+<text x="285" y="90" font-size="15" text-anchor="middle" fill="#e8edf4">+</text>
+<text x="235" y="120" font-size="15" text-anchor="middle" fill="#e8edf4">−</text>
+<text x="285" y="120" font-size="15" text-anchor="middle" fill="#e8edf4">+</text>
+<text x="235" y="150" font-size="15" text-anchor="middle" fill="#e8edf4">−</text>
+<text x="285" y="150" font-size="15" text-anchor="middle" fill="#e8edf4">+</text>
+<text x="130" y="40" font-size="13" text-anchor="middle" fill="#e8edf4">p-type (holes)</text>
+<text x="400" y="40" font-size="13" text-anchor="middle" fill="#e8edf4">n-type (electrons)</text>
+<text x="260" y="40" font-size="13" text-anchor="middle" fill="#e8edf4">depletion region</text>
+<polyline points="300,205 220,205" fill="none" stroke="#e8edf4" stroke-width="1.3"/>
+<polygon points="220,205 227.4,202.0 227.4,208.0" fill="#e8edf4"/>
+<text x="260" y="228" font-size="13" text-anchor="middle" fill="#e8edf4">built-in field E</text></svg>

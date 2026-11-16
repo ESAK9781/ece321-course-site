@@ -1,0 +1,20 @@
+<svg class="sch" viewBox="0 0 300 260" width="300" height="260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NMOS with gate, drain and source terminals and the voltages VGS and VDS marked"><style>text{font-family:"Segoe UI",Inter,Arial,sans-serif}.v{fill:#c9d2de}</style><polyline points="141,114 141,146" fill="none" stroke="#e8edf4" stroke-width="2"/>
+<polyline points="116,130 141,130" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="150,110 150,121" fill="none" stroke="#e8edf4" stroke-width="2.2"/>
+<polyline points="150,125 150,135" fill="none" stroke="#e8edf4" stroke-width="2.2"/>
+<polyline points="150,139 150,150" fill="none" stroke="#e8edf4" stroke-width="2.2"/>
+<polyline points="150,114 170,114 170,90" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="150,146 170,146 170,170" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polyline points="150,130 170,130 170,146" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<polygon points="152,130 160,126 160,134" fill="#e8edf4"/>
+<polyline points="170,90 170,40" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="170" cy="40" r="3.2" fill="#0d1118" stroke="#e8edf4" stroke-width="1.4"/>
+<text x="180" y="44" font-size="13" text-anchor="start" fill="#e8edf4" font-style="italic">D</text>
+<polyline points="170,170 170,220" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="170" cy="220" r="3.2" fill="#0d1118" stroke="#e8edf4" stroke-width="1.4"/>
+<text x="180" y="224" font-size="13" text-anchor="start" fill="#e8edf4" font-style="italic">S</text>
+<polyline points="116,130 60,130" fill="none" stroke="#e8edf4" stroke-width="1.6"/>
+<circle cx="60" cy="130" r="3.2" fill="#0d1118" stroke="#e8edf4" stroke-width="1.4"/>
+<text x="52" y="134" font-size="13" text-anchor="end" fill="#e8edf4" font-style="italic">G</text>
+<text x="100" y="190" font-size="13" text-anchor="middle" fill="#e8edf4" font-style="italic">v<tspan dy="4" font-size="0.72em">GS</tspan><tspan dy="-4"> </tspan></text>
+<text x="195" y="85" font-size="13" text-anchor="start" fill="#e8edf4" font-style="italic">v<tspan dy="4" font-size="0.72em">DS</tspan><tspan dy="-4"> </tspan></text></svg>

@@ -40,3 +40,5 @@
 @media(max-width:1100px){.gr1-facts{grid-template-columns:repeat(2,1fr)}.gr1-homework-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:700px){.gr1-intro{padding-top:34px}.gr1-intro h1{letter-spacing:-2px}.gr1-facts,.gr1-resources{grid-template-columns:1fr}.gr1-homework-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gr1-homework-card{min-height:115px}.gr1-section{padding-top:30px}}
 @media(max-width:420px){.gr1-homework-grid{grid-template-columns:1fr}}
+
+.gr1-cta{display:flex;flex-wrap:wrap;gap:14px;margin:0 0 26px}.gr1-packet{display:grid;gap:6px;flex:1 1 320px;padding:22px 26px;border:1px solid #6cc7ff70;border-radius:10px;background:linear-gradient(120deg,#6cc7ff1c,#ff8f5a0c);max-width:760px;color:inherit;text-decoration:none}.gr1-packet:hover{border-color:#6cc7ff}.gr1-packet .eyebrow{color:#6cc7ff}.gr1-packet b{font-size:20px}.gr1-packet span:last-child{font-size:15px;color:#dfe6ef}.gr1-cram{border-color:#b99bff70;background:linear-gradient(120deg,#b99bff1c,#ff8f5a0c)}.gr1-cram:hover{border-color:#b99bff}.gr1-cram .eyebrow{color:#b99bff}
