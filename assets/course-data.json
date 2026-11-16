@@ -257,59 +257,59 @@
       "lesson": 32
     },
     {
-      "topic": "Pass Transistors, Transmission Gates, Latches, Flip Flops; Lab 4 Introduction",
-      "exercise": "PreLab4 time",
+      "topic": "SR Latch: NOR, NAND, Coupled-Inverters; Pass Transistors; Sizing to WRITE new value",
+      "exercise": "",
       "reading": "18.1-18.2",
       "assigned": "Quiz 7; 18.1, 18.17",
       "due": "HW11: L30, L31",
       "lesson": 33
     },
     {
+      "topic": "SR Latch timing requirement; Computer Memory; SRAM 6T Cell; Pre-Charge & Sense-Amp Circuits",
+      "exercise": "PE12 (Multisim)",
+      "reading": "18.2",
+      "assigned": "18.27",
+      "due": "SP10; HW12: L32",
+      "lesson": 34
+    },
+    {
+      "topic": "SRAM Operation; Sense-Amp & Pre-Charge; READ Operation; Transistor Sizing for READ",
+      "exercise": "PE13",
+      "reading": "18.3-18.4",
+      "assigned": "",
+      "due": "SP11",
+      "lesson": 35
+    },
+    {
+      "topic": "SRAM WRITE Operation; Transistor Sizing; Lab 4 Overview; Lab Practical Overview",
+      "exercise": "",
+      "reading": "18.3-18.4",
+      "assigned": "18.26",
+      "due": "Ethics2; SP12",
+      "lesson": 36
+    },
+    {
       "topic": "Lab 4: Part 1 (Multisim)",
       "exercise": "",
       "reading": "",
       "assigned": "",
-      "due": "SP10; Prelab4a; HW12: L32",
-      "lesson": 34
+      "due": "HW13: L33, L34, L36",
+      "lesson": 37
     },
     {
       "topic": "Lab 4: Part 2 (Multisim)",
       "exercise": "",
       "reading": "",
       "assigned": "",
-      "due": "SP11; Prelab 4b",
-      "lesson": 35
+      "due": "",
+      "lesson": 38
     },
     {
       "topic": "Lab 4: Part 3 (Multisim)",
       "exercise": "",
       "reading": "",
       "assigned": "",
-      "due": "Prelab 4c",
-      "lesson": 36
-    },
-    {
-      "topic": "Making the CMOS SR Latch Work",
-      "exercise": "PE13",
-      "reading": "18.2",
-      "assigned": "18.27",
-      "due": "Ethics2; SP12",
-      "lesson": 37
-    },
-    {
-      "topic": "Computer Memory; 6-Transistor (6T) Static RAM Cell; Differential Sense Amplifier; Equalization and Pre-Charge Circuit",
-      "exercise": "PE14",
-      "reading": "18.3-18.4",
-      "assigned": "18.43",
-      "due": "Lab4; SP13",
-      "lesson": 38
-    },
-    {
-      "topic": "SR-Latch Exercise; Lab Practical Preview",
-      "exercise": "",
-      "reading": "18.4",
-      "assigned": "Quiz 8",
-      "due": "HW13: L37, L38",
+      "due": "SP13",
       "lesson": 39
     },
     {
@@ -317,7 +317,7 @@
       "exercise": "",
       "reading": "",
       "assigned": "",
-      "due": "",
+      "due": "Lab4",
       "lesson": 40
     },
     {
@@ -454,8 +454,9 @@
     {
       "number": 13,
       "lessons": [
-        37,
-        38
+        33,
+        34,
+        36
       ],
       "chapters": [
         18
